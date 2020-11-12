@@ -1,10 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "AppIcon-Back.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "Artboard 1-Back@2x.png",
       "idiom" : "tv",
       "scale" : "2x"
     }

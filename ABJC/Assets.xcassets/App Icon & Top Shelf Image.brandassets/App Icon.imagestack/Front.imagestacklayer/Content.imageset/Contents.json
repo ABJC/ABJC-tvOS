@@ -1,10 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "AppIcon-Front.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "AppIcon-Front@2x.png",
       "idiom" : "tv",
       "scale" : "2x"
     }

@@ -1,0 +1,101 @@
+/*
+ Localizable.strings
+ ABJC
+ 
+ DE - GERMAN
+  
+ */
+
+// General Buttons
+"buttons.ok" = "ok";
+"buttons.continue" = "weiter";
+"buttons.signin" = "anmelden";
+"buttons.logout" = "abmelden";
+"buttons.retry" = "erneut";
+"buttons.play" = "play";
+"buttons.play.item" = "play";
+
+// MainViewContainer
+"main.watchnow.tablabel" = "Jetzt Ansehen";
+"main.movies.tablabel" = "Filme";
+"main.shows.tablabel" = "Serien";
+"main.search.tablabel" = "Suche";
+"main.preferences.tablabel" = "Einstellungen";
+
+// AuthView
+"auth.serverselection.title" = "SERVER SUCHE";
+"auth.serverselection.manual.label" = "Manuelle Eingabe";
+"auth.serverselection.manual.descr" = "addresse eingeben";
+"auth.serverselection.host.label" = "Host";
+"auth.serverselection.port.label" = "Port";
+
+"auth.credentials.title" = "ANMELDUNG";
+"auth.credentials.username.label" = "nutzername";
+"auth.credentials.password.label" = "passwort";
+"auth.credentials.error.label" = "Authentifizierung fehlgeschlagen";
+"auth.credentials.error.descr" = "Falsche Anmeldedaten oder Server-Adresse";
+
+// WatchNowView
+"watchnow.continueWatching" = "Als Nächstes";
+"watchnow.favorites" = "Favoriten";
+"watchnow.latestMovies" = "Neuste Filme";
+"watchnow.latestShows" = "Neuste Serien";
+
+// Search View
+"search.label" = "Suche";
+"search.people.label" = "Personen";
+
+// Preferences
+"pref.serverinfo.label" = "Server Info";
+"pref.serverinfo.general.label" = "Allgemeine Info";
+"pref.serverinfo.servername.label" = "Server Name";
+"pref.serverinfo.version.label" = "Version";
+"pref.serverinfo.id.label" = "Server ID";
+"pref.serverinfo.os.label" = "Betriebssystem";
+"pref.serverinfo.architecture.label" = "Architektur";
+"pref.serverinfo.networking.label" = "Netzwerk";
+"pref.serverinfo.host.label" = "Host";
+"pref.serverinfo.port.label" = "Port";
+
+"pref.debugmenu.label" = "Debugging";
+"pref.debugmenu.images.label" = "Image Loading / Caching";
+"pref.debugmenu.images.identifier" = "Identifier";
+"pref.debugmenu.images.cleanupcache" = "clean up";
+"pref.debugmenu.images.clearcache" = "clear cache";
+
+"pref.debugmenu.images.cachePolicy" = "cache policy";
+"pref.debugmenu.images.expiryInterval" = "Expiry Interval";
+"pref.debugmenu.images.cachepolicy.ignoreCache" = "ignore cache";
+"pref.debugmenu.images.cachepolicy.returnCacheDontLoad" = "return cache, don't reload";
+"pref.debugmenu.images.cachepolicy.returnCacheElseLoad" = "return cache else reload";
+
+"pref.client.label" = "Client";
+"pref.client.tabs.watchnow" = "Watch Now Tab";
+"pref.client.tabs.movies" = "Movies Tab";
+"pref.client.tabs.series" = "Series Tab";
+"pref.client.tabs.search" = "Search Tab";
+"pref.client.tabs.label" = "Movies Tab";
+
+"pref.client.betaflags.label" = "Beta Flags";
+"pref.client.betaflags.playbackreporting" = "Playback Reporting";
+"pref.client.betaflags.playbackcontinuation" = "Playback Continuation";
+
+// Beta Flags
+"betaflags.playbackreporting.label" = "Playback Reporting";
+"betaflags.playbackreporting.descr" = "Report playback progress back to jellyfin server";
+"betaflags.playbackcontinuation.label" = "Playback Continuation";
+"betaflags.playbackcontinuation.descr" = "continue playback were you left of";
+"betaflags.uglymode.label" = "Fugly Mode";
+"betaflags.uglymode.descr" = "Fast but Ugly: Fugly";
+
+
+
+// ItemDetailView
+"itemdetail.recommended.label" = "Empfohlen";
+"itemdetail.episode.item" = "Episode";
+
+// Alerts
+"alerts.apierror" = "API Fehler";
+"alerts.info" = "Information";
+"alerts.playbackerror" = "Playback Error";
+"alerts.playbackerror.descr" = "Could not play the requested item";
