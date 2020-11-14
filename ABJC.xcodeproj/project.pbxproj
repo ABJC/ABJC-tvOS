@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FDB7CD97255C3A9200127D5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB7CD99255C3A9200127D5F /* Localizable.strings */; };
+		FDC10338256034E700CC49B1 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDC10337256034E700CC49B1 /* CHANGELOG.md */; };
 		FDEAE3E5255C1763004E86A6 /* ABJCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEAE3E4255C1763004E86A6 /* ABJCApp.swift */; };
 		FDEAE3E9255C1766004E86A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEAE3E8255C1766004E86A6 /* Assets.xcassets */; };
 		FDEAE3EC255C1766004E86A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEAE3EB255C1766004E86A6 /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		FDB7CD98255C3A9200127D5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FDB7CD9A255C3A9700127D5F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FDC10337256034E700CC49B1 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		FDEAE3E1255C1763004E86A6 /* ABJC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABJC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEAE3E4255C1763004E86A6 /* ABJCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJCApp.swift; sourceTree = "<group>"; };
 		FDEAE3E8255C1766004E86A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		FDEAE3D8255C1763004E86A6 = {
 			isa = PBXGroup;
 			children = (
+				FDC10337256034E700CC49B1 /* CHANGELOG.md */,
 				FDEAE3E3255C1763004E86A6 /* ABJC */,
 				FDEAE3E2255C1763004E86A6 /* Products */,
 				FDEAE429255C1D52004E86A6 /* Frameworks */,
@@ -156,6 +159,7 @@
 				FDEAE3EC255C1766004E86A6 /* Preview Assets.xcassets in Resources */,
 				FDB7CD97255C3A9200127D5F /* Localizable.strings in Resources */,
 				FDEAE3E9255C1766004E86A6 /* Assets.xcassets in Resources */,
+				FDC10338256034E700CC49B1 /* CHANGELOG.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

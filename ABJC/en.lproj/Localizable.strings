@@ -33,7 +33,8 @@
 "auth.credentials.username.label" = "username";
 "auth.credentials.password.label" = "password";
 "auth.credentials.error.label" = "Authorization Failure";
-"auth.credentials.error.descr" = "Wrong Credentials or Server Adress";
+"auth.credentials.error.descr" = "Wrong Username or Password";
+"auth.host.error.descr" = "Wrong Server Adress or Port";
 
 // WatchNowView
 "watchnow.continueWatching" = "Continue Watching";
