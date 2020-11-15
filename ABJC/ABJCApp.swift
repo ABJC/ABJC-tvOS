@@ -42,7 +42,8 @@ struct ABJCApp: App {
             MainViewContainer()
                 .environmentObject(session)
                 .environmentObject(playerStore)
-                .environmentObject(designConfig)
+                .environment(\.designConfig, designConfig)
         }
     }
 }
+

@@ -32,9 +32,6 @@
 "auth.credentials.title" = "SIGN IN";
 "auth.credentials.username.label" = "username";
 "auth.credentials.password.label" = "password";
-"auth.credentials.error.label" = "Authorization Failure";
-"auth.credentials.error.descr" = "Wrong Username or Password";
-"auth.host.error.descr" = "Wrong Server Adress or Port";
 
 // WatchNowView
 "watchnow.continueWatching" = "Continue Watching";
@@ -47,6 +44,9 @@
 "search.people.label" = "People";
 
 // Preferences
+"pref.debugmode.title" = "Debug Mode Changed";
+"pref.debugmode.disabled" = "DISABLED";
+"pref.debugmode.enabled" = "ENABLED";
 "pref.serverinfo.label" = "Server Info";
 "pref.serverinfo.general.label" = "General Info";
 "pref.serverinfo.servername.label" = "Server Name";
@@ -69,6 +69,7 @@
 "pref.debugmenu.images.cachepolicy.ignoreCache" = "ignore cache";
 "pref.debugmenu.images.cachepolicy.returnCacheDontLoad" = "return cache, don't reload";
 "pref.debugmenu.images.cachepolicy.returnCacheElseLoad" = "return cache else reload";
+"pref.debugmenu.debugmode.label" = "Debug Mode";
 
 "pref.client.label" = "Client";
 "pref.client.tabs.watchnow" = "Watch Now Tab";
@@ -99,3 +100,9 @@
 "alerts.apierror" = "API Error";
 "alerts.playbackerror" = "Playback Error";
 "alerts.playbackerror.descr" = "Could not play the requested item";
+
+
+"alerts.auth.title" = "Authentication Failure";
+"alerts.auth.wrongcredentials.descr" = "Wrong Username or Password";
+"alerts.auth.missingcredentials.descr" = "No Username specified";
+"alerts.auth.wrongadress.descr" = "Wrong Server Adress or Port";

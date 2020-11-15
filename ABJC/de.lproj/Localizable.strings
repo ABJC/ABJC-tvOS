@@ -32,9 +32,7 @@
 "auth.credentials.title" = "ANMELDUNG";
 "auth.credentials.username.label" = "nutzername";
 "auth.credentials.password.label" = "passwort";
-"auth.credentials.error.label" = "Authentifizierung fehlgeschlagen";
-"auth.credentials.error.descr" = "Falscher Nutzername oder Passwort";
-"auth.host.error.descr" = "Falsche Adresse oder Port";
+
 
 // WatchNowView
 "watchnow.continueWatching" = "Als Nächstes";
@@ -47,6 +45,10 @@
 "search.people.label" = "Personen";
 
 // Preferences
+"pref.debugmode.title" = "Debug Modus geändert";
+"pref.debugmode.disabled" = "DEAKTIVIERT";
+"pref.debugmode.enabled" = "AKTIVIERT";
+
 "pref.serverinfo.label" = "Server Info";
 "pref.serverinfo.general.label" = "Allgemeine Info";
 "pref.serverinfo.servername.label" = "Server Name";
@@ -100,3 +102,8 @@
 "alerts.info" = "Information";
 "alerts.playbackerror" = "Playback Error";
 "alerts.playbackerror.descr" = "Could not play the requested item";
+
+"alerts.auth.title" = "Authentifizierung fehlgeschlagen";
+"alerts.auth.wrongcredentials.descr" = "Falscher Nutzername oder Passwort";
+"alerts.auth.missingcredentials.descr" = "Kein Nutzername angegeben";
+"alerts.auth.wrongadress.descr" = "Falsche Adresse oder Port";
