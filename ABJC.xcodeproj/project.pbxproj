@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD002D772562CDDB00E80169 /* abjc-ui in Frameworks */ = {isa = PBXBuildFile; productRef = FD002D762562CDDB00E80169 /* abjc-ui */; };
 		FDB7CD97255C3A9200127D5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB7CD99255C3A9200127D5F /* Localizable.strings */; };
 		FDC10338256034E700CC49B1 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDC10337256034E700CC49B1 /* CHANGELOG.md */; };
 		FDEAE3E5255C1763004E86A6 /* ABJCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEAE3E4255C1763004E86A6 /* ABJCApp.swift */; };
@@ -14,7 +15,6 @@
 		FDEAE3EC255C1766004E86A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEAE3EB255C1766004E86A6 /* Preview Assets.xcassets */; };
 		FDEAE426255C1CF1004E86A6 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAE425255C1CF1004E86A6 /* URLImage */; };
 		FDEAE42B255C1D52004E86A6 /* abjc-api in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAE42A255C1D52004E86A6 /* abjc-api */; };
-		FDEAE42F255C1D52004E86A6 /* abjc-ui in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAE42E255C1D52004E86A6 /* abjc-ui */; };
 		FDEAE441255C1DC9004E86A6 /* abjc-core in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAE440255C1DC9004E86A6 /* abjc-core */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +36,7 @@
 			files = (
 				FDEAE426255C1CF1004E86A6 /* URLImage in Frameworks */,
 				FDEAE42B255C1D52004E86A6 /* abjc-api in Frameworks */,
-				FDEAE42F255C1D52004E86A6 /* abjc-ui in Frameworks */,
+				FD002D772562CDDB00E80169 /* abjc-ui in Frameworks */,
 				FDEAE441255C1DC9004E86A6 /* abjc-core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,8 +108,8 @@
 			packageProductDependencies = (
 				FDEAE425255C1CF1004E86A6 /* URLImage */,
 				FDEAE42A255C1D52004E86A6 /* abjc-api */,
-				FDEAE42E255C1D52004E86A6 /* abjc-ui */,
 				FDEAE440255C1DC9004E86A6 /* abjc-core */,
+				FD002D762562CDDB00E80169 /* abjc-ui */,
 			);
 			productName = ABJC;
 			productReference = FDEAE3E1255C1763004E86A6 /* ABJC.app */;
@@ -122,7 +122,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1210;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					FDEAE3E0255C1763004E86A6 = {
 						CreatedOnToolsVersion = 12.1;
@@ -193,6 +193,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -254,6 +255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -312,7 +314,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
@@ -338,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
@@ -392,6 +394,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FD002D762562CDDB00E80169 /* abjc-ui */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "abjc-ui";
+		};
 		FDEAE425255C1CF1004E86A6 /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FDEAE424255C1CF1004E86A6 /* XCRemoteSwiftPackageReference "url-image" */;
@@ -400,10 +406,6 @@
 		FDEAE42A255C1D52004E86A6 /* abjc-api */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "abjc-api";
-		};
-		FDEAE42E255C1D52004E86A6 /* abjc-ui */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "abjc-ui";
 		};
 		FDEAE440255C1DC9004E86A6 /* abjc-core */ = {
 			isa = XCSwiftPackageProductDependency;
