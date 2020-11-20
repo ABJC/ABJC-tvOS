@@ -4,16 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.13] - UNRELEASED
+## [v1.0.0-build.13] - 2020-11-21
 ### Added
-- DebugMode with more error information in AuthView
-
+- DebugMode for more error information
+- Season and Episode Selection in Series Page
+- Option to enable HTTPS in Credentials Entry
 ### Changed
 - DesignConfiguration is now EnvironmentValue instead of Object (performance optimization)
 - Alerts will now display the exact error thrown when in debug mode
 ### Deprecated
 ### Fixed
 - Client would occasionally crash when exiting a VideoPlayer
+- padding in Card-Rows was corrected
 ### Removed
 
 

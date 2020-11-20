@@ -59,6 +59,16 @@
 "pref.serverinfo.host.label" = "Host";
 "pref.serverinfo.port.label" = "Port";
 
+"pref.client.label" = "Client";
+"pref.client.tabs.watchnow" = "Watch Now Tab";
+"pref.client.tabs.movies" = "Movies Tab";
+"pref.client.tabs.series" = "Series Tab";
+"pref.client.tabs.search" = "Search Tab";
+"pref.client.tabs.label" = "Movies Tab";
+"pref.client.betaflags.label" = "Beta Flags";
+"pref.client.betaflags.playbackreporting" = "Playback Reporting";
+"pref.client.betaflags.playbackcontinuation" = "Playback Continuation";
+
 "pref.debugmenu.label" = "Debugging";
 "pref.debugmenu.images.label" = "Image Loading / Caching";
 "pref.debugmenu.images.identifier" = "Identifier";
@@ -71,16 +81,11 @@
 "pref.debugmenu.images.cachepolicy.returnCacheElseLoad" = "return cache else reload";
 "pref.debugmenu.debugmode.label" = "Debug Mode";
 
-"pref.client.label" = "Client";
-"pref.client.tabs.watchnow" = "Watch Now Tab";
-"pref.client.tabs.movies" = "Movies Tab";
-"pref.client.tabs.series" = "Series Tab";
-"pref.client.tabs.search" = "Search Tab";
-"pref.client.tabs.label" = "Movies Tab";
+"pref.feedback.label" = "Feedback";
+"pref.feedback.description" = "Submit Feedback";
 
-"pref.client.betaflags.label" = "Beta Flags";
-"pref.client.betaflags.playbackreporting" = "Playback Reporting";
-"pref.client.betaflags.playbackcontinuation" = "Playback Continuation";
+"pref.about.label" = "About the Developer";
+"pref.about.contact" = "Contact Info";
 
 // Beta Flags
 "betaflags.playbackreporting.label" = "Playback Reporting";
