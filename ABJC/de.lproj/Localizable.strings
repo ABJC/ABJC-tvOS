@@ -21,6 +21,7 @@
 "main.shows.tablabel" = "Serien";
 "main.search.tablabel" = "Suche";
 "main.preferences.tablabel" = "Einstellungen";
+"main.library.tablabel" = "Mediathek";
 
 // AuthView
 "auth.serverselection.title" = "SERVER SUCHE";
@@ -32,7 +33,7 @@
 "auth.credentials.title" = "ANMELDUNG";
 "auth.credentials.username.label" = "nutzername";
 "auth.credentials.password.label" = "passwort";
-
+"auth.credentials.usingHttps.label" = "HTTPS";
 
 // WatchNowView
 "watchnow.continueWatching" = "Als Nächstes";
