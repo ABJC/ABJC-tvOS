@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FD002D772562CDDB00E80169 /* abjc-ui in Frameworks */ = {isa = PBXBuildFile; productRef = FD002D762562CDDB00E80169 /* abjc-ui */; };
+		FD90239E25854D2900A62CF4 /* abjc-api in Frameworks */ = {isa = PBXBuildFile; productRef = FD90239D25854D2900A62CF4 /* abjc-api */; };
+		FD9023A225854D6400A62CF4 /* abjc-ui in Frameworks */ = {isa = PBXBuildFile; productRef = FD9023A125854D6400A62CF4 /* abjc-ui */; };
+		FD9023A625854D6E00A62CF4 /* abjc-core in Frameworks */ = {isa = PBXBuildFile; productRef = FD9023A525854D6E00A62CF4 /* abjc-core */; };
 		FDB7CD97255C3A9200127D5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB7CD99255C3A9200127D5F /* Localizable.strings */; };
 		FDC10338256034E700CC49B1 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = FDC10337256034E700CC49B1 /* CHANGELOG.md */; };
 		FDEAE3E5255C1763004E86A6 /* ABJCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEAE3E4255C1763004E86A6 /* ABJCApp.swift */; };
@@ -34,8 +37,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9023A625854D6E00A62CF4 /* abjc-core in Frameworks */,
+				FD9023A225854D6400A62CF4 /* abjc-ui in Frameworks */,
 				FDEAE426255C1CF1004E86A6 /* URLImage in Frameworks */,
 				FDEAE42B255C1D52004E86A6 /* abjc-api in Frameworks */,
+				FD90239E25854D2900A62CF4 /* abjc-api in Frameworks */,
 				FD002D772562CDDB00E80169 /* abjc-ui in Frameworks */,
 				FDEAE441255C1DC9004E86A6 /* abjc-core in Frameworks */,
 			);
@@ -110,6 +116,9 @@
 				FDEAE42A255C1D52004E86A6 /* abjc-api */,
 				FDEAE440255C1DC9004E86A6 /* abjc-core */,
 				FD002D762562CDDB00E80169 /* abjc-ui */,
+				FD90239D25854D2900A62CF4 /* abjc-api */,
+				FD9023A125854D6400A62CF4 /* abjc-ui */,
+				FD9023A525854D6E00A62CF4 /* abjc-core */,
 			);
 			productName = ABJC;
 			productReference = FDEAE3E1255C1763004E86A6 /* ABJC.app */;
@@ -141,6 +150,9 @@
 			mainGroup = FDEAE3D8255C1763004E86A6;
 			packageReferences = (
 				FDEAE424255C1CF1004E86A6 /* XCRemoteSwiftPackageReference "url-image" */,
+				FD90239C25854D2900A62CF4 /* XCRemoteSwiftPackageReference "abjc-api" */,
+				FD9023A025854D6400A62CF4 /* XCRemoteSwiftPackageReference "abjc-ui" */,
+				FD9023A425854D6E00A62CF4 /* XCRemoteSwiftPackageReference "abjc-core" */,
 			);
 			productRefGroup = FDEAE3E2255C1763004E86A6 /* Products */;
 			projectDirPath = "";
@@ -383,6 +395,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FD90239C25854D2900A62CF4 /* XCRemoteSwiftPackageReference "abjc-api" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/abjc-api.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0-beta.14";
+			};
+		};
+		FD9023A025854D6400A62CF4 /* XCRemoteSwiftPackageReference "abjc-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/abjc-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0-build.14";
+			};
+		};
+		FD9023A425854D6E00A62CF4 /* XCRemoteSwiftPackageReference "abjc-core" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/abjc-core";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0-build.14";
+			};
+		};
 		FDEAE424255C1CF1004E86A6 /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
@@ -397,6 +433,21 @@
 		FD002D762562CDDB00E80169 /* abjc-ui */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "abjc-ui";
+		};
+		FD90239D25854D2900A62CF4 /* abjc-api */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD90239C25854D2900A62CF4 /* XCRemoteSwiftPackageReference "abjc-api" */;
+			productName = "abjc-api";
+		};
+		FD9023A125854D6400A62CF4 /* abjc-ui */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD9023A025854D6400A62CF4 /* XCRemoteSwiftPackageReference "abjc-ui" */;
+			productName = "abjc-ui";
+		};
+		FD9023A525854D6E00A62CF4 /* abjc-core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD9023A425854D6E00A62CF4 /* XCRemoteSwiftPackageReference "abjc-core" */;
+			productName = "abjc-core";
 		};
 		FDEAE425255C1CF1004E86A6 /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
