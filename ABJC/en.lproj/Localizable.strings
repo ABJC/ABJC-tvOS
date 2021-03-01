@@ -81,6 +81,7 @@
 "pref.debugmenu.images.cachepolicy.ignoreCache" = "ignore cache";
 "pref.debugmenu.images.cachepolicy.returnCacheDontLoad" = "return cache, don't reload";
 "pref.debugmenu.images.cachepolicy.returnCacheElseLoad" = "return cache else reload";
+"pref.debugmenu.images.cachepolicy.returnCacheDontLoad" = "Ignore cache; use protocol cache policy";
 "pref.debugmenu.debugmode.label" = "Debug Mode";
 
 "pref.feedback.label" = "Feedback";
@@ -98,6 +99,8 @@
 "betaflags.uglymode.descr" = "Fast but Ugly: Fugly";
 "betaflags.singlepagemode.label" = "Single Page Mode";
 "betaflags.singlepagemode.descr" = "Show Library as single page rather than multiple tabs";
+"betaflags.showstitles.label" = "Always Show Titles";
+"betaflags.showstitles.descr" = "Show a title for items";
 
 // ItemDetailView
 "itemdetail.recommended.label" = "Recommended";
@@ -112,5 +115,6 @@
 
 "alerts.auth.title" = "Authentication Failure";
 "alerts.auth.wrongcredentials.descr" = "Wrong Username or Password";
+"alerts.auth.badRequest.descr" = "Bad Request";
 "alerts.auth.missingcredentials.descr" = "No Username specified";
 "alerts.auth.wrongadress.descr" = "Wrong Server Adress or Port";
