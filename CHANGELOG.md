@@ -6,8 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.0.0-build.16] - 2021-??-??
 ### Added
+- will now report playstates back to your Jellyfin server (playback positions)
 ### Changed
-- Rows for Media Cards are no longer Lazy Stacks (Performance)
+- Rows for Media Cards are no longer Lazy Stacks (due to performance issues)
 ### Deprecated
 ### Fixed
 ### Removed
