@@ -4,14 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.16] - 2021-??-??
+## [v1.0.0-build.16] - 2021-03-08 [UNRELEASED]
 ### Added
-- will now report playstates back to your Jellyfin server (playback positions)
+- Playstate reporting - will now report playstate back to server (playback position) periodically
+- Continue - will now show "continue" instead of "play"-button when continuing
 ### Changed
+- Playstate reporting & continuation are no longer beta flags, but fully implemented
 - Rows for Media Cards are no longer Lazy Stacks (due to performance issues)
 ### Deprecated
 ### Fixed
 ### Removed
+- Beta Flags: Playback Continuation, Playback Reporting
 
 ## [v1.0.0-build.15] - 2021-03-02
 ### Added

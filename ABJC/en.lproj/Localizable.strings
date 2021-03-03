@@ -68,8 +68,6 @@
 "pref.client.tabs.search" = "Search Tab";
 "pref.client.tabs.label" = "Movies Tab";
 "pref.client.betaflags.label" = "Beta Flags";
-"pref.client.betaflags.playbackreporting" = "Playback Reporting";
-"pref.client.betaflags.playbackcontinuation" = "Playback Continuation";
 
 "pref.debugmenu.label" = "Debugging";
 "pref.debugmenu.images.label" = "Image Loading / Caching";
@@ -93,8 +91,6 @@
 // Beta Flags
 "betaflags.playbackreporting.label" = "Playback Reporting";
 "betaflags.playbackreporting.descr" = "Report playback progress back to jellyfin server";
-"betaflags.playbackcontinuation.label" = "Playback Continuation";
-"betaflags.playbackcontinuation.descr" = "continue playback were you left of";
 "betaflags.uglymode.label" = "Fugly Mode";
 "betaflags.uglymode.descr" = "Fast but Ugly: Fugly";
 "betaflags.singlepagemode.label" = "Single Page Mode";
