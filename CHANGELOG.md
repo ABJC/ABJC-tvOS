@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.16] - 2021-03-08 [UNRELEASED]
+## [v1.0.0-build.16] - 2021-03-?? [UNRELEASED]
+### Added
+### Changed
+### Deprecated
+### Fixed
+### Removed
+
+## [v1.0.0-build.16] - 2021-03-10
 ### Added
 - Playstate reporting - will now report playstate back to server (playback position) periodically
 - Continue - will now show "continue" instead of "play"-button when continuing
