@@ -4,9 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.16] - 2021-03-?? [UNRELEASED]
+## [v1.0.0-build.18] - 2021-04-25 [UNRELEASED]
+### Added
+- Playstate reporting (synching progress with server)
+- Preferences > General > Libary Info
+- Preferences > General > User Info
+- Option to group library by different categories (alphabetically, genre, release year, release decade)
+### Changed
+- Preferences: Server Info now on general info page
+- Option to always show titles for items is no longer beta flag
+### Deprecated
+### Fixed
+### Removed
+- beta flag for showing titles
+
+## [v1.0.0-build.17] - 2021-04-05
 ### Added
 ### Changed
+- reverted back to v1.0.0-build.15
 ### Deprecated
 ### Fixed
 ### Removed
