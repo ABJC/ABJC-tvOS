@@ -9,7 +9,7 @@ import XCTest
 @testable import ABJC
 
 class APITests: XCTestCase {
-    #warning("Change Server & Authentication Info")
+    #warning("Change Server & Authentication Info before testing")
     let host: String = "192.168.178.85"
     let port: Int = 8096
     let username: String = "jellyfin"

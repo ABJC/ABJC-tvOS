@@ -95,9 +95,11 @@ class SessionStore: ObservableObject {
     }
     
     public func setPlayItem(_ item: PlayItem) {
-        self.prevFocus = self.itemFocus
-        self.itemPlaying = item
-        self.itemFocus = nil
+        DispatchQueue.main.async {
+            self.prevFocus = self.itemFocus
+            self.itemPlaying = item
+            self.itemFocus = nil
+        }
     }
     
     
