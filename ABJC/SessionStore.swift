@@ -11,7 +11,7 @@ import os
 
 class SessionStore: ObservableObject {
     /// Logger
-    private var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "SESSION")
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "SESSION")
         
     /// Jellyfin Object
     @Published public var jellyfin: Jellyfin? = nil
@@ -21,9 +21,10 @@ class SessionStore: ObservableObject {
     
     /// Focus Item
     @Published public var itemFocus: APIModels.MediaItem? = nil
+    @Published public var prevFocus: APIModels.MediaItem? = nil
     
     /// Playing Item
-    @Published public var itemPlaying: APIModels.MediaItem? = nil
+    @Published public var itemPlaying: PlayItem? = nil
     
     /// Pending Alert
     @Published var alert: Alert? = nil
@@ -84,8 +85,19 @@ class SessionStore: ObservableObject {
         }
     }
     
-    public func setPlayItem(_ item: APIModels.MediaItem) {
+    public func restoreFocus() {
+        if prevFocus != nil {
+            DispatchQueue.main.async {
+                self.itemFocus = self.prevFocus
+                self.prevFocus = nil
+            }
+        }
+    }
+    
+    public func setPlayItem(_ item: PlayItem) {
+        self.prevFocus = self.itemFocus
         self.itemPlaying = item
+        self.itemFocus = nil
     }
     
     

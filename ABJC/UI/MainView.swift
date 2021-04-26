@@ -28,13 +28,21 @@ struct MainView: View {
             )
         }
         
-        .fullScreenCover(item: $session.itemFocus) { item in
-            LibraryView.ItemPage(item)
+        .fullScreenCover(item: $session.itemPlaying, onDismiss: session.restoreFocus) { item in
+            MediaPlayerView(item)
+                .environmentObject(session)
         }
         
-        .fullScreenCover(item: $session.itemPlaying) { item in
-            MediaPlayerView(item)
+        .fullScreenCover(item: $session.itemFocus) { item in
+            LibraryView.ItemPage(item)
+                .environmentObject(session)
         }
+        
+        
+        
+//        .fullScreenCover(item: $session.itemPlaying) { item in
+//            MediaPlayerView(item)
+//        }
     }
 }
 

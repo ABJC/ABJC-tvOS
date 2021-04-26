@@ -8,7 +8,15 @@
 import Foundation
 
 extension APIModels {
-    public struct Episode: Decodable, PlayableMediaItem {
+    public struct Episode: Decodable, Hashable, Equatable, Identifiable, Playable {
+        
+        static public func == (_ rhs: Episode, _ lhs: Episode) -> Bool {
+            return rhs.id == lhs.id
+        }
+        public func hash(into hasher: inout Hasher) {
+            return hasher.combine(id)
+        }
+        
         public let id: String
         public let name: String
         public let type: MediaType

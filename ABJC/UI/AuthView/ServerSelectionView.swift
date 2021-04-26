@@ -46,16 +46,16 @@ extension AuthView {
                         }
                     }
                 }
-    //            .onLongPressGesture {
-    //                DispatchQueue.main.async {
-    //                    session.preferences.isDebugEnabled.toggle()
-    //                    if session.preferences.isDebugEnabled {
-    //                        session.alert = AlertError("pref.debugmode.title", "pref.debugmode.enabled")
-    //                    } else {
-    //                        session.alert = AlertError("pref.debugmode.title", "pref.debugmode.disabled")
-    //                    }
-    //                }
-    //            }
+//                .onLongPressGesture {
+//                    DispatchQueue.main.async {
+//                        session.preferences.isDebugEnabled.toggle()
+//                        if session.preferences.isDebugEnabled {
+//                            session.alert = AlertError("pref.debugmode.title", "pref.debugmode.enabled")
+//                        } else {
+//                            session.alert = AlertError("pref.debugmode.title", "pref.debugmode.disabled")
+//                        }
+//                    }
+//                }
             }
             .onAppear(perform: discover)
             .navigationTitle("authView.serverSelection.title")

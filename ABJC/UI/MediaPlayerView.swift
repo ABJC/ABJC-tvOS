@@ -7,10 +7,12 @@
 
 import SwiftUI
 import AVKit
-
+import os
 
 
 struct MediaPlayerView: View {
+    
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "PLAYER")
     
     /// SessionStore EnvironmentObject
     @EnvironmentObject var session: SessionStore
@@ -18,15 +20,14 @@ struct MediaPlayerView: View {
     @State var playerReady: Bool = false
     @StateObject var playstate: Playstate = Playstate()
     
-    let item: APIModels.MediaItem
-    
     var isPausedObserver = 0
     
-    @State var detailItem: PlayableMediaItem? = nil
+    let item: PlayItem
     
-    public init(_ item: APIModels.MediaItem) {
+    public init(_ item: PlayItem) {
         self.item = item
     }
+    
     
     var body: some View {
         ZStack {
@@ -34,70 +35,57 @@ struct MediaPlayerView: View {
             VideoPlayer(player: self.player)
         }
         .edgesIgnoringSafeArea(.all)
-        .onAppear(perform: load)
+        .onAppear(perform: initPlayback)
         .onDisappear(perform: deinitPlayback)
     }
     
-    func load() {
-        if item.type == .movie {
-            API.movie(session.jellyfin!, item.id) { result in
-                switch result {
-                    case .success(let item):
-                        self.detailItem = item
-                        initPlayback()
-                    case .failure(let error):
-                        session.setAlert(.api, "Failed to fetch item detail", "getMovie failed", error)
-                }
-            }
-        } else {
-            fatalError("Episode & Series Playback not yet implemented")
-        }
-        
-    }
     
     /// Initializes the Player
     func initPlayback() {
-        guard let playItem = detailItem else {
-            fatalError("Detail Item nil")
-        }
+        self.logger.info("Initializing Playback")
         
-        guard let mediaSourceId = playItem.mediaSources.first?.id else {
+        guard let mediaSourceId = self.item.mediaSources.first?.id else {
+            self.logger.error("Failed to find suitable media source")
             fatalError("Couldn't find suitable Stream")
         }
         
-        let asset = API.playerItem(session.jellyfin!, playItem, mediaSourceId)
+        let asset = API.playerItem(session.jellyfin!, self.item, mediaSourceId)
         self.player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
                 
         // Configure Playstate
         self.playstate.setPlayer(player)
                 
         // Report Playback Progress back to Jellyfin Server
+        self.logger.info("Initializing Playstate Observers")
         self.playstate.startObserving() { event, state in
-            API.reportPlaystate(session.jellyfin!, .progress, playItem.id, mediaSourceId, self.playstate)
+            API.reportPlaystate(session.jellyfin!, .progress, self.item.id, mediaSourceId, self.playstate)
         }
         
+        self.logger.info("Playing")
         player.play()
-        API.reportPlaystate(session.jellyfin!, .started, playItem.id, mediaSourceId, self.playstate)
+        API.reportPlaystate(session.jellyfin!, .started, self.item.id, mediaSourceId, self.playstate)
         
         self.playerReady = true
         
 //
-//        print("USERDATA", playItem.userData.playbackPosition, playItem.userData.playbackPositionTicks, playItem.userData.playbackPositionTicks/playItem.userData.playbackPosition)
-//        player.seek(to: CMTime(seconds: Double(playItem.userData.playbackPosition), preferredTimescale: 1))
+//        print("USERDATA", self.item.userData.playbackPosition, self.item.userData.playbackPositionTicks, self.item.userData.playbackPositionTicks/self.item.userData.playbackPosition)
+//        player.seek(to: CMTime(seconds: Double(self.item.userData.playbackPosition), preferredTimescale: 1))
     }
     
     func deinitPlayback() {
+        self.logger.info("Deinitializing Playback")
         self.player.pause()
-        guard let playItem = detailItem else {
-            fatalError("Detail Item nil")
-        }
+//        guard let self.item = detailItem else {
+//            fatalError("Detail Item nil")
+//        }
         
-        guard let mediaSourceId = playItem.mediaSources.first?.id else {
+        guard let mediaSourceId = self.item.mediaSources.first?.id else {
             fatalError("Couldn't find suitable Stream")
         }
         
+        self.logger.info("Removing Playstate Observers")
         self.playstate.stopObserving()
-        API.reportPlaystate(session.jellyfin!, .stopped, playItem.id, mediaSourceId, self.playstate)
+        API.reportPlaystate(session.jellyfin!, .stopped, self.item.id, mediaSourceId, self.playstate)
     }
 }
 

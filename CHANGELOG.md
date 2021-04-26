@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Preferences: Server Info now on general info page
 - Option to always show titles for items is no longer beta flag
+- Series Detail view has an improved season switcher
+- Series Detail view will update current season when focussing on an episode from another season
 ### Deprecated
 ### Fixed
 ### Removed

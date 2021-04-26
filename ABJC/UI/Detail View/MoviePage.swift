@@ -63,46 +63,38 @@ extension LibraryView
         
         /// Header
         var headerView: some View {
-            VStack(alignment: .leading) {
-                Spacer()
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading) {
-                        Text(item.name)
-                            .bold()
-                            .font(.title2)
-                        HStack {
-                            Text(item.year != nil ? "\(String(item.year!))" : "")
-                            Text(item.type.rawValue)
-                        }.foregroundColor(.secondary)
-                    }
+            ButtonArea(play) { isFocus in 
+                VStack(alignment: .leading) {
                     Spacer()
-                    Button(action: {
-                        session.setPlayItem(item)
-                    }) {
-                        Text(isContinue ? "buttons.play" : "buttons.continue")
-                            .bold()
-                            .textCase(.uppercase)
-                            .frame(width: 300)
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                                .bold()
+                                .font(.title2)
+                            HStack {
+                                Text(item.year != nil ? "\(String(item.year!))" : "")
+                                Text(item.type.rawValue)
+                            }.foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        PlayButton(isContinue ? "buttons.play" : "buttons.continue", play)
+                        .padding(.trailing)
                     }
-                    .disabled(detailItem == nil)
-                    .foregroundColor(.accentColor)
-                    .padding(.trailing)
-                    .prefersDefaultFocus(in: namespace)
-
-                }
-                if item.overview != nil {
-                    Divider()
-                    HStack() {
-                        Text(self.item.overview!)
-                    }
-                } else if detailItem?.overview != nil {
-                    Divider()
-                    HStack() {
-                        Text(self.detailItem!.overview!)
+                    
+                    if item.overview != nil {
+                        Divider()
+                        HStack() {
+                            Text(self.item.overview!)
+                        }
+                    } else if detailItem?.overview != nil {
+                        Divider()
+                        HStack() {
+                            Text(self.detailItem!.overview!)
+                        }
                     }
                 }
             }
-            .focusScope(namespace)
+            .prefersDefaultFocus(in: namespace)
             .padding(.horizontal, 80)
             .padding(.bottom, 80)
         }
@@ -124,6 +116,12 @@ extension LibraryView
             Group {
                 Divider().padding(.horizontal, 80)
                 MediaRowView("itemdetail.recommended.label", self.similarItems)
+            }
+        }
+        
+        func play() {
+            if let item = detailItem {
+                session.setPlayItem(.init(item))
             }
         }
         

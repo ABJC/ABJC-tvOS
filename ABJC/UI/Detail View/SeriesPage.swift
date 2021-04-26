@@ -29,13 +29,36 @@ extension LibraryView
         @State var episodes: [APIModels.Episode] = []
         
         /// Currently Selected Season
-        @State var selectedSeason: Int? = nil
+        @State var selectedSeason: APIModels.Season? = nil
+        @State var needsViewUpdate: Bool = false
         
         /// Currently Selected Episode
         @State var selectedEpisode: APIModels.Episode? = nil
         
         /// Similar Items
         @State var similarItems: [APIModels.MediaItem] = []
+        
+        var hasNext: Bool {
+            guard let selection = selectedSeason else {
+                return false
+            }
+            guard let index = seasons.firstIndex(of: selection) else {
+                return false
+            }
+            
+            return (index + 1) < seasons.count
+        }
+        
+        var hasPrev: Bool {
+            guard let selection = selectedSeason else {
+                return false
+            }
+            guard let index = seasons.firstIndex(of: selection) else {
+                return false
+            }
+            
+            return (index - 1) >= 0
+        }
         
         private var isContinue: Bool {
 //            if item.userData.playbackPosition != 0 {
@@ -59,19 +82,12 @@ extension LibraryView
                         headerView
                             .padding(80)
                             .frame(width: geo.size.width, height: geo.size.height + 50)
+                        
 //                        #warning("INFO VIEW")
                         episodeView
+                        
 //                        infoView
                         peopleView
-                        Button(action: {
-                            print("HELLO")
-                        }, label: {
-                            HStack {
-                                Spacer()
-                                Text("Hello")
-                                Spacer()
-                            }
-                        })
 //                        recommendedView
                         
                     }
@@ -80,75 +96,95 @@ extension LibraryView
             .onAppear(perform: load)
         }
         
+        /// Backdrop
         var backdrop: some View {
             Blur()
         }
         
         /// Header
         var headerView: some View {
-            VStack(alignment: .leading) {
-                Spacer()
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading) {
-                        Text(item.name)
-                            .bold()
-                            .font(.title2)
-                        HStack {
-                            Text(item.year != nil ? "\(String(item.year!))" : "")
-                            Text(item.type.rawValue)
-                        }.foregroundColor(.secondary)
-                    }
+            ButtonArea(play) { isFocused in
+                VStack(alignment: .leading) {
                     Spacer()
-                    Button(action: {
-//                    if let item = self.detailItem {
-//                        playerStore.play(item)
-//                    }
-                    }) {
-                        Text(isContinue ? "buttons.play" : "buttons.continue")
-                            .bold()
-                            .textCase(.uppercase)
-                            .frame(width: 300)
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading) {
+                            if let episode = selectedEpisode {
+                                Text("S\(String(format: "%02d", selectedSeason!.index ))x\(String(format: "%02d", episode.index ?? 0)) " + episode.name)
+                                    .bold()
+                                    .font(.title2)
+                            } else {
+                                Text(item.name)
+                                    .bold()
+                                    .font(.title2)
+                            }
+                            HStack {
+                                if selectedEpisode != nil {
+                                    Text(item.name)
+                                }
+                                Text(item.year != nil ? "\(String(item.year!))" : "")
+                                Text(item.type.rawValue)
+                            }.foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        PlayButton(isContinue ? "buttons.play" : "buttons.continue", play)
+                            .padding(.trailing)
+                            .prefersDefaultFocus(in: namespace)
+                        
                     }
-//                    .disabled(detailItem == nil)
-                    .foregroundColor(.accentColor)
-                    .padding(.trailing)
-                    .prefersDefaultFocus(in: namespace)
-                    
-                }
-                if item.overview != nil {
-                    Divider()
-                    HStack() {
-                        Text(self.item.overview!)
-                    }
-                } else if item.overview != nil {
-                    Divider()
-                    HStack() {
-                        Text(self.item.overview!)
+                    if item.overview != nil {
+                        Divider()
+                        HStack() {
+                            Text(self.item.overview!)
+                        }
+                    } else if item.overview != nil {
+                        Divider()
+                        HStack() {
+                            Text(self.item.overview!)
+                        }
                     }
                 }
             }
-            .focusScope(namespace)
+            .prefersDefaultFocus(in: namespace)
             .padding(.horizontal, 80)
             .padding(.bottom, 80)
         }
         
+        /// Buttongroup for Season selection
+        var seasonSwitcher: some View {
+            HStack {
+                Button(action: {
+                    if let season = self.selectedSeason {
+                        let prev = seasons.firstIndex(of: season)! - 1
+                        needsViewUpdate = true
+                        self.selectedSeason = seasons[prev]
+                    }
+                }) {
+                    Image(systemName: "chevron.left")
+                }.disabled(!hasPrev)
+                Text(selectedSeason?.name ?? "-")
+                    .font(.headline)
+                    .frame(width: 200)
+                Button(action: {
+                    if let season = self.selectedSeason {
+                        let next = seasons.firstIndex(of: season)! + 1
+                        needsViewUpdate = true
+                        self.selectedSeason = seasons[next]
+                    }
+                }) {
+                    Image(systemName: "chevron.right")
+                }.disabled(!hasNext)
+            }
+        }
         
+        /// Episode View with Season Switcher
         var episodeView: some View {
-            VStack {
-                Picker(
-                    selection: $selectedSeason,
-                    label: Text("Picker Name"),
-                    content: {
-                        ForEach(seasons) { season in
-                            Text("\(season.index)").tag(season.index)
-                        }
-                    })
-                
-                EpisodeRowView("Season \(selectedSeason)",
-                               episodes,
+            VStack() {
+                seasonSwitcher
+                EpisodeRowView(episodes,
+                               seasons,
+                               $needsViewUpdate,
                                $selectedSeason,
                                $selectedEpisode)
-                
             }
         }
         
@@ -157,7 +193,7 @@ extension LibraryView
             Group {
                 if let item = detailItem {
                     Divider().padding(.horizontal, 80)
-                    PeopleRowView("itemdetail.people.label", self.detailItem!.people ?? [])
+                    PeopleRowView("itemdetail.people.label", item.people ?? [])
                 }
             }.edgesIgnoringSafeArea(.horizontal)
         }
@@ -172,26 +208,41 @@ extension LibraryView
         }
         
         
-        func load()
-        {
+        func play() {
+            if let episode = selectedEpisode {
+                session.setPlayItem(.init(episode))
+            } else {
+                print("ERROR")
+            }
+        }
+        
+        
+        func findNextUp() {
+            if let nextUp = self.episodes.first(where: { !$0.userData.played }) {
+                self.selectedEpisode = nextUp
+                self.selectedSeason = self.seasons.first(where: { $0.index == nextUp.parentIndex })
+            }
+        }
+        
+        func load() {
             // Fetch Seasons
             API.seasons(session.jellyfin!, self.item.id) { result in
                 switch result {
                     case .success(let items):
                         self.seasons = items.sorted(by: {$0.index == 0 || $0.index < $1.index})
-                        self.selectedSeason = self.seasons.isEmpty ? nil : 0
+                        self.selectedSeason = self.seasons.isEmpty ? nil : self.seasons.first!
+                        // Fetch Episodes
+                        API.episodes(session.jellyfin!, self.item.id) { result in
+                            switch result {
+                                case .success(let items):
+                                    self.episodes = items
+                                    self.findNextUp()
+                                case .failure(let error):
+                                    session.setAlert(.api, "Failed to fetch Episodes", "Failed to fetch Episodes for \(item.id)", error)
+                            }
+                        }
                     case .failure(let error):
                         session.setAlert(.api, "Failed to fetch Seasons", "Failed to fetch Seasons for \(item.id)", error)
-                }
-                
-                // Fetch Episodes
-                API.episodes(session.jellyfin!, self.item.id) { result in
-                    switch result {
-                        case .success(let items):
-                            self.episodes = items
-                        case .failure(let error):
-                            session.setAlert(.api, "Failed to fetch Episodes", "Failed to fetch Episodes for \(item.id)", error)
-                    }
                 }
             }
             

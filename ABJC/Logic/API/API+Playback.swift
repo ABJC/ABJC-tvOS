@@ -11,7 +11,7 @@ import AVFoundation
 extension API {
     public static func playerItem(
         _ jellyfin: Jellyfin,
-        _ item: PlayableMediaItem,
+        _ item: Playable,
         _ mediaSourceId: String
     ) -> AVURLAsset {
         Self.logger.info("[PLAYBACK] playerItem")

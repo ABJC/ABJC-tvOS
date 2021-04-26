@@ -9,6 +9,8 @@ import SwiftUI
 
 extension AuthView.ServerSelectionView {
     struct CredentialEntryView: View {
+        @Namespace private var namespace
+        
         /// SessionStore EnvironmentObject
         @EnvironmentObject var session: SessionStore
         
@@ -33,6 +35,9 @@ extension AuthView.ServerSelectionView {
         
         @State var showingAlert: Bool = false
         
+        @State var isCredentialsFilledIn: Bool = false
+        
+        
         init(_ host: String, _ port: Int, _ path: String?) {
             self.host = host
             self.port = port
@@ -51,11 +56,13 @@ extension AuthView.ServerSelectionView {
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textContentType(.username)
+                        .prefersDefaultFocus(username == "", in: namespace)
                     SecureField("authView.credentialEntryView.password.label", text: self.$password)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textContentType(.password)
                     Toggle("authView.credentialEntryView.isUsingHTTPS.label", isOn: $isHttpsEnabled)
+                        .prefersDefaultFocus(username != "" && password != "", in: namespace)
                 }.frame(width: 400)
                 
                 Button(action: authorize) {

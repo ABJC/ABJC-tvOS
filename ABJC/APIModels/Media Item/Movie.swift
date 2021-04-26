@@ -8,7 +8,7 @@
 import Foundation
 
 extension APIModels {
-    struct Movie: Codable, PlayableMediaItem {
+    struct Movie: Codable, Playable, Identifiable {
         public let id: String
         public let serverId: String?
         public let type: MediaType

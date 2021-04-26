@@ -21,7 +21,7 @@ extension LibraryView
         private var item: APIModels.Episode
         
         private var url: URL {
-            return API.imageURL(session.jellyfin!, item.id, .backdrop)
+            return API.imageURL(session.jellyfin!, item.id, .thumb)
         }
         /// Initializer
         /// - Parameter item: Item
@@ -46,9 +46,9 @@ extension LibraryView
                     Text("Episode \(item.index ?? 0)")
                     Text(item.name)
                         .font(.headline)
-                }
+                }.foregroundColor(.primary)
                 .padding()
-                .frame(width: size.width, height: 180)
+                .frame(width: size.width, height: 120)
             }
         }
         
