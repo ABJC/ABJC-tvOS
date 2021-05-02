@@ -20,8 +20,16 @@ extension LibraryView
         /// Media Item
         private var item: APIModels.MediaItem
         
-        private var url: URL {
-            return API.imageURL(session.jellyfin!, item.id, .backdrop)
+        private var url: URL? {
+            guard let jellyfin = session.jellyfin else {
+                DispatchQueue.main.async {
+                    session.itemPlaying = nil
+                    session.itemFocus = nil
+                }
+                session.logout()
+                return nil
+            }
+            return API.imageURL(jellyfin, item.id, .backdrop)
         }
         /// Initializer
         /// - Parameter item: Item
@@ -85,15 +93,21 @@ extension LibraryView
         
         /// URLImage
         private var image: some View {
-            URLImage(
-                url: url,
-                empty: { placeholder },
-                inProgress: { _ in placeholder },
-                failure:  { _,_ in placeholder }
-            ) { image in
-                image
-                    .renderingMode(.original)
-                    .resizable()
+            Group() {
+                if let url = url {
+                    URLImage(
+                        url: url,
+                        empty: { placeholder },
+                        inProgress: { _ in placeholder },
+                        failure:  { _,_ in placeholder }
+                    ) { image in
+                        image
+                            .renderingMode(.original)
+                            .resizable()
+                    }
+                } else {
+                    placeholder
+                }
             }
         }
         

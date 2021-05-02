@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.18] - 2021-04-25
+## [v1.0.0-build.19] - 2021-05-01 [UNRELEASED]
+### Added
+### Changed
+### Deprecated
+### Fixed
+### Removed
+
+## [v1.0.0-build.18] - 2021-04-26
 ### Added
 - Playstate reporting (synching progress with server)
 - Preferences > General > Libary Info
