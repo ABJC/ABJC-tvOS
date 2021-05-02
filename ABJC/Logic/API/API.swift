@@ -76,8 +76,7 @@ class API {
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error)
-                fatalError("Request failed with error")
-//                completion(.failure(error))
+                completion(.failure(error))
             }
             
             if let httpResponse = response as? HTTPURLResponse {
