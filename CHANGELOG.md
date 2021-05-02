@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.19] - 2021-05-02
+## [v1.0.0-build.20] - [UNRELEASED]
+### Added
+### Changed
+### Deprecated
+### Fixed
+### Removed
+
+## [v1.0.0-build.20] - 2021-05-02
 ### Added
 ### Changed
 ### Deprecated
@@ -13,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App will no longer crash when requests to a jellyfin server result in an error
 ### Removed
 
-## [v1.0.0-build.18] - 2021-04-26
+## [v1.0.0-build.19] - 2021-04-26
 ### Added
 - Playstate reporting (synching progress with server)
 - Preferences > General > Libary Info
