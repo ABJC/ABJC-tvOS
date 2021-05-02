@@ -4,11 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.19] - 2021-05-01 [UNRELEASED]
+## [v1.0.0-build.19] - 2021-05-02
 ### Added
 ### Changed
 ### Deprecated
 ### Fixed
+- App will no longer crash when an Thumbnail URL couldn't be generated
+- App will no longer crash when requests to a jellyfin server result in an error
 ### Removed
 
 ## [v1.0.0-build.18] - 2021-04-26
