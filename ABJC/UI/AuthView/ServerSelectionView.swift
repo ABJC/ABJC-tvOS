@@ -39,7 +39,8 @@ extension AuthView {
                         ForEach(self.servers, id:\.id)
                         { server in
                             NavigationLink(
-                                destination: CredentialEntryView(server.host, Int(server.port), nil))
+//                                destination: CredentialEntryView(server.host, Int(server.port), nil))
+                                destination: ServerUserListView(server.host, Int(server.port), nil))
                             {
                                 ServerCardView(server)
                             }

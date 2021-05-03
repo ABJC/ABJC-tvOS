@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092AA27B263FEF6D00FC2D1F /* ServerUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092AA27A263FEF6D00FC2D1F /* ServerUserListView.swift */; };
 		FD27CD74260F55BB002C763F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = FD27CD73260F55BB002C763F /* URLImage */; };
 		FD27CD79260F565E002C763F /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD78260F565E002C763F /* ImageType.swift */; };
 		FD27CD7E260F56C2002C763F /* API+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD7D260F56C2002C763F /* API+Images.swift */; };
@@ -110,6 +111,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		092AA27A263FEF6D00FC2D1F /* ServerUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUserListView.swift; sourceTree = "<group>"; };
 		FD27CD78260F565E002C763F /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
 		FD27CD7D260F56C2002C763F /* API+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Images.swift"; sourceTree = "<group>"; };
 		FD27CD82260F5ABD002C763F /* WatchNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNowView.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				FDA627AF260E2FA2002F9ECC /* ServerSelectionManualView.swift */,
 				FDA6278A260E29CB002F9ECC /* ServerCardView.swift */,
 				FDA627B4260E306B002F9ECC /* CredentialEntryView.swift */,
+				092AA27A263FEF6D00FC2D1F /* ServerUserListView.swift */,
 			);
 			path = AuthView;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				FDA627B0260E2FA2002F9ECC /* ServerSelectionManualView.swift in Sources */,
 				FD40C05E2618985C00719C7E /* PlayItem.swift in Sources */,
 				FDE39336261B45CD007A6C85 /* EpisodeRowView.swift in Sources */,
+				092AA27B263FEF6D00FC2D1F /* ServerUserListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,11 +911,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
-				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				DEVELOPMENT_TEAM = U3ZPB6U89W;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ABJC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -919,9 +923,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.byatt.jellyfin-appletv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ABJC tvOS";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.5;
@@ -934,11 +938,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
-				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				DEVELOPMENT_TEAM = U3ZPB6U89W;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ABJC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -946,9 +950,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.byatt.jellyfin-appletv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ABJC tvOS";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.5;
