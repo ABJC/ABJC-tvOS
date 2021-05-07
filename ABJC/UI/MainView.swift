@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+
+/// Main View Container
 struct MainView: View {
     /// SessionStore EnvironmentObject
     @EnvironmentObject var session: SessionStore
     
     var body: some View {
         Group() {
+            // Show Authentication if sessionStore.jellyfin is nil
             if session.jellyfin == nil {
                 AuthView().environmentObject(session)
             } else {
@@ -20,6 +23,7 @@ struct MainView: View {
             }
         }
         
+        // Present Alerts if any are pending
         .alert(item: $session.alert) { (alert) -> Alert in
             Alert(
                 title: Text(alert.title),
@@ -28,21 +32,17 @@ struct MainView: View {
             )
         }
         
+        // Present MediaPlayer when itemPlaying is pending
         .fullScreenCover(item: $session.itemPlaying, onDismiss: session.restoreFocus) { item in
             MediaPlayerView(item)
                 .environmentObject(session)
         }
         
+        // Present Item Detail view when focus is set
         .fullScreenCover(item: $session.itemFocus) { item in
             LibraryView.ItemPage(item)
                 .environmentObject(session)
         }
-        
-        
-        
-//        .fullScreenCover(item: $session.itemPlaying) { item in
-//            MediaPlayerView(item)
-//        }
     }
 }
 

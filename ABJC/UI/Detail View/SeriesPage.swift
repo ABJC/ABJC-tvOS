@@ -75,23 +75,21 @@ extension LibraryView
         
 
         var body: some View {
-            GeometryReader { geo in
-                ZStack {
-                    backdrop.edgesIgnoringSafeArea(.all)
-                    ScrollView(.vertical, showsIndicators: true) {
-                        headerView
-                            .padding(80)
-                            .frame(width: geo.size.width, height: geo.size.height + 50)
-                        
-//                        #warning("INFO VIEW")
-                        episodeView
-                        
-//                        infoView
-                        peopleView
-//                        recommendedView
-                        
-                    }
-                }.edgesIgnoringSafeArea(.horizontal)
+            ZStack {
+                backdrop.edgesIgnoringSafeArea(.all)
+                ScrollView(.vertical, showsIndicators: true) {
+                    headerView
+                        .padding(80)
+                        .frame(width: 1920, height: 1080 + 50)
+                    
+//                    #warning("INFO VIEW")
+                    episodeView
+                    
+//                    infoView
+                    peopleView
+//                    recommendedView
+                    
+                }
             }.edgesIgnoringSafeArea(.all)
             .onAppear(perform: load)
         }

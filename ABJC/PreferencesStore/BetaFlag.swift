@@ -8,11 +8,22 @@
 import SwiftUI
 
 extension PreferenceStore {
+    
+    /// BetaFlags
     public enum BetaFlag: String, CaseIterable {
+        /// Fast but ugly
         case uglymode = "uglymode"
+        
+        /// Displays library as a single page
         case singlePageMode = "singlepagemode"
+        
+        /// Always enable item titles
         case showsTitles = "showstitles"
+        
+        /// show cover rows
         case coverRows = "coverrows"
+        
+        /// Fetch iTunes Cover Art
         case coverArt = "coverart"
         
         public var label: LocalizedStringKey {

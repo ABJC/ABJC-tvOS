@@ -122,19 +122,17 @@ extension LibraryView
         
         /// PlaybackPosition Overlay
         private var overlay: some View {
-            GeometryReader() { geo in
-                VStack {
-                    Spacer()
-                    //                if(item.runTimeTicks != nil) && item.userData.playbackPosition != 0 {
-                    //                    ZStack(alignment: .leading) {
-                    //                        Blur()
-                    //                            .clipShape(Capsule())
-                    //                        Capsule()
-                    //                            .frame(width: (geo.size.width-40) * CGFloat(Double(item.userData.playbackPositionTicks) / Double(item.runTimeTicks!)))
-                    //                            .padding(1)
-                    //                    }.frame(height: 10).padding(20)
-                    //                }
-                }
+            VStack {
+                Spacer()
+                //                if(item.runTimeTicks != nil) && item.userData.playbackPosition != 0 {
+                //                    ZStack(alignment: .leading) {
+                //                        Blur()
+                //                            .clipShape(Capsule())
+                //                        Capsule()
+                //                            .frame(width: (geo.size.width-40) * CGFloat(Double(item.userData.playbackPositionTicks) / Double(item.runTimeTicks!)))
+                //                            .padding(1)
+                //                    }.frame(height: 10).padding(20)
+                //                }
             }.frame(width: size.width, height: size.height)
         }
     }

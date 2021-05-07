@@ -28,6 +28,7 @@ extension LibraryView {
                         .padding(.horizontal, 80)
                     
                     VStack(alignment: .leading) {
+                        // Media Item Results
                         if itemResults.count != 0 {
                             MediaRowView(
                                 "library.search.results",
@@ -36,6 +37,7 @@ extension LibraryView {
                             Divider()
                         }
                         
+                        // Character & Crew Results
                         if personResults.count != 0 {
                             PeopleRowView(
                                 "library.search.results",
@@ -43,6 +45,7 @@ extension LibraryView {
                             )
                         }
                         
+                        // All Library Items
                         if let items = allItems {
                             GroupingViewContainer(items).environmentObject(session)
                         }
@@ -64,12 +67,15 @@ extension LibraryView {
         }
             
         func search() {
+            // Query Jellyfin for Media Items
             API.searchItems(session.jellyfin!, query) { result in
                 switch result {
                     case .success(let items): self.itemResults = items
                     case .failure(let error): print(error)
                 }
             }
+            
+            // Query Jellyfin for People
             API.searchPeople(session.jellyfin!, query) { result in
                 switch result {
                     case .success(let items): self.personResults = items

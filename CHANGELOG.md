@@ -4,14 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0.0-build.20] - [UNRELEASED]
+## [v1.0.0-build.21] - [2021-05-08]
 ### Added
+- documentation for SessionStore
+- documentation for PreferencesStore
+- some documentation for UI
 ### Changed
 ### Deprecated
 ### Fixed
 ### Removed
+- all GeometryReaders were removed (responsible for majority of crashes in build 20)
 
-## [v1.0.0-build.19] - 2021-05-02
+
+## [v1.0.0-build.20] - 2021-05-02
 ### Added
 ### Changed
 ### Deprecated

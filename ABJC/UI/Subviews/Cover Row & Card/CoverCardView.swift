@@ -31,21 +31,20 @@ extension LibraryView
         }
         
         var body: some View {
-            GeometryReader() { geo in
-                ZStack(alignment: .leading) {
-//                    background
-                    Blur()
-                    HStack(alignment: .top) {
-                        image
-                            .aspectRatio(16/9, contentMode: .fit)
-                            .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 23, style: .continuous))
-                            .frame(height: 477)
-                        info.padding()
-                    }.padding(.horizontal, 40)
-                }
-                .clipped()
-            }.frame(width: 1600, height: 500)
+            ZStack(alignment: .leading) {
+//                background
+                Blur()
+                HStack(alignment: .top) {
+                    image
+                        .aspectRatio(16/9, contentMode: .fit)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 23, style: .continuous))
+                        .frame(height: 477)
+                    info.padding()
+                }.padding(.horizontal, 40)
+            }
+            .clipped()
+            .frame(width: 1600, height: 500)
             .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
             .focusable(true) { isFocus in
                 self.isFocus = isFocus

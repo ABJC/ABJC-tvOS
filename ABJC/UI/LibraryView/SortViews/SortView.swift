@@ -34,6 +34,7 @@ extension LibraryView {
         }
         
         var body: some View {
+            /// Display preferred Grouping
             if session.preferences.collectionGrouping == .genre {
                 GenreGroupingView(items)
             } else if session.preferences.collectionGrouping == .title {

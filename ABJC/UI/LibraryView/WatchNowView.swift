@@ -22,6 +22,7 @@ extension LibraryView
         {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: true) {
+                    // Latest Movies & TV Shows
                     VStack(alignment: .leading) {
                         CoverRowView(latestItems)
                         
@@ -29,12 +30,14 @@ extension LibraryView
                             GroupingViewContainer(items).environmentObject(session)
                         }
                     }
+                    
                 }.edgesIgnoringSafeArea(.horizontal)
             }
             .onAppear(perform: load)
         }
         
         func load() {
+            // Fetch latest Movies & TV Shows
             API.latest(session.jellyfin!) { (result) in
                 switch result {
                     case .failure(let error):
@@ -46,6 +49,7 @@ extension LibraryView
                 }
             }
             
+            // Fetch all Items
             API.items(session.jellyfin!) { (result) in
                 switch result {
                     case .failure(let error):

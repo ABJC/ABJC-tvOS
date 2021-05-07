@@ -32,6 +32,9 @@ class SessionStore: ObservableObject {
     /// Cached Items
     @Published var items: [APIModels.MediaItem] = []
     
+    
+    /// Loads Credentials and tries to authenticate with them
+    /// - Parameter completion: Boolean value indicating success
     public func loadCredentials(_ completion: @escaping (Bool) -> Void = { _ in}) {
         guard let data = Keychain.load(key: "credentials") else {
             completion(false)
@@ -64,10 +67,14 @@ class SessionStore: ObservableObject {
         }
     }
     
+    
+    /// Clears Stored Credentials
     public func clearCredentials() {
         Keychain.clear(key: "credentials")
     }
     
+    
+    /// Stores Credentials in Keychain
     public func storeCredentials() {
         do {
             let data = try JSONEncoder().encode(self.jellyfin)
@@ -79,12 +86,17 @@ class SessionStore: ObservableObject {
         }
     }
     
+    
+    /// Sets the focus of the application
+    /// - Parameter item: Media Item (Movie, Series)
     public func setFocus(_ item: APIModels.MediaItem) {
         DispatchQueue.main.async {
             self.itemFocus = item
         }
     }
     
+    
+    /// Restores previous focus
     public func restoreFocus() {
         if prevFocus != nil {
             DispatchQueue.main.async {
@@ -94,6 +106,9 @@ class SessionStore: ObservableObject {
         }
     }
     
+    
+    /// Sets play item
+    /// - Parameter item: Playable Media Item
     public func setPlayItem(_ item: PlayItem) {
         DispatchQueue.main.async {
             self.prevFocus = self.itemFocus
@@ -111,6 +126,9 @@ class SessionStore: ObservableObject {
             self.storeCredentials()
         }
     }
+    
+    
+    /// Logs the user out of the application & clears their credentials from the Keychain
     public func logout() {
         self.clearCredentials()
         DispatchQueue.main.async {

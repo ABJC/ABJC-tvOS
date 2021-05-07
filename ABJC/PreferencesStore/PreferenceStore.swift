@@ -85,6 +85,8 @@ public class PreferenceStore: ObservableObject {
         set { tabs.set(.search, to: newValue) }
     }
     
+    
+    /// The Enabled Tabs
     public var tabs: Set<Tabs> {
         get {
             let data = defaults.object(forKey: Keys.tabs) as? [String] ?? [String]()
@@ -129,6 +131,8 @@ public class PreferenceStore: ObservableObject {
         }
     }
     
+    
+    /// Indicates wether single page mode is active
     public var beta_singlePagemode: Bool {
         get {
             betaflags.isEnabled(.singlePageMode)
@@ -138,6 +142,7 @@ public class PreferenceStore: ObservableObject {
         }
     }
     
+    /// Indicates wether uglymode is active
     public var beta_uglymode: Bool {
         get {
             betaflags.isEnabled(.uglymode)
@@ -147,6 +152,7 @@ public class PreferenceStore: ObservableObject {
         }
     }
     
+    /// Indicates wether cover rows are active
     public var beta_coverRows: Bool {
         get {
             betaflags.isEnabled(.coverRows)
@@ -156,6 +162,8 @@ public class PreferenceStore: ObservableObject {
         }
     }
     
+    
+    /// Indicates wether iTunesCoverFetch is active
     public var beta_fetchCoverArt: Bool {
         get {
             betaflags.isEnabled(.coverArt)
@@ -167,6 +175,7 @@ public class PreferenceStore: ObservableObject {
 }
 
 
+/// Representation of a Version
 public struct Version {
     public var description: String {
         if isTestFlight {

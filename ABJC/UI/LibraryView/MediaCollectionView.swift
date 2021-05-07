@@ -30,10 +30,8 @@ extension LibraryView
         {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: true) {
-                    VStack(alignment: .leading) {
-                        if let items = items {
-                            GroupingViewContainer(items).environmentObject(session)
-                        }
+                    if let items = items {
+                        GroupingViewContainer(items).environmentObject(session)
                     }
                 }.edgesIgnoringSafeArea(.horizontal)
             }

@@ -24,9 +24,6 @@ extension PreferencesView {
                     Picker("pref.client.collectiongrouping.label", selection: $session.preferences.collectionGrouping) {
                         ForEach(Grouping.allCases, id: \.rawValue) { value in
                             Text(value.localizedName)
-                                .onAppear {
-                                    print("GROUPING: ", value)
-                                }
                                 .tag(value)
                         }
                     }
