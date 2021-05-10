@@ -39,12 +39,18 @@ public class ServerLocator {
         }
         public var host: String {
             let components = URLComponents(string: self.address)
-            return components!.host!
+            if let host = components?.host {
+                return host
+            }
+            return self.address
         }
         
         public var port: Int {
             let components = URLComponents(string: self.address)
-            return components!.port!
+            if let port = components?.port {
+                return port
+            }
+            return 8096
         }
         
         enum CodingKeys: String, CodingKey {
