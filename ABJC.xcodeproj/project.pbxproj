@@ -34,6 +34,7 @@
 		FD8FE3F12631C508004B9C5F /* PlaystateReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FE3F02631C508004B9C5F /* PlaystateReport.swift */; };
 		FD8FE4012631F26A004B9C5F /* Playstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FE4002631F26A004B9C5F /* Playstate.swift */; };
 		FD8FE41726320196004B9C5F /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8FE41626320196004B9C5F /* TVServices.framework */; };
+		FD913D7B264AFD17001A085F /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD913D7A264AFD17001A085F /* ActivityIndicatorView.swift */; };
 		FDA4C69F2635CFF900316E59 /* ButtonArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4C69E2635CFF900316E59 /* ButtonArea.swift */; };
 		FDA62762260E2765002F9ECC /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA62761260E2765002F9ECC /* AuthView.swift */; };
 		FDA62770260E27EE002F9ECC /* ServerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6276F260E27EE002F9ECC /* ServerSelectionView.swift */; };
@@ -139,6 +140,7 @@
 		FD8FE4002631F26A004B9C5F /* Playstate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playstate.swift; sourceTree = "<group>"; };
 		FD8FE41426320196004B9C5F /* ABJC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ABJC.entitlements; sourceTree = "<group>"; };
 		FD8FE41626320196004B9C5F /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
+		FD913D7A264AFD17001A085F /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		FDA4C69E2635CFF900316E59 /* ButtonArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonArea.swift; sourceTree = "<group>"; };
 		FDA62761260E2765002F9ECC /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		FDA6276F260E27EE002F9ECC /* ServerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectionView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				FD27CD97260F6252002C763F /* Media Row & Card */,
 				FD40C0372618899D00719C7E /* People Row & Card */,
 				FDE3933F261B45D8007A6C85 /* Episode Row & Card */,
+				FD913D7A264AFD17001A085F /* ActivityIndicatorView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				FDA4C69F2635CFF900316E59 /* ButtonArea.swift in Sources */,
 				FD27CD7E260F56C2002C763F /* API+Images.swift in Sources */,
 				FDE082AC260E1ABE0088419A /* APIModels.swift in Sources */,
+				FD913D7B264AFD17001A085F /* ActivityIndicatorView.swift in Sources */,
 				FDBA0E5C26345822001D38CC /* Tabs.swift in Sources */,
 				FDA627B5260E306B002F9ECC /* CredentialEntryView.swift in Sources */,
 				FDE08290260E0C680088419A /* Jellyfin.swift in Sources */,
@@ -909,7 +913,7 @@
 				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
@@ -936,7 +940,7 @@
 				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;

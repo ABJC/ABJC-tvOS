@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.0-build.22] - [2021-05-10]
+### Added
+### Changed
+### Deprecated
+### Fixed
+- Fixed a crash that would occur if an UDP response didn't include a port (thanks to @stephenb10 on GitHub)
+### Removed
+
 ## [v1.0.0-build.21] - [2021-05-08]
 ### Added
 - documentation for SessionStore
