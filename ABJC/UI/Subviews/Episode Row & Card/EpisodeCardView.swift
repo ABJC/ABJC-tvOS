@@ -15,13 +15,13 @@ extension LibraryView
         @EnvironmentObject var session: SessionStore
         
         /// Size
-        private var size: CGSize = CGSize(width: 548, height: 308.25 )
+        private var size: CGSize = CGSize(width: 640, height: 360 )
         
         /// Media Item
         private var item: APIModels.Episode
         
         private var url: URL {
-            return API.imageURL(session.jellyfin!, item.id, .thumb)
+            return API.imageURL(session.jellyfin!, item.id, .primary)
         }
         /// Initializer
         /// - Parameter item: Item

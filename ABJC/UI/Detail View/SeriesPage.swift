@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 extension LibraryView
 {
@@ -73,6 +74,30 @@ extension LibraryView
             self.item = item
         }
         
+        private var url: URL? {
+            guard let jellyfin = session.jellyfin else {
+                DispatchQueue.main.async {
+                    session.itemPlaying = nil
+                    session.itemFocus = nil
+                }
+                session.logout()
+                return nil
+            }
+            return API.imageURL(jellyfin, item.id, .backdrop)
+        }
+        
+        private var primaryUrl : URL? {
+            guard let jellyfin = session.jellyfin else {
+                DispatchQueue.main.async {
+                    session.itemPlaying = nil
+                    session.itemFocus = nil
+                }
+                session.logout()
+                return nil
+            }
+            return API.imageURL(jellyfin, item.id, .primary)
+        }
+        
 
         var body: some View {
             ZStack {
@@ -93,17 +118,63 @@ extension LibraryView
             }.edgesIgnoringSafeArea(.all)
             .onAppear(perform: load)
         }
+       
+        /// URLImage
+        private var image: some View {
+            Group() {
+                if let url = url {
+                    URLImage(
+                        url: url,
+                        empty: { EmptyView() },
+                        inProgress: { _ in EmptyView() },
+                        failure:  { _,_ in EmptyView() }
+                    ) { image in
+                        image
+                            .renderingMode(.original)
+                            .resizable()
+                    }
+                } else {
+                    EmptyView()
+                }
+            }
+        }
         
         /// Backdrop
         var backdrop: some View {
-            Blur()
+            Group() {
+                image
+                Blur()
+            }
+        }
+        
+        private var primaryImage: some View {
+            Group() {
+                if let url = primaryUrl {
+                    URLImage(
+                        url: url,
+                        empty: { EmptyView() },
+                        inProgress: { _ in EmptyView() },
+                        failure:  { _,_ in EmptyView() }
+                    ) { image in
+                        image
+                            .renderingMode(.original)
+                            .resizable()
+                    }
+                } else {
+                    EmptyView()
+                }
+            }
         }
         
         /// Header
         var headerView: some View {
             ButtonArea(play) { isFocused in
                 VStack(alignment: .leading) {
-                    Spacer()
+                    primaryImage
+                        .aspectRatio(2/3, contentMode: .fill)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                        .frame(width: 400, height: 600)
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
                             if let episode = selectedEpisode {
