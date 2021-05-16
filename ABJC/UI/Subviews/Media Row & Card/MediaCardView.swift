@@ -15,7 +15,14 @@ extension LibraryView
         @EnvironmentObject var session: SessionStore
         
         /// Size
-        private var size: CGSize = CGSize(width: 548, height: 308.25 )
+        private var size: CGSize {
+            return session.preferences.backdropTitleImages ? CGSize(width: 548, height: 308.25) : CGSize(width: 225, height: 337.5)
+        }
+        
+        /// Title image  aspect ratio
+        private var ratio: CGFloat {
+            return session.preferences.backdropTitleImages ? 16/9 : 2/3
+        }
         
         /// Media Item
         private var item: APIModels.MediaItem
@@ -29,7 +36,8 @@ extension LibraryView
                 session.logout()
                 return nil
             }
-            return API.imageURL(jellyfin, item.id, .backdrop)
+            let type : APIModels.ImageType = session.preferences.backdropTitleImages ? .backdrop : .primary
+            return API.imageURL(jellyfin, item.id, type)
         }
         /// Initializer
         /// - Parameter item: Item
@@ -45,7 +53,7 @@ extension LibraryView
                         image
                     }
                 }
-                .aspectRatio(16/9, contentMode: .fill)
+                .aspectRatio(ratio, contentMode: .fill)
                 .clipped()
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 .frame(width: size.width, height: size.height)

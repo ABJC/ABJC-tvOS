@@ -38,6 +38,10 @@
 	<string>alphabetical list of library &amp; search</string>
 	<key>pref.client.showstitles.descr</key>
 	<string>Show a titles for items</string>
+	<key>pref.client.backdroptitleimages.descr</key>
+	<string>Show backdrop image for titles instead of primary</string>
+	<key>pref.client.backdroptitleimages.label</key>
+	<string>Backdrop Title Images</string>
 	<key>pref.client.showstitles.label</key>
 	<string>Always Show Titles</string>
 	<key>pref.client.ui.label</key>

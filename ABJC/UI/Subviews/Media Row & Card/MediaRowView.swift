@@ -19,6 +19,16 @@ extension LibraryView
         /// Label
         private let label: LocalizedStringKey
         
+        private var height: CGFloat {
+            var _height = session.preferences.backdropTitleImages ? 300 : 340
+            
+            if session.preferences.showsTitles
+            {
+                _height += 100
+            }
+            return CGFloat(_height)
+        }
+        
         /// Items
         private let items: [APIModels.MediaItem]
         
@@ -56,7 +66,7 @@ extension LibraryView
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .frame(height: session.preferences.showsTitles ? 400 : 300)
+                    .frame(height: height)
                     .padding(edgeInsets)
                 }.edgesIgnoringSafeArea(.horizontal)
             }.edgesIgnoringSafeArea(.horizontal)
