@@ -16,12 +16,12 @@ extension LibraryView
         
         /// Size
         private var size: CGSize {
-            return session.preferences.backdropTitleImages ? CGSize(width: 548, height: 308.25) : CGSize(width: 225, height: 337.5)
+            return session.preferences.posterType == .poster ? CGSize(width: 225, height: 337.5) : CGSize(width: 548, height: 308.25)
         }
         
         /// Title image  aspect ratio
         private var ratio: CGFloat {
-            return session.preferences.backdropTitleImages ? 16/9 : 2/3
+            return session.preferences.posterType == .poster ? 2/3 : 16/9
         }
         
         /// Media Item
@@ -36,7 +36,7 @@ extension LibraryView
                 session.logout()
                 return nil
             }
-            let type : APIModels.ImageType = session.preferences.backdropTitleImages ? .backdrop : .primary
+            let type : APIModels.ImageType = session.preferences.posterType == .poster ? .primary : .backdrop
             return API.imageURL(jellyfin, item.id, type)
         }
         /// Initializer

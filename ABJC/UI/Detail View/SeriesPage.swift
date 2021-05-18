@@ -107,7 +107,6 @@ extension LibraryView
                         .padding(80)
                         .frame(width: 1920, height: 1080 + 50)
                     
-//                    #warning("INFO VIEW")
                     episodeView
                     
 //                    infoView
@@ -141,10 +140,7 @@ extension LibraryView
         
         /// Backdrop
         var backdrop: some View {
-            Group() {
-                image
-                Blur()
-            }
+            Blurhash(item.blurHash(for: [.backdrop, .primary]))
         }
         
         private var primaryImage: some View {

@@ -20,7 +20,7 @@ public class PreferenceStore: ObservableObject {
         static let tabs = "ui.configuration.tabs"
         static let grouping = "ui.configuration.collectiongrouping"
         
-        static let backdropTitleImages = "design.titlebackdrop"
+        static let posterType = "design.postertype"
         static let showsTitles = "design.showstitles"
         static let debugMode = "debugmode"
         static let betaflags = "betaflags"
@@ -41,8 +41,8 @@ public class PreferenceStore: ObservableObject {
         defaults.register(defaults: [
             Keys.tabs: Tabs.default.map({ $0.rawValue }),
             Keys.debugMode: false,
-            Keys.grouping: Grouping.genre.rawValue,
-            Keys.backdropTitleImages: false,
+            Keys.grouping: Grouping.default.rawValue,
+            Keys.posterType: PosterType.default.rawValue,
             Keys.showsTitles: flags.contains(.showsTitles),
             Keys.betaflags: []
         ])
@@ -57,9 +57,11 @@ public class PreferenceStore: ObservableObject {
     /// Current client version
     public let version: Version = Version()
     
-    public var backdropTitleImages: Bool {
-        get { defaults.bool(forKey: Keys.backdropTitleImages) }
-        set { defaults.setValue(newValue, forKey: Keys.backdropTitleImages) }
+    
+    /// Format of the poster shown for media titles
+    public var posterType: PosterType {
+        get { PosterType(rawValue: defaults.string(forKey: Keys.posterType) ?? "") ?? .default }
+        set { defaults.setValue(newValue.rawValue, forKey: Keys.posterType) }
     }
     
     /// Wether to always show titles for media items

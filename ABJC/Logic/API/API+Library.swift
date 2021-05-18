@@ -27,7 +27,7 @@ extension API {
         let params = [
             "Recursive": String(true),
             "IncludeItemTypes": type?.rawValue ?? "Movie,Series",
-            "Fields": "Genres,Overview"
+            "Fields": "Genres,Overview,ImageBlurHashes"
         ]
         
         

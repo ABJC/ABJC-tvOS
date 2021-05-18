@@ -20,7 +20,7 @@ extension LibraryView
         private let label: LocalizedStringKey
         
         private var height: CGFloat {
-            var _height = session.preferences.backdropTitleImages ? 300 : 340
+            var _height = session.preferences.posterType == .poster ? 340 : 300
             
             if session.preferences.showsTitles
             {

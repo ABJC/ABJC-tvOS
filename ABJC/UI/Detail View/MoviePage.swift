@@ -121,10 +121,7 @@ extension LibraryView
         
         
         var backdrop: some View {
-            Group() {
-                image
-                Blur()
-            }
+            Blurhash(item.blurHash(for: [.backdrop, .primary]))
         }
         
         /// Header
