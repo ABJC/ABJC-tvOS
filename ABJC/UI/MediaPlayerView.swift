@@ -32,45 +32,46 @@ struct MediaPlayerView: View {
     var body: some View {
         ZStack {
             Blur().edgesIgnoringSafeArea(.all)
-            VideoPlayer(player: self.player)
+            AVPlayerView(item)
+            //VideoPlayer(player: self.player)
         }
         .edgesIgnoringSafeArea(.all)
-        .onAppear(perform: initPlayback)
+//        .onAppear(perform: initPlayback)
         .onDisappear(perform: deinitPlayback)
     }
     
     
-    /// Initializes the Player
-    func initPlayback() {
-        self.logger.info("Initializing Playback")
-        
-        guard let mediaSourceId = self.item.mediaSources.first?.id else {
-            self.logger.error("Failed to find suitable media source")
-            fatalError("Couldn't find suitable Stream")
-        }
-        
-        let asset = API.playerItem(session.jellyfin!, self.item, mediaSourceId)
-        self.player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
-                
-        // Configure Playstate
-        self.playstate.setPlayer(player)
-                
-        // Report Playback Progress back to Jellyfin Server
-        self.logger.info("Initializing Playstate Observers")
-        self.playstate.startObserving() { event, state in
-            API.reportPlaystate(session.jellyfin!, .progress, self.item.id, mediaSourceId, self.playstate)
-        }
-        
-        self.logger.info("Playing")
-        player.play()
-        API.reportPlaystate(session.jellyfin!, .started, self.item.id, mediaSourceId, self.playstate)
-        
-        self.playerReady = true
-        
+//    /// Initializes the Player
+//    func initPlayback() {
+//        self.logger.info("Initializing Playback")
 //
-//        print("USERDATA", self.item.userData.playbackPosition, self.item.userData.playbackPositionTicks, self.item.userData.playbackPositionTicks/self.item.userData.playbackPosition)
-//        player.seek(to: CMTime(seconds: Double(self.item.userData.playbackPosition), preferredTimescale: 1))
-    }
+//        guard let mediaSourceId = self.item.mediaSources.first?.id else {
+//            self.logger.error("Failed to find suitable media source")
+//            fatalError("Couldn't find suitable Stream")
+//        }
+//
+//        let asset = API.playerItem(session.jellyfin!, self.item, mediaSourceId)
+//        self.player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
+//
+//        // Configure Playstate
+//        self.playstate.setPlayer(player)
+//
+//        // Report Playback Progress back to Jellyfin Server
+//        self.logger.info("Initializing Playstate Observers")
+//        self.playstate.startObserving() { event, state in
+//            API.reportPlaystate(session.jellyfin!, .progress, self.item.id, mediaSourceId, self.playstate)
+//        }
+//
+//        self.logger.info("Playing")
+////        player.play()
+//        API.reportPlaystate(session.jellyfin!, .started, self.item.id, mediaSourceId, self.playstate)
+//
+//        self.playerReady = true
+//
+////
+////        print("USERDATA", self.item.userData.playbackPosition, self.item.userData.playbackPositionTicks, self.item.userData.playbackPositionTicks/self.item.userData.playbackPosition)
+////        player.seek(to: CMTime(seconds: Double(self.item.userData.playbackPosition), preferredTimescale: 1))
+//    }
     
     func deinitPlayback() {
         self.logger.info("Deinitializing Playback")

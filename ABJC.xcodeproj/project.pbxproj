@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0926157326538CEA000286C6 /* CustomPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0926157226538CEA000286C6 /* CustomPlayerView.swift */; };
 		FD27CD74260F55BB002C763F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = FD27CD73260F55BB002C763F /* URLImage */; };
 		FD27CD79260F565E002C763F /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD78260F565E002C763F /* ImageType.swift */; };
 		FD27CD7E260F56C2002C763F /* API+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD7D260F56C2002C763F /* API+Images.swift */; };
@@ -111,6 +112,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0926157226538CEA000286C6 /* CustomPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlayerView.swift; sourceTree = "<group>"; };
 		FD27CD78260F565E002C763F /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
 		FD27CD7D260F56C2002C763F /* API+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Images.swift"; sourceTree = "<group>"; };
 		FD27CD82260F5ABD002C763F /* WatchNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNowView.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				FD27CDA7260F6295002C763F /* Detail View */,
 				FD40C024261886AE00719C7E /* Preferences */,
 				FD8FE3D22631BFC0004B9C5F /* Subviews */,
+				0926157226538CEA000286C6 /* CustomPlayerView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0926157326538CEA000286C6 /* CustomPlayerView.swift in Sources */,
 				FDA627C0260E3728002F9ECC /* LibraryView.swift in Sources */,
 				FD8FE3F12631C508004B9C5F /* PlaystateReport.swift in Sources */,
 				FDA627D7260E3E58002F9ECC /* Genre.swift in Sources */,
