@@ -4,69 +4,72 @@
 //
 //  Created by Stephen Byatt on 18/5/21.
 //
-
 import SwiftUI
 import AVKit
 import TVUIKit
-import os
+
 
 struct AVPlayerView: UIViewControllerRepresentable {
     
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "PLAYER")
+    @Binding var player: AVPlayer
     
-    /// SessionStore EnvironmentObject
-    @EnvironmentObject var session: SessionStore
-    @State var playerReady: Bool = false
-    @StateObject var playstate: Playstate = Playstate()
-    
-    var isPausedObserver = 0
-    
-    let item: PlayItem
-    
-    public init(_ item: PlayItem) {
-        self.item = item
-    }
-
     func updateUIViewController(_ playerController: AVPlayerViewController, context: Context) {
-        
+        playerController.player = self.player
     }
-
+    
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let playerController = AVPlayerViewController()
         playerController.modalPresentationStyle = .fullScreen
         
+        // init custom info panel here
+        let customInfoPanel = UIViewController()
+        customInfoPanel.preferredContentSize = CGSize(width: 300, height: 300)
         
-        self.logger.info("Initializing Playback")
+        customInfoPanel.view = CustomInfoPanel()
         
-        guard let mediaSourceId = self.item.mediaSources.first?.id else {
-            self.logger.error("Failed to find suitable media source")
-            fatalError("Couldn't find suitable Stream")
-        }
-        
-        let asset = API.playerItem(session.jellyfin!, self.item, mediaSourceId)
-        let player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
-                
-        // Configure Playstate
-        self.playstate.setPlayer(player)
-                
-        // Report Playback Progress back to Jellyfin Server
-        self.logger.info("Initializing Playstate Observers")
-        self.playstate.startObserving() { event, state in
-            API.reportPlaystate(session.jellyfin!, .progress, self.item.id, mediaSourceId, self.playstate)
-        }
-        
-        self.logger.info("Playing")
-//        player.play()
-        API.reportPlaystate(session.jellyfin!, .started, self.item.id, mediaSourceId, self.playstate)
-        
-        self.playerReady = true
-        
-        
-        playerController.player = player
-        playerController.player?.play()
-//        playerController.customInfoViewController = custom
+        playerController.customInfoViewController = customInfoPanel
         return playerController
     }
+}
+
+
+class CustomInfoPanel: UIView {
     
+    override var canBecomeFocused: Bool {
+        return true
+    }
+    
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        button.setTitle("Test", for: .normal)
+        button.setTitleColor(.lightGray, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 28,weight: .semibold)
+        button.setTitleColor(.label, for: .focused)
+        button.addTarget(self, action: #selector(self.buttonAction(sender:)), for: .primaryActionTriggered)
+        
+        let button2 = UIButton(frame: CGRect(x: 100, y: 0, width: 100, height: 100))
+        button2.setTitle("Test 2", for: .normal)
+        button2.setTitleColor(.lightGray, for: .normal)
+        button2.titleLabel?.font = UIFont.systemFont(ofSize: 28,weight: .semibold)
+        button2.setTitleColor(.label, for: .focused)
+        button2.addTarget(self, action: #selector(self.buttonAction(sender:)), for: .primaryActionTriggered)
+        
+        
+        self.addSubview(button)
+        self.addSubview(button2)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func buttonAction(sender:UIButton!) {
+        var btn:UIButton = sender
+        btn.setTitle("Pressed", for: .normal)
+        print("!~!~~~~~~~~ pressed button")
+        
+    }
     
 }
