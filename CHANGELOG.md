@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [v1.0.0-build.23] - [2021-05-??]
 ### Added
 - It is now possible to change the type of poster that is displayed for media items
-- Item detail pages have a backdrop & poster
+- Item detail pages have a backdrop (Blurhash)
+- Item detail pages show a poster for the item
 ### Changed
+- Person rows costraints have been fixed
 ### Deprecated
 ### Fixed
 ### Removed

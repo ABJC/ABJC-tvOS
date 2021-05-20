@@ -36,13 +36,14 @@ struct PeopleRowView: View {
                 .font(.title3)
                 .padding(.horizontal, edgeInsets.leading)
             ScrollView(.horizontal) {
-                LazyHStack(spacing: 48) {
+                HStack(spacing: 48) {
                     ForEach(people, id:\.id) { person in
                         Button(action: {}) {
                             PersonCardView(person)
                         }
                     }
                 }
+                .frame(height: 450)
                 .padding(edgeInsets)
             }
         }

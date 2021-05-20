@@ -32,20 +32,8 @@ extension LibraryView
             }
             return false
         }
-        
-        private var url: URL? {
-            guard let jellyfin = session.jellyfin else {
-                DispatchQueue.main.async {
-                    session.itemPlaying = nil
-                    session.itemFocus = nil
-                }
-                session.logout()
-                return nil
-            }
-            return API.imageURL(jellyfin, item.id, .backdrop)
-        }
-        
-        private var primaryUrl : URL? {
+                
+        private var imageUrl : URL? {
             guard let jellyfin = session.jellyfin else {
                 DispatchQueue.main.async {
                     session.itemPlaying = nil
@@ -83,7 +71,7 @@ extension LibraryView
         /// URLImage
         private var image: some View {
             Group() {
-                if let url = url {
+                if let url = imageUrl {
                     URLImage(
                         url: url,
                         empty: { EmptyView() },
@@ -99,26 +87,6 @@ extension LibraryView
                 }
             }
         }
-        
-        private var primaryImage: some View {
-            Group() {
-                if let url = primaryUrl {
-                    URLImage(
-                        url: url,
-                        empty: { EmptyView() },
-                        inProgress: { _ in EmptyView() },
-                        failure:  { _,_ in EmptyView() }
-                    ) { image in
-                        image
-                            .renderingMode(.original)
-                            .resizable()
-                    }
-                } else {
-                    EmptyView()
-                }
-            }
-        }
-        
         
         var backdrop: some View {
             Blurhash(item.blurHash(for: [.backdrop, .primary]))
@@ -129,7 +97,7 @@ extension LibraryView
             ButtonArea(play) { isFocus in 
                 VStack(alignment: .leading) {
                     // insert primary image here
-                    primaryImage
+                    image
                         .aspectRatio(2/3, contentMode: .fill)
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
