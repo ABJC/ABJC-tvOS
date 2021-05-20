@@ -1089,8 +1089,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.3;
+				kind = exactVersion;
+				version = 2.2.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
