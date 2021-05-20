@@ -14,9 +14,9 @@ I am publishing new information on builds, beta progress, surveys and polls on d
 - Sign up to my [Newsletter](https://abjc.tech/newsletter)
 - Follow my [Twitter](https://twitter.com/abjc_app)
 
-# The ABJC Issues Repo
+# Issues
 
-The repo you are looking at is the ABJC Issues Repo. It exists as a public forum to gather users' feedback and discussions on bugs, missing features or desired enhancements. 
+If you find any bugs or have feature requests please [create an issue](https://github.com/ABJC/ABJC-tvOS/issues). 
 
 __As a developer I want to make ABJC perfect. I welcome all user ideas and opinions.__
 
@@ -31,9 +31,3 @@ If you have multiple bugs or requests that are not closely related, please separ
 
 
 This is the main repository for ABJC
-
-[TestFlight](https://testflight.apple.com/join/AAHO5kPc)
-
-
-## Issues
-If you find any bugs or have feature requests please create an issue [here](https://bitbucket.org/abjc-app/abjc-apple-tv/issues/new)
