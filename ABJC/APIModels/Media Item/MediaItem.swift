@@ -23,10 +23,34 @@ extension APIModels {
         public var runTimeTicks: Int?
         private var imageBlurHashes: [String: [String: String]]?
         
-//        public func blurHash(for imageType: ImageType) -> String? {
-//            guard let hashes = imageBlurHashes else { return nil }
-//            return hashes[imageType.rawValue]?.values.first
-//        }
+        
+        /// Retrieve Blurhash for Image type
+        /// - Parameter imageType: Image type
+        /// - Returns: BlurHash if available
+        public func blurHash(for imageType: ImageType) -> String? {
+            guard let hashes = imageBlurHashes else { return nil }
+            return hashes[imageType.rawValue]?.values.first
+        }
+        
+        /// Retrieve the first available blurhash for the image types
+        /// - Parameter imageType: Image type
+        /// - Returns: BlurHash if available
+        public func blurHash(for imageTypes: [ImageType]) -> String? {
+            guard let hashes = imageBlurHashes else { return nil }
+            
+            var hash: String? = nil
+            var types = imageTypes
+            
+            while hash == nil && !types.isEmpty {
+                let type = types.removeFirst()
+                let found = hashes[type.rawValue]?.values.first
+                if found != nil {
+                    hash = found
+                }
+            }
+            
+            return hash
+        }
         
         public var runTime: Int {
             return Int((runTimeTicks ?? 0)/1000000)

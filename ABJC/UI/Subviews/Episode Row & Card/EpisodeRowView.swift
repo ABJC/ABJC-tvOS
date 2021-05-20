@@ -45,7 +45,7 @@ extension LibraryView
         var body: some View {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
-                    HStack(spacing: 48) {
+                    LazyHStack(spacing: 48) {
                         ForEach(items, id:\.id) { item in
                             Button(action: {
                                 DispatchQueue.main.async {

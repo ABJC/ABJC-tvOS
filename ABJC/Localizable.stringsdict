@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>postertype.wide</key>
+	<string>Wide (Backdrop - may be missing title)</string>
+	<key>postertype.poster</key>
+	<string>Poster</string>
 	<key>reportaproblem.title</key>
 	<string>Report A Problem</string>
 	<key>pref.debugmenu.debugmode.label</key>
@@ -38,6 +42,10 @@
 	<string>alphabetical list of library &amp; search</string>
 	<key>pref.client.showstitles.descr</key>
 	<string>Show a titles for items</string>
+	<key>pref.client.postertype.descr</key>
+	<string>You can choose between wide 16:9 posters or the classic 2:3 poster</string>
+	<key>pref.client.postertype.label</key>
+	<string>Type of Poster for Media Items</string>
 	<key>pref.client.showstitles.label</key>
 	<string>Always Show Titles</string>
 	<key>pref.client.ui.label</key>
