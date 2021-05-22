@@ -74,7 +74,7 @@ extension LibraryView
         /// URLImage
         private var image: some View {
             URLImage(
-                url: url,
+                url,
                 empty: { placeholder },
                 inProgress: { _ in placeholder },
                 failure:  { _,_ in placeholder }
