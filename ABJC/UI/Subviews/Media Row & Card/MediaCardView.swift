@@ -96,7 +96,7 @@ extension LibraryView
             Group() {
                 if let url = url {
                     URLImage(
-                        url: url,
+                        url,
                         empty: { placeholder },
                         inProgress: { _ in placeholder },
                         failure:  { _,_ in placeholder }

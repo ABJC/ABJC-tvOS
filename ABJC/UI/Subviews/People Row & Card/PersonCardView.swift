@@ -45,7 +45,7 @@ extension PeopleRowView {
         /// Image View
         var imageView: some View {
             URLImage(
-                url: API.imageURL(session.jellyfin!,
+                API.imageURL(session.jellyfin!,
                                   person.id,
                                   .primary),
                 empty: { blur },

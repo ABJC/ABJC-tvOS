@@ -13,17 +13,19 @@ struct ABJCApp: App {
     /// Session Store
     let session: SessionStore = SessionStore()
     
-    func configure() {
-        // Configure URLImageService
-        URLImageService.shared.defaultOptions.cachePolicy = .returnCacheElseLoad(cacheDelay: 0.0, downloadDelay: 0.25)
-        URLImageService.shared.defaultOptions.loadOptions = [ .loadImmediately, .cancelOnDisappear]
+    var urlImageOptions: URLImageOptions {
+        var options = URLImageOptions()
+        options.fetchPolicy = .returnStoreElseLoad(downloadDelay: 0.25)
+        options.loadOptions = [ .loadImmediately ]
+        return options
     }
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environmentObject(session)
-                .onAppear(perform: configure)
+                .environment(\.urlImageOptions, urlImageOptions)
+                .environment(\.urlImageService, URLImageService())
         }
     }
 }
