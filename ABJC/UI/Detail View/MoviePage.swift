@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 extension LibraryView
 {
@@ -31,6 +32,18 @@ extension LibraryView
             }
             return false
         }
+                
+        private var imageUrl : URL? {
+            guard let jellyfin = session.jellyfin else {
+                DispatchQueue.main.async {
+                    session.itemPlaying = nil
+                    session.itemFocus = nil
+                }
+                session.logout()
+                return nil
+            }
+            return API.imageURL(jellyfin, item.id, .primary)
+        }
         
         /// Initializer
         /// - Parameter item: Series
@@ -55,15 +68,40 @@ extension LibraryView
             .onAppear(perform: load)
         }
         
+        /// URLImage
+        private var image: some View {
+            Group() {
+                if let url = imageUrl {
+                    URLImage(
+                        url: url,
+                        empty: { EmptyView() },
+                        inProgress: { _ in EmptyView() },
+                        failure:  { _,_ in EmptyView() }
+                    ) { image in
+                        image
+                            .renderingMode(.original)
+                            .resizable()
+                    }
+                } else {
+                    EmptyView()
+                }
+            }
+        }
+        
         var backdrop: some View {
-            Blur()
+            Blurhash(item.blurHash(for: [.backdrop, .primary]))
         }
         
         /// Header
         var headerView: some View {
             ButtonArea(play) { isFocus in 
                 VStack(alignment: .leading) {
-                    Spacer()
+                    // insert primary image here
+                    image
+                        .aspectRatio(2/3, contentMode: .fill)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                        .frame(width: 400, height: 600)
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
                             Text(item.name)

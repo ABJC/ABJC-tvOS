@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 extension LibraryView
 {
@@ -73,6 +74,19 @@ extension LibraryView
             self.item = item
         }
         
+        
+        private var imageUrl : URL? {
+            guard let jellyfin = session.jellyfin else {
+                DispatchQueue.main.async {
+                    session.itemPlaying = nil
+                    session.itemFocus = nil
+                }
+                session.logout()
+                return nil
+            }
+            return API.imageURL(jellyfin, item.id, .primary)
+        }
+        
 
         var body: some View {
             ZStack {
@@ -82,7 +96,6 @@ extension LibraryView
                         .padding(80)
                         .frame(width: 1920, height: 1080 + 50)
                     
-//                    #warning("INFO VIEW")
                     episodeView
                     
 //                    infoView
@@ -96,14 +109,37 @@ extension LibraryView
         
         /// Backdrop
         var backdrop: some View {
-            Blur()
+            Blurhash(item.blurHash(for: [.backdrop, .primary]))
+        }
+        
+        private var image: some View {
+            Group() {
+                if let url = imageUrl {
+                    URLImage(
+                        url: url,
+                        empty: { EmptyView() },
+                        inProgress: { _ in EmptyView() },
+                        failure:  { _,_ in EmptyView() }
+                    ) { image in
+                        image
+                            .renderingMode(.original)
+                            .resizable()
+                    }
+                } else {
+                    EmptyView()
+                }
+            }
         }
         
         /// Header
         var headerView: some View {
             ButtonArea(play) { isFocused in
                 VStack(alignment: .leading) {
-                    Spacer()
+                    image
+                        .aspectRatio(2/3, contentMode: .fill)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                        .frame(width: 400, height: 600)
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
                             if let episode = selectedEpisode {

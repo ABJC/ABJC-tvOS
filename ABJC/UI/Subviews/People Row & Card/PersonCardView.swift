@@ -17,7 +17,7 @@ extension PeopleRowView {
         /// Person Item
         var person: APIModels.Person
         
-        private var size: CGFloat = 300
+        private var size: CGSize = .init(width: 300, height: 400)
         
         /// Initializer
         /// - Parameter person: Person Item
@@ -30,8 +30,8 @@ extension PeopleRowView {
                 imageView
                     .clipShape(Circle())
                     .clipped()
-                    .frame(width: size, height: size)
-                    .padding([.horizontal, .top], 10)
+                    .padding([.horizontal, .top], 15)
+                    .frame(width: size.width, height: size.width)
                 
                 VStack {
                     Text(person.name)
@@ -39,7 +39,7 @@ extension PeopleRowView {
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }.padding([.horizontal, .bottom], 10)
-            }.frame(width: size)
+            }.frame(width: size.width, height: size.height)
         }
         
         /// Image View
@@ -62,7 +62,8 @@ extension PeopleRowView {
         
         /// Placeholder for missing URLImage
         private var blur: some View {
-            Blur().clipShape(Circle())
+//            Blur().clipShape(Circle())
+            Circle()
         }
     }
     

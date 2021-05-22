@@ -8,6 +8,8 @@
 import SwiftUI
 
 public enum Grouping: String, CaseIterable {
+    static let `default`: Self = .genre
+    
     case title = "title"
     case genre = "genre"
     case releaseYear = "releaseyear"
