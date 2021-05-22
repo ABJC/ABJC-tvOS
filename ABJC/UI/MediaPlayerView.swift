@@ -44,7 +44,7 @@ struct MediaPlayerView: View {
     func initPlayback() {
         self.logger.info("Initializing Playback")
         
-        guard let mediaSourceId = self.item.mediaSources.first?.id else {
+        guard let mediaSourceId = self.item.mediaSources.first(where: { $0.canPlay })?.id else {
             self.logger.error("Failed to find suitable media source")
             fatalError("Couldn't find suitable Stream")
         }

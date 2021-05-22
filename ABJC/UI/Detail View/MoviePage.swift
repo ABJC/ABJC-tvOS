@@ -73,7 +73,7 @@ extension LibraryView
             Group() {
                 if let url = imageUrl {
                     URLImage(
-                        url: url,
+                        url,
                         empty: { backdrop },
                         inProgress: { _ in backdrop },
                         failure:  { _,_ in backdrop }

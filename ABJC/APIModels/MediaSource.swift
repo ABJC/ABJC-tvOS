@@ -14,7 +14,8 @@ extension APIModels {
         public var container: String
         
         public var canPlay: Bool {
-            return container == "mp4"
+            // container == "mp4"
+            return true
         }
         enum CodingKeys: String, CodingKey {
             case id = "Id"
