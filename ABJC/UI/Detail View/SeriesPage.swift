@@ -116,7 +116,7 @@ extension LibraryView
             Group() {
                 if let url = imageUrl {
                     URLImage(
-                        url: url,
+                        url,
                         empty: { EmptyView() },
                         inProgress: { _ in EmptyView() },
                         failure:  { _,_ in EmptyView() }
