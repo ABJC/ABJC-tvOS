@@ -12,6 +12,7 @@ extension PreferencesView {
     struct DebugMenu: View {
         /// SessionStore EnvironmentObject
         @EnvironmentObject var session: SessionStore
+        @Environment(\.urlImageService) var urlImageService
         
         
         public init() {}
@@ -24,7 +25,8 @@ extension PreferencesView {
                 
                 Section(header: Label("pref.debugmenu.images.label", systemImage: "photo.fill")) {
                     Button(action: {
-                        URLImageService.shared.removeAllCachedImages()
+                        urlImageService.fileStore?.removeAllImages()
+                        urlImageService.inMemoryStore?.removeAllImages()
                     }) {
                         Text("pref.debugmenu.clearimagecache.label")
                             .textCase(.uppercase)
