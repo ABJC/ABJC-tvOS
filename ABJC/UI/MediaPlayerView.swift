@@ -20,20 +20,16 @@ struct MediaPlayerView: View {
     @State var playerReady: Bool = false
     @StateObject var playstate: Playstate = Playstate()
     
-    var isPausedObserver = 0
-    
     let item: PlayItem
     
     public init(_ item: PlayItem) {
+        print("INITIALIZING")
         self.item = item
     }
     
     
     var body: some View {
-        ZStack {
-            Blur().edgesIgnoringSafeArea(.all)
-            VideoPlayer(player: self.player)
-        }
+        VideoPlayer(player: self.player)
         .edgesIgnoringSafeArea(.all)
         .onAppear(perform: initPlayback)
         .onDisappear(perform: deinitPlayback)
@@ -75,9 +71,6 @@ struct MediaPlayerView: View {
     func deinitPlayback() {
         self.logger.info("Deinitializing Playback")
         self.player.pause()
-//        guard let self.item = detailItem else {
-//            fatalError("Detail Item nil")
-//        }
         
         guard let mediaSourceId = self.item.mediaSources.first?.id else {
             fatalError("Couldn't find suitable Stream")

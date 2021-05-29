@@ -36,6 +36,11 @@ extension LibraryView
                 }.edgesIgnoringSafeArea(.horizontal)
             }
             .onAppear(perform: load)
+            // Present MediaPlayer when itemPlaying is pending
+            .fullScreenCover(item: $session.itemPlaying, onDismiss: session.restoreFocus) { item in
+                MediaPlayerView(item)
+                    .environmentObject(session)
+            }
         }
         
         func load() {

@@ -245,7 +245,8 @@ extension LibraryView
         
         func play() {
             if let episode = selectedEpisode {
-                session.setPlayItem(.init(episode))
+                let playItem = PlayItem(episode)
+                session.setPlayItem(playItem)
             } else {
                 print("ERROR")
             }

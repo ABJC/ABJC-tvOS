@@ -32,6 +32,7 @@ extension LibraryView
             }
             return false
         }
+        
                 
         private var imageUrl : URL? {
             guard let jellyfin = session.jellyfin else {

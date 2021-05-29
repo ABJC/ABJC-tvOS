@@ -311,6 +311,15 @@
 			path = Blurhash;
 			sourceTree = "<group>";
 		};
+		FD69013A2659436F00CDEDE8 /* SessionStore */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0828A260E0C1E0088419A /* SessionStore.swift */,
+				FDAC930E26333EC600BA2E5C /* Keychain.swift */,
+			);
+			path = SessionStore;
+			sourceTree = "<group>";
+		};
 		FD8FE3D22631BFC0004B9C5F /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,12 +472,11 @@
 				FD8FE41426320196004B9C5F /* ABJC.entitlements */,
 				FDE08256260E0B9D0088419A /* ABJCApp.swift */,
 				FDA627AA260E2EC1002F9ECC /* Localizable.stringsdict */,
-				FDE0828A260E0C1E0088419A /* SessionStore.swift */,
-				FDAC930E26333EC600BA2E5C /* Keychain.swift */,
-				FDBA0E55263457FE001D38CC /* PreferencesStore */,
 				FDA62766260E276C002F9ECC /* UI */,
-				FDE082B0260E1AD80088419A /* APIModels */,
 				FDA6276A260E2778002F9ECC /* Logic */,
+				FD69013A2659436F00CDEDE8 /* SessionStore */,
+				FDBA0E55263457FE001D38CC /* PreferencesStore */,
+				FDE082B0260E1AD80088419A /* APIModels */,
 				FDE0825A260E0B9F0088419A /* Assets.xcassets */,
 				FDE0825F260E0B9F0088419A /* Info.plist */,
 				FDE0825C260E0B9F0088419A /* Preview Content */,
