@@ -40,4 +40,36 @@ extension API {
         
         return url
     }
+    
+    
+    public static func profileImageURL(
+        _ jellyfin: Jellyfin,
+        _ id: String) -> URL
+    {
+        Self.logger.info("[IMAGE] profileImageURL - called")
+        Self.logger.debug("[IMAGE] profileImageURL - id=\(id)")
+
+        let path = "/Users/\(id)/Images/\(APIModels.ImageType.primary.rawValue)"
+        let params = [
+            "Format": "jpg",
+            "Quality": String(70)
+        ]
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = jellyfin.server.https ? "https" : "http"
+        urlComponents.host = jellyfin.server.host
+        urlComponents.port = jellyfin.server.port
+        urlComponents.path = jellyfin.server.path ?? "" + path
+        
+        urlComponents.queryItems = params.map({
+            URLQueryItem(name: $0.key, value: $0.value)
+        })
+        
+        guard let url = urlComponents.url else {
+            Self.logger.error("[IMAGE] profileImageURL - failure 'Image URL Could not be created'")
+            fatalError("URL couldn't be created")
+        }
+        
+        return url
+    }
 }

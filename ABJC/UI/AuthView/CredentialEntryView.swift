@@ -25,7 +25,7 @@ extension AuthView.ServerSelectionView {
         
         
         /// Credentials: username
-        @State var username: String = ""
+        @State var username: String
         
         /// Credentials: password
         @State var password: String = ""
@@ -38,10 +38,11 @@ extension AuthView.ServerSelectionView {
         @State var isCredentialsFilledIn: Bool = false
         
         
-        init(_ host: String, _ port: Int, _ path: String?) {
+        init(_ host: String, _ port: Int, _ path: String?, _ username: String = "") {
             self.host = host
             self.port = port
             self.path = path
+            self.username = username
         }
         
         var body: some View {
