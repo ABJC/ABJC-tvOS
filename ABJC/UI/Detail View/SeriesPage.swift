@@ -261,14 +261,19 @@ extension LibraryView
         }
         
         func load() {
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            
             // Fetch Seasons
-            API.seasons(session.jellyfin!, self.item.id) { result in
+            API.seasons(jellyfin, self.item.id) { result in
                 switch result {
                     case .success(let items):
                         self.seasons = items.sorted(by: {$0.index == 0 || $0.index < $1.index})
                         self.selectedSeason = self.seasons.isEmpty ? nil : self.seasons.first!
                         // Fetch Episodes
-                        API.episodes(session.jellyfin!, self.item.id) { result in
+                        API.episodes(jellyfin, self.item.id) { result in
                             switch result {
                                 case .success(let items):
                                     self.episodes = items

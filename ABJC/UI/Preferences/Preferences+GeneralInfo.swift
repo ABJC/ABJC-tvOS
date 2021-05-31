@@ -61,7 +61,12 @@ extension PreferencesView {
         
         /// Loads ServerInfo
         func load() {
-            API.systemInfo(session.jellyfin!) { result in
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            
+            API.systemInfo(jellyfin) { result in
                 switch result {
                     case .success(let data): self.serverInfo = data
                     case .failure(let error): print(error)
@@ -69,14 +74,14 @@ extension PreferencesView {
             }
             
             
-            API.itemCounts(session.jellyfin!) { result in
+            API.itemCounts(jellyfin) { result in
                 switch result {
                     case .success(let data): self.libraryInfo = data
                     case .failure(let error): print(error)
                 }
             }
             
-            API.currentUser(session.jellyfin!) { result in
+            API.currentUser(jellyfin) { result in
                 switch result {
                     case .success(let data): self.userInfo = data
                     case .failure(let error): print(error)

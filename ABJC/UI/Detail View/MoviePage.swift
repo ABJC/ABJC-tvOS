@@ -165,8 +165,13 @@ extension LibraryView
         
         /// Loads Content From API
         func load() {
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            
             // Fetch Item Detail
-            API.movie(session.jellyfin!, item.id) { result in
+            API.movie(jellyfin, item.id) { result in
                 switch result {
                     case .success(let item): self.detailItem = item
                     case .failure(let error): session.setAlert(.api, "Failed to fetch item detail", "getMovie failed", error)

@@ -56,7 +56,11 @@ extension LibraryView {
         }
     
         func load() {
-            API.items(session.jellyfin!, nil) { (result) in
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            API.items(jellyfin, nil) { (result) in
                 switch result {
                     case .failure(let error):
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items of type", error)
@@ -67,8 +71,13 @@ extension LibraryView {
         }
             
         func search() {
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            
             // Query Jellyfin for Media Items
-            API.searchItems(session.jellyfin!, query) { result in
+            API.searchItems(jellyfin, query) { result in
                 switch result {
                     case .success(let items): self.itemResults = items
                     case .failure(let error): print(error)
@@ -76,7 +85,7 @@ extension LibraryView {
             }
             
             // Query Jellyfin for People
-            API.searchPeople(session.jellyfin!, query) { result in
+            API.searchPeople(jellyfin, query) { result in
                 switch result {
                     case .success(let items): self.personResults = items
                     case .failure(let error): print(error)
