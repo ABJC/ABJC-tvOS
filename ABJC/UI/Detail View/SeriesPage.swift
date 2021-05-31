@@ -117,9 +117,9 @@ extension LibraryView
                 if let url = imageUrl {
                     URLImage(
                         url,
-                        empty: { EmptyView() },
-                        inProgress: { _ in EmptyView() },
-                        failure:  { _,_ in EmptyView() }
+                        empty: { backdrop },
+                        inProgress: { _ in backdrop },
+                        failure:  { _,_ in backdrop }
                     ) { image in
                         image
                             .renderingMode(.original)
@@ -140,6 +140,7 @@ extension LibraryView
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                         .frame(width: 400, height: 600)
+                        .shadow(radius: 5)
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
                             if let episode = selectedEpisode {
@@ -244,7 +245,8 @@ extension LibraryView
         
         func play() {
             if let episode = selectedEpisode {
-                session.setPlayItem(.init(episode))
+                let playItem = PlayItem(episode)
+                session.setPlayItem(playItem)
             } else {
                 print("ERROR")
             }

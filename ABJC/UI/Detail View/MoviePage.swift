@@ -32,6 +32,7 @@ extension LibraryView
             }
             return false
         }
+        
                 
         private var imageUrl : URL? {
             guard let jellyfin = session.jellyfin else {
@@ -74,9 +75,9 @@ extension LibraryView
                 if let url = imageUrl {
                     URLImage(
                         url,
-                        empty: { EmptyView() },
-                        inProgress: { _ in EmptyView() },
-                        failure:  { _,_ in EmptyView() }
+                        empty: { backdrop },
+                        inProgress: { _ in backdrop },
+                        failure:  { _,_ in backdrop }
                     ) { image in
                         image
                             .renderingMode(.original)
@@ -102,6 +103,7 @@ extension LibraryView
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                         .frame(width: 400, height: 600)
+                        .shadow(radius: 5)
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
                             Text(item.name)

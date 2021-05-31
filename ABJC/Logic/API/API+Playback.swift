@@ -20,18 +20,14 @@ extension API {
         let params = [
             "DeviceId": jellyfin.client.deviceId,
             "MediaSourceId": mediaSourceId,
-            "VideoCodec": "h264",
+            "VideoCodec": "h264,h265,avc,hevc",
             "AudioCodec": "ac3,mp3,aac",
             "VideoBitrate": "139680000",
             "AudioBitrate": "320000",
             "TranscodingMaxAudioChannels": "2",
-            "RequireAvc": "false",
+            "RequireAvc": "true",
             "SegmentContainer": "ts",
             "MinSegments": "2",
-            "BreakOnNonKeyFrames": "True",
-            "h264-profile": "high,main,baseline,constrainedbaseline",
-            "h264-level": "51",
-            "h264-deinterlace": "true",
             "TranscodeReasons": "ContainerNotSupported,VideoCodecNotSupported,AudioCodecNotSupported"
         ]
         
