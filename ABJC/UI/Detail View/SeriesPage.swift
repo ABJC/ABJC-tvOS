@@ -117,9 +117,9 @@ extension LibraryView
                 if let url = imageUrl {
                     URLImage(
                         url,
-                        empty: { EmptyView() },
-                        inProgress: { _ in EmptyView() },
-                        failure:  { _,_ in EmptyView() }
+                        empty: { backdrop },
+                        inProgress: { _ in backdrop },
+                        failure:  { _,_ in backdrop }
                     ) { image in
                         image
                             .renderingMode(.original)
@@ -140,6 +140,7 @@ extension LibraryView
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                         .frame(width: 400, height: 600)
+                        .shadow(radius: 5)
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
                             if let episode = selectedEpisode {
@@ -244,7 +245,8 @@ extension LibraryView
         
         func play() {
             if let episode = selectedEpisode {
-                session.setPlayItem(.init(episode))
+                let playItem = PlayItem(episode)
+                session.setPlayItem(playItem)
             } else {
                 print("ERROR")
             }
@@ -259,14 +261,19 @@ extension LibraryView
         }
         
         func load() {
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            
             // Fetch Seasons
-            API.seasons(session.jellyfin!, self.item.id) { result in
+            API.seasons(jellyfin, self.item.id) { result in
                 switch result {
                     case .success(let items):
                         self.seasons = items.sorted(by: {$0.index == 0 || $0.index < $1.index})
                         self.selectedSeason = self.seasons.isEmpty ? nil : self.seasons.first!
                         // Fetch Episodes
-                        API.episodes(session.jellyfin!, self.item.id) { result in
+                        API.episodes(jellyfin, self.item.id) { result in
                             switch result {
                                 case .success(let items):
                                     self.episodes = items

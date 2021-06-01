@@ -36,10 +36,20 @@ extension LibraryView
                 }.edgesIgnoringSafeArea(.horizontal)
             }
             .onAppear(perform: load)
+            // Present MediaPlayer when itemPlaying is pending
+            .fullScreenCover(item: $session.itemPlaying, onDismiss: session.restoreFocus) { item in
+                MediaPlayerView(item)
+                    .environmentObject(session)
+            }
         }
         
         func load() {
-            API.items(session.jellyfin!, type) { (result) in
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            
+            API.items(jellyfin, type) { (result) in
                 switch result {
                     case .failure(let error):
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items of type \(String(describing: type?.rawValue))", error)

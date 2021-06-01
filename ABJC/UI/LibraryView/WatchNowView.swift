@@ -37,8 +37,13 @@ extension LibraryView
         }
         
         func load() {
+            guard let jellyfin = session.jellyfin else {
+                session.logout()
+                return
+            }
+            
             // Fetch latest Movies & TV Shows
-            API.latest(session.jellyfin!) { (result) in
+            API.latest(jellyfin) { (result) in
                 switch result {
                     case .failure(let error):
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items (latest)", error)
@@ -50,7 +55,7 @@ extension LibraryView
             }
             
             // Fetch all Items
-            API.items(session.jellyfin!) { (result) in
+            API.items(jellyfin) { (result) in
                 switch result {
                     case .failure(let error):
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items", error)

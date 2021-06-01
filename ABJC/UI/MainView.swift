@@ -32,12 +32,6 @@ struct MainView: View {
             )
         }
         
-        // Present MediaPlayer when itemPlaying is pending
-        .fullScreenCover(item: $session.itemPlaying, onDismiss: session.restoreFocus) { item in
-            MediaPlayerView(item)
-                .environmentObject(session)
-        }
-        
         // Present Item Detail view when focus is set
         .fullScreenCover(item: $session.itemFocus) { item in
             LibraryView.ItemPage(item)
