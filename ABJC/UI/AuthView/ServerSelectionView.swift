@@ -21,6 +21,10 @@ extension AuthView {
         /// ServerLocator
         private let locator: ServerLocator = ServerLocator()
         
+        @State private var serverSelected = false
+        
+        @State private var jellyfin: Jellyfin? = nil
+        
         var body: some View {
             
             GeometryReader { geometry in
@@ -53,14 +57,27 @@ extension AuthView {
                                         
                                         if self.servers.count > 0 {
                                             ForEach(self.servers, id:\.id) { server in
-                                                NavigationLink(
-                                                    destination: ServerUserListView(server.host, Int(server.port), nil))
-                                                {
-                                                    ServerCardView(server)
+                                                    Button {
+                                                        let server = Jellyfin.Server(server.host, server.port, false, nil)
+                                                        let client = Jellyfin.Client()
+                                                        let user = Jellyfin.User("", "", "")
+                                                        self.jellyfin = Jellyfin(server, user, client)
+                                                        self.serverSelected = true
+                                                        
+                                                    } label: {
+                                                        ServerCardView(server)
+                                                    }
+                                                    .background(
+                                                        NavigationLink(
+                                                        destination: ServerUserListView(jellyfin: jellyfin),
+                                                        isActive: $serverSelected)
+                                                    {
+                                                        EmptyView()
+                                                    }
+                                                        .buttonStyle(PlainButtonStyle()))
                                                 }
                                                 .padding()
                                             }
-                                        }
                                         
                                         NavigationLink(destination: ManualView())
                                         {

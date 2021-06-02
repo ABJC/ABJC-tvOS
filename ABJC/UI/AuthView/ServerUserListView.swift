@@ -13,40 +13,19 @@ extension AuthView.ServerSelectionView {
         /// SessionStore EnvironmentObject
         @EnvironmentObject var session: SessionStore
         
-        /// Server Host
-        private let host: String
-        
-        /// Server Port
-        private let port: Int
-        
-        /// Server Path
-        private let path: String?
-        
-        
-        init(_ host: String, _ port: Int, _ path: String?) {
-            self.host = host
-            self.port = port
-            self.path = path
-            
-            let isHttpsEnabled = false // work on if need HTTPs
-            
-            let server = Jellyfin.Server(host, port, isHttpsEnabled, path)
-            let client = Jellyfin.Client()
-            let user = Jellyfin.User("", "", "")
-            jellyfin = Jellyfin(server, user, client)
-        }
-        
         @State var users = [APIModels.User]()
         
-        var jellyfin : Jellyfin
+        var jellyfin: Jellyfin?
         
+        init(jellyfin : Jellyfin? = nil) {
+            self.jellyfin = jellyfin
+        }
+                
         var body: some View {
             ZStack {
                 // Sretch frame to whole screen for background color
                 Spacer()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
-                
                 
                 VStack{
                     Text("Whos Watching?")
@@ -57,9 +36,9 @@ extension AuthView.ServerSelectionView {
                             // Link to manual sign in
                             if user.hasPassword {
                                 NavigationLink(
-                                    destination: CredentialEntryView(self.host, self.port, path, user.name))
+                                    destination: CredentialEntryView(jellyfin, user))
                                 {
-                                    UserImageBoxView(user, jellyfin)
+                                    UserImageBoxView(user, jellyfin!)
                                 }
                                 .buttonStyle(CardButtonStyle())
                                 
@@ -67,7 +46,7 @@ extension AuthView.ServerSelectionView {
                             else {
                                 // Sign in without password
                                 Button(action: {authorize(user: user)}, label: {
-                                    UserImageBoxView(user, jellyfin)
+                                    UserImageBoxView(user, jellyfin!)
                                 })
                                 .buttonStyle(CardButtonStyle())
                                 
@@ -75,15 +54,15 @@ extension AuthView.ServerSelectionView {
                         }
                         
                         NavigationLink(
-                            destination: CredentialEntryView(self.host, self.port, path))
+                            destination: CredentialEntryView(jellyfin))
                         {
                             VStack {
-                                Image(systemName: "ellipsis.rectangle")
+                                Image(systemName: "person.fill.badge.plus")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 300, height: 300)
-                                    .scaleEffect(0.3)
-                                    .foregroundColor(Color.init(white: 0.6))
+                                    .scaleEffect(0.8)
+                                    .foregroundColor(Color.init(white: 0.9))
                                 Text("buttons.signin")
                                     .textCase(.uppercase)
                                     .padding(.bottom)
@@ -104,6 +83,10 @@ extension AuthView.ServerSelectionView {
         }
         
         func fetchPublicUsers(){
+            guard let jellyfin = jellyfin else {
+                return
+            }
+            
             API.publicUsers(jellyfin) { result in
                 switch result {
                 case .success(let fetchedUsers):
@@ -112,7 +95,7 @@ extension AuthView.ServerSelectionView {
                     session.setAlert(
                         .auth,
                         "failed",
-                        "Public Users: \(jellyfin.server.https ? "(HTTPS)":"") @\(host):\(port)",
+                        "Public Users: \(jellyfin.server.https ? "(HTTPS)":"") @\(jellyfin.server.host):\(jellyfin.server.port)",
                         error
                     )
                 }
@@ -121,25 +104,19 @@ extension AuthView.ServerSelectionView {
         }
         
         func authorize(user : APIModels.User) {
-            let isHttpsEnabled = false // work on if need HTTPs
+            guard let jellyfin = jellyfin else {
+                return
+            }
             
-            let server = Jellyfin.Server(host, port, isHttpsEnabled, path)
-            let client = Jellyfin.Client()
-            
-            API.authorize(server, client, user.name, "") { result in
+            API.authorize(jellyfin.server, jellyfin.client, user.name, "") { result in
                 switch result {
                 case .success(let jellyfin):
-                    // Store Credentials
-                    //CredentialStore.save(jellyfin)
-                    
-                    // Update Session Store
                     session.setJellyfin(jellyfin)
-                    
                 case .failure(let error):
                     session.setAlert(
                         .auth,
                         "failed",
-                        "\(isHttpsEnabled ? "(HTTPS)":"") \(user.name)@\(host):\(port)",
+                        "\(jellyfin.server.https ? "(HTTPS)":"") \(user.name)@\(jellyfin.server.host):\(jellyfin.server.port)",
                         error
                     )
                 }

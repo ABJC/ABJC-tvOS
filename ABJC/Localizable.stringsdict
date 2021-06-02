@@ -150,6 +150,8 @@
 	<string>username</string>
 	<key>buttons.continue</key>
 	<string>continue</string>
+	<key>authView.serverSelection.port.path</key>
+	<string>/jellyfin</string>
 	<key>authView.serverSelection.port.label</key>
 	<string>port</string>
 	<key>authView.serverSelection.host.label</key>
