@@ -30,7 +30,7 @@ extension AuthView.ServerSelectionView {
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Image("logoWithText")
+                        Image("logo_wide")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .scaleEffect(0.75)

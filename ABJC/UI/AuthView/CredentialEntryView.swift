@@ -23,7 +23,7 @@ extension AuthView.ServerSelectionView {
         /// Credentials: password
         @State var password: String = ""
         
-
+        
         @State var showingAlert: Bool = false
         
         @State var isCredentialsFilledIn: Bool = false
@@ -38,10 +38,14 @@ extension AuthView.ServerSelectionView {
         }
         
         var body: some View {
-           
-            GeometryReader { geometry in
-                HStack {
-                    VStack {
+            
+            ZStack {
+                // Sretch frame to whole screen for background color
+                Spacer()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                VStack(alignment: .center) {
+                    Group {
                         if profileImageURL != nil {
                             profileImageView
                         }
@@ -49,40 +53,34 @@ extension AuthView.ServerSelectionView {
                         {
                             personImageView
                         }
-                    }
-                    .frame(width: geometry.size.width * 1/2)
+                    }.padding(20)
                     
-                    VStack(alignment: .center) {
-        
-                        VStack {
-                            Group() {
-                                TextField("authView.credentialEntryView.username.label", text: self.$username)
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-                                    .textContentType(.username)
-                                    .prefersDefaultFocus(username == "", in: namespace)
-                                SecureField("authView.credentialEntryView.password.label", text: self.$password)
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-                                    .textContentType(.password)
-                                    .prefersDefaultFocus(username != "", in: namespace)
-
-                                
-                            }.frame(width: 400)
-                            
-                            Button(action: authorize) {
-                                Text("buttons.signin").textCase(.uppercase)
-                            }
-                            .prefersDefaultFocus(username != "" && password != "", in: namespace)
+                    
+                    VStack {
+                        Group() {
+                            TextField("authView.credentialEntryView.username.label", text: self.$username)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                                .textContentType(.username)
+                                .prefersDefaultFocus(username.isEmpty, in: namespace)
+                                .disabled(user != nil)
+                    
+                            SecureField("authView.credentialEntryView.password.label", text: self.$password)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                                .textContentType(.password)
+                                .prefersDefaultFocus(!username.isEmpty, in: namespace)
+                        }.frame(width: 400)
+                        
+                        Button(action: authorize) {
+                            Text("buttons.signin").textCase(.uppercase)
                         }
-                        
-                        .frame(maxHeight: .infinity)
-                        
-                        
+                        .prefersDefaultFocus(!username.isEmpty && !password.isEmpty, in: namespace)
                     }
-                    .frame(width: geometry.size.width * 1/2)
+                    
                 }
             }
+            
             .background(
                 LinearGradient(
                     gradient: Gradient(colors: Color.backgroundGradient),
@@ -95,16 +93,24 @@ extension AuthView.ServerSelectionView {
         
         func setupImageURL() {
             if let jellyfin = jellyfin, let user = user {
-                self.profileImageURL = API.profileImageURL(jellyfin, user.id)
                 username = user.name
+                if user.primaryImageTag != nil {
+                    self.profileImageURL = API.profileImageURL(jellyfin, user.id)
+                }
             }
         }
         
         var personImageView: some View {
-            Image(systemName: "person.fill")
+            let imageName = user == nil ? "person.fill.badge.plus" : "person.fill"
+            
+            return Image(systemName: imageName)
                 .resizable()
-                .frame(width: 500, height: 500)
+                .frame(width: 300, height: 300)
                 .scaledToFill()
+                .scaleEffect(0.8)
+                .background(user == nil ? Color.clear : Color.blue)
+                .cornerRadius(20)
+
         }
         
         
@@ -113,14 +119,14 @@ extension AuthView.ServerSelectionView {
                 return AnyView(URLImage(
                     url,
                     empty: { personImageView },
-                    inProgress: { _ in ProgressView() },
+                    inProgress: { _ in ProgressView().frame(width: 300, height: 300)},
                     failure: { _, _ in personImageView }
                 ) { image in
                     image
                         .renderingMode(.original)
                         .resizable()
                         .cornerRadius(20)
-                        .frame(width: 500, height: 500)
+                        .frame(width: 300, height: 300)
                 })
             }
             else {
@@ -150,9 +156,9 @@ extension AuthView.ServerSelectionView {
         }
     }
     
-//    struct CredentialEntryView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            CredentialEntryView()
-//        }
-//    }
+    //    struct CredentialEntryView_Previews: PreviewProvider {
+    //        static var previews: some View {
+    //            CredentialEntryView()
+    //        }
+    //    }
 }

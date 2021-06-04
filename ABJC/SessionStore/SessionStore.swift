@@ -16,6 +16,8 @@ class SessionStore: ObservableObject {
     /// Jellyfin Object
     @Published public var jellyfin: Jellyfin? = nil
     
+    @Published public var loggedIn: Bool = false
+    
     /// Preference Store
     @Published public var preferences: PreferenceStore = PreferenceStore()
     
@@ -123,6 +125,7 @@ class SessionStore: ObservableObject {
     public func setJellyfin(_ jellyfin: Jellyfin) {
         DispatchQueue.main.async {
             self.jellyfin = jellyfin
+            self.loggedIn = true
             self.storeCredentials()
         }
     }
@@ -131,9 +134,10 @@ class SessionStore: ObservableObject {
     /// Logs the user out of the application & clears their credentials from the Keychain
     public func logout() {
         self.clearCredentials()
-        DispatchQueue.main.async {
-            self.jellyfin = nil
-        }
+        self.loggedIn = false
+//        DispatchQueue.main.async {
+//            self.jellyfin = nil
+//        }
     }
     
     
