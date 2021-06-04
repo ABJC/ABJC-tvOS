@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.0-build.24] - [2021-06-03]
+### Added
+### Changed
+### Deprecated
+### Fixed 
+- Playback of TV Shows should now be possible
+- App will no longer crash when logging out
+### Removed
+
 ## [v1.0.0-build.23] - [2021-05-20]
 ### Added
 - It is now possible to change the type of poster that is displayed for media items
