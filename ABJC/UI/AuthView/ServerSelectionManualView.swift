@@ -69,7 +69,11 @@ extension AuthView.ServerSelectionView {
                                     var path : String? = nil
                                     
                                     if !self.path.isEmpty {
-                                        path = self.path.contains("/") ? self.path : "/" + self.path
+                                        path = self.path
+                                        // Ensure users have not entered a '/'
+                                        if path!.contains("/") {
+                                            path?.removeFirst()
+                                        }
                                     }
                                     
                                     let server = Jellyfin.Server(host, Int(port)!, isHttpsEnabled, path)

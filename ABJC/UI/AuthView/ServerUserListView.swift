@@ -8,20 +8,20 @@
 import SwiftUI
 import URLImage
 
-extension AuthView.ServerSelectionView {
-    struct ServerUserListView: View {
-        /// SessionStore EnvironmentObject
-        @EnvironmentObject var session: SessionStore
-        
-        @State var users = [APIModels.User]()
-        
-        var jellyfin: Jellyfin?
-        
-        init(jellyfin : Jellyfin? = nil) {
-            self.jellyfin = jellyfin
-        }
-                
-        var body: some View {
+struct ServerUserListView: View {
+    /// SessionStore EnvironmentObject
+    @EnvironmentObject var session: SessionStore
+    
+    @State var users = [APIModels.User]()
+    
+    var jellyfin: Jellyfin?
+    
+    init(jellyfin : Jellyfin? = nil) {
+        self.jellyfin = jellyfin
+    }
+    
+    var body: some View {
+        NavigationView {
             ZStack {
                 // Sretch frame to whole screen for background color
                 Spacer()
@@ -36,7 +36,7 @@ extension AuthView.ServerSelectionView {
                             // Link to manual sign in
                             if user.hasPassword {
                                 NavigationLink(
-                                    destination: CredentialEntryView(jellyfin, user))
+                                    destination: AuthView.ServerSelectionView.CredentialEntryView(jellyfin, user))
                                 {
                                     UserImageBoxView(user, jellyfin!)
                                 }
@@ -54,7 +54,7 @@ extension AuthView.ServerSelectionView {
                         }
                         
                         NavigationLink(
-                            destination: CredentialEntryView(jellyfin))
+                            destination: AuthView.ServerSelectionView.CredentialEntryView(jellyfin))
                         {
                             VStack {
                                 Image(systemName: "person.fill.badge.plus")
@@ -74,52 +74,53 @@ extension AuthView.ServerSelectionView {
                     .padding(.top)
                 }
             }
-            .background(
-                LinearGradient(
-                    gradient: Gradient(colors: Color.backgroundGradient),
-                    startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all))
-            .onAppear(perform: fetchPublicUsers)
+        }
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: Color.backgroundGradient),
+                startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all))
+        .onAppear(perform: fetchPublicUsers)
+    }
+    
+    func fetchPublicUsers(){
+        guard let jellyfin = jellyfin else {
+            return
         }
         
-        func fetchPublicUsers(){
-            guard let jellyfin = jellyfin else {
-                return
-            }
-            
-            API.publicUsers(jellyfin) { result in
-                switch result {
-                case .success(let fetchedUsers):
-                    users = fetchedUsers
-                case .failure(let error):
-                    session.setAlert(
-                        .auth,
-                        "failed",
-                        "Public Users: \(jellyfin.server.https ? "(HTTPS)":"") @\(jellyfin.server.host):\(jellyfin.server.port)",
-                        error
-                    )
-                }
+        API.publicUsers(jellyfin) { result in
+            switch result {
+            case .success(let fetchedUsers):
+                users = fetchedUsers
+            case .failure(let error):
+                session.setAlert(
+                    .auth,
+                    "failed",
+                    "Public Users: \(jellyfin.server.https ? "(HTTPS)":"") @\(jellyfin.server.host):\(jellyfin.server.port)",
+                    error
+                )
             }
             
         }
         
-        func authorize(user : APIModels.User) {
-            guard let jellyfin = jellyfin else {
-                return
-            }
-            
-            API.authorize(jellyfin.server, jellyfin.client, user.name, "") { result in
-                switch result {
-                case .success(let jellyfin):
-                    session.setJellyfin(jellyfin)
-                case .failure(let error):
-                    session.setAlert(
-                        .auth,
-                        "failed",
-                        "\(jellyfin.server.https ? "(HTTPS)":"") \(user.name)@\(jellyfin.server.host):\(jellyfin.server.port)",
-                        error
-                    )
-                }
+    }
+    
+    func authorize(user : APIModels.User) {
+        guard let jellyfin = jellyfin else {
+            return
+        }
+        
+        API.authorize(jellyfin.server, jellyfin.client, user.name, "") { result in
+            switch result {
+            case .success(let jellyfin):
+                session.setJellyfin(jellyfin, true)
+            case .failure(let error):
+                session.setAlert(
+                    .auth,
+                    "failed",
+                    "\(jellyfin.server.https ? "(HTTPS)":"") \(user.name)@\(jellyfin.server.host):\(jellyfin.server.port)",
+                    error
+                )
             }
         }
     }
@@ -179,5 +180,4 @@ extension AuthView.ServerSelectionView {
                 .background(Color.blue)
         }
     }
-    
 }

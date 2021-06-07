@@ -135,7 +135,7 @@
 	<key>library.watchnow.descr</key>
 	<string>Continue where you left off and check out your favorites / latest items</string>
 	<key>alerts.auth.failed.label</key>
-	<string>Are the username and password correct?</string>
+	<string>Please check if the username and password is correct</string>
 	<key>alerts.auth.failed.title</key>
 	<string>Authentication Error</string>
 	<key>authView.credentialEntryView.title</key>
@@ -150,6 +150,10 @@
 	<string>username</string>
 	<key>buttons.continue</key>
 	<string>continue</string>
+	<key>alerts.removeServer.label</key>
+	<string>Are you sure you want to remove the server?</string>
+	<key>alerts.removeServer.title</key>
+	<string>Remove Server</string>
 	<key>authView.serverSelection.port.path</key>
 	<string>/jellyfin</string>
 	<key>authView.serverSelection.port.label</key>

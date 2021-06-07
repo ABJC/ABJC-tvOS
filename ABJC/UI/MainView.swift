@@ -23,8 +23,7 @@ struct MainView: View {
                 if session.jellyfin == nil {
                     AuthView().environmentObject(session)
                 } else {
-                    AuthView.ServerSelectionView.ServerUserListView(jellyfin: session.jellyfin)
-                        .environmentObject(session)
+                    ServerUserListView(jellyfin: session.jellyfin).environmentObject(session)
                 }
             }
             

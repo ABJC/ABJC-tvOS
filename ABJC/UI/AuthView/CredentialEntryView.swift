@@ -142,7 +142,7 @@ extension AuthView.ServerSelectionView {
             API.authorize(jellyfin.server, jellyfin.client, username, password) { result in
                 switch result {
                 case .success(let jellyfin):
-                    session.setJellyfin(jellyfin)
+                    session.setJellyfin(jellyfin, true)
                     
                 case .failure(let error):
                     session.setAlert(
