@@ -84,15 +84,12 @@ extension LibraryView
         }
         /// URLImage
         private var image: some View {
-            URLImage(
-                url,
-                empty: { placeholder },
-                inProgress: { _ in placeholder },
-                failure:  { _,_ in placeholder }
-            ) { image in
+            AsyncImg(url: url) { image in
                 image
                     .renderingMode(.original)
                     .resizable()
+            } placeholder: {
+                placeholder
             }
         }
         

@@ -94,6 +94,7 @@
 		FDE39331261B4272007A6C85 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE39330261B4272007A6C85 /* Episode.swift */; };
 		FDE39336261B45CD007A6C85 /* EpisodeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE39335261B45CD007A6C85 /* EpisodeRowView.swift */; };
 		FDE3933B261B45D4007A6C85 /* EpisodeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3933A261B45D4007A6C85 /* EpisodeCardView.swift */; };
+		FDF536BB2672301900D12443 /* AsyncImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF536BA2672301900D12443 /* AsyncImg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		FDE39330261B4272007A6C85 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		FDE39335261B45CD007A6C85 /* EpisodeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRowView.swift; sourceTree = "<group>"; };
 		FDE3933A261B45D4007A6C85 /* EpisodeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardView.swift; sourceTree = "<group>"; };
+		FDF536BA2672301900D12443 /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 				FD40C0372618899D00719C7E /* People Row & Card */,
 				FDE3933F261B45D8007A6C85 /* Episode Row & Card */,
 				FD913D7A264AFD17001A085F /* ActivityIndicatorView.swift */,
+				FDF536BA2672301900D12443 /* AsyncImg.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				FD913D7B264AFD17001A085F /* ActivityIndicatorView.swift in Sources */,
 				FDBA0E5C26345822001D38CC /* Tabs.swift in Sources */,
 				FDA627B5260E306B002F9ECC /* CredentialEntryView.swift in Sources */,
+				FDF536BB2672301900D12443 /* AsyncImg.swift in Sources */,
 				FDE08290260E0C680088419A /* Jellyfin.swift in Sources */,
 				FDA627C5260E3950002F9ECC /* PreferenceStore.swift in Sources */,
 				FD27CDB1260F62A6002C763F /* SeriesPage.swift in Sources */,

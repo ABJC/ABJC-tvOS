@@ -113,28 +113,19 @@ extension LibraryView
         }
         
         private var image: some View {
-            Group() {
-                if let url = imageUrl {
-                    URLImage(
-                        url,
-                        empty: { backdrop },
-                        inProgress: { _ in backdrop },
-                        failure:  { _,_ in backdrop }
-                    ) { image in
-                        image
-                            .renderingMode(.original)
-                            .resizable()
-                    }
-                } else {
-                    EmptyView()
-                }
+            AsyncImg(url: imageUrl) { image in
+                image
+                    .renderingMode(.original)
+                    .resizable()
+            } placeholder: {
+                backdrop
             }
         }
         
         /// Header
         var headerView: some View {
             ButtonArea(play) { isFocused in
-                VStack(alignment: .leading) {
+                LazyVStack(alignment: .leading) {
                     image
                         .aspectRatio(2/3, contentMode: .fill)
                         .clipped()
