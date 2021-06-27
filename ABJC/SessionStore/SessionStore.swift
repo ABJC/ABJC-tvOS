@@ -16,6 +16,8 @@ class SessionStore: ObservableObject {
     /// Jellyfin Object
     @Published public var jellyfin: Jellyfin? = nil
     
+    @Published public var loggedIn: Bool = false
+    
     /// Preference Store
     @Published public var preferences: PreferenceStore = PreferenceStore()
     
@@ -42,11 +44,20 @@ class SessionStore: ObservableObject {
         }
         do {
             let jellyfin = try JSONDecoder().decode(Jellyfin.self, from: data)
+            
+            // If credentials don't store a User, UserSelectView will appear
+            if !jellyfin.isUserLoggedIn()
+            {
+                self.logger.info("[CREDENTIALS] successfully authenticated server with stored credentials")
+                self.setJellyfin(jellyfin, false)
+                return
+            }
+            
             API.currentUser(jellyfin) { (result) in
                 switch result {
                     case .success(_ ):
                         self.logger.info("[CREDENTIALS] successfully authenticated with stored credentials")
-                        self.setJellyfin(jellyfin)
+                        self.setJellyfin(jellyfin, true)
                         completion(true)
                         
                     case .failure(let error):
@@ -120,19 +131,33 @@ class SessionStore: ObservableObject {
     
     /// Set Jellyfin Object
     /// - Parameter jellyfin: Jellyfin Object
-    public func setJellyfin(_ jellyfin: Jellyfin) {
+    /// - Parameter logIn: If true session.loggedIn will be set to true
+    public func setJellyfin(_ jellyfin: Jellyfin, _ logIn: Bool) {
         DispatchQueue.main.async {
             self.jellyfin = jellyfin
+            self.loggedIn = logIn ? true : self.loggedIn
             self.storeCredentials()
         }
     }
     
     
-    /// Logs the user out of the application & clears their credentials from the Keychain
+    /// Remove the user from the stored credentials and set loggedIn to false
     public func logout() {
-        self.clearCredentials()
-        DispatchQueue.main.async {
-            self.jellyfin = nil
+        // Remove User from the saved credentials
+        // Keeps the Server saved
+        DispatchQueue.main.async { [self] in
+            loggedIn = false
+            jellyfin?.resetUser()
+            storeCredentials()
+        }
+    }
+    
+    /// Remove the server from the stored credentials
+    public func removeServer() {
+        DispatchQueue.main.async { [self] in
+            loggedIn = false
+            clearCredentials()
+            jellyfin = nil
         }
     }
     

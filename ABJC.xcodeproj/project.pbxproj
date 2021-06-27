@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093F665F266323F00058AEA2 /* ServerUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F665E266323F00058AEA2 /* ServerUserListView.swift */; };
+		09EAC87526606E09000661BB /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAC87426606E09000661BB /* ColorExtensions.swift */; };
+		09EAC877266071CE000661BB /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAC876266071CE000661BB /* ViewExtensions.swift */; };
 		FD27CD74260F55BB002C763F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = FD27CD73260F55BB002C763F /* URLImage */; };
 		FD27CD79260F565E002C763F /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD78260F565E002C763F /* ImageType.swift */; };
 		FD27CD7E260F56C2002C763F /* API+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD7D260F56C2002C763F /* API+Images.swift */; };
@@ -114,6 +117,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		093F665E266323F00058AEA2 /* ServerUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUserListView.swift; sourceTree = "<group>"; };
+		09EAC87426606E09000661BB /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		09EAC876266071CE000661BB /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FD27CD78260F565E002C763F /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
 		FD27CD7D260F56C2002C763F /* API+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Images.swift"; sourceTree = "<group>"; };
 		FD27CD82260F5ABD002C763F /* WatchNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNowView.swift; sourceTree = "<group>"; };
@@ -378,6 +384,7 @@
 				FDA627AF260E2FA2002F9ECC /* ServerSelectionManualView.swift */,
 				FDA6278A260E29CB002F9ECC /* ServerCardView.swift */,
 				FDA627B4260E306B002F9ECC /* CredentialEntryView.swift */,
+				093F665E266323F00058AEA2 /* ServerUserListView.swift */,
 			);
 			path = AuthView;
 			sourceTree = "<group>";
@@ -408,6 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				FDA627F8260E6585002F9ECC /* Blur.swift */,
+				09EAC87426606E09000661BB /* ColorExtensions.swift */,
+				09EAC876266071CE000661BB /* ViewExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -734,6 +743,7 @@
 				FDE0829D260E11DC0088419A /* HTTPMethod.swift in Sources */,
 				FD40C020261886A900719C7E /* PreferencesView.swift in Sources */,
 				FDA62762260E2765002F9ECC /* AuthView.swift in Sources */,
+				093F665F266323F00058AEA2 /* ServerUserListView.swift in Sources */,
 				FDE082E9260E23A00088419A /* API+Library.swift in Sources */,
 				FDA627D2260E3C78002F9ECC /* MediaCollectionView.swift in Sources */,
 				FDE3932C261B426A007A6C85 /* Season.swift in Sources */,
@@ -753,6 +763,7 @@
 				FDE082F3260E24010088419A /* MediaItem.swift in Sources */,
 				FDBA0E4826344EFE001D38CC /* YearGroupingView.swift in Sources */,
 				FD27CDA0260F6272002C763F /* ItemPage.swift in Sources */,
+				09EAC87526606E09000661BB /* ColorExtensions.swift in Sources */,
 				FD27CD8D260F5C18002C763F /* CoverCardView.swift in Sources */,
 				FD5C8CEB265444D000E70575 /* PosterType.swift in Sources */,
 				FDE08295260E0CF80088419A /* API.swift in Sources */,
@@ -765,6 +776,7 @@
 				FDE082B2260E1AEB0088419A /* User.swift in Sources */,
 				FDE08257260E0B9D0088419A /* ABJCApp.swift in Sources */,
 				FDBA0E3B26344B09001D38CC /* GenreGroupingView.swift in Sources */,
+				09EAC877266071CE000661BB /* ViewExtensions.swift in Sources */,
 				FDBA0E61263466F7001D38CC /* ReportAProblemView.swift in Sources */,
 				FD40C04E26188F8E00719C7E /* Preferences+Client.swift in Sources */,
 				FD40C03F26188A1300719C7E /* PersonCardView.swift in Sources */,

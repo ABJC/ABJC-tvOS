@@ -63,3 +63,17 @@ extension Jellyfin {
         }
     }
 }
+
+extension Jellyfin {
+    
+    /// Remove the user from the Jellyfin Instance
+    public func resetUser(){
+        user = User("", "", "")
+    }
+    
+    /// Check if there is a valid User instance
+    /// - Returns: return true if User is valid
+    public func isUserLoggedIn() -> Bool{
+        return user.userId != ""
+    }
+}

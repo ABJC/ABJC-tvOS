@@ -13,6 +13,7 @@ struct PreferencesView: View {
     @EnvironmentObject var session: SessionStore
     
     @State var showReportAProblem: Bool = false
+    @State var showRemoveServerAlert: Bool = false
     var version: Version { session.preferences.version }
     
     var body: some View {
@@ -56,7 +57,21 @@ struct PreferencesView: View {
                         Spacer()
                     }
                 }
+            
+            Button(action: {
+                showRemoveServerAlert = true
+            }) {
+                HStack {
+                    Spacer()
+                    Text("alerts.removeServer.title")
+                        .bold()
+                        .textCase(.uppercase)
+                        .foregroundColor(.red)
+                    
+                    Spacer()
+                }
             }
+        }
             
 //            Text("Detail")
 //
@@ -68,6 +83,11 @@ struct PreferencesView: View {
 //                }
 //            }
         }//.navigationViewStyle(DoubleColumnNavigationViewStyle())
+        .alert(isPresented: $showRemoveServerAlert, content: {
+            Alert(title: Text("alerts.removeServer.title"), message: Text("alerts.removeServer.label"), primaryButton: .destructive(Text("Delete"), action: {
+                session.removeServer()
+            }), secondaryButton: .cancel())
+        })
         
         .fullScreenCover(isPresented: $showReportAProblem) { 
             ReportAProblemView(session)
