@@ -26,14 +26,46 @@ extension LibraryView
             self.type = type
         }
         
-        var body: some View
+        let new = true
+        
+        var body: some View {
+            if new {
+                newBody
+            } else {
+                oldBody
+            }
+        }
+        
+        var oldBody: some View
         {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: true) {
-                    if let items = items {
+                    if items.count != 0, let items = items {
                         GroupingViewContainer(items).environmentObject(session)
+                    } else {
+                        ActivityIndicatorView()
                     }
                 }.edgesIgnoringSafeArea(.horizontal)
+            }
+            .onAppear(perform: load)
+            // Present MediaPlayer when itemPlaying is pending
+            .fullScreenCover(item: $session.itemPlaying, onDismiss: session.restoreFocus) { item in
+                MediaPlayerView(item)
+                    .environmentObject(session)
+            }
+        }
+        
+        
+        var newBody: some View
+        {
+            NavigationView {
+                if items.count != 0, let items = items {
+                    Shelf(items, grouped: session.preferences.collectionGrouping)
+                        .environmentObject(session)
+                        .id(session.preferences.collectionGrouping)
+                } else {
+                    ActivityIndicatorView()
+                }
             }
             .onAppear(perform: load)
             // Present MediaPlayer when itemPlaying is pending

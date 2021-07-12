@@ -35,6 +35,11 @@ extension LibraryView.GroupingViewContainer {
             self.items = items
             self.categories = Array(itemMap.keys).sorted(by: { $0.name < $1.name})
             self.itemMap = itemMap
+            
+            print("CATS:", categories.count)
+            self.itemMap.keys.forEach({ key in
+                print(key, itemMap[key]?.count ?? 0)
+            })
         }
         
         var body: some View {

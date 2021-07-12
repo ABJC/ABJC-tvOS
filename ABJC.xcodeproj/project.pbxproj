@@ -97,6 +97,8 @@
 		FDE39331261B4272007A6C85 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE39330261B4272007A6C85 /* Episode.swift */; };
 		FDE39336261B45CD007A6C85 /* EpisodeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE39335261B45CD007A6C85 /* EpisodeRowView.swift */; };
 		FDE3933B261B45D4007A6C85 /* EpisodeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3933A261B45D4007A6C85 /* EpisodeCardView.swift */; };
+		FDED0AD6269C87D10081F598 /* SwiftUICollection in Frameworks */ = {isa = PBXBuildFile; productRef = FDED0AD5269C87D10081F598 /* SwiftUICollection */; };
+		FDED0AD8269C880E0081F598 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDED0AD7269C880E0081F598 /* ShelfView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +217,7 @@
 		FDE39330261B4272007A6C85 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		FDE39335261B45CD007A6C85 /* EpisodeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRowView.swift; sourceTree = "<group>"; };
 		FDE3933A261B45D4007A6C85 /* EpisodeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardView.swift; sourceTree = "<group>"; };
+		FDED0AD7269C880E0081F598 /* ShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8FE41726320196004B9C5F /* TVServices.framework in Frameworks */,
+				FDED0AD6269C87D10081F598 /* SwiftUICollection in Frameworks */,
 				FD27CD74260F55BB002C763F /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,11 +406,12 @@
 		FDA627D0260E3C69002F9ECC /* LibraryView */ = {
 			isa = PBXGroup;
 			children = (
-				FDA627BF260E3728002F9ECC /* LibraryView.swift */,
+				FDED0AD7269C880E0081F598 /* ShelfView.swift */,
 				FDBA0E16263439E3001D38CC /* SearchView.swift */,
 				FDBA0E3626344AFD001D38CC /* SortViews */,
 				FD27CD82260F5ABD002C763F /* WatchNowView.swift */,
 				FDA627D1260E3C78002F9ECC /* MediaCollectionView.swift */,
+				FDA627BF260E3728002F9ECC /* LibraryView.swift */,
 			);
 			path = LibraryView;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 			name = ABJC;
 			packageProductDependencies = (
 				FD27CD73260F55BB002C763F /* URLImage */,
+				FDED0AD5269C87D10081F598 /* SwiftUICollection */,
 			);
 			productName = ABJC;
 			productReference = FDE08253260E0B9D0088419A /* ABJC.app */;
@@ -665,6 +671,7 @@
 			mainGroup = FDE0824A260E0B9D0088419A;
 			packageReferences = (
 				FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */,
+				FDED0AD4269C87D10081F598 /* XCRemoteSwiftPackageReference "SwiftUICollection" */,
 			);
 			productRefGroup = FDE08254260E0B9D0088419A /* Products */;
 			projectDirPath = "";
@@ -736,6 +743,7 @@
 				FDE082BA260E1AFD0088419A /* APIError.swift in Sources */,
 				FDE082D4260E1E590088419A /* API+Authentication.swift in Sources */,
 				FDBA0E3226344A12001D38CC /* TitleGroupingView.swift in Sources */,
+				FDED0AD8269C880E0081F598 /* ShelfView.swift in Sources */,
 				FD27CDA9260F629F002C763F /* MoviePage.swift in Sources */,
 				FDE3933B261B45D4007A6C85 /* EpisodeCardView.swift in Sources */,
 				FD27CD79260F565E002C763F /* ImageType.swift in Sources */,
@@ -1133,6 +1141,14 @@
 				version = 3.0.1;
 			};
 		};
+		FDED0AD4269C87D10081F598 /* XCRemoteSwiftPackageReference "SwiftUICollection" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/SwiftUICollection";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1140,6 +1156,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		FDED0AD5269C87D10081F598 /* SwiftUICollection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDED0AD4269C87D10081F598 /* XCRemoteSwiftPackageReference "SwiftUICollection" */;
+			productName = SwiftUICollection;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
