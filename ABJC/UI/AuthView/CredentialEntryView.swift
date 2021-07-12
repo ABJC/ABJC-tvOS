@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 extension AuthView.ServerSelectionView {
     struct CredentialEntryView: View {
@@ -14,15 +15,7 @@ extension AuthView.ServerSelectionView {
         /// SessionStore EnvironmentObject
         @EnvironmentObject var session: SessionStore
         
-        /// Server Host
-        private let host: String
-        
-        /// Server Port
-        private let port: Int
-        
-        /// Server Path
-        private let path: String?
-        
+        @State var profileImageURL: URL? = nil
         
         /// Credentials: username
         @State var username: String = ""
@@ -30,76 +23,142 @@ extension AuthView.ServerSelectionView {
         /// Credentials: password
         @State var password: String = ""
         
-        /// Credentials: HTTPS enabled
-        @State var isHttpsEnabled: Bool = false
         
         @State var showingAlert: Bool = false
         
         @State var isCredentialsFilledIn: Bool = false
         
+        var user: APIModels.User? = nil
         
-        init(_ host: String, _ port: Int, _ path: String?) {
-            self.host = host
-            self.port = port
-            self.path = path
+        var jellyfin: Jellyfin? = nil
+        
+        init(_ jellyfin: Jellyfin?, _ user: APIModels.User? = nil) {
+            self.user = user
+            self.jellyfin = jellyfin
         }
         
         var body: some View {
-            VStack {
-                Group() {
-                    VStack {
-                        Text(host)
-                            .font(.callout)
-                            .foregroundColor(.secondary)
-                    }
-                    TextField("authView.credentialEntryView.username.label", text: self.$username)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .textContentType(.username)
-                        .prefersDefaultFocus(username == "", in: namespace)
-                    SecureField("authView.credentialEntryView.password.label", text: self.$password)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .textContentType(.password)
-                    Toggle("authView.credentialEntryView.isUsingHTTPS.label", isOn: $isHttpsEnabled)
-                        .prefersDefaultFocus(username != "" && password != "", in: namespace)
-                }.frame(width: 400)
+            
+            ZStack {
+                // Sretch frame to whole screen for background color
+                Spacer()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                Button(action: authorize) {
-                    Text("buttons.signin").textCase(.uppercase)
+                VStack(alignment: .center) {
+                    Group {
+                        if profileImageURL != nil {
+                            profileImageView
+                        }
+                        else
+                        {
+                            personImageView
+                        }
+                    }.padding(20)
+                    
+                    
+                    VStack {
+                        Group() {
+                            TextField("authView.credentialEntryView.username.label", text: self.$username)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                                .textContentType(.username)
+                                .prefersDefaultFocus(username.isEmpty, in: namespace)
+                                .disabled(user != nil)
+                    
+                            SecureField("authView.credentialEntryView.password.label", text: self.$password)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                                .textContentType(.password)
+                                .prefersDefaultFocus(!username.isEmpty, in: namespace)
+                        }.frame(width: 400)
+                        
+                        Button(action: authorize) {
+                            Text("buttons.signin").textCase(.uppercase)
+                        }
+                        .prefersDefaultFocus(!username.isEmpty && !password.isEmpty, in: namespace)
+                    }
+                    
                 }
             }
+            
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: Color.backgroundGradient),
+                    startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .edgesIgnoringSafeArea(.all))
             .navigationTitle("authView.credentialEntryView.title")
+            .onAppear(perform: setupImageURL)
+            
+        }
+        
+        func setupImageURL() {
+            if let jellyfin = jellyfin, let user = user {
+                username = user.name
+                if user.primaryImageTag != nil {
+                    self.profileImageURL = API.profileImageURL(jellyfin, user.id)
+                }
+            }
+        }
+        
+        var personImageView: some View {
+            let imageName = user == nil ? "person.fill.badge.plus" : "person.fill"
+            
+            return Image(systemName: imageName)
+                .resizable()
+                .frame(width: 300, height: 300)
+                .scaledToFill()
+                .scaleEffect(0.8)
+                .background(user == nil ? Color.clear : Color.blue)
+                .cornerRadius(20)
+
+        }
+        
+        
+        var profileImageView: some View {
+            if let url = profileImageURL {
+                return AnyView(URLImage(
+                    url,
+                    empty: { personImageView },
+                    inProgress: { _ in ProgressView().frame(width: 300, height: 300)},
+                    failure: { _, _ in personImageView }
+                ) { image in
+                    image
+                        .renderingMode(.original)
+                        .resizable()
+                        .cornerRadius(20)
+                        .frame(width: 300, height: 300)
+                })
+            }
+            else {
+                return AnyView(personImageView)
+            }
+            
         }
         
         func authorize() {
-            let server = Jellyfin.Server(host, port, isHttpsEnabled, path)
-            let client = Jellyfin.Client()
-            
-            API.authorize(server, client, username, password) { result in
+            guard let jellyfin = jellyfin else {
+                return
+            }
+            API.authorize(jellyfin.server, jellyfin.client, username, password) { result in
                 switch result {
-                    case .success(let jellyfin):
-                        // Store Credentials
-//                        CredentialStore.save(jellyfin)
-                        
-                        // Update Session Store
-                        session.setJellyfin(jellyfin)
-                        
-                    case .failure(let error):
-                        session.setAlert(
-                            .auth,
-                            "failed",
-                            "\(isHttpsEnabled ? "(HTTPS)":"") \(username)@\(host):\(port)",
-                            error
-                        )
+                case .success(let jellyfin):
+                    session.setJellyfin(jellyfin, true)
+                    
+                case .failure(let error):
+                    session.setAlert(
+                        .auth,
+                        "failed",
+                        "\(jellyfin.server.https ? "(HTTPS)":"") \(username)@\(jellyfin.server.host):\(jellyfin.server.port)",
+                        error
+                    )
                 }
             }
         }
     }
     
-    struct CredentialEntryView_Previews: PreviewProvider {
-        static var previews: some View {
-            CredentialEntryView("host", 8096, nil)
-        }
-    }
+    //    struct CredentialEntryView_Previews: PreviewProvider {
+    //        static var previews: some View {
+    //            CredentialEntryView()
+    //        }
+    //    }
 }

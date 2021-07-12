@@ -8,7 +8,10 @@
 import Foundation
 
 extension APIModels {
-    public struct MediaItem: Decodable, Identifiable, Equatable {
+    public struct MediaItem: Decodable, Identifiable, Equatable, Hashable {
+        func hash(into hasher: inout Hasher) {
+            return hasher.combine(self.id)
+        }
         public static func == (lhs: APIModels.MediaItem, rhs: APIModels.MediaItem) -> Bool {
             return lhs.id == rhs.id
         }

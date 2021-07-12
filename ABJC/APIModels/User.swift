@@ -19,6 +19,8 @@ extension APIModels {
         public var enableAutoLogin: Bool? = true
         public let lastLoginDate: String
         public let lastActivityDate: String
+        public let primaryImageTag: String?
+        
         //        public let configuration: Configuration
         //        public let policy: Policy
         
@@ -32,6 +34,7 @@ extension APIModels {
             case enableAutoLogin = "EnableAutoLogin"
             case lastLoginDate = "LastLoginDate"
             case lastActivityDate = "LastActivityDate"
+            case primaryImageTag = "PrimaryImageTag"
             //            case configuration = "Configuration"
             //            case policy = "Policy"
         }

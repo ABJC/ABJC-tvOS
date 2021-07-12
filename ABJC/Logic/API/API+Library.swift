@@ -19,8 +19,14 @@ extension API {
         _ type: APIModels.MediaType? = nil,
         _ completion: @escaping (Result<[APIModels.MediaItem], Error>) -> Void)
     {
+        if !jellyfin.isUserLoggedIn()
+        {
+            return
+        }
+        
         Self.logger.info("[LIBRARY] items")
         Self.logger.debug("[LIBRARY] items - type=\(type != nil ? type!.rawValue : "all")")
+        
         
         let path = "/Users/\(jellyfin.user.userId)/Items"
         

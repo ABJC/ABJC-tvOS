@@ -16,11 +16,17 @@ struct MainView: View {
     var body: some View {
         Group() {
             // Show Authentication if sessionStore.jellyfin is nil
-            if session.jellyfin == nil {
-                AuthView().environmentObject(session)
-            } else {
+            if session.loggedIn {
                 LibraryView().environmentObject(session)
             }
+            else {
+                if session.jellyfin == nil {
+                    AuthView().environmentObject(session)
+                } else {
+                    ServerUserListView(jellyfin: session.jellyfin).environmentObject(session)
+                }
+            }
+            
         }
         
         // Present Alerts if any are pending

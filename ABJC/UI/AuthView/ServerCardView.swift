@@ -35,14 +35,20 @@ extension AuthView.ServerSelectionView {
         }
         
         public var body: some View {
-            VStack {
-                Text(title)
-                    .bold()
-                    .font(.headline)
-                    .textCase(.uppercase)
-                Text(subtitle)
-                    .font(.system(.callout, design: .monospaced))
-                    .foregroundColor(.secondary)
+            HStack {
+                Image(systemName: "server.rack")
+                    .font(.system(.largeTitle))
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .bold()
+                        .font(.headline)
+                        .textCase(.uppercase)
+                    Text(subtitle)
+                        .font(.system(.callout, design: .monospaced))
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                Image(systemName: "chevron.forward")
             }
         }
     }

@@ -54,6 +54,33 @@ extension API {
         }
     }
     
+    /// Returns a list of Users that have been selected to display publicly from the server
+    /// - Parameters:
+    ///   - jellyfin:
+    ///   - completion: Returns an array of Users on success
+    public static func publicUsers(
+        _ jellyfin: Jellyfin,
+        _ completion: @escaping (Result<[APIModels.User], Error>) -> Void)
+    {
+        Self.logger.info("[SYSTEM] publicUsers")
+        API.request(jellyfin, "/Users/Public", .get) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let object = try JSONDecoder().decode([APIModels.User].self, from: data)
+                    Self.logger.info("[SYSTEM] publicUsers - success")
+                    completion(.success(object))
+                } catch {
+                    Self.logger.error("[SYSTEM] publicUsers - failure \(error.localizedDescription)")
+                    completion(.failure(error))
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+
+            }
+        }
+    }
     
     public static func currentUser(
         _ jellyfin: Jellyfin,
