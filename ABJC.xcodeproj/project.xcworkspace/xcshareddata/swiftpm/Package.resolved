@@ -2,7 +2,7 @@
   "object": {
     "pins": [
       {
-        "package": "url-image",
+        "package": "URLImage",
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image",
         "state": {
           "branch": null,
