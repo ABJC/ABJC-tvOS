@@ -21,24 +21,54 @@ extension LibraryView {
         
         @State var allItems: [APIModels.MediaItem] = []
         
+        
+        /// Edge Insets
+        private var edgeInsets = EdgeInsets(top: 20, leading: 80, bottom: 50, trailing: 80)
+        
+        private var height: CGFloat {
+            var _height = session.preferences.posterType == .poster ? 340 : 300
+            
+            if session.preferences.showsTitles
+            {
+                _height += 100
+            }
+            return CGFloat(_height)
+        }
+        
         var body: some View {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: true) {
                     TextField("library.search.label", text: $query, onCommit: search)
                         .padding(.horizontal, 80)
+                        .padding(.top, query.isEmpty ? 300 : 0)
                     
                     VStack(alignment: .leading) {
                         // Media Item Results
-                        if itemResults.count != 0 {
-                            MediaRowView(
-                                "library.search.results",
-                                itemResults
-                            )
+                        if itemResults.count != 0 && !query.isEmpty {
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text("library.search.results")
+                                    .font(.title3)
+                                    .padding(.horizontal, edgeInsets.leading)
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing: 48) {
+                                        ForEach(itemResults, id:\.id) { item in
+                                            Button(action: {
+                                                session.setFocus(item)
+                                            }) {
+                                                MediaCardView(item)
+                                            }
+                                            .buttonStyle(PlainButtonStyle())
+                                        }
+                                    }
+                                    .frame(height: height)
+                                    .padding(edgeInsets)
+                                }.edgesIgnoringSafeArea(.horizontal)
+                            }.edgesIgnoringSafeArea(.horizontal)
                             Divider()
                         }
                         
                         // Character & Crew Results
-                        if personResults.count != 0 {
+                        if personResults.count != 0 && !query.isEmpty {
                             PeopleRowView(
                                 "library.search.results",
                                 personResults
@@ -47,7 +77,8 @@ extension LibraryView {
                         
                         // All Library Items
                         if let items = allItems {
-                            GroupingViewContainer(items).environmentObject(session)
+                            Shelf(items, grouped: .title)
+                                .environmentObject(session)
                         }
                     }
                 }.edgesIgnoringSafeArea(.horizontal)

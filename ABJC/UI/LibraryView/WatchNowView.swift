@@ -26,8 +26,10 @@ extension LibraryView
                     VStack(alignment: .leading) {
                         CoverRowView(latestItems)
                         
-                        if let items = items {
-                            GroupingViewContainer(items).environmentObject(session)
+                        if items.count != 0, let items = items {
+                            Shelf(items, grouped: session.preferences.collectionGrouping)
+                                .environmentObject(session)
+                                .id(session.preferences.collectionGrouping)
                         }
                     }
                     

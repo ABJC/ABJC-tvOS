@@ -29,11 +29,13 @@ extension LibraryView
         var body: some View
         {
             NavigationView {
-                ScrollView(.vertical, showsIndicators: true) {
-                    if let items = items {
-                        GroupingViewContainer(items).environmentObject(session)
-                    }
-                }.edgesIgnoringSafeArea(.horizontal)
+                if items.count != 0, let items = items {
+                    Shelf(items, grouped: session.preferences.collectionGrouping)
+                        .environmentObject(session)
+                        .id(session.preferences.collectionGrouping)
+                } else {
+                    ActivityIndicatorView()
+                }
             }
             .onAppear(perform: load)
             // Present MediaPlayer when itemPlaying is pending

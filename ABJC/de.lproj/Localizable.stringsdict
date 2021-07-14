@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>postertype.wide</key>
-	<string>Wide (Backdrop - may be missing title)</string>
+	<string>Breit (Backdrop)</string>
 	<key>postertype.poster</key>
 	<string>Poster</string>
 	<key>reportaproblem.title</key>
 	<string>Report A Problem</string>
 	<key>pref.debugmenu.debugmode.label</key>
-	<string>Debug Mode</string>
+	<string>Debug Modus</string>
 	<key>pref.debugmenu.alerts.auth</key>
-	<string>Authentication</string>
+	<string>Authentifizierung</string>
 	<key>pref.debugmenu.alerts.api</key>
 	<string>API</string>
 	<key>pref.debugmenu.alerts.playback</key>
 	<string>Playback</string>
 	<key>pref.debugmenu.clearimagecache.label</key>
-	<string>Clear cached images</string>
+	<string>Bild-Cache löschen</string>
 	<key>pref.client.tabs.disclaimer</key>
-	<string>View will update after restart</string>
+	<string>UI wird nach einem Neustart geupdated</string>
 	<key>pref.client.collectiongrouping.label</key>
 	<string>Collection Grouping</string>
 	<key>collectionGrouping.genre</key>
@@ -136,8 +136,10 @@
 	<string>Continue where you left off and check out your favorites / latest items</string>
 	<key>alerts.auth.failed.label</key>
 	<string>Please check if the username and password is correct</string>
-	<key>alerts.auth.failed.title</key>
+	<key>alerts.auth.title</key>
 	<string>Authentication Error</string>
+	<key>alerts.info.title</key>
+	<string>Information</string>
 	<key>authView.credentialEntryView.title</key>
 	<string>Credentials</string>
 	<key>buttons.signin</key>
