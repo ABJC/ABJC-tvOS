@@ -47,7 +47,8 @@ extension LibraryView {
                         
                         // All Library Items
                         if let items = allItems {
-                            GroupingViewContainer(items).environmentObject(session)
+                            Shelf(items, grouped: .title)
+                                .environmentObject(session)
                         }
                     }
                 }.edgesIgnoringSafeArea(.horizontal)

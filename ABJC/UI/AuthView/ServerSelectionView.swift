@@ -104,16 +104,16 @@ extension AuthView {
                     startPoint: .topLeading, endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all))
             .onAppear(perform: discover)
-            //                .onLongPressGesture {
-            //                    DispatchQueue.main.async {
-            //                        session.preferences.isDebugEnabled.toggle()
-            //                        if session.preferences.isDebugEnabled {
-            //                            session.alert = AlertError("pref.debugmode.title", "pref.debugmode.enabled")
-            //                        } else {
-            //                            session.alert = AlertError("pref.debugmode.title", "pref.debugmode.disabled")
-            //                        }
-            //                    }
-            //                }
+            .onLongPressGesture {
+                DispatchQueue.main.async {
+                    session.preferences.isDebugEnabled.toggle()
+                    if session.preferences.isDebugEnabled {
+                        session.setAlert(.info, nil, "Debug Mode Now Active", nil)
+                    } else {
+                        session.setAlert(.info, nil, "Debug Mode Now Active", nil)
+                    }
+                }
+            }
         }
         
         /// Discover Servers

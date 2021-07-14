@@ -164,14 +164,23 @@ class SessionStore: ObservableObject {
     
     /// Set Alert
     /// - Parameters:
-    ///   - alertType: <#alertType description#>
-    ///   - localized: <#localized description#>
-    ///   - debug: <#debug description#>
-    ///   - error: <#error description#>
-    public func setAlert(_ alertType: Alert.AlertType, _ localized: String, _ debug: String, _ error: Error?) {
+    ///   - alertType: Alert Type
+    ///   - localized: Localized Description
+    ///   - debug: Debug Description
+    ///   - error: error description
+    public func setAlert(_ alertType: Alert.AlertType, _ localized: String?, _ debug: String, _ error: Error?) {
         logger.warning("[\(alertType.rawValue)], \(debug), \(error != nil ? error!.localizedDescription : "NO ERROR")")
-        DispatchQueue.main.async {
-            self.alert = Alert(title: alertType.localized, description: LocalizedStringKey("alerts." + alertType.rawValue + "." + localized))
+        DispatchQueue.main.async { [self] in
+            if let localized = localized {
+                if preferences.isDebugEnabled {
+                    self.alert = Alert(title: alertType.localized, description: LocalizedStringKey(debug))
+                } else {
+                    self.alert = Alert(title: alertType.localized, description: LocalizedStringKey("alerts." + alertType.rawValue + "." + localized + "label") )
+                }
+                
+            } else {
+                self.alert = Alert(title: alertType.localized, description: LocalizedStringKey(debug))
+            }
         }
     }
     
@@ -199,6 +208,7 @@ extension SessionStore {
         var description: LocalizedStringKey
         
         enum AlertType: String {
+            case info = "info"
             case auth = "auth"
             case api = "api"
             case playback = "playback"

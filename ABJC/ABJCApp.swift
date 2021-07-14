@@ -15,7 +15,7 @@ struct ABJCApp: App {
     
     var urlImageOptions: URLImageOptions {
         var options = URLImageOptions()
-        options.fetchPolicy = .returnStoreElseLoad(downloadDelay: 0.25)
+//        options.fetchPolicy = .returnStoreElseLoad(downloadDelay: 0.25)
         options.loadOptions = [ .loadImmediately ]
         return options
     }

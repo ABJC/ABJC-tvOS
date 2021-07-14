@@ -83,10 +83,6 @@ struct Shelf: View {
                         return nil
                     }))
             })
-        
-        for row in self.rows {
-            print(row.section, row.items.count)
-        }
     }
     
     

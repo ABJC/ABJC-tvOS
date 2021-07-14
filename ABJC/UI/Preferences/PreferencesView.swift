@@ -31,18 +31,18 @@ struct PreferencesView: View {
                     Label("pref.debugmenu.label", systemImage: "exclamationmark.triangle")
                 }.tag(2)
                 
-                Button(action: {
-                    self.showReportAProblem.toggle()
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("reportaproblem.title")
-                            .bold()
-                            .textCase(.uppercase)
-                        
-                        Spacer()
-                    }
-                }
+//                Button(action: {
+//                    self.showReportAProblem.toggle()
+//                }) {
+//                    HStack {
+//                        Spacer()
+//                        Text("reportaproblem.title")
+//                            .bold()
+//                            .textCase(.uppercase)
+//
+//                        Spacer()
+//                    }
+//                }
                 
                 Button(action: {
                     self.session.logout()
@@ -73,16 +73,14 @@ struct PreferencesView: View {
             }
         }
             
-//            Text("Detail")
-//
-//            VStack {
-//                Image("logo")
-//                HStack {
-//                    Text("App Version")
-//                    Text(version.description)
-//                }
-//            }
-        }//.navigationViewStyle(DoubleColumnNavigationViewStyle())
+            VStack {
+                Image("logo")
+                HStack {
+                    Text("App Version")
+                    Text(version.description)
+                }
+            }
+        }.navigationViewStyle(DoubleColumnNavigationViewStyle())
         .alert(isPresented: $showRemoveServerAlert, content: {
             Alert(title: Text("alerts.removeServer.title"), message: Text("alerts.removeServer.label"), primaryButton: .destructive(Text("Delete"), action: {
                 session.removeServer()

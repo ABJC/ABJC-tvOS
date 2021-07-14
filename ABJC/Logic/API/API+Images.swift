@@ -14,8 +14,11 @@ extension API {
         _ type: APIModels.ImageType,
         _ width: Int = 600) -> URL
     {
+        #if DEBUG
         Self.logger.info("[IMAGE] imageURL - called")
         Self.logger.debug("[IMAGE] imageURL - id=\(id), type=\(type.rawValue), width=\(width)")
+        #endif
+        
         let path = "/Items/\(id)/Images/\(type.rawValue)"
         let params = [
             "MaxWidth": String(width),
