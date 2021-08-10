@@ -15,21 +15,38 @@ struct AuthView: View {
     @State var firstTryFailed: Bool = false
     
     var body: some View {
+        
         NavigationView() {
-            if firstTryFailed {
-                ServerSelectionView()
-            } else {
-                ProgressView()
-            }
+//            if session.jellyfin == nil {
+//                AuthView().environmentObject(session)
+//            } else {
+//                ServerUserListView(jellyfin: session.jellyfin).environmentObject(session)
+//            }
+//            if firstTryFailed {
+//                ServerSelectionView()
+//            } else {
+//                ProgressView()
+//            }
+            Text("Auth View")
         }
-        .onAppear(perform: checkCredentialStore)
+        
+        
+        // Present Alerts if any are pending
+        .alert(item: $session.alert) { (alert) -> Alert in
+            Alert(
+                title: Text(alert.title),
+                message: Text(alert.description),
+                dismissButton: .default(Text("buttons.ok"))
+            )
+        }
+        
+        // Present Item Detail view when focus is set
+        .fullScreenCover(item: $session.itemFocus) { item in
+            LibraryView.ItemPage(item)
+                .environmentObject(session)
+        }
     }
     
-    func checkCredentialStore() {
-        session.loadCredentials() { result in
-            self.firstTryFailed = true
-        }
-    }
 }
 
 struct AuthView_Previews: PreviewProvider {

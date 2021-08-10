@@ -7,4 +7,7 @@
 
 import Foundation
 
-enum APIErrors {}
+enum APIErrors: Error {
+    case failedUrlConstruction
+    case encodingError
+}

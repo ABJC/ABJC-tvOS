@@ -13,7 +13,7 @@ extension API {
         _ jellyfin: Jellyfin,
         _ item: Playable,
         _ mediaSourceId: String
-    ) -> AVURLAsset {
+    ) -> AVURLAsset? {
         Self.logger.info("[PLAYBACK] playerItem")
         Self.logger.debug("[PLAYBACK] playerItem - item=\(item.id), itemId=\(item.id), mediaSourceId=\(mediaSourceId)")
         let path = "/videos/\(item.id)/master.m3u8"
@@ -46,7 +46,7 @@ extension API {
         
         guard let url = urlComponents.url else {
             Self.logger.info("[PLAYBACK] playerItem - failure 'could not generate URL'")
-            fatalError("URL couldn't be created")
+            return nil
         }
         
         // Make Request
@@ -106,7 +106,7 @@ extension API {
             }
         } catch {
             Self.logger.error("[PLAYBACK] reportPlaystate - failure 'Could not encode'")
-            fatalError("Could not Encode")
+            return
         }
         
     }

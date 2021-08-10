@@ -50,6 +50,7 @@ class SessionStore: ObservableObject {
             {
                 self.logger.info("[CREDENTIALS] successfully authenticated server with stored credentials")
                 self.setJellyfin(jellyfin, false)
+                completion(true)
                 return
             }
             

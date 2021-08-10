@@ -49,7 +49,11 @@ struct MediaPlayerView: View {
             fatalError("Couldn't find suitable Stream")
         }
         
-        let asset = API.playerItem(jellyfin, self.item, mediaSourceId)
+        
+        guard let asset = API.playerItem(jellyfin, self.item, mediaSourceId) else {
+            return
+        }
+        
         self.player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
                 
         // Configure Playstate
