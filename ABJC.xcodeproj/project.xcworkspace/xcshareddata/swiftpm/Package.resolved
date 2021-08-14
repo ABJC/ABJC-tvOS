@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "NewRelic",
-        "repositoryURL": "https://github.com/newrelic/newrelic-ios-agent-spm",
-        "state": {
-          "branch": null,
-          "revision": "8a5c1bca29dadeb55710141d3fb865c955609fd4",
-          "version": "7.3.2"
-        }
-      },
-      {
         "package": "SwiftUICollection",
         "repositoryURL": "https://github.com/ABJC/SwiftUICollection",
         "state": {

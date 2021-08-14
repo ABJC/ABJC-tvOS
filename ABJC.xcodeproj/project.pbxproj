@@ -10,7 +10,6 @@
 		093F665F266323F00058AEA2 /* ServerUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F665E266323F00058AEA2 /* ServerUserListView.swift */; };
 		09EAC87526606E09000661BB /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAC87426606E09000661BB /* ColorExtensions.swift */; };
 		09EAC877266071CE000661BB /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAC876266071CE000661BB /* ViewExtensions.swift */; };
-		FD0CAAF926C2FA5900AB6AED /* NewRelic in Frameworks */ = {isa = PBXBuildFile; productRef = FD0CAAF826C2FA5900AB6AED /* NewRelic */; };
 		FD27CD74260F55BB002C763F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = FD27CD73260F55BB002C763F /* URLImage */; };
 		FD27CD79260F565E002C763F /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD78260F565E002C763F /* ImageType.swift */; };
 		FD27CD7E260F56C2002C763F /* API+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD7D260F56C2002C763F /* API+Images.swift */; };
@@ -224,7 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8FE41726320196004B9C5F /* TVServices.framework in Frameworks */,
-				FD0CAAF926C2FA5900AB6AED /* NewRelic in Frameworks */,
 				FDED0AD6269C87D10081F598 /* SwiftUICollection in Frameworks */,
 				FD27CD74260F55BB002C763F /* URLImage in Frameworks */,
 			);
@@ -585,7 +583,6 @@
 			packageProductDependencies = (
 				FD27CD73260F55BB002C763F /* URLImage */,
 				FDED0AD5269C87D10081F598 /* SwiftUICollection */,
-				FD0CAAF826C2FA5900AB6AED /* NewRelic */,
 			);
 			productName = ABJC;
 			productReference = FDE08253260E0B9D0088419A /* ABJC.app */;
@@ -662,7 +659,6 @@
 			packageReferences = (
 				FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */,
 				FDED0AD4269C87D10081F598 /* XCRemoteSwiftPackageReference "SwiftUICollection" */,
-				FD0CAAF726C2FA5900AB6AED /* XCRemoteSwiftPackageReference "newrelic-ios-agent-spm" */,
 			);
 			productRefGroup = FDE08254260E0B9D0088419A /* Products */;
 			projectDirPath = "";
@@ -1134,14 +1130,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FD0CAAF726C2FA5900AB6AED /* XCRemoteSwiftPackageReference "newrelic-ios-agent-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/newrelic/newrelic-ios-agent-spm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.3.2;
-			};
-		};
 		FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
@@ -1161,11 +1149,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FD0CAAF826C2FA5900AB6AED /* NewRelic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FD0CAAF726C2FA5900AB6AED /* XCRemoteSwiftPackageReference "newrelic-ios-agent-spm" */;
-			productName = NewRelic;
-		};
 		FD27CD73260F55BB002C763F /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */;
