@@ -87,9 +87,9 @@ struct PreferencesView: View {
             }), secondaryButton: .cancel())
         })
         
-        .fullScreenCover(isPresented: $showReportAProblem) { 
-            ReportAProblemView(session)
-        }
+//        .fullScreenCover(isPresented: $showReportAProblem) { 
+//            ReportAProblemView(session)
+//        }
     }
 }
 

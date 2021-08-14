@@ -26,7 +26,7 @@ struct AsyncImg<I: View, P: View>: View {
                 if #available(tvOS 15.0, *) {
                     #warning("Replace palceholder with AsyncImage for iOS 15")
 //                    AsyncImage(url: url, content: content, placeholder: placeholder)
-                    placeholder()
+                    URLImage(url, identifier: url.absoluteString, empty: placeholder, inProgress: { _ in placeholder() }, failure: { _,_ in placeholder() }, content: content)
                 } else {
                     URLImage(url, identifier: url.absoluteString, empty: placeholder, inProgress: { _ in placeholder() }, failure: { _,_ in placeholder() }, content: content)
                 }

@@ -17,17 +17,7 @@ struct AuthView: View {
     var body: some View {
         
         NavigationView() {
-//            if session.jellyfin == nil {
-//                AuthView().environmentObject(session)
-//            } else {
-//                ServerUserListView(jellyfin: session.jellyfin).environmentObject(session)
-//            }
-//            if firstTryFailed {
-//                ServerSelectionView()
-//            } else {
-//                ProgressView()
-//            }
-            Text("Auth View")
+            ServerSelectionView()
         }
         
         
@@ -38,12 +28,6 @@ struct AuthView: View {
                 message: Text(alert.description),
                 dismissButton: .default(Text("buttons.ok"))
             )
-        }
-        
-        // Present Item Detail view when focus is set
-        .fullScreenCover(item: $session.itemFocus) { item in
-            LibraryView.ItemPage(item)
-                .environmentObject(session)
         }
     }
     
