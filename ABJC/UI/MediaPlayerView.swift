@@ -41,6 +41,7 @@ struct MediaPlayerView: View {
         self.logger.info("Initializing Playback")
         
         guard let jellyfin = session.jellyfin else {
+            session.itemPlaying = nil
             session.logout()
             return
         }
@@ -51,6 +52,7 @@ struct MediaPlayerView: View {
         
         
         guard let asset = API.playerItem(jellyfin, self.item, mediaSourceId) else {
+            self.logger.error("Couldn't get AVAsset")
             return
         }
         
