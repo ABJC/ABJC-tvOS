@@ -63,7 +63,6 @@ extension AuthView {
                                                         let user = Jellyfin.User("", "", "")
                                                         self.jellyfin = Jellyfin(server, user, client)
                                                         self.serverSelected = true
-                                                        
                                                     } label: {
                                                         ServerCardView(server)
                                                     }

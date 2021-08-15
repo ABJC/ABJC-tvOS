@@ -42,6 +42,9 @@
                <Test
                   Identifier = "ABJCTests">
                </Test>
+               <Test
+                  Identifier = "APITests">
+               </Test>
             </SkippedTests>
          </TestableReference>
          <TestableReference
@@ -55,7 +58,7 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "ABJCUITests">
+                  Identifier = "ABJCUITests/testLaunchPerformance()">
                </Test>
             </SkippedTests>
          </TestableReference>

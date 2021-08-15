@@ -10,6 +10,7 @@ import URLImage
 
 @main
 struct ABJCApp: App {
+    
     /// Session Store
     let session: SessionStore = SessionStore()
     

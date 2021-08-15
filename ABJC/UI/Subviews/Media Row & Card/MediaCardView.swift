@@ -101,21 +101,12 @@ extension LibraryView
         
         /// URLImage
         private var image: some View {
-            Group() {
-                if let url = url {
-                    URLImage(
-                        url,
-                        empty: { placeholder },
-                        inProgress: { _ in placeholder },
-                        failure:  { _,_ in placeholder }
-                    ) { image in
-                        image
-                            .renderingMode(.original)
-                            .resizable()
-                    }
-                } else {
-                    placeholder
-                }
+            AsyncImg(url: url) { image in
+                image
+                    .renderingMode(.original)
+                    .resizable()
+            } placeholder: {
+                Blur()
             }
         }
         

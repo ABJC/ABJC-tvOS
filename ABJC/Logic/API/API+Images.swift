@@ -12,7 +12,7 @@ extension API {
         _ jellyfin: Jellyfin,
         _ id: String,
         _ type: APIModels.ImageType,
-        _ width: Int = 600) -> URL
+        _ width: Int = 600) -> URL?
     {
         #if DEBUG
         Self.logger.info("[IMAGE] imageURL - called")
@@ -38,7 +38,7 @@ extension API {
         
         guard let url = urlComponents.url else {
             Self.logger.error("[IMAGE] imageURL - failure 'Image URL Could not be created'")
-            fatalError("URL couldn't be created")
+            return nil
         }
         
         return url
@@ -47,7 +47,7 @@ extension API {
     
     public static func profileImageURL(
         _ jellyfin: Jellyfin,
-        _ id: String) -> URL
+        _ id: String) -> URL?
     {
         Self.logger.info("[IMAGE] profileImageURL - called")
         Self.logger.debug("[IMAGE] profileImageURL - id=\(id)")
@@ -70,7 +70,7 @@ extension API {
         
         guard let url = urlComponents.url else {
             Self.logger.error("[IMAGE] profileImageURL - failure 'Image URL Could not be created'")
-            fatalError("URL couldn't be created")
+            return nil
         }
         
         return url

@@ -13,7 +13,7 @@ import os
 struct MediaPlayerView: View {
     
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "PLAYER")
-    
+
     /// SessionStore EnvironmentObject
     @EnvironmentObject var session: SessionStore
     @State var player: AVPlayer = AVPlayer()
@@ -26,7 +26,6 @@ struct MediaPlayerView: View {
         print("INITIALIZING")
         self.item = item
     }
-    
     
     var body: some View {
         VideoPlayer(player: self.player)
@@ -41,6 +40,7 @@ struct MediaPlayerView: View {
         self.logger.info("Initializing Playback")
         
         guard let jellyfin = session.jellyfin else {
+            session.itemPlaying = nil
             session.logout()
             return
         }
@@ -49,7 +49,12 @@ struct MediaPlayerView: View {
             fatalError("Couldn't find suitable Stream")
         }
         
-        let asset = API.playerItem(jellyfin, self.item, mediaSourceId)
+        
+        guard let asset = API.playerItem(jellyfin, self.item, mediaSourceId) else {
+            self.logger.error("Couldn't get AVAsset")
+            return
+        }
+        
         self.player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
                 
         // Configure Playstate

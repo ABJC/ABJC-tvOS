@@ -13,7 +13,7 @@ extension API {
         _ jellyfin: Jellyfin,
         _ item: Playable,
         _ mediaSourceId: String
-    ) -> AVURLAsset {
+    ) -> AVURLAsset? {
         Self.logger.info("[PLAYBACK] playerItem")
         Self.logger.debug("[PLAYBACK] playerItem - item=\(item.id), itemId=\(item.id), mediaSourceId=\(mediaSourceId)")
         let path = "/videos/\(item.id)/master.m3u8"
@@ -21,14 +21,19 @@ extension API {
             "DeviceId": jellyfin.client.deviceId,
             "MediaSourceId": mediaSourceId,
             "VideoCodec": "h264,h265,avc,hevc",
-            "AudioCodec": "ac3,mp3,aac",
-            "VideoBitrate": "139680000",
-            "AudioBitrate": "320000",
-            "TranscodingMaxAudioChannels": "2",
-            "RequireAvc": "true",
+            "AudioStreamIndex": "1",
+            "AudioCodec": "aac,mp3,ac3,eac3",
+            "VideoBitrate": "139360000",
+            "AudioBitrate": "640000",
+            "TranscodingMaxAudioChannels": "6",
+            "RequireAvc": "false",
             "SegmentContainer": "ts",
             "MinSegments": "2",
-            "TranscodeReasons": "ContainerNotSupported,VideoCodecNotSupported,AudioCodecNotSupported"
+            "BreakOnNonKeyFrames": "true",
+            "h264-profile": "high,main,baseline,constrainedbaseline",
+            "h264-level": "51",
+            "h264-deinterlace": "true",
+            "TranscodeReasons": "VideoCodecNotSupported,AudioCodecNotSupported"
         ]
         
         // Make URL
@@ -46,7 +51,7 @@ extension API {
         
         guard let url = urlComponents.url else {
             Self.logger.info("[PLAYBACK] playerItem - failure 'could not generate URL'")
-            fatalError("URL couldn't be created")
+            return nil
         }
         
         // Make Request
@@ -106,7 +111,7 @@ extension API {
             }
         } catch {
             Self.logger.error("[PLAYBACK] reportPlaystate - failure 'Could not encode'")
-            fatalError("Could not Encode")
+            return
         }
         
     }

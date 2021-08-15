@@ -44,19 +44,14 @@ extension PeopleRowView {
         
         /// Image View
         var imageView: some View {
-            URLImage(
-                API.imageURL(session.jellyfin!,
-                                  person.id,
-                                  .primary),
-                empty: { blur },
-                inProgress: { _ in blur },
-                failure:  { _,_ in blur }
-            ) { image in
+            AsyncImg(url: API.imageURL(session.jellyfin!, person.id, .primary)) { image in
                 image
                     .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(alignment: .top)
+            } placeholder: {
+                blur
             }
         }
         

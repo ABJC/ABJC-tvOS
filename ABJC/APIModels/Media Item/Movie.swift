@@ -24,6 +24,7 @@ extension APIModels {
         
         public let people: [Person]?
         public let genres: [Genre]?
+        public let chapters: [Chapter]
         public let mediaSources: [MediaSource]
         
         public let criticRating: Int?
@@ -44,6 +45,7 @@ extension APIModels {
             case year = "ProductionYear"
             case people = "People"
             case genres = "GenreItems"
+            case chapters = "Chapters"
             case mediaSources = "MediaSources"
             
             case criticRating = "CriticRating"

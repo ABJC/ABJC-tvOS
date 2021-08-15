@@ -21,58 +21,56 @@ struct ServerUserListView: View {
     }
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                // Sretch frame to whole screen for background color
-                Spacer()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
-                VStack{
-                    Text("Whos Watching?")
-                        .font(.title)
-                        .padding(.bottom, 30)
-                    HStack {
-                        ForEach(users, id: \.id) { user in
-                            // Link to manual sign in
-                            if user.hasPassword {
-                                NavigationLink(
-                                    destination: AuthView.ServerSelectionView.CredentialEntryView(jellyfin, user))
-                                {
-                                    UserImageBoxView(user, jellyfin!)
-                                }
-                                .buttonStyle(CardButtonStyle())
-                                
+        ZStack {
+            // Sretch frame to whole screen for background color
+            Spacer()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            VStack{
+                Text("Whos Watching?")
+                    .font(.title)
+                    .padding(.bottom, 30)
+                HStack {
+                    ForEach(users, id: \.id) { user in
+                        // Link to manual sign in
+                        if user.hasPassword {
+                            NavigationLink(
+                                destination: AuthView.ServerSelectionView.CredentialEntryView(jellyfin, user))
+                            {
+                                UserImageBoxView(user, jellyfin!)
                             }
-                            else {
-                                // Sign in without password
-                                Button(action: {authorize(user: user)}, label: {
-                                    UserImageBoxView(user, jellyfin!)
-                                })
-                                .buttonStyle(CardButtonStyle())
-                                
-                            }
+                            .buttonStyle(CardButtonStyle())
+                            
                         }
-                        
-                        NavigationLink(
-                            destination: AuthView.ServerSelectionView.CredentialEntryView(jellyfin))
-                        {
-                            VStack {
-                                Image(systemName: "person.fill.badge.plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 300, height: 300)
-                                    .scaleEffect(0.8)
-                                    .foregroundColor(Color.init(white: 0.9))
-                                Text("buttons.signin")
-                                    .textCase(.uppercase)
-                                    .padding(.bottom)
-                            }
+                        else {
+                            // Sign in without password
+                            Button(action: {authorize(user: user)}, label: {
+                                UserImageBoxView(user, jellyfin!)
+                            })
+                            .buttonStyle(CardButtonStyle())
+                            
                         }
-                        .buttonStyle(CardButtonStyle())
-                        .padding()
                     }
-                    .padding(.top)
+                    
+                    NavigationLink(
+                        destination: AuthView.ServerSelectionView.CredentialEntryView(jellyfin))
+                    {
+                        VStack {
+                            Image(systemName: "person.fill.badge.plus")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 300, height: 300)
+                                .scaleEffect(0.8)
+                                .foregroundColor(Color.init(white: 0.9))
+                            Text("buttons.signin")
+                                .textCase(.uppercase)
+                                .padding(.bottom)
+                        }
+                    }
+                    .buttonStyle(CardButtonStyle())
+                    .padding()
                 }
+                .padding(.top)
             }
         }
         .background(
@@ -154,30 +152,19 @@ struct ServerUserListView: View {
         
         /// URLImage
         private var image: some View {
-            if let url = profileImageURL {
-                return AnyView(URLImage(
-                    url,
-                    empty: { placeholder },
-                    inProgress: { _ in placeholder },
-                    failure: { _, _ in placeholder }
-                ) { image in
-                    image
-                        .renderingMode(.original)
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                })
+            AsyncImg(url: profileImageURL) { image in
+                image
+                    .renderingMode(.original)
+                    .resizable()
+                    .frame(width: 300, height: 300)
+            } placeholder: {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 300, height: 300)
+                    .scaledToFill()
+                    .scaleEffect(0.8)
+                    .background(Color.blue)
             }
-            return AnyView(placeholder)
-        }
-        
-        /// Placeholder for loading URLImage
-        private var placeholder: some View {
-            Image(systemName: "person.fill")
-                .resizable()
-                .frame(width: 300, height: 300)
-                .scaledToFill()
-                .scaleEffect(0.8)
-                .background(Color.blue)
         }
     }
 }

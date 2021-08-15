@@ -34,7 +34,9 @@ extension API {
         urlComponents.path = server.path ?? "" + "/Users/AuthenticateByName"
         
         guard let url = urlComponents.url else {
-            fatalError("URL couldn't be created")
+            self.logger.fault("Couldn't construct URL from componenets")
+            completion(.failure(APIErrors.failedUrlConstruction))
+            return
         }
         
         // Make Request
@@ -62,8 +64,9 @@ extension API {
         ]
         
         guard let data = try? JSONEncoder().encode(jsonBody) else {
-            Self.logger.error("[AUTH] authorize - failure 'Could not encode JSON'")
-            fatalError("Couldnt Encode JSON")
+            Self.logger.fault("[AUTH] authorize - failure 'Could not encode JSON'")
+            completion(.failure(APIErrors.encodingError))
+            return
         }
         
         // Add Request Body

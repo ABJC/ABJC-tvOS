@@ -13,21 +13,41 @@ struct MainView: View {
     /// SessionStore EnvironmentObject
     @EnvironmentObject var session: SessionStore
     
+    @State var isAuthenticating: Bool = true
+    
+    func checkCredentialStore() {
+        session.loadCredentials() { didSucceed in
+            isAuthenticating = false
+        }
+    }
+    
     var body: some View {
-        Group() {
-            // Show Authentication if sessionStore.jellyfin is nil
-            if session.loggedIn {
+        ZStack() {
+            if self.isAuthenticating {
+                // Client is still authenticating
+                ProgressView()
+            } else if session.loggedIn {
+                // If Logged in - Proceed to Library
                 LibraryView().environmentObject(session)
-            }
-            else {
-                if session.jellyfin == nil {
-                    AuthView().environmentObject(session)
-                } else {
-                    ServerUserListView(jellyfin: session.jellyfin).environmentObject(session)
+            } else if session.loggedIn {
+                
+            } else if session.jellyfin != nil {
+                // Client has credentials in store
+                NavigationView {
+                    ServerUserListView(jellyfin: session.jellyfin)
+                        .environmentObject(session)
                 }
+            } else {
+                // Client has no credentials in store
+                AuthView().environmentObject(session)
             }
             
+            if session.itemPlaying != nil || session.itemFocus != nil {
+                Color.black
+                    .edgesIgnoringSafeAreas()
+            }
         }
+        .onAppear(perform: checkCredentialStore)
         
         // Present Alerts if any are pending
         .alert(item: $session.alert) { (alert) -> Alert in

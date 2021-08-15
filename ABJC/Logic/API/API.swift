@@ -41,7 +41,9 @@ class API {
         })
         
         guard let url = urlComponents.url else {
-            fatalError("URL couldn't be created")
+            self.logger.fault("Couldn't construct URL from componenets")
+            completion(.failure(APIErrors.failedUrlConstruction))
+            return
         }
         
         // Make Request

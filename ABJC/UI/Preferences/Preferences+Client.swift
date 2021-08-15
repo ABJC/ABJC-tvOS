@@ -20,9 +20,8 @@ extension PreferencesView {
             Form() {
                 Section(header: Label("pref.client.ui.label", systemImage: "uiwindow.split.2x1")) {
                     InfoToggle("pref.client.showstitles.label", "pref.client.showstitles.descr", $session.preferences.showsTitles)
-                    
-//                    InfoToggle("pref.client.backdroptitleimages.label", "pref.client.backdroptitleimages.descr", $session.preferences.posterT)
-                    
+                        .accessibilityIdentifier("showstitles")
+                                        
                     Picker("pref.client.postertype.label", selection: $session.preferences.posterType) {
                         ForEach(PreferenceStore.PosterType.allCases, id: \.rawValue) { value in
                             Text(value.localizedName)

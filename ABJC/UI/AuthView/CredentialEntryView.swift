@@ -46,13 +46,7 @@ extension AuthView.ServerSelectionView {
                 
                 VStack(alignment: .center) {
                     Group {
-                        if profileImageURL != nil {
-                            profileImageView
-                        }
-                        else
-                        {
-                            personImageView
-                        }
+                        profileImageView
                     }.padding(20)
                     
                     
@@ -100,39 +94,23 @@ extension AuthView.ServerSelectionView {
             }
         }
         
-        var personImageView: some View {
-            let imageName = user == nil ? "person.fill.badge.plus" : "person.fill"
-            
-            return Image(systemName: imageName)
-                .resizable()
-                .frame(width: 300, height: 300)
-                .scaledToFill()
-                .scaleEffect(0.8)
-                .background(user == nil ? Color.clear : Color.blue)
-                .cornerRadius(20)
-
-        }
-        
         
         var profileImageView: some View {
-            if let url = profileImageURL {
-                return AnyView(URLImage(
-                    url,
-                    empty: { personImageView },
-                    inProgress: { _ in ProgressView().frame(width: 300, height: 300)},
-                    failure: { _, _ in personImageView }
-                ) { image in
-                    image
-                        .renderingMode(.original)
-                        .resizable()
-                        .cornerRadius(20)
-                        .frame(width: 300, height: 300)
-                })
+            AsyncImg(url: profileImageURL) { image in
+                image
+                    .renderingMode(.original)
+                    .resizable()
+                    .cornerRadius(20)
+                    .frame(width: 300, height: 300)
+            } placeholder: {
+                Image(systemName: user == nil ? "person.fill.badge.plus" : "person.fill")
+                    .resizable()
+                    .frame(width: 300, height: 300)
+                    .scaledToFill()
+                    .scaleEffect(0.8)
+                    .background(user == nil ? Color.clear : Color.blue)
+                    .cornerRadius(20)
             }
-            else {
-                return AnyView(personImageView)
-            }
-            
         }
         
         func authorize() {

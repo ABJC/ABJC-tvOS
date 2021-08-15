@@ -21,9 +21,6 @@ extension LibraryView
         /// Media Item
         private var item: APIModels.Episode
         
-        private var url: URL {
-            return API.imageURL(session.jellyfin!, item.id, .primary)
-        }
         /// Initializer
         /// - Parameter item: Item
         public init(_ item: APIModels.Episode) {
@@ -73,24 +70,13 @@ extension LibraryView
         
         /// URLImage
         private var image: some View {
-            URLImage(
-                url,
-                empty: { placeholder },
-                inProgress: { _ in placeholder },
-                failure:  { _,_ in placeholder }
-            ) { image in
+            AsyncImg(url: API.imageURL(session.jellyfin!, item.id, .primary)) { image in
                 image
                     .renderingMode(.original)
                     .resizable()
+            } placeholder: {
+                Blur()
             }
-        }
-        
-        /// Placeholder for loading URLImage
-        private var placeholder: some View {
-            //        Image(uiImage: UIImage(blurHash: self.item.blurHash(for: .backdrop) ?? self.item.blurHash(for: .primary) ?? "", size: CGSize(width: 8, height: 8)) ?? UIImage())
-            //            .renderingMode(.original)
-            //            .resizable()
-            Blur()
         }
         
         
