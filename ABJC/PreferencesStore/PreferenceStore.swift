@@ -32,6 +32,13 @@ public class PreferenceStore: ObservableObject {
     public let objectWillChange = PassthroughSubject<Void, Never>()
     
     init(defaults: UserDefaults = .standard) {
+        #if DEBUG
+        if CommandLine.arguments.contains("-factoryUserDefaults") {
+            let defaults = UserDefaults(suiteName: #file)!
+            defaults.removePersistentDomain(forName: #file)
+        }
+        #endif
+        
         self.defaults = defaults
         
         // Load Beta Flags

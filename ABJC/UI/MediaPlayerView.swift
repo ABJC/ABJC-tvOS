@@ -13,7 +13,7 @@ import os
 struct MediaPlayerView: View {
     
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "PLAYER")
-    
+
     /// SessionStore EnvironmentObject
     @EnvironmentObject var session: SessionStore
     @State var player: AVPlayer = AVPlayer()
@@ -26,7 +26,6 @@ struct MediaPlayerView: View {
         print("INITIALIZING")
         self.item = item
     }
-    
     
     var body: some View {
         VideoPlayer(player: self.player)

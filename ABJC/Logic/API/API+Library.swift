@@ -111,14 +111,6 @@ extension API {
                 case .success(let data):
                     do {
                         let item = try JSONDecoder().decode(APIModels.Movie.self, from: data)
-                        do {
-                            let jsonObj = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                            print("JSON OBJECT", JSONSerialization.isValidJSONObject(jsonObj))
-                            let jsonStr = try JSONSerialization.data(withJSONObject: jsonObj, options: .prettyPrinted)
-                            print(String(data: jsonStr, encoding: .utf8) ?? "")
-                        } catch let error {
-                            print("ERROR DECODING", error)
-                        }
                         Self.logger.info("[LIBRARY] movie - success")
                         completion(.success(item))
                     } catch let error {

@@ -26,6 +26,7 @@ struct PreferencesView: View {
                 NavigationLink(destination: Client()) {
                     Label("pref.client.label", systemImage: "tv")
                 }.tag(1)
+                .accessibilityIdentifier("client-navlink")
 
                 NavigationLink(destination: DebugMenu()) {
                     Label("pref.debugmenu.label", systemImage: "exclamationmark.triangle")

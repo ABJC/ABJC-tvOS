@@ -32,7 +32,7 @@ extension LibraryView
                 if items.count != 0, let items = items {
                     Shelf(items, grouped: session.preferences.collectionGrouping)
                         .environmentObject(session)
-                        .id(session.preferences.collectionGrouping)
+                        .id(session.preferences.collectionGrouping.rawValue + String(session.preferences.showsTitles))
                 } else {
                     ActivityIndicatorView()
                 }

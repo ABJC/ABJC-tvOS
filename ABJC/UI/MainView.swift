@@ -33,10 +33,18 @@ struct MainView: View {
                 
             } else if session.jellyfin != nil {
                 // Client has credentials in store
-                ServerUserListView(jellyfin: session.jellyfin).environmentObject(session)
+                NavigationView {
+                    ServerUserListView(jellyfin: session.jellyfin)
+                        .environmentObject(session)
+                }
             } else {
                 // Client has no credentials in store
                 AuthView().environmentObject(session)
+            }
+            
+            if session.itemPlaying != nil || session.itemFocus != nil {
+                Color.black
+                    .edgesIgnoringSafeAreas()
             }
         }
         .onAppear(perform: checkCredentialStore)
