@@ -41,11 +41,6 @@ struct MainView: View {
                 // Client has no credentials in store
                 AuthView().environmentObject(session)
             }
-            
-            if session.itemPlaying != nil || session.itemFocus != nil {
-                Color.black
-                    .edgesIgnoringSafeAreas()
-            }
         }
         .onAppear(perform: checkCredentialStore)
         
