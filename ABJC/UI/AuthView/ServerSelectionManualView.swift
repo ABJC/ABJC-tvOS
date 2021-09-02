@@ -92,7 +92,8 @@ extension AuthView.ServerSelectionView {
                                     {
                                         EmptyView()
                                     }
-                                    .buttonStyle(PlainButtonStyle()))
+                                    .buttonStyle(PlainButtonStyle())
+                                )
                                 
                             }
                         }

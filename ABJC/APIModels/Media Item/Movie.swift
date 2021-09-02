@@ -28,7 +28,7 @@ extension APIModels {
         public let mediaSources: [MediaSource]
         
         public let criticRating: Int?
-        private let communityRating: Double
+        private let communityRating: Double?
         
         public let userData: UserData
         

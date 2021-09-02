@@ -55,8 +55,7 @@ struct MainView: View {
         
         // Present Item Detail view when focus is set
         .fullScreenCover(item: $session.itemFocus) { item in
-            LibraryView.ItemPage(item)
-                .environmentObject(session)
+            FullScreenCoverContainer().environmentObject(session)
         }
     }
 }

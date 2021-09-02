@@ -26,14 +26,14 @@ extension API {
             "VideoBitrate": "139360000",
             "AudioBitrate": "640000",
             "TranscodingMaxAudioChannels": "6",
-            "RequireAvc": "false",
+            "RequireAvc": "true",
             "SegmentContainer": "ts",
             "MinSegments": "2",
             "BreakOnNonKeyFrames": "true",
             "h264-profile": "high,main,baseline,constrainedbaseline",
             "h264-level": "51",
             "h264-deinterlace": "true",
-            "TranscodeReasons": "VideoCodecNotSupported,AudioCodecNotSupported"
+            "TranscodeReasons": "ContainerNotSupported,VideoCodecNotSupported,AudioCodecNotSupported"
         ]
         
         // Make URL

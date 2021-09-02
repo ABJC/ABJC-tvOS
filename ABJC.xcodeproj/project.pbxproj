@@ -63,6 +63,7 @@
 		FDA627EF260E6399002F9ECC /* MediaRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627EE260E6399002F9ECC /* MediaRowView.swift */; };
 		FDA627F4260E64BF002F9ECC /* MediaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627F3260E64BF002F9ECC /* MediaCardView.swift */; };
 		FDA627F9260E6585002F9ECC /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627F8260E6585002F9ECC /* Blur.swift */; };
+		FDA81FEE26E104F20098493E /* FullScreenCoverContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA81FED26E104F20098493E /* FullScreenCoverContainer.swift */; };
 		FDAC930F26333EC600BA2E5C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC930E26333EC600BA2E5C /* Keychain.swift */; };
 		FDBA0E17263439E3001D38CC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA0E16263439E3001D38CC /* SearchView.swift */; };
 		FDBA0E1F26343F46001D38CC /* API+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA0E1E26343F46001D38CC /* API+Search.swift */; };
@@ -135,7 +136,6 @@
 		FD36130B263329E400298BEF /* PreferencesView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesView+Subviews.swift"; sourceTree = "<group>"; };
 		FD36624D26C2EE7E0001C1DE /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
 		FD367BFE269F195B00E6A161 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		FD367BFF269F1EBE00E6A161 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = de; path = de.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		FD367C00269F221700E6A161 /* Grouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grouping.swift; sourceTree = "<group>"; };
 		FD40C01F261886A900719C7E /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		FD40C02D2618894B00719C7E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -176,6 +176,7 @@
 		FDA627EE260E6399002F9ECC /* MediaRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRowView.swift; sourceTree = "<group>"; };
 		FDA627F3260E64BF002F9ECC /* MediaCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCardView.swift; sourceTree = "<group>"; };
 		FDA627F8260E6585002F9ECC /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
+		FDA81FED26E104F20098493E /* FullScreenCoverContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverContainer.swift; sourceTree = "<group>"; };
 		FDAC930E26333EC600BA2E5C /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		FDBA0E16263439E3001D38CC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		FDBA0E1E26343F46001D38CC /* API+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Search.swift"; sourceTree = "<group>"; };
@@ -354,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				FDE08285260E0C030088419A /* MainView.swift */,
+				FDA81FED26E104F20098493E /* FullScreenCoverContainer.swift */,
 				FD40C053261895A300719C7E /* MediaPlayerView.swift */,
 				FDA627D0260E3C69002F9ECC /* LibraryView */,
 				FDA6276E260E27E5002F9ECC /* AuthView */,
@@ -653,7 +655,6 @@
 			knownRegions = (
 				en,
 				Base,
-				de,
 			);
 			mainGroup = FDE0824A260E0B9D0088419A;
 			packageReferences = (
@@ -777,6 +778,7 @@
 				FDE082F8260E25280088419A /* ItemResponse.swift in Sources */,
 				FDA627E5260E3EEB002F9ECC /* Extensions.swift in Sources */,
 				FD40C04926188F2200719C7E /* Preferences+Debug.swift in Sources */,
+				FDA81FEE26E104F20098493E /* FullScreenCoverContainer.swift in Sources */,
 				FDE082E1260E1EFB0088419A /* SystemInfo.swift in Sources */,
 				FDBA0E1F26343F46001D38CC /* API+Search.swift in Sources */,
 				FDA62786260E299A002F9ECC /* UDPBroadcastConnectionError.swift in Sources */,
@@ -824,7 +826,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD367BFE269F195B00E6A161 /* en */,
-				FD367BFF269F1EBE00E6A161 /* de */,
 			);
 			name = Localizable.stringsdict;
 			sourceTree = "<group>";

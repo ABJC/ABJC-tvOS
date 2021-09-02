@@ -14,6 +14,8 @@ extension LibraryView
         /// SessionStore EnvironmentObject
         @EnvironmentObject var session: SessionStore
         
+        @State var isLoading: Bool = false
+        
         /// MediaType
         private let type: APIModels.MediaType?
         
@@ -29,20 +31,19 @@ extension LibraryView
         var body: some View
         {
             NavigationView {
-                if items.count != 0, let items = items {
+                if items.count != 0 {
                     Shelf(items, grouped: session.preferences.collectionGrouping)
                         .environmentObject(session)
                         .id(session.preferences.collectionGrouping.rawValue + String(session.preferences.showsTitles))
-                } else {
+                } else if isLoading {
                     ActivityIndicatorView()
+                } else {
+                    Shelf(items, grouped: session.preferences.collectionGrouping)
+                        .environmentObject(session)
+                        .id(session.preferences.collectionGrouping.rawValue + String(session.preferences.showsTitles))
                 }
             }
             .onAppear(perform: load)
-            // Present MediaPlayer when itemPlaying is pending
-            .fullScreenCover(item: $session.itemPlaying, onDismiss: session.restoreFocus) { item in
-                MediaPlayerView(item)
-                    .environmentObject(session)
-            }
         }
         
         func load() {
@@ -51,6 +52,7 @@ extension LibraryView
                 return
             }
             
+            print("STARTED LOADING", self.isLoading)
             API.items(jellyfin, type) { (result) in
                 switch result {
                     case .failure(let error):
@@ -58,6 +60,8 @@ extension LibraryView
                     case .success(let items):
                         self.items = items
                 }
+                
+                print("FINISHED LOADING", self.isLoading)
             }
         }
     }

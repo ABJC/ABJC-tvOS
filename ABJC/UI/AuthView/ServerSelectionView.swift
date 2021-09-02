@@ -26,7 +26,6 @@ extension AuthView {
         @State private var jellyfin: Jellyfin? = nil
         
         var body: some View {
-            
             GeometryReader { geometry in
                 HStack {
                     VStack {

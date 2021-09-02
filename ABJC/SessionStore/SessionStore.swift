@@ -23,7 +23,6 @@ class SessionStore: ObservableObject {
     
     /// Focus Item
     @Published public var itemFocus: APIModels.MediaItem? = nil
-    @Published public var prevFocus: APIModels.MediaItem? = nil
     
     /// Playing Item
     @Published public var itemPlaying: PlayItem? = nil
@@ -108,25 +107,16 @@ class SessionStore: ObservableObject {
     }
     
     
-    /// Restores previous focus
-    public func restoreFocus() {
-        if prevFocus != nil {
-            DispatchQueue.main.async {
-                self.itemFocus = self.prevFocus
-                self.prevFocus = nil
-            }
-        }
-    }
-    
-    
     /// Sets play item
     /// - Parameter item: Playable Media Item
     public func setPlayItem(_ item: PlayItem) {
-        DispatchQueue.main.async {
-            self.prevFocus = self.itemFocus
-            self.itemPlaying = item
-            self.itemFocus = nil
-        }
+        self.itemPlaying = item
+        print(self.itemPlaying!.name)
+//        DispatchQueue.main.async {
+//            self.prevFocus = self.itemFocus
+//            self.itemPlaying = item
+//            self.itemFocus = nil
+//        }
     }
     
     
