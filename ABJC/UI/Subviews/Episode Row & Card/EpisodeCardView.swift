@@ -41,7 +41,7 @@ extension LibraryView
                 .frame(width: size.width, height: size.height)
                 .overlay(overlay, alignment: .bottom)
                 VStack {
-                    Text("Episode \(item.index ?? 0)")
+                    Text(LocalizedStringKey("Episode \(item.index ?? 0)"))
                     Text(item.name)
                         .font(.headline)
                 }.foregroundColor(.primary)
@@ -63,7 +63,7 @@ extension LibraryView
             Blur()
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 .overlay(
-                    Text("\(item.index ?? 0)")
+                    Text(LocalizedStringKey("\(item.index ?? 0)"))
                         .font(.largeTitle)
                 )
         }

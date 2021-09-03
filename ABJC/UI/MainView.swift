@@ -47,9 +47,9 @@ struct MainView: View {
         // Present Alerts if any are pending
         .alert(item: $session.alert) { (alert) -> Alert in
             Alert(
-                title: Text(alert.title),
-                message: Text(alert.description),
-                dismissButton: .default(Text("buttons.ok"))
+                title: Text(LocalizedStringKey(alert.title)),
+                message: Text(LocalizedStringKey(alert.description)),
+                dismissButton: .default(Text(LocalizedStringKey("buttons.ok")))
             )
         }
         

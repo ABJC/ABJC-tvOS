@@ -270,10 +270,12 @@ extension LibraryView
                                     self.episodes = items
                                     self.findNextUp()
                                 case .failure(let error):
+                                    API.logError(method: .episodes, error: error, session: session, in: .seriesPage)
                                     session.setAlert(.api, "Failed to fetch Episodes", "Failed to fetch Episodes for \(item.id)", error)
                             }
                         }
                     case .failure(let error):
+                        API.logError(method: .seasons, error: error, session: session, in: .seriesPage)
                         session.setAlert(.api, "Failed to fetch Seasons", "Failed to fetch Seasons for \(item.id)", error)
                 }
             }

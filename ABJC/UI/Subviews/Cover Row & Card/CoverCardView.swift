@@ -69,7 +69,7 @@ extension LibraryView
                     Button(action: {
                         session.setFocus(item)
                     }) {
-                        Text("More Info")
+                        Text(LocalizedStringKey("More Info"))
                     }
                     .frame(width: 300)
                     .padding()

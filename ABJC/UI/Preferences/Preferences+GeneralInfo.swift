@@ -69,7 +69,9 @@ extension PreferencesView {
             API.systemInfo(jellyfin) { result in
                 switch result {
                     case .success(let data): self.serverInfo = data
-                    case .failure(let error): print(error)
+                    case .failure(let error):
+                        API.logError(method: .systemInfo, error: error, session: session, in: .generalInfo)
+                        print(error)
                 }
             }
             
@@ -77,14 +79,18 @@ extension PreferencesView {
             API.itemCounts(jellyfin) { result in
                 switch result {
                     case .success(let data): self.libraryInfo = data
-                    case .failure(let error): print(error)
+                    case .failure(let error):
+                        API.logError(method: .itemCounts, error: error, session: session, in: .generalInfo)
+                        print(error)
                 }
             }
             
             API.currentUser(jellyfin) { result in
                 switch result {
                     case .success(let data): self.userInfo = data
-                    case .failure(let error): print(error)
+                    case .failure(let error):
+                        API.logError(method: .currentUser, error: error, session: session, in: .generalInfo)
+                        print(error)
                 }
             }
         }

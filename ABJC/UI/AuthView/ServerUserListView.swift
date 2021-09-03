@@ -27,7 +27,7 @@ struct ServerUserListView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             VStack{
-                Text("Whos Watching?")
+                Text(LocalizedStringKey("Whos Watching?"))
                     .font(.title)
                     .padding(.bottom, 30)
                 HStack {
@@ -47,7 +47,7 @@ struct ServerUserListView: View {
                             Button(action: {authorize(user: user)}, label: {
                                 UserImageBoxView(user, jellyfin!)
                             })
-                            .buttonStyle(CardButtonStyle())
+                                .buttonStyle(CardButtonStyle())
                             
                         }
                     }
@@ -62,7 +62,7 @@ struct ServerUserListView: View {
                                 .frame(width: 300, height: 300)
                                 .scaleEffect(0.8)
                                 .foregroundColor(Color.init(white: 0.9))
-                            Text("buttons.signin")
+                            Text(LocalizedStringKey("buttons.signin"))
                                 .textCase(.uppercase)
                                 .padding(.bottom)
                         }
@@ -88,15 +88,16 @@ struct ServerUserListView: View {
         
         API.publicUsers(jellyfin) { result in
             switch result {
-            case .success(let fetchedUsers):
-                users = fetchedUsers
-            case .failure(let error):
-                session.setAlert(
-                    .auth,
-                    "failed",
-                    "Public Users: \(jellyfin.server.https ? "(HTTPS)":"") @\(jellyfin.server.host):\(jellyfin.server.port)",
-                    error
-                )
+                case .success(let fetchedUsers):
+                    users = fetchedUsers
+                case .failure(let error):
+                    API.logError(method: .publicUsers, error: error, session: session, in: .serverUserList)
+                    session.setAlert(
+                        .auth,
+                        "failed",
+                        "Public Users: \(jellyfin.server.https ? "(HTTPS)":"") @\(jellyfin.server.host):\(jellyfin.server.port)",
+                        error
+                    )
             }
             
         }
@@ -110,15 +111,16 @@ struct ServerUserListView: View {
         
         API.authorize(jellyfin.server, jellyfin.client, user.name, "") { result in
             switch result {
-            case .success(let jellyfin):
-                session.setJellyfin(jellyfin, true)
-            case .failure(let error):
-                session.setAlert(
-                    .auth,
-                    "failed",
-                    "\(jellyfin.server.https ? "(HTTPS)":"") \(user.name)@\(jellyfin.server.host):\(jellyfin.server.port)",
-                    error
-                )
+                case .success(let jellyfin):
+                    session.setJellyfin(jellyfin, true)
+                case .failure(let error):
+                    API.logError(method: .authorize, error: error, session: session, in: .watchNow)
+                    session.setAlert(
+                        .auth,
+                        "failed",
+                        "\(jellyfin.server.https ? "(HTTPS)":"") \(user.name)@\(jellyfin.server.host):\(jellyfin.server.port)",
+                        error
+                    )
             }
         }
     }

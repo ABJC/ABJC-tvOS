@@ -165,7 +165,9 @@ extension LibraryView
             API.movie(jellyfin, item.id) { result in
                 switch result {
                     case .success(let item): self.detailItem = item
-                    case .failure(let error): session.setAlert(.api, "Failed to fetch item detail", "getMovie failed", error)
+                    case .failure(let error):
+                        API.logError(method: .movie, error: error, session: session, in: .moviePage)
+                        session.setAlert(.api, "Failed to fetch item detail", "getMovie failed", error)
                 }
             }
             

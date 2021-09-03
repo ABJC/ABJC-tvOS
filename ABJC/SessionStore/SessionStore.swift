@@ -8,10 +8,15 @@
 import Foundation
 import SwiftUI
 import os
+import AnalyticsClient
 
 class SessionStore: ObservableObject {
+    static let variables: Constants = .load
     /// Logger
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "SESSION")
+    
+    public let analytics: AnalyticsManager = .testflight(url: variables.analytics_url, apikey: variables.analytics_key)
+
         
     /// Jellyfin Object
     @Published public var jellyfin: Jellyfin? = nil
@@ -164,13 +169,13 @@ class SessionStore: ObservableObject {
         DispatchQueue.main.async { [self] in
             if let localized = localized {
                 if preferences.isDebugEnabled {
-                    self.alert = Alert(title: alertType.localized, description: LocalizedStringKey(debug))
+                    self.alert = Alert(title: alertType.localized, description: debug)
                 } else {
-                    self.alert = Alert(title: alertType.localized, description: LocalizedStringKey("alerts." + alertType.rawValue + "." + localized + "label") )
+                    self.alert = Alert(title: alertType.localized, description: "alerts." + alertType.rawValue + "." + localized + ".label")
                 }
                 
             } else {
-                self.alert = Alert(title: alertType.localized, description: LocalizedStringKey(debug))
+                self.alert = Alert(title: alertType.localized, description: debug)
             }
         }
     }
@@ -195,8 +200,8 @@ class SessionStore: ObservableObject {
 extension SessionStore {
     struct Alert: Identifiable {
         var id: String = Date().description
-        var title: LocalizedStringKey
-        var description: LocalizedStringKey
+        var title: String
+        var description: String
         
         enum AlertType: String {
             case info = "info"
@@ -208,8 +213,8 @@ extension SessionStore {
                 return self.rawValue.uppercased()
             }
             
-            var localized: LocalizedStringKey {
-                return LocalizedStringKey("alerts.\(self.rawValue).title")
+            var localized: String {
+                return "alerts.\(self.rawValue).title"
             }
         }
     }

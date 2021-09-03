@@ -2,8 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>buttons.ok</key>
+	<string>Continue</string>
+	<key>pref.debugmenu.analytics.detailedReport.qrcodedescription</key>
+	<string>Scan this QR code to email me your installation id (I won&apos;t know what reports are yours without it)</string>
+	<key>buttons.submit</key>
+	<string>Submit</string>
+	<key>buttons.cancel</key>
+	<string>Cancel</string>
 	<key>postertype.wide</key>
-	<string>Breit (Backdrop)</string>
+	<string>Wide (Backdrop)</string>
 	<key>postertype.poster</key>
 	<string>Poster</string>
 	<key>reportaproblem.title</key>
@@ -11,15 +19,15 @@
 	<key>pref.debugmenu.debugmode.label</key>
 	<string>Debug Modus</string>
 	<key>pref.debugmenu.alerts.auth</key>
-	<string>Authentifizierung</string>
+	<string>Authentication</string>
 	<key>pref.debugmenu.alerts.api</key>
 	<string>API</string>
 	<key>pref.debugmenu.alerts.playback</key>
 	<string>Playback</string>
 	<key>pref.debugmenu.clearimagecache.label</key>
-	<string>Bild-Cache löschen</string>
+	<string>Clear Image Cache</string>
 	<key>pref.client.tabs.disclaimer</key>
-	<string>UI wird nach einem Neustart geupdated</string>
+	<string>Might require restart</string>
 	<key>pref.client.collectiongrouping.label</key>
 	<string>Collection Grouping</string>
 	<key>collectionGrouping.genre</key>
@@ -68,6 +76,10 @@
 	<string>total</string>
 	<key>pref.libraryinfo.movies</key>
 	<string>movies</string>
+	<key>pref.debugmenu.analytics.detailedReport</key>
+	<string>Detailed Analytics Report</string>
+	<key>pref.debugmenu.analytics.sendDetailedReport</key>
+	<string>Send Report</string>
 	<key>betaflags.singlepagemode.descr</key>
 	<string>Show Library as single page rather than multiple tabs</string>
 	<key>betaflags.singlepagemode.label</key>
@@ -156,8 +168,6 @@
 	<string>Are you sure you want to remove the server?</string>
 	<key>alerts.removeServer.title</key>
 	<string>Remove Server</string>
-	<key>authView.serverSelection.port.path</key>
-	<string>/jellyfin</string>
 	<key>authView.serverSelection.port.label</key>
 	<string>port</string>
 	<key>authView.serverSelection.host.label</key>

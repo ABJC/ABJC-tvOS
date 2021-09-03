@@ -19,7 +19,7 @@ struct ReportAProblemView: View {
             Blur()
                 .edgesIgnoringSafeArea(.all)
             NavigationView {
-                Text("HELLO")
+                Text(LocalizedStringKey("HELLO"))
                     .navigationTitle("Report A Problem")
             }
         }

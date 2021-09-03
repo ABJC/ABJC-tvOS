@@ -48,6 +48,7 @@ extension LibraryView
             API.latest(jellyfin) { (result) in
                 switch result {
                     case .failure(let error):
+                        API.logError(method: .latest, error: error, session: session, in: .watchNow)
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items (latest)", error)
                     case .success(let items):
                         DispatchQueue.main.async {
@@ -60,6 +61,7 @@ extension LibraryView
             API.items(jellyfin) { (result) in
                 switch result {
                     case .failure(let error):
+                        API.logError(method: .items, error: error, session: session, in: .watchNow)
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items", error)
                     case .success(let items):
                         DispatchQueue.main.async {

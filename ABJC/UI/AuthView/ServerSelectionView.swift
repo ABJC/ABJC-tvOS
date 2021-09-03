@@ -42,7 +42,7 @@ extension AuthView {
                             HStack(spacing: 5) {
                                 Spacer()
                                     .frame(width: 200)
-                                Text("authView.serverSelection.title")
+                                Text(LocalizedStringKey("authView.serverSelection.title"))
                                     .font(.title2).bold()
                                 ProgressView()
                                     .frame(width: 200)

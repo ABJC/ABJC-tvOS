@@ -46,7 +46,7 @@ extension LibraryView {
                         // Media Item Results
                         if itemResults.count != 0 && !query.isEmpty {
                             VStack(alignment: .leading, spacing: 0) {
-                                Text("library.search.results")
+                                Text(LocalizedStringKey("library.search.results"))
                                     .font(.title3)
                                     .padding(.horizontal, edgeInsets.leading)
                                 ScrollView(.horizontal, showsIndicators: false) {
@@ -94,6 +94,7 @@ extension LibraryView {
             API.items(jellyfin, nil) { (result) in
                 switch result {
                     case .failure(let error):
+                        API.logError(method: .items, error: error, session: session, in: .search)
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items of type", error)
                     case .success(let items):
                         self.allItems = items
@@ -111,7 +112,8 @@ extension LibraryView {
             API.searchItems(jellyfin, query) { result in
                 switch result {
                     case .success(let items): self.itemResults = items
-                    case .failure(let error): print(error)
+                    case .failure(let error):
+                        API.logError(method: .searchItems, error: error, session: session, in: .search)
                 }
             }
             
@@ -119,7 +121,8 @@ extension LibraryView {
             API.searchPeople(jellyfin, query) { result in
                 switch result {
                     case .success(let items): self.personResults = items
-                    case .failure(let error): print(error)
+                    case .failure(let error):
+                        API.logError(method: .searchPeople, error: error, session: session, in: .search)
                 }
             }
         }

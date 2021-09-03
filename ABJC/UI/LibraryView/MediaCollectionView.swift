@@ -52,16 +52,14 @@ extension LibraryView
                 return
             }
             
-            print("STARTED LOADING", self.isLoading)
             API.items(jellyfin, type) { (result) in
                 switch result {
                     case .failure(let error):
+                        API.logError(method: .items, error: error, session: session, in: .mediaCollection(type?.rawValue ?? "No Type"))
                         session.setAlert(.api, "Couldn't fetch Items", "Couldn't fetch Items of type \(String(describing: type?.rawValue))", error)
                     case .success(let items):
                         self.items = items
                 }
-                
-                print("FINISHED LOADING", self.isLoading)
             }
         }
     }

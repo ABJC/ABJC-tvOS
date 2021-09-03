@@ -26,9 +26,9 @@ struct ButtonArea<Content: View>: View {
         content(isFocused)
             .focusable(true)
             .onLongPressGesture(minimumDuration: 0.01, pressing: pressing, perform: action)
-            .onLongPressGesture(minimumDuration: 0.01, pressing: { _ in }) {
-                print("PRESSED")
-            }
+//            .onLongPressGesture(minimumDuration: 0.01, pressing: { _ in }) {
+//                print("PRESSED")
+//            }
     }
     
     func pressing(_ isPressed: Bool) {

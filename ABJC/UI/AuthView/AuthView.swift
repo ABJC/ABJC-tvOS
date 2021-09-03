@@ -26,7 +26,7 @@ struct AuthView: View {
             Alert(
                 title: Text(alert.title),
                 message: Text(alert.description),
-                dismissButton: .default(Text("buttons.ok"))
+                dismissButton: .default(Text(LocalizedStringKey("buttons.ok")))
             )
         }
     }

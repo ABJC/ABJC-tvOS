@@ -15,34 +15,34 @@ struct LibraryView: View {
         TabView() {
             if session.preferences.showsWatchNowTab {
                 WatchNowView()
-                    .tabItem({ Text("library.watchnow.label") })
+                    .tabItem({ Text(LocalizedStringKey("library.watchnow.label")) })
                     .tag(0)
                     .disabled(!session.preferences.tabs.contains(.watchnow))
             }
             
             if session.preferences.showsMoviesTab {
                 MediaCollectionView(.movie)
-                    .tabItem({ Text("library.movies.label") })
+                    .tabItem({ Text(LocalizedStringKey("library.movies.label")) })
                     .tag(1)
             }
 
             if session.preferences.showsSeriesTab {
                 MediaCollectionView(.series)
-                    .tabItem({ Text("library.series.label") })
+                    .tabItem({ Text(LocalizedStringKey("library.series.label")) })
                     .tag(2)
             }
 
             if session.preferences.showsSearchTab {
                 SearchView()
                     .tabItem({
-                        Text("library.search.label")
+                        Text(LocalizedStringKey("library.search.label"))
                         Image(systemName: "magnifyingglass")
                     })
                     .tag(3)
             }
             
             PreferencesView()
-                .tabItem({ Text("library.preferences.label") })
+                .tabItem({ Text(LocalizedStringKey("library.preferences.label")) })
                 .tag(4)
         }
     }

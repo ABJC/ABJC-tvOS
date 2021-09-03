@@ -58,7 +58,7 @@ extension AuthView.ServerSelectionView {
                                 .textContentType(.username)
                                 .prefersDefaultFocus(username.isEmpty, in: namespace)
                                 .disabled(user != nil)
-                    
+                            
                             SecureField("authView.credentialEntryView.password.label", text: self.$password)
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
@@ -67,7 +67,7 @@ extension AuthView.ServerSelectionView {
                         }.frame(width: 400)
                         
                         Button(action: authorize) {
-                            Text("buttons.signin").textCase(.uppercase)
+                            Text(LocalizedStringKey("buttons.signin")).textCase(.uppercase)
                         }
                         .prefersDefaultFocus(!username.isEmpty && !password.isEmpty, in: namespace)
                     }
@@ -119,16 +119,17 @@ extension AuthView.ServerSelectionView {
             }
             API.authorize(jellyfin.server, jellyfin.client, username, password) { result in
                 switch result {
-                case .success(let jellyfin):
-                    session.setJellyfin(jellyfin, true)
-                    
-                case .failure(let error):
-                    session.setAlert(
-                        .auth,
-                        "failed",
-                        "\(jellyfin.server.https ? "(HTTPS)":"") \(username)@\(jellyfin.server.host):\(jellyfin.server.port)",
-                        error
-                    )
+                    case .success(let jellyfin):
+                        session.setJellyfin(jellyfin, true)
+                        
+                    case .failure(let error):
+                        API.logError(method: .authorize, error: error, session: session, in: .credentialEntry)
+                        session.setAlert(
+                            .auth,
+                            "failed",
+                            "\(jellyfin.server.https ? "(HTTPS)":"") \(username)@\(jellyfin.server.host):\(jellyfin.server.port)",
+                            error
+                        )
                 }
             }
         }

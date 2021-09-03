@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActivityIndicatorView: View {
     var body: some View {
-        Text("Pls don't crash 🥺 ")
+        Text(LocalizedStringKey("Pls don't crash 🥺 "))
 //        ProgressView()
     }
 }

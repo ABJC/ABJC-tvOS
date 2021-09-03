@@ -37,7 +37,7 @@ struct PreferencesView: View {
 //                }) {
 //                    HStack {
 //                        Spacer()
-//                        Text("reportaproblem.title")
+//                        Text(LocalizedStringKey("reportaproblem.title"))
 //                            .bold()
 //                            .textCase(.uppercase)
 //
@@ -50,7 +50,7 @@ struct PreferencesView: View {
                 }) {
                     HStack {
                         Spacer()
-                        Text("buttons.logout")
+                        Text(LocalizedStringKey("buttons.logout"))
                             .bold()
                             .textCase(.uppercase)
                             .foregroundColor(.red)
@@ -64,7 +64,7 @@ struct PreferencesView: View {
             }) {
                 HStack {
                     Spacer()
-                    Text("alerts.removeServer.title")
+                    Text(LocalizedStringKey("alerts.removeServer.title"))
                         .bold()
                         .textCase(.uppercase)
                         .foregroundColor(.red)
@@ -77,13 +77,13 @@ struct PreferencesView: View {
             VStack {
                 Image("logo")
                 HStack {
-                    Text("App Version")
+                    Text(LocalizedStringKey("App Version"))
                     Text(version.description)
                 }
             }
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
         .alert(isPresented: $showRemoveServerAlert, content: {
-            Alert(title: Text("alerts.removeServer.title"), message: Text("alerts.removeServer.label"), primaryButton: .destructive(Text("Delete"), action: {
+            Alert(title: Text(LocalizedStringKey("alerts.removeServer.title")), message: Text(LocalizedStringKey("alerts.removeServer.label")), primaryButton: .destructive(Text(LocalizedStringKey("Delete")), action: {
                 session.removeServer()
             }), secondaryButton: .cancel())
         })

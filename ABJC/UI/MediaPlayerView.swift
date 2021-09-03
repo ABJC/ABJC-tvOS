@@ -23,7 +23,6 @@ struct MediaPlayerView: View {
     let item: PlayItem
     
     public init(_ item: PlayItem) {
-        print("INITIALIZING")
         self.item = item
     }
     
@@ -45,12 +44,28 @@ struct MediaPlayerView: View {
             return
         }
         guard let mediaSourceId = self.item.mediaSources.first(where: { $0.canPlay })?.id else {
+            let metadata: [String: String] = [
+                "type": "mediaSourceFailure",
+                "sources": "\(item.mediaSources.count)",
+                "containers": String(describing: item.mediaSources.map(\.container)),
+                "types": String(describing: item.mediaSources.map(\.type)),
+            ]
+            
+            session.analytics.log(.playbackError, in: .mediaPlayer, with: metadata)
             self.logger.error("Failed to find suitable media source")
             fatalError("Couldn't find suitable Stream")
         }
         
         
         guard let asset = API.playerItem(jellyfin, self.item, mediaSourceId) else {
+            let metadata: [String: String] = [
+                "type": "avAssetFailure",
+                "sources": "\(item.mediaSources.count)",
+                "containers": String(describing: item.mediaSources.map(\.container)),
+                "types": String(describing: item.mediaSources.map(\.type)),
+            ]
+            
+            session.analytics.log(.playbackError, in: .mediaPlayer, with: metadata)
             self.logger.error("Couldn't get AVAsset")
             return
         }

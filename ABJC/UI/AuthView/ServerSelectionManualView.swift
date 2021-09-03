@@ -42,28 +42,28 @@ extension AuthView.ServerSelectionView {
                             HStack(spacing: 5) {
                                 Spacer()
                                     .frame(width: 200)
-                                Text("authView.serverSelection.title")
+                                Text(LocalizedStringKey("authView.serverSelection.title"))
                                     .font(.title2).bold()
                                 Spacer()
                                     .frame(width: 200)
                                 
                             }
                             Group {
-                                TextField("authView.serverSelection.host.label", text: self.$host)
+                                TextField(LocalizedStringKey("authView.serverSelection.host.label"), text: self.$host)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
                                 
-                                TextField("authView.serverSelection.port.label", text: self.$port)
+                                TextField(LocalizedStringKey("authView.serverSelection.port.label"), text: self.$port)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
                                     .textContentType(.oneTimeCode)
                                     .keyboardType(.numberPad)
                                 
-                                TextField("authView.serverSelection.port.path", text: self.$path)
+                                TextField("/jellyfin", text: self.$path)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
                                 
-                                Toggle("authView.credentialEntryView.isUsingHTTPS.label", isOn: $isHttpsEnabled)
+                                Toggle(LocalizedStringKey("authView.credentialEntryView.isUsingHTTPS.label"), isOn: $isHttpsEnabled)
                                 
                                 Button {
                                     var path : String? = nil
@@ -83,7 +83,7 @@ extension AuthView.ServerSelectionView {
                                     self.serverSelected = true
                                     
                                 } label: {
-                                    Text("buttons.continue").textCase(.uppercase)
+                                    Text(LocalizedStringKey("buttons.continue")).textCase(.uppercase)
                                 }
                                 .background(
                                     NavigationLink(
