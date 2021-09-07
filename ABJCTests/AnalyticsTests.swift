@@ -7,13 +7,16 @@
 
 import XCTest
 import AnalyticsClient
+@testable import ABJC
 
 class AnalyticsTests: XCTestCase {
     
     private var manager: AnalyticsManager!
     
     override func setUpWithError() throws {
-//        self.manager = .testflight(url: Constants.analytics_url)
+        let constants = Constants.load
+        self.manager = .testflight(url: constants.analytics_url,
+                                   version: "NONE")
     }
     
     func testSendReport() throws {

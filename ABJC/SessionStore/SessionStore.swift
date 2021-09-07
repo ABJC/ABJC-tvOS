@@ -15,9 +15,17 @@ class SessionStore: ObservableObject {
     /// Logger
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "SESSION")
     
-    public let analytics: AnalyticsManager = .testflight(url: variables.analytics_url, apikey: variables.analytics_key)
+    public let analytics: AnalyticsManager = .testflight(url: variables.analytics_url,
+                                                         version: Version().description)
 
-        
+    
+    init() {
+        if preferences.isFirstBoot || preferences.wasUpdated {
+            print("FIRST BOOT",  preferences.isFirstBoot)
+            print("UPDATED", preferences.wasUpdated)
+            self.analytics.log(.deviceInfo, in: .none, with: [:])
+        }
+    }
     /// Jellyfin Object
     @Published public var jellyfin: Jellyfin? = nil
     

@@ -7,16 +7,21 @@
 
 import SwiftUI
 import URLImage
+import Firebase
 
 @main
 struct ABJCApp: App {
+    init() {
+        FirebaseApp.configure()
+        self.session = SessionStore()
+    }
     
     /// Session Store
-    let session: SessionStore = SessionStore()
+    let session: SessionStore
     
     var urlImageOptions: URLImageOptions {
         var options = URLImageOptions()
-//        options.fetchPolicy = .returnStoreElseLoad(downloadDelay: 0.25)
+        //        options.fetchPolicy = .returnStoreElseLoad(downloadDelay: 0.25)
         options.loadOptions = [ .loadImmediately ]
         return options
     }

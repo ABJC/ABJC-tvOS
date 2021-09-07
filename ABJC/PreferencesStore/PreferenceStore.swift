@@ -13,6 +13,9 @@ import SwiftUI
 
 public class PreferenceStore: ObservableObject {
     private enum Keys {
+        static let firstBoot = "analytics.firstboot"
+        static let lastVersion = "analytics.lastversion"
+        
         static let watchnowtab = "tabviewconfiguration.watchnowtab"
         static let seriestab = "tabviewconfiguration.seriestab"
         static let moviestab = "tabviewconfiguration.moviestab"
@@ -46,6 +49,8 @@ public class PreferenceStore: ObservableObject {
         let flags = Set(data.filter({ BetaFlag(rawValue: $0) != nil }).map({BetaFlag(rawValue: $0)!}))
         
         defaults.register(defaults: [
+            Keys.firstBoot: true,
+            Keys.lastVersion: Version().description,
             Keys.tabs: Tabs.default.map({ $0.rawValue }),
             Keys.debugMode: false,
             Keys.grouping: Grouping.default.rawValue,
@@ -64,6 +69,19 @@ public class PreferenceStore: ObservableObject {
     /// Current client version
     public let version: Version = Version()
     
+    /// Defines whether this is the first boot of the app
+    public var isFirstBoot: Bool {
+        let value = defaults.bool(forKey: Keys.firstBoot)
+        defaults.set(true, forKey: Keys.firstBoot)
+        return value
+    }
+    
+    // Defines whether the app was updated (first boot new version)
+    public var wasUpdated: Bool {
+        let value = defaults.string(forKey: Keys.lastVersion) ?? version.description
+        defaults.set(version.description, forKey: Keys.lastVersion)
+        return value != version.description
+    }
     
     /// Format of the poster shown for media titles
     public var posterType: PosterType {

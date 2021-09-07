@@ -52,7 +52,7 @@ extension AuthView.ServerSelectionView {
                     
                     VStack {
                         Group() {
-                            TextField("authView.credentialEntryView.username.label", text: self.$username)
+                            TextField(LocalizedStringKey("authView.credentialEntryView.username.label"), text: self.$username)
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
                                 .textContentType(.username)
