@@ -32,6 +32,7 @@
 		FD687F1A26EE371B0034A622 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1926EE371B0034A622 /* NetworkError.swift */; };
 		FD687F1D26EE4B9E0034A622 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = FD687F1C26EE4B9E0034A622 /* AnyCodable */; };
 		FD687F2026EE52BC0034A622 /* JellyfinAPI in Frameworks */ = {isa = PBXBuildFile; productRef = FD687F1F26EE52BC0034A622 /* JellyfinAPI */; };
+		FD687F6D26EE6F0E0034A622 /* ABJC-tvOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */; };
 		FD6A9BAD26EBCD8200DF975C /* PeopleCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A9BAC26EBCD8200DF975C /* PeopleCardRow.swift */; };
 		FD6A9BAF26EBCD8900DF975C /* PeopleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A9BAE26EBCD8900DF975C /* PeopleCard.swift */; };
 		FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */; };
@@ -111,6 +112,7 @@
 		FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvents.swift; sourceTree = "<group>"; };
 		FD687F1626EE33DB0034A622 /* FirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreClient.swift; sourceTree = "<group>"; };
 		FD687F1926EE371B0034A622 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ABJC-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD6A9BAC26EBCD8200DF975C /* PeopleCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCardRow.swift; sourceTree = "<group>"; };
 		FD6A9BAE26EBCD8900DF975C /* PeopleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCard.swift; sourceTree = "<group>"; };
 		FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ABJC (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +134,6 @@
 		FD792F4B26EA3C0F00BF2A42 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		FD792F4E26EA3F5200BF2A42 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jellyfin.swift; sourceTree = "<group>"; };
-		FD792F5326EA51C500BF2A42 /* ABJC-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ABJC-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD792F5526EA5E1D00BF2A42 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 		FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
 		FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseItemDto+blurhash.swift"; sourceTree = "<group>"; };
@@ -291,13 +292,13 @@
 		FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				FD792F5326EA51C500BF2A42 /* ABJC-tvOS-Info.plist */,
+				FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */,
 				FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */,
-				FD792F5026EA45A900BF2A42 /* Models */,
-				FD792F4526EA367000BF2A42 /* Logic */,
-				FD792F3826EA2FA700BF2A42 /* UI */,
 				FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */,
+				FD792F4526EA367000BF2A42 /* Logic */,
+				FD792F5026EA45A900BF2A42 /* Models */,
 				FD792F1426EA2F1C00BF2A42 /* Preview Content */,
+				FD792F3826EA2FA700BF2A42 /* UI */,
 			);
 			path = "ABJC tvOS";
 			sourceTree = "<group>";
@@ -600,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD792F1626EA2F1C00BF2A42 /* Preview Assets.xcassets in Resources */,
+				FD687F6D26EE6F0E0034A622 /* ABJC-tvOS-Info.plist in Resources */,
 				FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
