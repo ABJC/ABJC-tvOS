@@ -2,12 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>analytics</key>
+	<dict>
+		<key>uri</key>
+		<string>https://localhost:8080/addReport</string>
+		<key>key</key>
+		<string>apikey</string>
+	</dict>
 	<key>server</key>
 	<dict>
 		<key>scheme</key>
 		<string>http</string>
 		<key>host</key>
-		<string>192.168.178.35</string>
+		<string>localhost</string>
 		<key>port</key>
 		<string>8096</string>
 		<key>path</key>

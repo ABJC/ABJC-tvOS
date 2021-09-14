@@ -21,9 +21,9 @@ struct PreferencesView: View {
                 Label("Client", systemImage: "tv")
             }.tag(1)
 
-//                NavigationLink(destination: DebugMenu(store: store)) {
-//                    Label("Debugging", systemImage: "exclamationmark.triangle")
-//                }.tag(2)
+                NavigationLink(destination: DebugView(store: store)) {
+                    Label("Debugging", systemImage: "exclamationmark.triangle")
+                }.tag(2)
 
 //                Button(action: {
 //                    self.showReportAProblem.toggle()

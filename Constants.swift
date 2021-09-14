@@ -10,16 +10,16 @@ import Foundation
 public struct Constants: Codable {
     var users: [String: Credentials]
     var server: Server
+    var analytics: AnalyticsInfo
+    
     var serverURI: String { server.uri }
-
+    
     static func with(bundle: Bundle) -> Constants? {
         guard let path = bundle.path(forResource: "Constants", ofType: "plist") else {
-            fatalError("No Path")
             return nil
         }
 
         guard let xml = FileManager.default.contents(atPath: path) else {
-            fatalError("No Data at Path")
             return nil
         }
 
@@ -54,5 +54,12 @@ extension Constants {
         var uri: String {
             return scheme + "://" + host + ":" + port + path
         }
+    }
+}
+
+extension Constants {
+    struct AnalyticsInfo: Codable {
+        var uri: String
+        var key: String
     }
 }

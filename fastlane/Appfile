@@ -1,0 +1,8 @@
+app_identifier("com.noahkamara.ABJC") # The bundle identifier of your app
+apple_id("mail@noahkamara.com") # Your Apple email address
+
+itc_team_id("122025966") # App Store Connect Team ID
+team_id("ME2UKFKL5H") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AnyCodable",
+        "repositoryURL": "https://github.com/ABJC/AnyCodable",
+        "state": {
+          "branch": "master",
+          "revision": "14a9a3283a5fa4cd318c3312c9cd89b4395410c3",
+          "version": null
+        }
+      },
+      {
+        "package": "JellyfinAPI",
+        "repositoryURL": "https://github.com/ABJC/JellyfinAPI",
+        "state": {
+          "branch": "main",
+          "revision": "832901139361d1e6eaae962406e8586101b76b9a",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftUICollection",
+        "repositoryURL": "https://github.com/ABJC/SwiftUICollection",
+        "state": {
+          "branch": "master",
+          "revision": "e27149382ce8ec21995069c8aab7ca83d61a3120",
+          "version": null
+        }
+      },
+      {
+        "package": "URLImage",
+        "repositoryURL": "https://github.com/dmytro-anokhin/url-image",
+        "state": {
+          "branch": null,
+          "revision": "a55b6597f6ce67dfbdc136ecfb8c8436b14ca41d",
+          "version": "3.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

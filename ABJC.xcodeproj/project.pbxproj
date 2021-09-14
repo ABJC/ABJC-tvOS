@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F97C914B2540039B41167F29 /* Pods_ABJC_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */; };
 		FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */; };
 		FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C426EB6F24003E0534 /* MediaCard.swift */; };
 		FD6351C726EB7227003E0534 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C626EB7227003E0534 /* Blur.swift */; };
@@ -28,7 +29,6 @@
 		FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */; };
 		FD687F1326EE2C0A0034A622 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */; };
 		FD687F1526EE2D260034A622 /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */; };
-		FD687F1726EE33DB0034A622 /* FirestoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1626EE33DB0034A622 /* FirestoreClient.swift */; };
 		FD687F1A26EE371B0034A622 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1926EE371B0034A622 /* NetworkError.swift */; };
 		FD687F1D26EE4B9E0034A622 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = FD687F1C26EE4B9E0034A622 /* AnyCodable */; };
 		FD687F2026EE52BC0034A622 /* JellyfinAPI in Frameworks */ = {isa = PBXBuildFile; productRef = FD687F1F26EE52BC0034A622 /* JellyfinAPI */; };
@@ -40,6 +40,8 @@
 		FD72333F26F0A0E1007EAE08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333E26F0A0E1007EAE08 /* Constants.swift */; };
 		FD72334126F0ADA6007EAE08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333E26F0A0E1007EAE08 /* Constants.swift */; };
 		FD72334226F0ADA9007EAE08 /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
+		FD72334626F0B843007EAE08 /* ABJCAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD72334526F0B843007EAE08 /* ABJCAnalytics */; };
+		FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */; };
 		FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */; };
 		FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F1026EA2F1A00BF2A42 /* MainView.swift */; };
 		FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */; };
@@ -96,6 +98,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewDelegate.swift; sourceTree = "<group>"; };
 		FD6351C426EB6F24003E0534 /* MediaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCard.swift; sourceTree = "<group>"; };
 		FD6351C626EB7227003E0534 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -113,7 +118,6 @@
 		FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngines.swift; sourceTree = "<group>"; };
 		FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvents.swift; sourceTree = "<group>"; };
-		FD687F1626EE33DB0034A622 /* FirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreClient.swift; sourceTree = "<group>"; };
 		FD687F1926EE371B0034A622 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ABJC-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD6A9BAC26EBCD8200DF975C /* PeopleCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCardRow.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		FD72333926F09E34007EAE08 /* CommandLineArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineArguments.swift; sourceTree = "<group>"; };
 		FD72333B26F0A07E007EAE08 /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Constants.plist; path = "ABJC tvOS/Constants.plist"; sourceTree = "<group>"; };
 		FD72333E26F0A0E1007EAE08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+DebugView.swift"; sourceTree = "<group>"; };
 		FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ABJC (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC.swift; sourceTree = "<group>"; };
 		FD792F1026EA2F1A00BF2A42 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -175,10 +180,12 @@
 			files = (
 				FD6351DE26EB836A003E0534 /* URLImageStore in Frameworks */,
 				FD64119F26ED1A01008E3170 /* ABJCAnalytics in Frameworks */,
+				FD72334626F0B843007EAE08 /* ABJCAnalytics in Frameworks */,
 				FD6351D926EB8326003E0534 /* SwiftUICollection in Frameworks */,
 				FD6351DC26EB836A003E0534 /* URLImage in Frameworks */,
 				FD687F1D26EE4B9E0034A622 /* AnyCodable in Frameworks */,
 				FD687F2026EE52BC0034A622 /* JellyfinAPI in Frameworks */,
+				F97C914B2540039B41167F29 /* Pods_ABJC_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +199,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B59F07F9EB01FF8D8E67E00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */,
+				D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		948DECD89EC453E75950DA9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FD6351C826EB7415003E0534 /* Materials */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				FD6351CA26EB7556003E0534 /* PreferencesView.swift */,
+				FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */,
 				FD6351CE26EB7600003E0534 /* Preferences+InfoView.swift */,
 				FD6351D026EB763E003E0534 /* Preferences+ClientView.swift */,
 				FD6351CC26EB755D003E0534 /* PreferencesViewDelegate.swift */,
@@ -249,7 +274,6 @@
 				FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */,
 				FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */,
 				FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */,
-				FD687F1626EE33DB0034A622 /* FirestoreClient.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -279,7 +303,8 @@
 				FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */,
 				FD792EDC26EA2F0200BF2A42 /* Products */,
-				FDD63F6926EAA82A001E4363 /* Frameworks */,
+				2B59F07F9EB01FF8D8E67E00 /* Pods */,
+				948DECD89EC453E75950DA9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,13 +456,6 @@
 			path = "ABJC (tvOS) UITests";
 			sourceTree = "<group>";
 		};
-		FDD63F6926EAA82A001E4363 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		FDD63F7026EAA9A3001E4363 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,9 +517,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD792F2D26EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "ABJC tvOS" */;
 			buildPhases = (
+				9EE9E219C6B8C110837D1FE0 /* [CP] Check Pods Manifest.lock */,
 				FD792F0826EA2F1A00BF2A42 /* Sources */,
 				FD792F0926EA2F1A00BF2A42 /* Frameworks */,
 				FD792F0A26EA2F1A00BF2A42 /* Resources */,
+				D19CA750DBD4272282656280 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -515,6 +535,7 @@
 				FD64119E26ED1A01008E3170 /* ABJCAnalytics */,
 				FD687F1C26EE4B9E0034A622 /* AnyCodable */,
 				FD687F1F26EE52BC0034A622 /* JellyfinAPI */,
+				FD72334526F0B843007EAE08 /* ABJCAnalytics */,
 			);
 			productName = "ABJC tvOS";
 			productReference = FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */;
@@ -572,6 +593,7 @@
 				FD6351DA26EB836A003E0534 /* XCRemoteSwiftPackageReference "url-image" */,
 				FD687F1B26EE4B9E0034A622 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 				FD687F1E26EE52BC0034A622 /* XCRemoteSwiftPackageReference "JellyfinAPI" */,
+				FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */,
 			);
 			productRefGroup = FD792EDC26EA2F0200BF2A42 /* Products */;
 			projectDirPath = "";
@@ -605,6 +627,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9EE9E219C6B8C110837D1FE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ABJC tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D19CA750DBD4272282656280 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD792F0826EA2F1A00BF2A42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -615,7 +679,6 @@
 				FDD63F8A26EABBB4001E4363 /* PosterType.swift in Sources */,
 				FDD63F7F26EABA1A001E4363 /* Shelf.swift in Sources */,
 				FDC957AC26EBA92400655F55 /* MediaCardRow.swift in Sources */,
-				FD687F1726EE33DB0034A622 /* FirestoreClient.swift in Sources */,
 				FDD63F7526EAB750001E4363 /* LibraryView.swift in Sources */,
 				FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */,
 				FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */,
@@ -643,6 +706,7 @@
 				FDC957A426EB99C900655F55 /* ButtonArea.swift in Sources */,
 				FDC957A026EB952A00655F55 /* Blurhash.swift in Sources */,
 				FD6351D626EB7885003E0534 /* ToggleRow.swift in Sources */,
+				FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */,
 				FDC957AA26EBA4CD00655F55 /* Tab.swift in Sources */,
 				FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */,
 				FDD63F7A26EAB7E8001E4363 /* MediaCollectionView.swift in Sources */,
@@ -814,6 +878,7 @@
 		};
 		FD792F2E26EA2F1D00BF2A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -832,7 +897,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
 				PRODUCT_NAME = "ABJC (tvOS)";
 				SDKROOT = appletvos;
@@ -845,6 +910,7 @@
 		};
 		FD792F2F26EA2F1D00BF2A42 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -863,7 +929,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
 				PRODUCT_NAME = "ABJC (tvOS)";
 				SDKROOT = appletvos;
@@ -987,6 +1053,14 @@
 				kind = branch;
 			};
 		};
+		FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/Analytics";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1018,6 +1092,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FD687F1E26EE52BC0034A622 /* XCRemoteSwiftPackageReference "JellyfinAPI" */;
 			productName = JellyfinAPI;
+		};
+		FD72334526F0B843007EAE08 /* ABJCAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */;
+			productName = ABJCAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

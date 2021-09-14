@@ -86,13 +86,15 @@ class SessionStore: ObservableObject {
                 }
             }
         #endif
-
-        if PreferenceStore.shared.isFirstBoot {
-            app.analytics.send(.installed, with: [:])
-        }
-
-        if PreferenceStore.shared.wasUpdated {
-            app.analytics.send(.updated, with: [:])
-        }
+        
+        app.analytics.send(.installed, with: [:])
+        
+//        if PreferenceStore.shared.isFirstBoot {
+//            app.analytics.send(.installed, with: [:])
+//        }
+//
+//        if PreferenceStore.shared.wasUpdated {
+//            app.analytics.send(.updated, with: [:])
+//        }
     }
 }
