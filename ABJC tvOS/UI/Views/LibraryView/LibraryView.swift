@@ -9,33 +9,35 @@ import SwiftUI
 
 struct LibraryView: View {
     // Store for View
-    @StateObject var store: LibraryViewDelegate = .init()
-    @State private var selectedTab: Tab = .movies
-    
+    @StateObject
+    var store: LibraryViewDelegate = .init()
+    @State
+    private var selectedTab: Tab = .movies
+
     var body: some View {
         NavigationView {
             TabView(selection: $selectedTab) {
                 //            WatchNowView()
                 //                .tabItem({ Text(Tab.watchnow.title) })
                 //                .tag(Tab.watchnow)
-                
+
                 MediaCollectionView(itemType: .movie)
-                    .tabItem({ Text(Tab.movies.title) })
+                    .tabItem { Text(Tab.movies.title) }
                     .tag(Tab.movies)
-                
+
                 MediaCollectionView(itemType: .series)
-                    .tabItem({ Text(Tab.shows.title) })
+                    .tabItem { Text(Tab.shows.title) }
                     .tag(Tab.shows)
-                
+
                 //            SearchView()
                 //                .tabItem({
                 //                    Text(Tab.search.title)
                 //                    Image(systemName: "magnifyingglass")
                 //                })
                 //                .tag(Tab.search)
-                
+
                 PreferencesView()
-                    .tabItem({ Text("Preferences") })
+                    .tabItem { Text("Preferences") }
                     .tag(Tab.preferences)
             }
         }

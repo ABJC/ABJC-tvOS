@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct Blurhash: View {
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme)
+    var colorScheme
 
     private let blurhash: String?
     private var shouldOverlay: Bool = false
-    
+
     init(_ blurhash: String?) {
         self.blurhash = blurhash
-        
-        
+
         if let blurhash = blurhash {
             shouldOverlay = UIImage(blurHash: blurhash, size: .init(width: 5, height: 5))?.brightness ?? 0 > 150
         }
     }
-    
+
     var body: some View {
         if let blurhash = blurhash {
             ZStack {
@@ -33,11 +33,11 @@ struct Blurhash: View {
             Blur()
         }
     }
-    
+
     var colorOverlay: some View {
         Rectangle()
             .foregroundColor(colorScheme == .dark ? .black : .white)
-            .opacity(shouldOverlay ? 0.5: 0)
+            .opacity(shouldOverlay ? 0.5 : 0)
     }
 }
 

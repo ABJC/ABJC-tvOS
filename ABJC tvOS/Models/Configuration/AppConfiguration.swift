@@ -5,20 +5,20 @@
 //  Created by Noah Kamara on 11.09.21.
 //
 
-import SwiftUI
-import AnyCodable
 import ABJCAnalytics
+import AnyCodable
+import SwiftUI
 
 class AppConfiguration {
     static var current: AppConfiguration { .init(environment: .current) }
-    
+
     static var debug: AppConfiguration { .init(environment: .debug) }
     static var testflight: AppConfiguration { .init(environment: .testflight) }
     static var appstore: AppConfiguration { .init(environment: .appstore) }
-    
+
     init(environment: AppEnvironment) {
         self.environment = environment
-        
+
         let version = Version()
         let appInfo: [String: AnyEncodable] = [
             "version": [
@@ -34,22 +34,21 @@ class AppConfiguration {
             ],
             "device": .init(DeviceInfo.modelName)
         ]
-        
+
         let engine: AnalyticsEngine = environment == .debug ? DebugAnalyticsEngine() : ProductionAnalyticsEngine()
-        self.analytics = .init(engine: engine, appInfo: appInfo)
+        analytics = .init(engine: engine, appInfo: appInfo)
     }
-    
-    
+
     /// App Run Environment
     var environment: AppEnvironment
-    
+
     var analytics: AnalyticsManager<AnalyticsEvents>
-    
+
     var logLevel: String {
         switch environment {
-            case .debug: return "DEBUG"
-            case .appstore: return "WARNING"
-            case .testflight: return "INFO"
+        case .debug: return "DEBUG"
+        case .appstore: return "WARNING"
+        case .testflight: return "INFO"
         }
     }
 }

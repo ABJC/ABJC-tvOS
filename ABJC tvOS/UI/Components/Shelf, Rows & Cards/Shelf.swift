@@ -5,13 +5,13 @@
 //  Created by Noah Kamara on 09.09.21.
 //
 
-import SwiftUI
 import JellyfinAPI
+import SwiftUI
 import SwiftUICollection
 
 extension Hashable {
     func combineHash<T: Hashable>(with hashableOther: T) -> Int {
-        let ownHash = self.hashValue
+        let ownHash = hashValue
         let otherHash = hashableOther.hashValue
         return (ownHash << 5) &+ ownHash &+ otherHash
     }
@@ -20,72 +20,73 @@ extension Hashable {
 struct CollectionCell<Content: Hashable>: Hashable {
     var id: UUID
     var content: Content
-    
+
     func hash(into hasher: inout Hasher) {
         return hasher.combine(content.combineHash(with: id))
     }
-    
-    init (_ content: Content) {
-        self.id = UUID()
+
+    init(_ content: Content) {
+        id = UUID()
         self.content = content
     }
 }
 
 struct Shelf: View {
-    @ObservedObject var store: MediaViewDelegate = .init()
+    @ObservedObject
+    var store: MediaViewDelegate = .init()
 
     typealias Row = CollectionRow<String, CollectionCell<BaseItemDto>>
-    
-    
-    @State var rows: [Row]
+
+    @State
+    var rows: [Row]
 
     // , _ grouping: Grouping
     init(_ items: [BaseItemDto], grouped grouping: CollectionGrouping) {
         func filterItem(_ grouping: CollectionGrouping, _ category: String, _ item: BaseItemDto) -> Bool {
             switch grouping {
-                case .title: return category == String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#"))
-                case .genre: return item.genreItems?.map(\.name).contains(category) ?? false
-                case .releaseYear: return category == (item.productionYear != nil ? "\(item.productionYear ?? 0)" : "#")
-                case .releaseDecade: return category == (item.productionYear != nil ? "\((item.productionYear ?? 0) / 10)0s" : "#")
+            case .title: return category == String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#"))
+            case .genre: return item.genreItems?.map(\.name).contains(category) ?? false
+            case .releaseYear: return category == (item.productionYear != nil ? "\(item.productionYear ?? 0)" : "#")
+            case .releaseDecade: return category == (item.productionYear != nil ? "\((item.productionYear ?? 0) / 10)0s" : "#")
             }
         }
 
         var categories = Set<String>()
 
         switch grouping {
-            case .title:
-                categories = items.reduce(into: categories) { set, item in
-                    set.insert(String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#")))
-                }
-            case .genre:
-                categories = items.reduce(into: categories) { set, item in
-                    set.formUnion(item.genreItems?.compactMap(\.name) ?? [])
-                }
-            case .releaseYear:
-                categories = items.reduce(into: categories) { set, item in
-                    _ = set.insert((item.productionYear != nil ? "\(item.productionYear!)" : "#"))
-                }
-            case .releaseDecade:
-                categories = items.reduce(into: categories) { set, item in
-                    _ = set.insert((item.productionYear != nil ? "\(item.productionYear! / 10)0s" : "#"))
-                }
+        case .title:
+            categories = items.reduce(into: categories) { set, item in
+                set.insert(String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#")))
+            }
+        case .genre:
+            categories = items.reduce(into: categories) { set, item in
+                set.formUnion(item.genreItems?.compactMap(\.name) ?? [])
+            }
+        case .releaseYear:
+            categories = items.reduce(into: categories) { set, item in
+                _ = set.insert(item.productionYear != nil ? "\(item.productionYear!)" : "#")
+            }
+        case .releaseDecade:
+            categories = items.reduce(into: categories) { set, item in
+                _ = set.insert(item.productionYear != nil ? "\(item.productionYear! / 10)0s" : "#")
+            }
         }
 
-        self.rows = categories
+        rows = categories
             .sorted(by: { $0 < $1 })
-            .map({ category in
+            .map { category in
                 Row(section: category,
-                    items: items.compactMap({ item in
-                    if filterItem(grouping, category, item) {
-                        return CollectionCell(item)
-                    }
-                    return nil
-                }))
-            })
+                    items: items.compactMap { item in
+                        if filterItem(grouping, category, item) {
+                            return CollectionCell(item)
+                        }
+                        return nil
+                    })
+            }
     }
 
     var body: some View {
-        CollectionView(rows: rows) { sectionIndex, layoutEnvironment in
+        CollectionView(rows: rows) { _, _ in
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                   heightDimension: .fractionalHeight(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -95,11 +96,9 @@ struct Shelf: View {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                            subitems: [item])
 
-            let header = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44)),
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .topLeading
-            )
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44)),
+                                                                     elementKind: UICollectionView.elementKindSectionHeader,
+                                                                     alignment: .topLeading)
 
             let section = NSCollectionLayoutSection(group: group)
 
@@ -108,14 +107,14 @@ struct Shelf: View {
             section.orthogonalScrollingBehavior = .continuous
             section.boundarySupplementaryItems = [header]
             return section
-        } cell: { indexPath, cell in
-            GeometryReader { geometry in
+        } cell: { _, cell in
+            GeometryReader { _ in
                 NavigationLink(destination: DetailView(item: cell.content)) {
                     MediaCard(store: store, item: cell.content)
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-        } supplementaryView: { kind, indexPath in
+        } supplementaryView: { _, indexPath in
             HStack {
                 Text(rows[indexPath.section].section)
                     .font(.title3)
@@ -124,9 +123,8 @@ struct Shelf: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
-        .id(store.preferences.collectionGrouping.rawValue+store.preferences.posterType.rawValue+store.preferences.showsTitles.description)
+        .id(store.preferences.collectionGrouping.rawValue + store.preferences.posterType.rawValue + store.preferences.showsTitles.description)
     }
-        
 }
 
 struct Shelf_Previews: PreviewProvider {

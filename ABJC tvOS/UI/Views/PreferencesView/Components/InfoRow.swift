@@ -11,21 +11,22 @@ extension PreferencesView {
     struct InfoRow: View {
         private let label: LocalizedStringKey
         private let data: Any
-        
+
         private var value: String {
             switch data {
-                case let v as String: return v
-                case let v as Int: return "\(v)"
-                default: return "\(type(of: self.data))"
+            case let v as String: return v
+            case let v as Int: return "\(v)"
+            default: return "\(type(of: data))"
             }
         }
+
         init(_ label: LocalizedStringKey, _ data: Any) {
             self.label = label
             self.data = data
         }
-        
+
         var body: some View {
-            Button(action: {})  {
+            Button(action: {}) {
                 HStack {
                     Text(label)
                     Spacer()

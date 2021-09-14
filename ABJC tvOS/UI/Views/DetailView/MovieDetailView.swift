@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    @StateObject var store: DetailViewDelegate
-    @Namespace var namespace
-    
-    
+    @StateObject
+    var store: DetailViewDelegate
+    @Namespace
+    var namespace
+
     var body: some View {
         ZStack {
             backdrop.edgesIgnoringSafeArea(.all)
@@ -25,9 +26,9 @@ struct MovieDetailView: View {
         .edgesIgnoringSafeArea(.all)
         .onAppear(perform: store.onAppear)
     }
-    
+
     var headerView: some View {
-        ButtonArea(store.play) { isFocus in
+        ButtonArea(store.play) { _ in
             VStack(alignment: .leading) {
                 // Poster Image
                 poster
@@ -46,12 +47,12 @@ struct MovieDetailView: View {
                     Button(action: {}) {
                         Text("Playbutton")
                     }
-                        .padding(.trailing)
+                    .padding(.trailing)
                 }
-                
+
                 if store.item.overview != nil {
                     Divider()
-                    HStack() {
+                    HStack {
                         Text(store.item.overview!)
                     }
                 } else {
@@ -63,7 +64,7 @@ struct MovieDetailView: View {
         .padding(.horizontal, 80)
         .padding(.bottom, 80)
     }
-    
+
     /// People (Actors, etc.)
     var peopleView: some View {
         Group {
@@ -71,8 +72,7 @@ struct MovieDetailView: View {
             PeopleCardRow("Cast & Crew", store.item.people ?? [])
         }.edgesIgnoringSafeArea(.horizontal)
     }
-    
-    
+
     /// Recommended Items View
     var recommendedView: some View {
         Group {
@@ -80,7 +80,7 @@ struct MovieDetailView: View {
             MediaCardRow(store: .init(), label: "Similar Items", items: store.itemSimilars)
         }
     }
-    
+
     // Poster View
     var poster: some View {
         AsyncImg(url: store.imageUrl) { image in
@@ -90,20 +90,21 @@ struct MovieDetailView: View {
         } placeholder: {
             Blur()
         }
-        .aspectRatio(2/3, contentMode: .fill)
+        .aspectRatio(2 / 3, contentMode: .fill)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         .frame(width: 400, height: 600)
         .shadow(radius: 5)
     }
+
     /// Backdrop
     var backdrop: some View {
         Blurhash(store.item.blurhash(for: .backdrop))
     }
 }
 
-//struct MovieDetailView_Previews: PreviewProvider {
+// struct MovieDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        MovieDetailView(store: .init(.preview))
 //    }
-//}
+// }

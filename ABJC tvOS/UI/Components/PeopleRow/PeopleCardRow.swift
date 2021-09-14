@@ -5,19 +5,19 @@
 //  Created by Noah Kamara on 10.09.21.
 //
 
-import SwiftUI
 import JellyfinAPI
+import SwiftUI
 
 struct PeopleCardRow: View {
     /// Edge Insets
     private var edgeInsets = EdgeInsets(top: 30, leading: 85, bottom: 50, trailing: 0)
-    
+
     /// Label
     private let label: LocalizedStringKey
-    
+
     /// Items
     private let people: [BaseItemPerson]
-    
+
     /// Initializer
     /// - Parameters:
     ///   - label: Localized Row Label
@@ -26,7 +26,7 @@ struct PeopleCardRow: View {
         self.label = label
         self.people = people
     }
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(label)
@@ -34,7 +34,7 @@ struct PeopleCardRow: View {
                 .padding(.horizontal, edgeInsets.leading)
             ScrollView(.horizontal) {
                 HStack(spacing: 48) {
-                    ForEach(people, id:\.id) { person in
+                    ForEach(people, id: \.id) { person in
                         Button(action: {}) {
                             PeopleCard(person)
                         }

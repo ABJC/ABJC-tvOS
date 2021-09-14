@@ -5,36 +5,37 @@
 //  Created by Noah Kamara on 10.09.21.
 //
 
-import SwiftUI
 import JellyfinAPI
+import SwiftUI
 
 struct PeopleCard: View {
     /// Person Item
     var person: BaseItemPerson
-    
+
     private var size: CGSize = .init(width: 300, height: 400)
-    
-    @State var imageUrl: URL? = nil
-    
+
+    @State
+    var imageUrl: URL?
+
     func loadImageUrl() {
         guard let name = person.name else {
             return
         }
-        
+
         ImageAPI.getPersonImage(name: name, imageType: .primary) { result in
             switch result {
-                case .success(let url): self.imageUrl = url
-                case .failure(let error): print(error)
+            case let .success(url): self.imageUrl = url
+            case let .failure(error): print(error)
             }
         }
     }
-    
+
     /// Initializer
     /// - Parameter person: Person Item
     public init(_ person: BaseItemPerson) {
         self.person = person
     }
-    
+
     var body: some View {
         VStack {
             AsyncImg(url: imageUrl) { image in
@@ -50,7 +51,7 @@ struct PeopleCard: View {
             .clipped()
             .padding([.horizontal, .top], 15)
             .frame(width: size.width, height: size.width)
-            
+
             VStack {
                 Text(person.name ?? "No Name")
                 Text(person.role ?? " ")
@@ -61,8 +62,8 @@ struct PeopleCard: View {
     }
 }
 
-//struct PeopleCard_Previews: PreviewProvider {
+// struct PeopleCard_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PeopleCard(.preview)
 //    }
-//}
+// }

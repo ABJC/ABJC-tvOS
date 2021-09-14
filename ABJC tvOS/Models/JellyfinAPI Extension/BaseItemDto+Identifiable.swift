@@ -8,6 +8,4 @@
 import Foundation
 import JellyfinAPI
 
-extension BaseItemDto: Identifiable {
-    
-}
+extension BaseItemDto: Identifiable {}

@@ -9,64 +9,68 @@ import Foundation
 import JellyfinAPI
 
 class PreferencesViewDelegate: ViewDelegate {
-    
-    
     // Preference Temporary Store
-    @Published var showsTitles: Bool = true
-    @Published var collectionGrouping: CollectionGrouping = .default
-    @Published var posterType: PreferenceStore.PosterType = .default
-    @Published var betaflags: Set<PreferenceStore.BetaFlag> = Set<PreferenceStore.BetaFlag>()
-    
+    @Published
+    var showsTitles: Bool = true
+    @Published
+    var collectionGrouping: CollectionGrouping = .default
+    @Published
+    var posterType: PreferenceStore.PosterType = .default
+    @Published
+    var betaflags = Set<PreferenceStore.BetaFlag>()
+
 //    @Published var alwaysShowTitles: Bool = true
 //    @Published var alwaysShowTitles: Bool = true
 //    @Published var alwaysShowTitles: Bool = true
-    
-    @Published var serverConfiguration: ServerConfiguration? = nil
-    @Published var systemInfo: SystemInfo? = nil
-    @Published var itemCounts: ItemCounts? = nil
-    
-    
+
+    @Published
+    var serverConfiguration: ServerConfiguration?
+    @Published
+    var systemInfo: SystemInfo?
+    @Published
+    var itemCounts: ItemCounts?
+
     func onAppear() {
         loadPreferences()
     }
-    
+
     func onDisappear() {
         savePreferences()
     }
-    
+
     func loadPreferences() {
-        self.collectionGrouping = preferences.collectionGrouping
-        self.showsTitles = preferences.showsTitles
-        self.posterType = preferences.posterType
+        collectionGrouping = preferences.collectionGrouping
+        showsTitles = preferences.showsTitles
+        posterType = preferences.posterType
     }
-    
+
     func savePreferences() {
-        preferences.showsTitles = self.showsTitles
-        preferences.posterType = self.posterType
-        preferences.collectionGrouping = self.collectionGrouping
-        self.preferences.objectWillChange.send()
+        preferences.showsTitles = showsTitles
+        preferences.posterType = posterType
+        preferences.collectionGrouping = collectionGrouping
+        preferences.objectWillChange.send()
     }
-    
+
     /// Fetch Server Configuration
     func loadServerConfiguration() {
         ConfigurationAPI.getConfiguration { result in
             switch result {
-                case .success(let response): self.serverConfiguration = response
-                case .failure(let error): print(error)
+            case let .success(response): self.serverConfiguration = response
+            case let .failure(error): print(error)
             }
         }
     }
-    
+
     /// Fetch System Info from API
     func loadSystemInfo() {
         SystemAPI.getSystemInfo { result in
             switch result {
-                case .success(let response): self.systemInfo = response
-                case .failure(let error): print(error)
+            case let .success(response): self.systemInfo = response
+            case let .failure(error): print(error)
             }
         }
     }
-    
+
     /// Fetch Item Counts from API
     func loadItemCounts() {
         guard let userId = session.credentials?.userId else {
@@ -75,12 +79,9 @@ class PreferencesViewDelegate: ViewDelegate {
         }
         LibraryAPI.getItemCounts(userId: userId) { result in
             switch result {
-                case .success(let response): self.itemCounts = response
-                case .failure(let error): print(error)
+            case let .success(response): self.itemCounts = response
+            case let .failure(error): print(error)
             }
         }
     }
-    
-    
-    
 }

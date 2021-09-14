@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-extension PreferenceStore {
-    public enum Tabs: String, CaseIterable {
+public extension PreferenceStore {
+    enum Tabs: String, CaseIterable {
         case watchnow = "Watch Now"
         case movies = "Movies"
         case series = "TV Shows"
         case search = "Searchh"
-        
+
         public var label: LocalizedStringKey {
             return .init(rawValue)
         }
-        
+
         public var description: LocalizedStringKey {
             return .init("")
         }
-        
+
         public static var `default`: Set<Tabs> {
             return Set([Tabs.movies, Tabs.series, Tabs.search])
         }
@@ -30,13 +30,13 @@ extension PreferenceStore {
 
 public extension Set where Element == PreferenceStore.Tabs {
     mutating func enable(_ tab: Element) {
-        self.insert(tab)
+        insert(tab)
     }
-    
+
     mutating func disable(_ tab: Element) {
-        self.remove(tab)
+        remove(tab)
     }
-    
+
     mutating func toggle(_ tab: Element) {
         if isEnabled(tab) {
             disable(tab)
@@ -44,14 +44,14 @@ public extension Set where Element == PreferenceStore.Tabs {
             enable(tab)
         }
     }
-    
+
     mutating func set(_ tab: Element, to state: Bool) {
         if state != isEnabled(tab) {
             toggle(tab)
         }
     }
-    
+
     func isEnabled(_ tab: Element) -> Bool {
-        return self.contains(tab)
+        return contains(tab)
     }
 }

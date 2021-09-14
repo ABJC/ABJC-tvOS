@@ -5,54 +5,60 @@
 //  Created by Noah Kamara on 09.09.21.
 //
 
-import Foundation
 import Combine
+import Foundation
 import JellyfinAPI
 
 class AuthenticationViewDelegate: ViewDelegate {
-    @Published var isConnected: Bool = false
-    
+    @Published
+    var isConnected: Bool = false
+
     // Discovery of Servers
-    private let discovery: ServerDiscovery = ServerDiscovery()
-    
-    @Published var discoveredServers: [ServerDiscovery.ServerLookupResponse] = []
-    @Published var isDiscoveringServers: Bool = false
-    
+    private let discovery = ServerDiscovery()
+
+    @Published
+    var discoveredServers: [ServerDiscovery.ServerLookupResponse] = []
+    @Published
+    var isDiscoveringServers: Bool = false
+
     // Manual Server Entry
-    @Published var willEnterServerManually: Bool = false
-    #if DEBUG
-    @Published var manualHost: String = "192.168.178.35"
-    #else
-    @Published var manualHost: String = ""
-    #endif
-    
-    @Published var manualPort: String = "8096"
-    @Published var manualPath: String = ""
-    @Published var manualHttps: Bool = false
-    
-    
+    @Published
+    var willEnterServerManually: Bool = false
+    @Published
+    var manualHost: String = ""
+
+    @Published
+    var manualPort: String = "8096"
+    @Published
+    var manualPath: String = ""
+    @Published
+    var manualHttps: Bool = false
+
     // User Selection
-    @Published var publicUsers: [UserDto] = []
-    @Published var willEnterUserManually: Bool = false
-    #if DEBUG
-    @Published var username: String = "jellyfin"
-    @Published var password: String = "password"
-    #else
-    @Published var username: String = ""
-    @Published var password: String = ""
-    #endif
-    
-    
+    @Published
+    var publicUsers: [UserDto] = []
+    @Published
+    var willEnterUserManually: Bool = false
+//    #if DEBUG
+//    @Published var username: String = "jellyfin"
+//    @Published var password: String = "password"
+//    #else
+    @Published
+    var username: String = ""
+    @Published
+    var password: String = ""
+//    #endif
+
     /// Discover Servers in local network
     func lookupServers() {
         isDiscoveringServers = true
-        
+
         // Timeout after 5 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.isDiscoveringServers = false
         }
-        
-        discovery.locateServer { [self] (server) in
+
+        discovery.locateServer { [self] server in
             if let server = server, !discoveredServers.contains(server) {
                 print(server.id, server.host)
                 discoveredServers.append(server)
@@ -60,16 +66,14 @@ class AuthenticationViewDelegate: ViewDelegate {
             isDiscoveringServers = false
         }
     }
-    
-    
+
     /// Set Server in Session
     /// - Parameter uri: Server baseURI
     func setServer(to uri: String) {
         session.setServerURI(uri)
-        self.loadPublicUsers()
+        loadPublicUsers()
     }
-    
-    
+
     /// Manually set server
     func setServerManual() {
         var urlComps = URLComponents()
@@ -85,37 +89,38 @@ class AuthenticationViewDelegate: ViewDelegate {
             }
         }
         urlComps.path = manualPath
-        
+
         guard let url = urlComps.url else {
             fatalError("Failed to construct URL")
         }
-        self.setServer(to: url.absoluteString)
+        setServer(to: url.absoluteString)
     }
-    
-    
+
     /// Load Public Users
     func loadPublicUsers() {
         UserAPI.getPublicUsers { result in
             switch result {
-                case .success(let response):
-                    self.publicUsers = response
-                    self.isConnected = true
-                case .failure(let error):
-                    self.handleApiError(error)
+            case let .success(response):
+                self.publicUsers = response
+                self.isConnected = true
+            case let .failure(error):
+                self.alert = .init(.cantConnectToHost)
+                self.handleApiError(error)
             }
         }
     }
-    
+
     func authenticate(username: String, password: String? = nil) {
         session.generateHeaders()
         let body = AuthenticateUserByName(username: username, pw: password)
-        
+
         UserAPI.authenticateUserByName(authenticateUserByName: body) { result in
             switch result {
-                case .success(let result):
-                    self.session.didAuthenticate(result)
-                case .failure(let error):
-                    self.handleApiError(error)
+            case let .success(result):
+                self.session.didAuthenticate(result)
+            case let .failure(error):
+                self.alert = .init(.authenticationFailed)
+                self.handleApiError(error)
             }
         }
     }

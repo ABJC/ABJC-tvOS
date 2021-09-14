@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct PreferencesView: View {
-    @StateObject var store: PreferencesViewDelegate = .init()
-    
+    @StateObject
+    var store: PreferencesViewDelegate = .init()
+
     var body: some View {
-        List() {
+        List {
             NavigationLink(destination: InfoView(store: store)) {
                 Label("General Information", systemImage: "server.rack")
             }.tag(0)
-        
+
             NavigationLink(destination: ClientView(store: store)) {
                 Label("Client", systemImage: "tv")
             }.tag(1)
-            
+
 //                NavigationLink(destination: DebugMenu(store: store)) {
 //                    Label("Debugging", systemImage: "exclamationmark.triangle")
 //                }.tag(2)
-            
+
 //                Button(action: {
 //                    self.showReportAProblem.toggle()
 //                }) {
@@ -36,7 +37,7 @@ struct PreferencesView: View {
 //                        Spacer()
 //                    }
 //                }
-            
+
 //                Button(action: {
 //                    self.session.logout()
 //                }) {
@@ -50,7 +51,7 @@ struct PreferencesView: View {
 //                        Spacer()
 //                    }
 //                }
-            
+
 //                Button(action: {
 //                    showRemoveServerAlert = true
 //                }) {

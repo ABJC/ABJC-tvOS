@@ -35,13 +35,15 @@
 		FD687F6D26EE6F0E0034A622 /* ABJC-tvOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */; };
 		FD6A9BAD26EBCD8200DF975C /* PeopleCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A9BAC26EBCD8200DF975C /* PeopleCardRow.swift */; };
 		FD6A9BAF26EBCD8900DF975C /* PeopleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A9BAE26EBCD8900DF975C /* PeopleCard.swift */; };
+		FD72333A26F09E34007EAE08 /* CommandLineArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333926F09E34007EAE08 /* CommandLineArguments.swift */; };
+		FD72333C26F0A07E007EAE08 /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
+		FD72333F26F0A0E1007EAE08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333E26F0A0E1007EAE08 /* Constants.swift */; };
+		FD72334126F0ADA6007EAE08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333E26F0A0E1007EAE08 /* Constants.swift */; };
+		FD72334226F0ADA9007EAE08 /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
 		FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */; };
 		FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F1026EA2F1A00BF2A42 /* MainView.swift */; };
 		FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */; };
 		FD792F1626EA2F1C00BF2A42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD792F1526EA2F1C00BF2A42 /* Preview Assets.xcassets */; };
-		FD792F2026EA2F1D00BF2A42 /* ABJC_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F1F26EA2F1D00BF2A42 /* ABJC_tvOSTests.swift */; };
-		FD792F2A26EA2F1D00BF2A42 /* ABJC_tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F2926EA2F1D00BF2A42 /* ABJC_tvOSUITests.swift */; };
-		FD792F2C26EA2F1D00BF2A42 /* ABJC_tvOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F2B26EA2F1D00BF2A42 /* ABJC_tvOSUITestsLaunchTests.swift */; };
 		FD792F3726EA2F9500BF2A42 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F3626EA2F9500BF2A42 /* SessionStore.swift */; };
 		FD792F3A26EA302800BF2A42 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F3926EA302800BF2A42 /* AuthenticationView.swift */; };
 		FD792F3D26EA309D00BF2A42 /* AuthenticationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F3C26EA309D00BF2A42 /* AuthenticationViewDelegate.swift */; };
@@ -61,6 +63,14 @@
 		FDC957A826EB9F3C00655F55 /* BaseItemDto+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC957A726EB9F3C00655F55 /* BaseItemDto+Identifiable.swift */; };
 		FDC957AA26EBA4CD00655F55 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC957A926EBA4CD00655F55 /* Tab.swift */; };
 		FDC957AC26EBA92400655F55 /* MediaCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC957AB26EBA92400655F55 /* MediaCardRow.swift */; };
+		FDD29D5826EF880E000EEC36 /* AlertObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5726EF880E000EEC36 /* AlertObject.swift */; };
+		FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */; };
+		FDD29D5C26EF8B37000EEC36 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5B26EF8B37000EEC36 /* Alerts.swift */; };
+		FDD29D6E26EF9344000EEC36 /* ABJC__tvOS__UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */; };
+		FDD29D6F26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */; };
+		FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */; };
+		FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7226EFB265000EEC36 /* UITestConstants.swift */; };
+		FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */; };
 		FDD63F7526EAB750001E4363 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F7426EAB750001E4363 /* LibraryView.swift */; };
 		FDD63F7726EAB759001E4363 /* LibraryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F7626EAB759001E4363 /* LibraryViewDelegate.swift */; };
 		FDD63F7A26EAB7E8001E4363 /* MediaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F7926EAB7E8001E4363 /* MediaCollectionView.swift */; };
@@ -76,14 +86,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FD792F1C26EA2F1D00BF2A42 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD792F0B26EA2F1A00BF2A42;
-			remoteInfo = "ABJC tvOS";
-		};
-		FD792F2626EA2F1D00BF2A42 /* PBXContainerItemProxy */ = {
+		FDD29D6726EF92F7000EEC36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
 			proxyType = 1;
@@ -115,16 +118,14 @@
 		FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ABJC-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD6A9BAC26EBCD8200DF975C /* PeopleCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCardRow.swift; sourceTree = "<group>"; };
 		FD6A9BAE26EBCD8900DF975C /* PeopleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCard.swift; sourceTree = "<group>"; };
+		FD72333926F09E34007EAE08 /* CommandLineArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineArguments.swift; sourceTree = "<group>"; };
+		FD72333B26F0A07E007EAE08 /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Constants.plist; path = "ABJC tvOS/Constants.plist"; sourceTree = "<group>"; };
+		FD72333E26F0A0E1007EAE08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ABJC (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC.swift; sourceTree = "<group>"; };
 		FD792F1026EA2F1A00BF2A42 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD792F1526EA2F1C00BF2A42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FD792F1B26EA2F1D00BF2A42 /* Tests tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD792F1F26EA2F1D00BF2A42 /* ABJC_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC_tvOSTests.swift; sourceTree = "<group>"; };
-		FD792F2526EA2F1D00BF2A42 /* UITests tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITests tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD792F2926EA2F1D00BF2A42 /* ABJC_tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC_tvOSUITests.swift; sourceTree = "<group>"; };
-		FD792F2B26EA2F1D00BF2A42 /* ABJC_tvOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC_tvOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FD792F3626EA2F9500BF2A42 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		FD792F3926EA302800BF2A42 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		FD792F3C26EA309D00BF2A42 /* AuthenticationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +145,15 @@
 		FDC957A726EB9F3C00655F55 /* BaseItemDto+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseItemDto+Identifiable.swift"; sourceTree = "<group>"; };
 		FDC957A926EBA4CD00655F55 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		FDC957AB26EBA92400655F55 /* MediaCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCardRow.swift; sourceTree = "<group>"; };
+		FDD29D5726EF880E000EEC36 /* AlertObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertObject.swift; sourceTree = "<group>"; };
+		FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert View Extension.swift"; sourceTree = "<group>"; };
+		FDD29D5B26EF8B37000EEC36 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ABJC (tvOS) UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABJC__tvOS__UITests.swift; sourceTree = "<group>"; };
+		FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABJC__tvOS__UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestHelpers.swift; sourceTree = "<group>"; };
+		FDD29D7226EFB265000EEC36 /* UITestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestConstants.swift; sourceTree = "<group>"; };
+		FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUITests.swift; sourceTree = "<group>"; };
 		FDD63F7426EAB750001E4363 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		FDD63F7626EAB759001E4363 /* LibraryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewDelegate.swift; sourceTree = "<group>"; };
 		FDD63F7926EAB7E8001E4363 /* MediaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionView.swift; sourceTree = "<group>"; };
@@ -172,14 +182,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD792F1826EA2F1D00BF2A42 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD792F2226EA2F1D00BF2A42 /* Frameworks */ = {
+		FDD29D5E26EF92F7000EEC36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -271,9 +274,10 @@
 		FD792ED226EA2F0100BF2A42 = {
 			isa = PBXGroup;
 			children = (
+				FD72333B26F0A07E007EAE08 /* Constants.plist */,
+				FD72333E26F0A0E1007EAE08 /* Constants.swift */,
 				FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */,
-				FD792F1E26EA2F1D00BF2A42 /* ABJCTests tvOS */,
-				FD792F2826EA2F1D00BF2A42 /* ABJCUITests tvOS */,
+				FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */,
 				FD792EDC26EA2F0200BF2A42 /* Products */,
 				FDD63F6926EAA82A001E4363 /* Frameworks */,
 			);
@@ -283,8 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */,
-				FD792F1B26EA2F1D00BF2A42 /* Tests tvOS.xctest */,
-				FD792F2526EA2F1D00BF2A42 /* UITests tvOS.xctest */,
+				FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,8 +300,8 @@
 				FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */,
 				FD792F4526EA367000BF2A42 /* Logic */,
 				FD792F5026EA45A900BF2A42 /* Models */,
-				FD792F1426EA2F1C00BF2A42 /* Preview Content */,
 				FD792F3826EA2FA700BF2A42 /* UI */,
+				FD792F1426EA2F1C00BF2A42 /* Preview Content */,
 			);
 			path = "ABJC tvOS";
 			sourceTree = "<group>";
@@ -309,23 +312,6 @@
 				FD792F1526EA2F1C00BF2A42 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		FD792F1E26EA2F1D00BF2A42 /* ABJCTests tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				FD792F1F26EA2F1D00BF2A42 /* ABJC_tvOSTests.swift */,
-			);
-			path = "ABJCTests tvOS";
-			sourceTree = "<group>";
-		};
-		FD792F2826EA2F1D00BF2A42 /* ABJCUITests tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				FD792F2926EA2F1D00BF2A42 /* ABJC_tvOSUITests.swift */,
-				FD792F2B26EA2F1D00BF2A42 /* ABJC_tvOSUITestsLaunchTests.swift */,
-			);
-			path = "ABJCUITests tvOS";
 			sourceTree = "<group>";
 		};
 		FD792F3826EA2FA700BF2A42 /* UI */ = {
@@ -385,6 +371,7 @@
 				FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */,
 				FDD63F8F26EABD4B001E4363 /* ItemType.swift */,
 				FDC957A926EBA4CD00655F55 /* Tab.swift */,
+				FD72333926F09E34007EAE08 /* CommandLineArguments.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +379,7 @@
 		FD792F5426EA5E1700BF2A42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FDD29D5626EF8804000EEC36 /* Alert */,
 				FD6A9BAB26EBCD7400DF975C /* PeopleRow */,
 				FDD63F7D26EABA13001E4363 /* Shelf, Rows & Cards */,
 				FD6351C826EB7415003E0534 /* Materials */,
@@ -419,6 +407,28 @@
 				FDC957A526EB9E0500655F55 /* BlurhashDecode.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDD29D5626EF8804000EEC36 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				FDD29D5726EF880E000EEC36 /* AlertObject.swift */,
+				FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */,
+				FDD29D5B26EF8B37000EEC36 /* Alerts.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */ = {
+			isa = PBXGroup;
+			children = (
+				FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */,
+				FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */,
+				FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */,
+				FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */,
+				FDD29D7226EFB265000EEC36 /* UITestConstants.swift */,
+			);
+			path = "ABJC (tvOS) UITests";
 			sourceTree = "<group>";
 		};
 		FDD63F6926EAA82A001E4363 /* Frameworks */ = {
@@ -510,40 +520,22 @@
 			productReference = FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */;
 			productType = "com.apple.product-type.application";
 		};
-		FD792F1A26EA2F1D00BF2A42 /* Tests tvOS */ = {
+		FDD29D6026EF92F7000EEC36 /* ABJC (tvOS) UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FD792F3026EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "Tests tvOS" */;
+			buildConfigurationList = FDD29D6926EF92F7000EEC36 /* Build configuration list for PBXNativeTarget "ABJC (tvOS) UITests" */;
 			buildPhases = (
-				FD792F1726EA2F1D00BF2A42 /* Sources */,
-				FD792F1826EA2F1D00BF2A42 /* Frameworks */,
-				FD792F1926EA2F1D00BF2A42 /* Resources */,
+				FDD29D5D26EF92F7000EEC36 /* Sources */,
+				FDD29D5E26EF92F7000EEC36 /* Frameworks */,
+				FDD29D5F26EF92F7000EEC36 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FD792F1D26EA2F1D00BF2A42 /* PBXTargetDependency */,
+				FDD29D6826EF92F7000EEC36 /* PBXTargetDependency */,
 			);
-			name = "Tests tvOS";
-			productName = "ABJC tvOSTests";
-			productReference = FD792F1B26EA2F1D00BF2A42 /* Tests tvOS.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FD792F2426EA2F1D00BF2A42 /* UITests tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FD792F3326EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "UITests tvOS" */;
-			buildPhases = (
-				FD792F2126EA2F1D00BF2A42 /* Sources */,
-				FD792F2226EA2F1D00BF2A42 /* Frameworks */,
-				FD792F2326EA2F1D00BF2A42 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FD792F2726EA2F1D00BF2A42 /* PBXTargetDependency */,
-			);
-			name = "UITests tvOS";
-			productName = "ABJC tvOSUITests";
-			productReference = FD792F2526EA2F1D00BF2A42 /* UITests tvOS.xctest */;
+			name = "ABJC (tvOS) UITests";
+			productName = "ABJC (tvOS) UITests";
+			productReference = FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -559,11 +551,7 @@
 					FD792F0B26EA2F1A00BF2A42 = {
 						CreatedOnToolsVersion = 13.0;
 					};
-					FD792F1A26EA2F1D00BF2A42 = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = FD792F0B26EA2F1A00BF2A42;
-					};
-					FD792F2426EA2F1D00BF2A42 = {
+					FDD29D6026EF92F7000EEC36 = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = FD792F0B26EA2F1A00BF2A42;
 					};
@@ -576,6 +564,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = FD792ED226EA2F0100BF2A42;
 			packageReferences = (
@@ -589,8 +578,7 @@
 			projectRoot = "";
 			targets = (
 				FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */,
-				FD792F1A26EA2F1D00BF2A42 /* Tests tvOS */,
-				FD792F2426EA2F1D00BF2A42 /* UITests tvOS */,
+				FDD29D6026EF92F7000EEC36 /* ABJC (tvOS) UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -600,23 +588,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD72333C26F0A07E007EAE08 /* Constants.plist in Resources */,
 				FD792F1626EA2F1C00BF2A42 /* Preview Assets.xcassets in Resources */,
 				FD687F6D26EE6F0E0034A622 /* ABJC-tvOS-Info.plist in Resources */,
 				FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD792F1926EA2F1D00BF2A42 /* Resources */ = {
+		FDD29D5F26EF92F7000EEC36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD792F2326EA2F1D00BF2A42 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				FD72334226F0ADA9007EAE08 /* Constants.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,11 +611,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDC957A826EB9F3C00655F55 /* BaseItemDto+Identifiable.swift in Sources */,
+				FDD29D5C26EF8B37000EEC36 /* Alerts.swift in Sources */,
 				FDD63F8A26EABBB4001E4363 /* PosterType.swift in Sources */,
 				FDD63F7F26EABA1A001E4363 /* Shelf.swift in Sources */,
 				FDC957AC26EBA92400655F55 /* MediaCardRow.swift in Sources */,
 				FD687F1726EE33DB0034A622 /* FirestoreClient.swift in Sources */,
 				FDD63F7526EAB750001E4363 /* LibraryView.swift in Sources */,
+				FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */,
 				FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */,
 				FDC9579C26EB949F00655F55 /* BaseItemDto+blurhash.swift in Sources */,
 				FD792F4826EA368300BF2A42 /* UDPBroadcast.swift in Sources */,
@@ -643,6 +628,7 @@
 				FD6351D426EB7871003E0534 /* InfoRow.swift in Sources */,
 				FD792F4C26EA3C0F00BF2A42 /* BackgroundGradient.swift in Sources */,
 				FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */,
+				FD72333F26F0A0E1007EAE08 /* Constants.swift in Sources */,
 				FD6351CF26EB7600003E0534 /* Preferences+InfoView.swift in Sources */,
 				FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */,
 				FD792F5826EA5E4500BF2A42 /* AsyncImg.swift in Sources */,
@@ -661,6 +647,7 @@
 				FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */,
 				FDD63F7A26EAB7E8001E4363 /* MediaCollectionView.swift in Sources */,
 				FD6351C726EB7227003E0534 /* Blur.swift in Sources */,
+				FD72333A26F09E34007EAE08 /* CommandLineArguments.swift in Sources */,
 				FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */,
 				FD792F3F26EA30C600BF2A42 /* ViewDelegate.swift in Sources */,
 				FD792F3A26EA302800BF2A42 /* AuthenticationView.swift in Sources */,
@@ -676,6 +663,7 @@
 				FD6411A226ED1A97008E3170 /* AppConfiguration.swift in Sources */,
 				FD792F3726EA2F9500BF2A42 /* SessionStore.swift in Sources */,
 				FDC957A226EB95A600655F55 /* ImageBrightness.swift in Sources */,
+				FDD29D5826EF880E000EEC36 /* AlertObject.swift in Sources */,
 				FDD63F8826EABB7A001E4363 /* CollectionGrouping.swift in Sources */,
 				FD687F1526EE2D260034A622 /* AnalyticsEvents.swift in Sources */,
 				FD687F1A26EE371B0034A622 /* NetworkError.swift in Sources */,
@@ -684,35 +672,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD792F1726EA2F1D00BF2A42 /* Sources */ = {
+		FDD29D5D26EF92F7000EEC36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD792F2026EA2F1D00BF2A42 /* ABJC_tvOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD792F2126EA2F1D00BF2A42 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD792F2C26EA2F1D00BF2A42 /* ABJC_tvOSUITestsLaunchTests.swift in Sources */,
-				FD792F2A26EA2F1D00BF2A42 /* ABJC_tvOSUITests.swift in Sources */,
+				FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */,
+				FDD29D6E26EF9344000EEC36 /* ABJC__tvOS__UITests.swift in Sources */,
+				FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */,
+				FDD29D6F26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift in Sources */,
+				FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */,
+				FD72334126F0ADA6007EAE08 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FD792F1D26EA2F1D00BF2A42 /* PBXTargetDependency */ = {
+		FDD29D6826EF92F7000EEC36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
-			targetProxy = FD792F1C26EA2F1D00BF2A42 /* PBXContainerItemProxy */;
-		};
-		FD792F2726EA2F1D00BF2A42 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
-			targetProxy = FD792F2626EA2F1D00BF2A42 /* PBXContainerItemProxy */;
+			targetProxy = FDD29D6726EF92F7000EEC36 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -895,11 +874,9 @@
 			};
 			name = Release;
 		};
-		FD792F3126EA2F1D00BF2A42 /* Debug */ = {
+		FDD29D6A26EF92F7000EEC36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
@@ -910,58 +887,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABJC tvOS.app/ABJC tvOS";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Debug;
-		};
-		FD792F3226EA2F1D00BF2A42 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ME2UKFKL5H;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABJC tvOS.app/ABJC tvOS";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Release;
-		};
-		FD792F3426EA2F1D00BF2A42 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ME2UKFKL5H;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC-tvOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC--tvOS--UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -972,10 +898,9 @@
 			};
 			name = Debug;
 		};
-		FD792F3526EA2F1D00BF2A42 /* Release */ = {
+		FDD29D6B26EF92F7000EEC36 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
@@ -986,7 +911,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC-tvOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC--tvOS--UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1018,20 +943,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FD792F3026EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "Tests tvOS" */ = {
+		FDD29D6926EF92F7000EEC36 /* Build configuration list for PBXNativeTarget "ABJC (tvOS) UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FD792F3126EA2F1D00BF2A42 /* Debug */,
-				FD792F3226EA2F1D00BF2A42 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FD792F3326EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "UITests tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD792F3426EA2F1D00BF2A42 /* Debug */,
-				FD792F3526EA2F1D00BF2A42 /* Release */,
+				FDD29D6A26EF92F7000EEC36 /* Debug */,
+				FDD29D6B26EF92F7000EEC36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

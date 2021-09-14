@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>server</key>
+	<dict>
+		<key>scheme</key>
+		<string>http</string>
+		<key>host</key>
+		<string>192.168.178.35</string>
+		<key>port</key>
+		<string>8096</string>
+		<key>path</key>
+		<string></string>
+	</dict>
+	<key>users</key>
+	<dict>
+		<key>user_hidden</key>
+		<dict>
+			<key>username</key>
+			<string>user_hidden</string>
+			<key>password</key>
+			<string>password</string>
+		</dict>
+		<key>user_pass</key>
+		<dict>
+			<key>username</key>
+			<string>user_pass</string>
+			<key>password</key>
+			<string>password</string>
+		</dict>
+		<key>user_nopass</key>
+		<dict>
+			<key>username</key>
+			<string>user_nopass</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

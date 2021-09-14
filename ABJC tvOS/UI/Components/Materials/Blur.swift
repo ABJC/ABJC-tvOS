@@ -21,16 +21,16 @@ struct Blur_Previews: PreviewProvider {
 
 public struct LegacyBlur: UIViewRepresentable {
     var style: UIBlurEffect.Style = .prominent
-    
+
     public init(_ style: UIBlurEffect.Style = .regular) {
         self.style = style
     }
-    
-    public func makeUIView(context: Context) -> UIVisualEffectView {
+
+    public func makeUIView(context _: Context) -> UIVisualEffectView {
         return UIVisualEffectView(effect: UIBlurEffect(style: style))
     }
-    
-    public func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+
+    public func updateUIView(_ uiView: UIVisualEffectView, context _: Context) {
         uiView.effect = UIBlurEffect(style: style)
     }
 }

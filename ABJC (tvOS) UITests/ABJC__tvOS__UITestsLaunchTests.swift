@@ -1,14 +1,13 @@
 //
-//  ABJC_tvOSUITestsLaunchTests.swift
-//  ABJC tvOSUITests
+//  ABJC__tvOS__UITestsLaunchTests.swift
+//  ABJC (tvOS) UITests
 //
-//  Created by Noah Kamara on 09.09.21.
+//  Created by Noah Kamara on 13.09.21.
 //
 
 import XCTest
 
-class ABJC_tvOSUITestsLaunchTests: XCTestCase {
-
+class ABJC__tvOS__UITestsLaunchTests: XCTestCase {
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

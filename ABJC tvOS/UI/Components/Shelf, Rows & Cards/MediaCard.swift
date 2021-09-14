@@ -5,18 +5,20 @@
 //  Created by Noah Kamara on 10.09.21.
 //
 
-import SwiftUI
 import JellyfinAPI
+import SwiftUI
 
 struct MediaCard: View {
     /// Media Item
-    @ObservedObject var store: MediaViewDelegate
-    
+    @ObservedObject
+    var store: MediaViewDelegate
+
     /// Media Item
     public let item: BaseItemDto
-        
-    @State private var imageUrl: URL? = nil
-    
+
+    @State
+    private var imageUrl: URL?
+
     func loadImageUrl() {
         guard let itemId = item.id else {
             return
@@ -24,12 +26,12 @@ struct MediaCard: View {
         let imageType: ImageType = store.preferences.posterType == .poster ? .primary : .backdrop
         ImageAPI.getItemImage(itemId: itemId, imageType: imageType) { result in
             switch result {
-                case .success(let url): self.imageUrl = url
-                case .failure(let error): print(error)
+            case let .success(url): self.imageUrl = url
+            case let .failure(error): print(error)
             }
         }
     }
-    
+
     var body: some View {
         VStack {
             ZStack {
@@ -52,9 +54,8 @@ struct MediaCard: View {
             }
         }.onAppear(perform: loadImageUrl)
     }
-    
-    private var uglymode: some View
-    {
+
+    private var uglymode: some View {
         Blur()
             .overlay(
                 VStack {
@@ -64,7 +65,7 @@ struct MediaCard: View {
                 }.padding()
             )
     }
-    
+
     /// Placeholder for missing URLImage
     private var blur: some View {
         Blur()
@@ -77,7 +78,7 @@ struct MediaCard: View {
                 }.padding()
             )
     }
-    
+
     /// URLImage
     private var image: some View {
         AsyncImg(url: imageUrl) { image in
@@ -88,7 +89,7 @@ struct MediaCard: View {
             Blur()
         }
     }
-    
+
     /// Placeholder for loading URLImage
     private var placeholder: some View {
         //        Image(uiImage: UIImage(blurHash: self.item.blurHash(for: .backdrop) ?? self.item.blurHash(for: .primary) ?? "", size: CGSize(width: 8, height: 8)) ?? UIImage())
@@ -96,8 +97,7 @@ struct MediaCard: View {
         //            .resizable()
         Blur()
     }
-    
-    
+
     /// PlaybackPosition Overlay
     private var overlay: some View {
         VStack {
@@ -115,8 +115,8 @@ struct MediaCard: View {
     }
 }
 
-//struct MediaCard_Previews: PreviewProvider {
+// struct MediaCard_Previews: PreviewProvider {
 //    static var previews: some View {
 //        MediaCard(store: .init(), item: .preview)
 //    }
-//}
+// }

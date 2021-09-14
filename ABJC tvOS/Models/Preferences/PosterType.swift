@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-extension PreferenceStore {
-    public enum PosterType: String, CaseIterable {
+public extension PreferenceStore {
+    enum PosterType: String, CaseIterable {
         static let `default`: Self = .poster
-        
+
         case poster = "Poster"
         case wide = "Wide"
-        
+
         var localizedName: LocalizedStringKey { .init(rawValue) }
     }
 }

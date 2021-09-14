@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct AuthenticationView: View {
-    @Namespace var namespace
+    @Namespace
+    var namespace
     // Store for View
-    @StateObject var store: AuthenticationViewDelegate = .init()
-    
+    @StateObject
+    var store: AuthenticationViewDelegate = .init()
+
     var body: some View {
         GeometryReader { geometry in
             HStack(alignment: .center) {
@@ -22,33 +24,33 @@ struct AuthenticationView: View {
                         .aspectRatio(contentMode: .fit)
                         .scaleEffect(0.75)
                 }
-                .frame(width: geometry.size.width * 4/10)
-                
+                .frame(width: geometry.size.width * 4 / 10)
+
                 // View
-                ZStack {
+                Group {
                     if store.isConnected {
-                        userSelectionView
+                        userSelectionView.frame(width: geometry.size.width * 6 / 10, height: geometry.size.height)
                     } else {
-                        serverSelectionView
+                        serverSelectionView.frame(width: geometry.size.width * 6 / 10, height: geometry.size.height)
                     }
                 }
-                .frame(width: geometry.size.width * 6/10, height: geometry.size.height)
+                .frame(width: geometry.size.width * 6 / 10, height: geometry.size.height)
             }
-        }.background(BackgroundViews.gradient)
-        
+        }
+        .abjcAlert($store.alert)
     }
-    
+
     var serverSelectionView: some View {
         VStack(alignment: .center) {
             HStack(spacing: 5) {
                 Text("Server Selection")
                     .font(.title2).bold()
-                
+
                 ProgressView()
                     .frame(width: 200)
                     .hidden(!store.isDiscoveringServers)
             }
-            
+
             Group {
                 if !store.willEnterServerManually {
                     VStack(spacing: 10) {
@@ -74,9 +76,10 @@ struct AuthenticationView: View {
                                         Image(systemName: "chevron.forward")
                                     }
                                 }
+                                .accessibilityIdentifier("serverBtn")
                             }
                             .padding()
-                            
+
                             // Manual Server entry
                             Button {
                                 store.willEnterServerManually = true
@@ -96,18 +99,19 @@ struct AuthenticationView: View {
                                     Spacer()
                                     Image(systemName: "chevron.forward")
                                 }
-                            }.padding()
+                            }
+                            .accessibilityIdentifier("enterServerManuallyBtn")
+                            .padding()
                         }
                     }
                 } else {
                     // Manually enter Server info
                     manualServerEntryView
                 }
-                
             }
         }.frame(maxHeight: .infinity)
     }
-    
+
     /// View for entering server manually
     var manualServerEntryView: some View {
         VStack {
@@ -115,22 +119,27 @@ struct AuthenticationView: View {
                 TextField(LocalizedStringKey("Host"), text: $store.manualHost)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
+                    .textContentType(.URL)
                     .prefersDefaultFocus(store.manualHost.isEmpty, in: namespace)
-                
+                    .accessibilityIdentifier("hostField")
+
                 TextField(LocalizedStringKey("Port"), text: $store.manualPort)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                     .textContentType(.oneTimeCode)
                     .keyboardType(.numberPad)
                     .prefersDefaultFocus(!store.manualHost.isEmpty && store.manualPort.isEmpty, in: namespace)
-                
+                    .accessibilityIdentifier("portField")
+
                 TextField("/jellyfin", text: $store.manualPath)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                     .prefersDefaultFocus(!store.manualHost.isEmpty && !store.manualPort.isEmpty && store.manualPath.isEmpty, in: namespace)
-                
+                    .accessibilityIdentifier("pathField")
+
                 Toggle("Use SSL (HTTPS)", isOn: $store.manualHttps)
-                
+                    .accessibilityIdentifier("sslSwitch")
+
                 Button {
                     store.setServerManual()
                 } label: {
@@ -141,40 +150,42 @@ struct AuthenticationView: View {
                         Text("Continue").textCase(.uppercase)
                     }
                 }
+                .accessibilityIdentifier("continueBtn")
                 .prefersDefaultFocus(!store.manualHost.isEmpty && !store.manualPort.isEmpty && !store.manualPath.isEmpty, in: namespace)
             }
         }
     }
-    
+
     var userSelectionView: some View {
         VStack {
             Text("Who's Watching?")
                 .font(.title)
                 .padding(.bottom, 30)
-            
+
             Group {
                 if !store.willEnterUserManually {
                     VStack(spacing: 10) {
                         ScrollView {
                             // List of public users
-                            
-                            ForEach(store.publicUsers, id:\.id) { user in
+
+                            ForEach(store.publicUsers, id: \.id) { user in
                                 Button {
                                     store.username = user.name!
                                     if !(user.hasPassword ?? true) {
                                         store.authenticate(username: user.name ?? "")
+                                    } else {
+                                        store.willEnterUserManually = true
                                     }
-                                    
+
                                 } label: {
                                     HStack {
                                         UserAvatarView(user: user)
                                             .frame(width: 60, height: 60, alignment: .center)
-                                            .overlay(
-                                                Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open" )
-                                                    .padding(2)
-                                                , alignment: .bottomLeading)
+                                            .overlay(Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
+                                                .padding(2),
+                                                alignment: .bottomLeading)
                                             .padding()
-                                        
+
                                         VStack(alignment: .leading) {
                                             Text(user.name ?? "Missing Username")
                                                 .bold()
@@ -184,16 +195,17 @@ struct AuthenticationView: View {
                                                 .font(.system(.callout, design: .monospaced))
                                                 .foregroundColor(.secondary)
                                         }
-                                        
+
                                         Spacer()
-                                        
+
                                         Image(systemName: "chevron.forward")
                                     }
                                 }
+                                .prefersDefaultFocus(store.publicUsers.firstIndex(of: user) == store.publicUsers.startIndex, in: namespace)
+                                .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
                                 .buttonStyle(CardButtonStyle())
                             }.padding()
-                            
-                            
+
                             // Manual User Entry
                             Button {
                                 store.willEnterUserManually = true
@@ -207,13 +219,13 @@ struct AuthenticationView: View {
                                     }
                                     .frame(width: 60, height: 60, alignment: .center)
                                     .padding()
-                                    
+
                                     VStack(alignment: .leading) {
                                         Text("Enter Manually")
                                             .bold()
                                             .font(.headline)
                                             .textCase(.uppercase)
-                                        Text("Enter username manually")
+                                        Text("Enter credentials manually")
                                             .font(.system(.callout, design: .monospaced))
                                             .foregroundColor(.secondary)
                                     }
@@ -221,6 +233,7 @@ struct AuthenticationView: View {
                                     Image(systemName: "chevron.forward")
                                 }
                             }
+                            .accessibilityIdentifier("manualUserBtn")
                             .buttonStyle(CardButtonStyle())
                             .padding()
                         }
@@ -230,9 +243,9 @@ struct AuthenticationView: View {
                 }
             }
             .padding(.top)
-        }
+        }.background(Color.blue)
     }
-    
+
     /// View for entering user manually
     var userEntryView: some View {
         VStack {
@@ -240,23 +253,25 @@ struct AuthenticationView: View {
                 TextField(LocalizedStringKey("username"), text: $store.username)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
+                    .textContentType(.username)
                     .disabled(!store.willEnterUserManually)
                     .prefersDefaultFocus(store.username.isEmpty, in: namespace)
-                
-                TextField(LocalizedStringKey("password"), text: $store.password)
+                    .accessibilityIdentifier("usernameField")
+
+                SecureField(LocalizedStringKey("password"), text: $store.password, prompt: nil)
                     .autocapitalization(.none)
+                    .textContentType(.password)
                     .disableAutocorrection(true)
-                    .textContentType(.oneTimeCode)
-                    .keyboardType(.numberPad)
                     .prefersDefaultFocus(!store.username.isEmpty && store.password.isEmpty, in: namespace)
-                
+                    .accessibilityIdentifier("passwordField")
+
                 Button {
                     if store.password.isEmpty {
                         store.authenticate(username: store.username)
                     } else {
                         store.authenticate(username: store.username, password: store.password)
                     }
-                    
+
                 } label: {
                     if store.isLoading {
                         ProgressView()
@@ -265,6 +280,7 @@ struct AuthenticationView: View {
                         Text("Continue").textCase(.uppercase)
                     }
                 }
+                .accessibilityIdentifier("continueBtn")
                 .prefersDefaultFocus(!store.username.isEmpty && !store.password.isEmpty, in: namespace)
             }
         }

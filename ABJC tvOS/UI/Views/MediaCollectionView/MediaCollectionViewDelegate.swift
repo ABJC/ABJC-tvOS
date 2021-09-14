@@ -5,21 +5,23 @@
 //  Created by Noah Kamara on 09.09.21.
 //
 
-import SwiftUI
 import JellyfinAPI
+import SwiftUI
 
 class MediaCollectionViewDelegate: ViewDelegate {
-    @Published var items: [BaseItemDto] = []
-    
+    @Published
+    var items: [BaseItemDto] = []
+
     func loadItems(for types: [ItemType]) {
         ItemsAPI.getItems(userId: session.credentials!.userId,
                           recursive: true,
                           fields: [.genres, .overview],
-                          includeItemTypes: types.map(\.rawValue)
-        ) { result in
+                          includeItemTypes: types.map(\.rawValue)) { result in
             switch result {
-                case .success(let result): self.items = result.items ?? []
-                case .failure(let error): self.handleApiError(error)
+            case let .success(result): self.items = result.items ?? []
+            case let .failure(error):
+                self.alert = .init(.failedToLoadItems)
+                self.handleApiError(error)
             }
         }
     }

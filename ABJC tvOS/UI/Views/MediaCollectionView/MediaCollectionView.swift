@@ -9,14 +9,16 @@ import SwiftUI
 
 struct MediaCollectionView: View {
     public let itemType: ItemType
-    @StateObject var store: MediaCollectionViewDelegate = .init()
-    
+    @StateObject
+    var store: MediaCollectionViewDelegate = .init()
+
     var body: some View {
         Shelf(store.items, grouped: store.preferences.collectionGrouping)
-        .id(store.preferences.collectionGrouping.rawValue+store.items.isEmpty.description)
-        .onAppear {
-            self.store.loadItems(for: [itemType])
-        }
+            .id(store.preferences.collectionGrouping.rawValue + store.items.isEmpty.description)
+            .onAppear {
+                self.store.loadItems(for: [itemType])
+            }
+            .abjcAlert($store.alert)
     }
 }
 

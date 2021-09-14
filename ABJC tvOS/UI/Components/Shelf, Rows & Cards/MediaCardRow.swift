@@ -5,19 +5,19 @@
 //  Created by Noah Kamara on 10.09.21.
 //
 
-import SwiftUI
 import JellyfinAPI
+import SwiftUI
 
 struct MediaCardRow: View {
-    @ObservedObject var store: MediaViewDelegate
-    
+    @ObservedObject
+    var store: MediaViewDelegate
+
     /// Label
     public let label: LocalizedStringKey
-    
+
     /// Items
     public let items: [BaseItemDto]
-    
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(label)
@@ -25,11 +25,11 @@ struct MediaCardRow: View {
                 .padding(.horizontal, store.edgeInsets.leading)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 48) {
-                    ForEach(items, id:\.id) { item in
+                    ForEach(items, id: \.id) { item in
                         NavigationLink(destination: DetailView(item: item), label: {
                             MediaCard(store: store, item: item)
                         })
-                        .buttonStyle(PlainButtonStyle())
+                            .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .frame(height: store.rowHeight)

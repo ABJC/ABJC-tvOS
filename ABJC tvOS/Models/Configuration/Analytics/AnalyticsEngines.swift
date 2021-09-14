@@ -5,9 +5,8 @@
 //  Created by Noah Kamara on 12.09.21.
 //
 
-import Foundation
 import ABJCAnalytics
-
+import Foundation
 
 class DebugAnalyticsEngine: AnalyticsEngine {
     func send(_ report: AnalyticsReport) {

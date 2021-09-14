@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct MainView: View {
-    @Environment(\.appConfiguration) var app
-    
-    @StateObject var session = SessionStore.shared
-    
+    @Environment(\.appConfiguration)
+    var app
+
+    @StateObject
+    var session = SessionStore.shared
+
     var body: some View {
-        if session.isAuthenticated {
-            LibraryView()
-        } else {
-            AuthenticationView()
+        Group {
+            if session.isAuthenticated {
+                LibraryView()
+            } else {
+                AuthenticationView()
+            }
+        }.onAppear {
+            print(app.environment)
         }
     }
 }

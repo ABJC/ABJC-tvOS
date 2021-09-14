@@ -9,8 +9,9 @@ import SwiftUI
 
 extension PreferencesView {
     struct InfoView: View {
-        @ObservedObject var store: PreferencesViewDelegate
-        
+        @ObservedObject
+        var store: PreferencesViewDelegate
+
         var body: some View {
             Form {
                 Section("System Information") {
@@ -20,12 +21,12 @@ extension PreferencesView {
                     InfoRow("Identifier", store.systemInfo?.id ?? "")
                     InfoRow("Jellyfin Version", store.systemInfo?.version ?? "")
                 }
-                
+
                 Section("Server Configuration") {
                     InfoRow("Local Address", store.systemInfo?.localAddress ?? "")
                     InfoRow("IPv6", store.serverConfiguration?.enableIPV4 ?? false)
                     InfoRow("IPv6", store.serverConfiguration?.enableIPV6 ?? false)
-                    
+
                     InfoRow("HTTP Port", store.serverConfiguration?.httpServerPortNumber ?? "")
                     InfoRow("HTTPS Port", store.serverConfiguration?.httpsPortNumber ?? "")
                     InfoRow("AutoDiscovery", store.serverConfiguration?.autoDiscovery ?? false)
@@ -39,7 +40,7 @@ extension PreferencesView {
             .navigationBarTitle("General Information")
         }
     }
-    
+
     struct InfoView_Previews: PreviewProvider {
         static var previews: some View {
             InfoView(store: .init())

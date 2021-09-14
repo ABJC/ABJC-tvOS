@@ -14,7 +14,7 @@ public class ServerDiscovery {
         public let username: String
         public let password: String
         public let deviceId: String
-        
+
         public init(_ host: String, _ port: Int, _ username: String, _ password: String, _ deviceId: String = UUID().uuidString) {
             self.host = host
             self.port = port
@@ -23,61 +23,59 @@ public class ServerDiscovery {
             self.deviceId = deviceId
         }
     }
-    
+
     public struct ServerLookupResponse: Codable, Hashable, Identifiable {
-        
         public func hash(into hasher: inout Hasher) {
             return hasher.combine(id)
         }
-        
+
         private let address: String
         public let id: String
         public let name: String
-        
+
         public var url: URL {
-            URL(string: self.address)!
+            URL(string: address)!
         }
-        
+
         public var scheme: String {
-            let components = URLComponents(string: self.address)
+            let components = URLComponents(string: address)
             return components?.scheme ?? "https"
         }
-        
+
         public var host: String {
-            let components = URLComponents(string: self.address)
+            let components = URLComponents(string: address)
             if let host = components?.host {
                 return host
             }
-            return self.address
+            return address
         }
-        
+
         public var port: Int {
-            let components = URLComponents(string: self.address)
+            let components = URLComponents(string: address)
             if let port = components?.port {
                 return port
             }
             return 8096
         }
-        
+
         enum CodingKeys: String, CodingKey {
             case address = "Address"
             case id = "Id"
             case name = "Name"
         }
     }
+
     private let broadcastConn: UDPBroadcastConnection
-    
+
     public init() {
-        func receiveHandler(_ ipAddress: String, _ port: Int, _ response: Data) {
-        }
-        
-        func errorHandler(error: UDPBroadcastConnection.ConnectionError) {
-        }
-        self.broadcastConn = try! UDPBroadcastConnection(port: 7359, handler: receiveHandler, errorHandler: errorHandler)
+        func receiveHandler(_: String, _: Int, _: Data) {}
+
+        func errorHandler(error _: UDPBroadcastConnection.ConnectionError) {}
+        broadcastConn = try! UDPBroadcastConnection(port: 7359, handler: receiveHandler, errorHandler: errorHandler)
     }
-    
+
     public func locateServer(completion: @escaping (ServerLookupResponse?) -> Void) {
-        func receiveHandler(_ ipAddress: String, _ port: Int, _ data: Data) {
+        func receiveHandler(_: String, _: Int, _ data: Data) {
             do {
                 let response = try JSONDecoder().decode(ServerLookupResponse.self, from: data)
 //                LogManager.shared.log.debug("Received JellyfinServer from \"\(response.name)\"", tag: "ServerDiscovery")
@@ -86,7 +84,7 @@ public class ServerDiscovery {
                 completion(nil)
             }
         }
-        self.broadcastConn.handler = receiveHandler
+        broadcastConn.handler = receiveHandler
         do {
             try broadcastConn.sendBroadcast("Who is JellyfinServer?")
 //            LogManager.shared.log.debug("Discovery broadcast sent", tag: "ServerDiscovery")
@@ -95,4 +93,3 @@ public class ServerDiscovery {
         }
     }
 }
-

@@ -11,14 +11,15 @@ extension PreferencesView {
     struct ToggleRow: View {
         private let title: LocalizedStringKey
         private let subtitle: LocalizedStringKey?
-        @Binding var value: Bool
-        
+        @Binding
+        var value: Bool
+
         init(_ title: LocalizedStringKey, _ subtitle: LocalizedStringKey?, _ value: Binding<Bool>) {
             self.title = title
             self.subtitle = subtitle
-            self._value = value
+            _value = value
         }
-        
+
         var body: some View {
             Toggle(isOn: $value, label: {
                 VStack(alignment: .leading) {
@@ -31,7 +32,7 @@ extension PreferencesView {
             })
         }
     }
-    
+
     struct ToggleRow_Previews: PreviewProvider {
         static var previews: some View {
             ToggleRow(.init("High Ground"), .init("Cannot be countered\nAll attacking creatures get amputated"), .constant(true))

@@ -14,14 +14,14 @@ enum Tab: Int {
     case shows = 2
     case search = 3
     case preferences = 4
-    
+
     var title: LocalizedStringKey {
         switch self {
-            case .watchnow: return .init("Watch Now")
-            case .movies: return .init("Movies")
-            case .shows: return .init("TV Shows")
-            case .search: return .init("Search")
-            case .preferences: return .init("Preferences")
+        case .watchnow: return .init("Watch Now")
+        case .movies: return .init("Movies")
+        case .shows: return .init("TV Shows")
+        case .search: return .init("Search")
+        case .preferences: return .init("Preferences")
         }
     }
 }

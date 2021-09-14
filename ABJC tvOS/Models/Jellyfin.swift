@@ -17,49 +17,48 @@ class Jellyfin {
         var host: String
         var port: Int
         var path: String
-        
+
         var baseURI: String {
             return "\(scheme)//\(host):\(port)/\(path)"
         }
-        
+
         init(discovered server: ServerDiscovery.ServerLookupResponse) {
-            self.id = server.id
-            self.name = server.name
-            self.scheme = server.scheme
-            self.host = server.host
-            self.port = server.port
-            self.path = server.url.path
+            id = server.id
+            name = server.name
+            scheme = server.scheme
+            host = server.host
+            port = server.port
+            path = server.url.path
         }
-        
+
 //        init(host: String, port: Int, isHttps: Bool) {
 //            self.host = host
 //            self.port = port
 //            self.
 //        }
     }
-    
+
     class Credentials: ObservableObject {
         static var _deviceId: String = "tvOS_\(UIDevice.current.identifierForVendor!.uuidString)"
-        
+
         let userId: String
         let deviceId: String
         let accessToken: String
-        
+
         init(userId: String, accessToken: String) {
             self.userId = userId
             self.accessToken = accessToken
-            self.deviceId = Self._deviceId
+            deviceId = Self._deviceId
         }
-        
+
         init(userId: String, accessToken: String, deviceId: String) {
             self.userId = userId
             self.accessToken = accessToken
             self.deviceId = deviceId
         }
-        
+
         convenience init(_ result: AuthenticationResult) {
             self.init(userId: result.user!.id!, accessToken: result.accessToken!)
         }
     }
 }
-

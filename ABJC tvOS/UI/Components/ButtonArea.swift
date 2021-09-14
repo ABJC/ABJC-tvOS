@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonArea<Content: View>: View {
     private let content: (Bool) -> Content
     private let action: () -> Void
-    
+
     init(
         _ action: @escaping () -> Void,
         @ViewBuilder content: @escaping (Bool) -> Content
@@ -18,16 +18,18 @@ struct ButtonArea<Content: View>: View {
         self.action = action
         self.content = content
     }
-    
-    @Environment(\.isFocused) var isFocused
-    @State var isPressed: Bool = false
-    
+
+    @Environment(\.isFocused)
+    var isFocused
+    @State
+    var isPressed: Bool = false
+
     var body: some View {
         content(isFocused)
             .focusable(true)
             .onLongPressGesture(minimumDuration: 0.01, pressing: pressing, perform: action)
     }
-    
+
     func pressing(_ isPressed: Bool) {
         DispatchQueue.main.async {
             self.isPressed = isPressed

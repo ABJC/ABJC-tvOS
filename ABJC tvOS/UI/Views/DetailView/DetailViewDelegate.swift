@@ -9,16 +9,16 @@ import Foundation
 import JellyfinAPI
 
 class DetailViewDelegate: ViewDelegate {
-    
     public let item: BaseItemDto
-    @Published var imageUrl: URL? = nil
-    @Published var itemSimilars: [BaseItemDto] = []
+    @Published
+    var imageUrl: URL?
+    @Published
+    var itemSimilars: [BaseItemDto] = []
 //    @Published var actors: [BaseItemPerson] = []
 //    @Published var studio: String?
 //    @Published var director: String?
 //    @Published var itemPeople: [Person] = []
-    
-    
+
     // Loads imageUrl
     func loadImageUrl() {
         guard let itemId = item.id else {
@@ -27,31 +27,23 @@ class DetailViewDelegate: ViewDelegate {
         let imageType: ImageType = preferences.posterType == .poster ? .primary : .backdrop
         ImageAPI.getItemImage(itemId: itemId, imageType: imageType) { result in
             switch result {
-                case .success(let url): self.imageUrl = url
-                case .failure(let error): print(error)
+            case let .success(url): self.imageUrl = url
+            case let .failure(error):
+                print(error)
             }
         }
     }
-    
-    
+
     func loadItemsSimilar() {
-        
+//        self.alert = .init(.failedToLoadSimilar)
     }
-    
+
     func onAppear() {
         loadImageUrl()
-        
-//        switch ItemType(rawValue: item.type ?? "") ?? .episode {
-//            case .movie: loadMovie()
-////            case .series: loadSeries()
-//            default: print("NOT IMPLEMENTED")
-//        }
     }
-    
-    func play() {
-        
-    }
-    
+
+    func play() {}
+
     init(_ item: BaseItemDto) {
         self.item = item
     }

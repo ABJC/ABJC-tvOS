@@ -9,27 +9,25 @@ import SwiftUI
 
 extension View {
     func background() -> some View {
-        self.background(BackgroundViews.gradient)
+        background(BackgroundViews.gradient)
     }
 }
 
 enum BackgroundViews: View {
-    
     var body: some View {
         self
     }
-    
+
     static var gradient: some View {
-        LinearGradient(
-            colors: [Color(uiColor: .init(red: 0.003, green: 0.095, blue: 0.310, alpha: 1))],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing)
+        LinearGradient(colors: [Color(uiColor: .init(red: 0.003, green: 0.095, blue: 0.310, alpha: 1))],
+                       startPoint: .topLeading,
+                       endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
     }
 }
 
-//struct BackgroundGradient_Previews: PreviewProvider {
+// struct BackgroundGradient_Previews: PreviewProvider {
 //    static var previews: some View {
 //        BackgroundGradient<LinearGradient>()
 //    }
-//}
+// }
