@@ -1,6 +1,0 @@
-framework module TVVLCKit {
-  umbrella header "TVVLCKit.h"
-
-  export *
-  module * { export * }
-}

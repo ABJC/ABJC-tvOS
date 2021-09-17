@@ -1,7 +1,21 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> rewrite
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+<<<<<<< HEAD
+=======
+## Constants & Environment
+ABJC tvOS/Constants.plist
+
+## CocoaPods
+Pods/
+
+>>>>>>> rewrite
 ## User settings
 xcuserdata/
 
@@ -25,6 +39,7 @@ DerivedData/
 ## Gcc Patch
 /*.gcno
 
+<<<<<<< HEAD
 # General
 .DS_Store
 .AppleDouble
@@ -63,3 +78,5 @@ Temporary Items
 
 # scan temporary files
 **/fastlane/test_output
+=======
+>>>>>>> rewrite
