@@ -1,9 +1,14 @@
-//
-//  Preferences.swift
-//  Preferences
-//
-//  Created by Noah Kamara on 09.09.21.
-//
+/*
+ ABJC - tvOS
+ PreferenceStore.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import Combine
 import SwiftUI
@@ -35,7 +40,7 @@ public class PreferenceStore: ObservableObject {
         Keys.grouping: CollectionGrouping.default.rawValue,
         Keys.posterType: PosterType.default.rawValue,
         Keys.showsTitles: false,
-        Keys.betaflags: [],
+        Keys.betaflags: []
     ]
 
     public func reset() {

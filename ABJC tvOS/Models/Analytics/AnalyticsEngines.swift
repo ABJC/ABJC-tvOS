@@ -1,9 +1,14 @@
-//
-//  CustomAnalyticsEngine.swift
-//  CustomAnalyticsEngine
-//
-//  Created by Noah Kamara on 12.09.21.
-//
+/*
+ ABJC - tvOS
+ AnalyticsEngines.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import ABJCAnalytics
 import Foundation
@@ -11,8 +16,7 @@ import Foundation
 class MockAnalyticsEngine: AnalyticsEngine {
     func send(_ report: AnalyticsReport) {
         if let data = try? JSONEncoder().encode(report),
-           let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-        {
+           let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
             print("REPORT '\(report.eventName)'", json)
         } else {
             print("REPORT '\(report.eventName)'")

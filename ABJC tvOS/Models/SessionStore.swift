@@ -1,9 +1,13 @@
 /*
- * ABJC is subject to the terms of the Mozilla Public
- * License, v2.0. If a copy of the MPL was not distributed with this
- * file, you can obtain one at https://mozilla.org/MPL/2.0/.
- *
- * Copyright 2021 Noah Kamara &amp; ABJC Contributors
+ ABJC - tvOS
+ SessionStore.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
  */
 
 import Foundation
@@ -44,7 +48,7 @@ class SessionStore: ObservableObject {
             "Emby Client=\"ABJC tvOS\"",
             "Device=\"\(deviceName)\"",
             "DeviceId=\"\(deviceID)\"",
-            "Version=\"\(appVersion ?? "0.0.1")\"",
+            "Version=\"\(appVersion ?? "0.0.1")\""
         ]
 
         if let credentials = credentials {
@@ -79,10 +83,10 @@ class SessionStore: ObservableObject {
                 let body = AuthenticateUserByName(username: userCredentials.username, pw: userCredentials.password)
                 UserAPI.authenticateUserByName(authenticateUserByName: body) { result in
                     switch result {
-                    case let .failure(error):
-                        print(error)
-                        fatalError("Couldn't Authenticate")
-                    case let .success(response): self.didAuthenticate(response)
+                        case let .failure(error):
+                            print(error)
+                            fatalError("Couldn't Authenticate")
+                        case let .success(response): self.didAuthenticate(response)
                     }
                 }
             }

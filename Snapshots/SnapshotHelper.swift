@@ -1,9 +1,14 @@
-//
-//  SnapshotHelper.swift
-//  Example
-//
-//  Created by Felix Krause on 10/8/15.
-//
+/*
+ ABJC - tvOS
+ SnapshotHelper.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 // -----------------------------------------------------
 // IMPORTANT: When modifying this file, make sure to
@@ -43,10 +48,10 @@ enum SnapshotError: Error, CustomDebugStringConvertible {
 
     var debugDescription: String {
         switch self {
-        case .cannotFindSimulatorHomeDirectory:
-            return "Couldn't find simulator home location. Please, check SIMULATOR_HOST_HOME env variable."
-        case .cannotRunOnPhysicalDevice:
-            return "Can't use Snapshot on a physical device."
+            case .cannotFindSimulatorHomeDirectory:
+                return "Couldn't find simulator home location. Please, check SIMULATOR_HOST_HOME env variable."
+            case .cannotRunOnPhysicalDevice:
+                return "Can't use Snapshot on a physical device."
         }
     }
 }

@@ -1,9 +1,14 @@
-//
-//  PlayerViewDelegate.swift
-//  PlayerViewDelegate
-//
-//  Created by Noah Kamara on 14.09.21.
-//
+/*
+ ABJC - tvOS
+ PlayerViewDelegate.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import Foundation
 import JellyfinAPI
@@ -43,17 +48,16 @@ class PlayerViewDelegate: ViewDelegate {
     func loadPlaybackInfo() {
         playbackInfo = nil
         guard let userId = session.credentials?.userId,
-              let itemId = item.id
-        else {
+              let itemId = item.id else {
             return
         }
         MediaInfoAPI.getPlaybackInfo(itemId: itemId, userId: userId) { result in
             switch result {
-            case let .success(response):
-                self.playbackInfo = response
-                self.loadStreamURL()
-            case let .failure(error):
-                self.handleApiError(error)
+                case let .success(response):
+                    self.playbackInfo = response
+                    self.loadStreamURL()
+                case let .failure(error):
+                    self.handleApiError(error)
             }
         }
     }
@@ -82,7 +86,7 @@ class PlayerViewDelegate: ViewDelegate {
                     .init(name: "mediaSourceId", value: mediaSource.id!),
                     .init(name: "deviceId", value: credentials.deviceId),
                     .init(name: "api_key", value: credentials.accessToken),
-                    .init(name: "Tag", value: mediaSource.eTag!),
+                    .init(name: "Tag", value: mediaSource.eTag!)
                 ]
                 guard let url = urlComponents.url else {
                     return
@@ -110,11 +114,11 @@ class PlayerViewDelegate: ViewDelegate {
     func quickSeek(_ direction: MoveCommandDirection) {
         //        print("MOVE \(String(describing: direction))")
         switch direction {
-        case .up: showsControlls = true
-        case .down: showsControlls = false
-        case .left: player.jumpBackward(15)
-        case .right: player.jumpForward(30)
-        @unknown default: break
+            case .up: showsControlls = true
+            case .down: showsControlls = false
+            case .left: player.jumpBackward(15)
+            case .right: player.jumpForward(30)
+            @unknown default: break
         }
     }
 

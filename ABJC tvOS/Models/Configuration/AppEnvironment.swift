@@ -1,9 +1,14 @@
-//
-//  AppEnvironment.swift
-//  AppEnvironment
-//
-//  Created by Noah Kamara on 11.09.21.
-//
+/*
+ ABJC - tvOS
+ AppEnvironment.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import Foundation
 
@@ -19,12 +24,12 @@ enum AppEnvironment {
         }
 
         switch path {
-        case let path where path.contains("CoreSimulator"):
-            return .debug
-        case let path where path.contains("sandboxReceipt"):
-            return .testflight
-        default:
-            return .appstore
+            case let path where path.contains("CoreSimulator"):
+                return .debug
+            case let path where path.contains("sandboxReceipt"):
+                return .testflight
+            default:
+                return .appstore
         }
     }
 }

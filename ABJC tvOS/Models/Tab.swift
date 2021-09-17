@@ -1,9 +1,14 @@
-//
-//  Tab.swift
-//  Tab
-//
-//  Created by Noah Kamara on 10.09.21.
-//
+/*
+ ABJC - tvOS
+ Tab.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import Foundation
 import SwiftUI
@@ -17,11 +22,11 @@ enum Tab: Int {
 
     var title: LocalizedStringKey {
         switch self {
-        case .watchnow: return .init("Watch Now")
-        case .movies: return .init("Movies")
-        case .shows: return .init("TV Shows")
-        case .search: return .init("Search")
-        case .preferences: return .init("Preferences")
+            case .watchnow: return .init("Watch Now")
+            case .movies: return .init("Movies")
+            case .shows: return .init("TV Shows")
+            case .search: return .init("Search")
+            case .preferences: return .init("Preferences")
         }
     }
 }

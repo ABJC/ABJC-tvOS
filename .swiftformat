@@ -1,0 +1,46 @@
+
+--swiftversion 5.5 # Swift Version
+#indent
+--indent 4
+--indentcase true
+
+# Never use semicolons
+--semicolons never
+
+# Column Wrapping
+--maxwidth 140
+--wraparguments before-first
+--wrapparameters before-first
+--wrapconditions after-first
+--funcattributes prev-line
+--typeattributes prev-line
+--varattributes prev-line
+
+## Trailing Commas
+--commas inline
+
+## Same-Line braces & else statements 
+--allman false
+--elseposition same-line
+--guardelse same-line
+
+
+## Blank Lines formatting
+--enable blankLinesAtEndOfScope, blankLinesAtStartOfScope, blankLinesBetweenScopes
+
+## Space around / in braces
+--enable spaceAroundBraces, spaceInsideBraces
+
+## Switch Cases
+--enable wrapSwitchCases
+
+## Duplicate Imports
+--enable duplicateImports
+
+
+--disable wrapMultilineStatementBraces
+
+# File Headers
+--header "/*\nABJC - tvOS\n{file}\n\nABJC is subject to the terms of the Mozilla Public\nLicense, v2.0. If a copy of the MPL was not distributed with this\nfile, you can obtain one at https://mozilla.org/MPL/2.0/.\n\nCopyright {year} Noah Kamara & ABJC Contributors\nCreated on {created}\n*/"
+
+

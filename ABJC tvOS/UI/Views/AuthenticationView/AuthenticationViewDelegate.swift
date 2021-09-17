@@ -1,9 +1,14 @@
-//
-//  AuthenticationViewModel.swift
-//  AuthenticationViewModel
-//
-//  Created by Noah Kamara on 09.09.21.
-//
+/*
+ ABJC - tvOS
+ AuthenticationViewDelegate.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import AnyCodable
 import Combine
@@ -12,7 +17,7 @@ import JellyfinAPI
 
 class AuthenticationViewDelegate: ViewDelegate {
     let analyticsMetadata: [String: AnyEncodable] = [
-        "view": .init(ViewIdentifier.auth),
+        "view": .init(ViewIdentifier.auth)
     ]
     @Published
     var isConnected: Bool = false
@@ -104,12 +109,12 @@ class AuthenticationViewDelegate: ViewDelegate {
     func loadPublicUsers() {
         UserAPI.getPublicUsers { result in
             switch result {
-            case let .success(response):
-                self.publicUsers = response
-                self.isConnected = true
-            case let .failure(error):
-                self.alert = .init(.cantConnectToHost)
-                self.handleApiError(error, with: self.analyticsMetadata)
+                case let .success(response):
+                    self.publicUsers = response
+                    self.isConnected = true
+                case let .failure(error):
+                    self.alert = .init(.cantConnectToHost)
+                    self.handleApiError(error, with: self.analyticsMetadata)
             }
         }
     }
@@ -120,11 +125,11 @@ class AuthenticationViewDelegate: ViewDelegate {
 
         UserAPI.authenticateUserByName(authenticateUserByName: body) { result in
             switch result {
-            case let .success(result):
-                self.session.didAuthenticate(result)
-            case let .failure(error):
-                self.alert = .init(.authenticationFailed)
-                self.handleApiError(error, with: self.analyticsMetadata)
+                case let .success(result):
+                    self.session.didAuthenticate(result)
+                case let .failure(error):
+                    self.alert = .init(.authenticationFailed)
+                    self.handleApiError(error, with: self.analyticsMetadata)
             }
         }
     }

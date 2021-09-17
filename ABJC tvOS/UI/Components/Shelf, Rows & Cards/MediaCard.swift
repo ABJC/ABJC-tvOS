@@ -1,9 +1,14 @@
-//
-//  MediaCard.swift
-//  MediaCard
-//
-//  Created by Noah Kamara on 10.09.21.
-//
+/*
+ ABJC - tvOS
+ MediaCard.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import JellyfinAPI
 import SwiftUI
@@ -26,8 +31,8 @@ struct MediaCard: View {
         let imageType: ImageType = store.preferences.posterType == .poster ? .primary : .backdrop
         ImageAPI.getItemImage(itemId: itemId, imageType: imageType) { result in
             switch result {
-            case let .success(url): self.imageUrl = url
-            case let .failure(error): print(error)
+                case let .success(url): self.imageUrl = url
+                case let .failure(error): print(error)
             }
         }
     }
@@ -59,11 +64,13 @@ struct MediaCard: View {
 
     private var uglymode: some View {
         Blur()
-            .overlay(VStack {
-                Text(item.name ?? "No Title")
-                    .font(.headline)
-                Text(item.productionYear != nil ? "(" + String(item.productionYear!) + ")" : "")
-            }.padding())
+            .overlay(
+                VStack {
+                    Text(item.name ?? "No Title")
+                        .font(.headline)
+                    Text(item.productionYear != nil ? "(" + String(item.productionYear!) + ")" : "")
+                }.padding()
+            )
     }
 
     /// Placeholder for missing URLImage

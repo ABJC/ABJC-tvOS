@@ -1,9 +1,14 @@
-//
-//  APITests.swift
-//  ABJCTests
-//
-//  Created by Noah Kamara on 26.03.21.
-//
+/*
+ ABJC - tvOS
+ APITests.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 @testable import ABJC
 import XCTest
@@ -30,20 +35,20 @@ class APITests: XCTestCase {
         let expect = expectation(description: "Waiting for Authorization")
         API.authorize(server, client, username, password) { result in
             switch result {
-            case let .success(jellyfin):
-                self.jellyfin = jellyfin
-                API.items(jellyfin) { result in
-                    switch result {
-                    case let .success(items):
-                        self.testMovieItem = items.first(where: { $0.type == .movie })
-                        self.testSeriesItem = items.first(where: { $0.type == .series })
-                    case .failure: break
+                case let .success(jellyfin):
+                    self.jellyfin = jellyfin
+                    API.items(jellyfin) { result in
+                        switch result {
+                            case let .success(items):
+                                self.testMovieItem = items.first(where: { $0.type == .movie })
+                                self.testSeriesItem = items.first(where: { $0.type == .series })
+                            case .failure: break
+                        }
+                        expect.fulfill()
                     }
-                    expect.fulfill()
-                }
-            case let .failure(error):
-                print(error)
-                fatalError("Couldn't authorize")
+                case let .failure(error):
+                    print(error)
+                    fatalError("Couldn't authorize")
             }
         }
 

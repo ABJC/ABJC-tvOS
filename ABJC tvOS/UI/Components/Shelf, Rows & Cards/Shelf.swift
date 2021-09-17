@@ -1,9 +1,14 @@
-//
-//  Shelf.swift
-//  Shelf
-//
-//  Created by Noah Kamara on 09.09.21.
-//
+/*
+ ABJC - tvOS
+ Shelf.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import JellyfinAPI
 import SwiftUI
@@ -47,32 +52,32 @@ struct Shelf: View {
         self.grouping = grouping
         func filterItem(_ grouping: CollectionGrouping, _ category: String, _ item: BaseItemDto) -> Bool {
             switch grouping {
-            case .title: return category == String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#"))
-            case .genre: return item.genreItems?.map(\.name).contains(category) ?? false
-            case .releaseYear: return category == (item.productionYear != nil ? "\(item.productionYear ?? 0)" : "#")
-            case .releaseDecade: return category == (item.productionYear != nil ? "\((item.productionYear ?? 0) / 10)0s" : "#")
+                case .title: return category == String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#"))
+                case .genre: return item.genreItems?.map(\.name).contains(category) ?? false
+                case .releaseYear: return category == (item.productionYear != nil ? "\(item.productionYear ?? 0)" : "#")
+                case .releaseDecade: return category == (item.productionYear != nil ? "\((item.productionYear ?? 0) / 10)0s" : "#")
             }
         }
 
         var categories = Set<String>()
 
         switch grouping {
-        case .title:
-            categories = items.reduce(into: categories) { set, item in
-                set.insert(String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#")))
-            }
-        case .genre:
-            categories = items.reduce(into: categories) { set, item in
-                set.formUnion(item.genreItems?.compactMap(\.name) ?? [])
-            }
-        case .releaseYear:
-            categories = items.reduce(into: categories) { set, item in
-                _ = set.insert(item.productionYear != nil ? "\(item.productionYear!)" : "#")
-            }
-        case .releaseDecade:
-            categories = items.reduce(into: categories) { set, item in
-                _ = set.insert(item.productionYear != nil ? "\(item.productionYear! / 10)0s" : "#")
-            }
+            case .title:
+                categories = items.reduce(into: categories) { set, item in
+                    set.insert(String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#")))
+                }
+            case .genre:
+                categories = items.reduce(into: categories) { set, item in
+                    set.formUnion(item.genreItems?.compactMap(\.name) ?? [])
+                }
+            case .releaseYear:
+                categories = items.reduce(into: categories) { set, item in
+                    _ = set.insert(item.productionYear != nil ? "\(item.productionYear!)" : "#")
+                }
+            case .releaseDecade:
+                categories = items.reduce(into: categories) { set, item in
+                    _ = set.insert(item.productionYear != nil ? "\(item.productionYear! / 10)0s" : "#")
+                }
         }
 
         rows = categories

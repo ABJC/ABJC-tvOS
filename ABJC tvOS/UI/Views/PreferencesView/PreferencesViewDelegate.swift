@@ -1,9 +1,14 @@
-//
-//  PreferencesViewDelegate.swift
-//  PreferencesViewDelegate
-//
-//  Created by Noah Kamara on 10.09.21.
-//
+/*
+ ABJC - tvOS
+ PreferencesViewDelegate.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import Foundation
 import JellyfinAPI
@@ -56,8 +61,8 @@ class PreferencesViewDelegate: ViewDelegate {
     func loadServerConfiguration() {
         ConfigurationAPI.getConfiguration { result in
             switch result {
-            case let .success(response): self.serverConfiguration = response
-            case let .failure(error): print(error)
+                case let .success(response): self.serverConfiguration = response
+                case let .failure(error): print(error)
             }
         }
     }
@@ -66,8 +71,8 @@ class PreferencesViewDelegate: ViewDelegate {
     func loadSystemInfo() {
         SystemAPI.getSystemInfo { result in
             switch result {
-            case let .success(response): self.systemInfo = response
-            case let .failure(error): print(error)
+                case let .success(response): self.systemInfo = response
+                case let .failure(error): print(error)
             }
         }
     }
@@ -80,8 +85,8 @@ class PreferencesViewDelegate: ViewDelegate {
         }
         LibraryAPI.getItemCounts(userId: userId) { result in
             switch result {
-            case let .success(response): self.itemCounts = response
-            case let .failure(error): print(error)
+                case let .success(response): self.itemCounts = response
+                case let .failure(error): print(error)
             }
         }
     }

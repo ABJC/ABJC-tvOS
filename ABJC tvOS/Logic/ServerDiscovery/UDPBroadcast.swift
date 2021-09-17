@@ -1,9 +1,14 @@
-//
-//  UDPBroadcast.swift
-//  UDPBroadcast
-//
-//  Created by Noah Kamara on 09.09.21.
-//
+/*
+ ABJC - tvOS
+ UDPBroadcast.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 17.09.21
+ */
 
 import Darwin
 import Foundation
@@ -163,15 +168,13 @@ open class UDPBroadcastConnection {
                 }
 
                 guard let endpoint = withUnsafePointer(
-                    to: &socketAddress,
-                    {
+                    to: &socketAddress, {
                         self
                             .getEndpointFromSocketAddress(
                                 socketAddressPointer: UnsafeRawPointer($0)
                                     .bindMemory(to: sockaddr.self, capacity: 1)
                             ) }
-                )
-                else {
+                ) else {
                     // debugPrint("Failed to get the address and port from the socket address received from recvfrom")
                     self.closeConnection()
                     return
@@ -260,24 +263,24 @@ open class UDPBroadcastConnection {
         let socketAddress = UnsafePointer<sockaddr>(socketAddressPointer).pointee
 
         switch Int32(socketAddress.sa_family) {
-        case AF_INET:
-            var socketAddressInet = UnsafeRawPointer(socketAddressPointer).load(as: sockaddr_in.self)
-            let length = Int(INET_ADDRSTRLEN) + 2
-            var buffer = [CChar](repeating: 0, count: length)
-            let hostCString = inet_ntop(AF_INET, &socketAddressInet.sin_addr, &buffer, socklen_t(length))
-            let port = Int(UInt16(socketAddressInet.sin_port).byteSwapped)
-            return (String(cString: hostCString!), port)
+            case AF_INET:
+                var socketAddressInet = UnsafeRawPointer(socketAddressPointer).load(as: sockaddr_in.self)
+                let length = Int(INET_ADDRSTRLEN) + 2
+                var buffer = [CChar](repeating: 0, count: length)
+                let hostCString = inet_ntop(AF_INET, &socketAddressInet.sin_addr, &buffer, socklen_t(length))
+                let port = Int(UInt16(socketAddressInet.sin_port).byteSwapped)
+                return (String(cString: hostCString!), port)
 
-        case AF_INET6:
-            var socketAddressInet6 = UnsafeRawPointer(socketAddressPointer).load(as: sockaddr_in6.self)
-            let length = Int(INET6_ADDRSTRLEN) + 2
-            var buffer = [CChar](repeating: 0, count: length)
-            let hostCString = inet_ntop(AF_INET6, &socketAddressInet6.sin6_addr, &buffer, socklen_t(length))
-            let port = Int(UInt16(socketAddressInet6.sin6_port).byteSwapped)
-            return (String(cString: hostCString!), port)
+            case AF_INET6:
+                var socketAddressInet6 = UnsafeRawPointer(socketAddressPointer).load(as: sockaddr_in6.self)
+                let length = Int(INET6_ADDRSTRLEN) + 2
+                var buffer = [CChar](repeating: 0, count: length)
+                let hostCString = inet_ntop(AF_INET6, &socketAddressInet6.sin6_addr, &buffer, socklen_t(length))
+                let port = Int(UInt16(socketAddressInet6.sin6_port).byteSwapped)
+                return (String(cString: hostCString!), port)
 
-        default:
-            return nil
+            default:
+                return nil
         }
     }
 
