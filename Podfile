@@ -7,6 +7,5 @@ target 'ABJC tvOS' do
 
   # Pods for ABJC tvOS
   pod 'TVVLCKit', '~>3.3.0'
-  #pod 'Firebase/Firestore'
 
 end

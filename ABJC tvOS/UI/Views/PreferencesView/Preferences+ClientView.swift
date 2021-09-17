@@ -16,46 +16,45 @@ extension PreferencesView {
             Form {
                 Section(header: Label("User Interface", systemImage: "uiwindow.split.2x1")) {
                     ToggleRow("Always Show Titles", "Show a titles for items", $store.showsTitles)
-                        .accessibilityIdentifier("showstitles")
 
                     Picker("Poster Type", selection: $store.posterType) {
                         ForEach(PreferenceStore.PosterType.allCases, id: \.rawValue) { value in
-                            Text(value.localizedName)
+                            Label(value.localizedName, systemImage: value.systemImage)
                                 .tag(value)
                         }
-                    }
+                    }.accessibilityIdentifier("Poster Type")
 
                     Picker("Collection Grouping", selection: $store.collectionGrouping) {
                         ForEach(CollectionGrouping.allCases, id: \.rawValue) { value in
                             Text(value.localizedName)
                                 .tag(value)
                         }
-                    }
+                    }.accessibilityIdentifier("Collection Grouping")
                 }
 
-                Section(header: Label("Beta Flags", systemImage: "exclamationmark.triangle.fill")) {
-                    List(PreferenceStore.BetaFlag.availableFlags(), id: \.rawValue) { flag in
-                        Button(action: {
-                            DispatchQueue.main.async {
-                                store.betaflags.toggle(flag)
-                            }
-                        }) {
-                            HStack(alignment: .firstTextBaseline) {
-                                VStack(alignment: .leading) {
-                                    Text(flag.label)
-                                        .bold()
-                                    Text(flag.description)
-                                        .font(.callout)
-                                        .foregroundColor(.secondary)
-                                }
-                                Spacer()
-                                Image(systemName: "checkmark")
-                                    .imageScale(.large)
-                                    .foregroundColor(store.betaflags.contains(flag) ? .primary : .clear)
-                            }.padding()
-                        }
-                    }
-                }
+//                Section(header: Label("Beta Flags", systemImage: "exclamationmark.triangle.fill")) {
+//                    List(PreferenceStore.BetaFlag.availableFlags(), id: \.rawValue) { flag in
+//                        Button(action: {
+//                            DispatchQueue.main.async {
+//                                store.betaflags.toggle(flag)
+//                            }
+//                        }) {
+//                            HStack(alignment: .firstTextBaseline) {
+//                                VStack(alignment: .leading) {
+//                                    Text(flag.label)
+//                                        .bold()
+//                                    Text(flag.description)
+//                                        .font(.callout)
+//                                        .foregroundColor(.secondary)
+//                                }
+//                                Spacer()
+//                                Image(systemName: "checkmark")
+//                                    .imageScale(.large)
+//                                    .foregroundColor(store.betaflags.contains(flag) ? .primary : .clear)
+//                            }.padding()
+//                        }
+//                    }
+//                }
             }
             .onChange(of: store.showsTitles) { _ in
                 store.savePreferences()

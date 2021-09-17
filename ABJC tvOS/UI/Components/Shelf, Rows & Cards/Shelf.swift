@@ -37,11 +37,14 @@ struct Shelf: View {
 
     typealias Row = CollectionRow<String, CollectionCell<BaseItemDto>>
 
+    private let grouping: CollectionGrouping
+
     @State
     var rows: [Row]
 
     // , _ grouping: Grouping
     init(_ items: [BaseItemDto], grouped grouping: CollectionGrouping) {
+        self.grouping = grouping
         func filterItem(_ grouping: CollectionGrouping, _ category: String, _ item: BaseItemDto) -> Bool {
             switch grouping {
             case .title: return category == String((item.name?.first ?? "#").isNumber ? "#" : String(item.name?.first ?? "#"))
@@ -119,7 +122,7 @@ struct Shelf: View {
                 Text(rows[indexPath.section].section)
                     .font(.title3)
                 Spacer()
-            }
+            }.accessibilityIdentifier(grouping.rawValue + "." + rows[indexPath.section].section)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)

@@ -13,11 +13,11 @@ struct DetailView: View {
 
     var body: some View {
         Group {
-            switch ItemType(rawValue: item.type ?? "") ?? .movie {
+            switch ItemType(rawValue: item.type ?? "") ?? .episode {
             case .movie:
-                MovieDetailView(store: .init(item))
+                MovieDetailView(store: .init(item)).accessibilityIdentifier("movieDetailView")
             case .series:
-                Text("HELLO THERE")
+                SeriesDetailView(store: .init(item)).accessibilityIdentifier("seriesDetailView")
             default:
                 Text("No View for Type: \(item.type ?? "")")
             }

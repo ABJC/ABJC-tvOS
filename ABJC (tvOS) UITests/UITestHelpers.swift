@@ -12,10 +12,12 @@ class UITestHelpers {
     static let timeout: TimeInterval = 15.0
 
     static func findAndPressButton(_ element: XCUIElement, _ button: XCUIRemote.Button) {
+        XCTAssert(element.waitForExistence(timeout: 15.0))
+
         let startDate = Date()
         var waiting = true
         while waiting {
-            if element.descendants(matching: .any).firstMatch.hasFocus {
+            if element.hasFocus || element.descendants(matching: .any).allElementsBoundByIndex.contains(where: \.hasFocus) {
                 waiting = false
                 XCUIRemote.shared.press(.select)
             } else if Date().timeIntervalSince(startDate) > timeout {
@@ -45,7 +47,7 @@ class UITestHelpers {
         }
     }
 
-    static func authConnectToServer(_ app: XCUIApplication, host: String, port _: String, path _: String) {
+    static func authConnectToServer(_ app: XCUIApplication, host: String, port: String, path: String) {
         // Elements
         let hostField = app.textFields["hostField"]
         let portField = app.textFields["portField"]
@@ -62,18 +64,18 @@ class UITestHelpers {
         }
         XCTAssert(hostField.value as? String == host, "Host Field has correct value")
 
-//        // Enter Port
-//        withOpenTextField(portField, .down) {
-//            portField.clearAndEnterText(text: port)
-//        }
-//        XCTAssert(portField.value as? String == port, "Port Field has correct value")
-//
-//        // Enter Path
-//        withOpenTextField(pathField, .down) {
-//            pathField.clearAndEnterText(text: path)
-//        }
-//        let path = (path.isEmpty ? pathField.placeholderValue! : path)
-//        XCTAssert(pathField.value as? String == path, "Path Field has correct value")
+        // Enter Port
+        withOpenTextField(portField, .down) {
+            portField.clearAndEnterText(text: port)
+        }
+        XCTAssert(portField.value as? String == port, "Port Field has correct value")
+
+        // Enter Path
+        withOpenTextField(pathField, .down) {
+            pathField.clearAndEnterText(text: path)
+        }
+        let path = (path.isEmpty ? pathField.placeholderValue! : path)
+        XCTAssert(pathField.value as? String == path, "Path Field has correct value")
 
         findAndPressButton(continueButton, .down)
     }
@@ -103,5 +105,72 @@ class UITestHelpers {
 
         // Continue
         findAndPressButton(continueButton, .down)
+    }
+
+    static func navigateToTab(with label: String, app: XCUIApplication) {
+        let tabBar = app.tabBars.firstMatch
+        let tab = app.buttons[label]
+        XCTAssert(tabBar.waitForExistence(timeout: 15.0))
+
+        // If tab is already selected
+        if tab.hasFocus {
+            return
+        }
+
+        // Focus TabBar
+        func tabBarHasFocus() -> Bool {
+            tabBar.descendants(matching: .button).allElementsBoundByIndex.contains(where: \.hasFocus)
+        }
+
+        var waiting = true
+        while waiting {
+            if tabBarHasFocus() {
+                waiting = false
+            } else {
+                XCUIRemote.shared.press(.menu)
+            }
+        }
+
+        // Get All Tabs
+        let focusedTab = tabBar.descendants(matching: .button).matching(.init(format: "hasFocus == true")).firstMatch
+        let tabs = tabBar.descendants(matching: .button).allElementsBoundByIndex.map(\.label)
+
+        let origIdx = tabs.firstIndex(of: focusedTab.label)!
+        let destIdx = tabs.firstIndex(of: label)!
+
+        if origIdx == destIdx {
+            print("INDICES ARE EQUAL")
+        }
+
+        // Navigate to Tab
+        let button: XCUIRemote.Button = (origIdx < destIdx) ? .right : .left
+
+        let startDate = Date()
+        waiting = true
+        print("NAVIGATING")
+        while waiting {
+            if tab.hasFocus {
+                waiting = false
+            } else if Date().timeIntervalSince(startDate) > timeout {
+                waiting = false
+                XCTAssert(false, "TimeOut Error for expection")
+            } else {
+                XCUIRemote.shared.press(button)
+            }
+        }
+    }
+
+    static func takeScreenshot(_ name: String, _ lifetime: XCTAttachment.Lifetime = .deleteOnSuccess) -> XCTAttachment {
+        let fullScreenshot = XCUIScreen.main.screenshot()
+        let screenshot = XCTAttachment(uniformTypeIdentifier: "public.png", name: "Screenshot-\(name)-\(UIDevice.current.name).png", payload: fullScreenshot.pngRepresentation, userInfo: nil)
+        screenshot.lifetime = lifetime
+        return screenshot
+    }
+
+    static func takeScreenshot(_ name: String, of element: XCUIElement, _ lifetime: XCTAttachment.Lifetime = .deleteOnSuccess) -> XCTAttachment {
+        let fullScreenshot = element.screenshot()
+        let screenshot = XCTAttachment(uniformTypeIdentifier: "public.png", name: "Screenshot-\(name)-\(UIDevice.current.name).png", payload: fullScreenshot.pngRepresentation, userInfo: nil)
+        screenshot.lifetime = lifetime
+        return screenshot
     }
 }

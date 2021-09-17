@@ -15,7 +15,7 @@ class MediaCollectionViewDelegate: ViewDelegate {
     func loadItems(for types: [ItemType]) {
         ItemsAPI.getItems(userId: session.credentials!.userId,
                           recursive: true,
-                          fields: [.genres, .overview],
+                          fields: [.genres, .overview, .people],
                           includeItemTypes: types.map(\.rawValue)) { result in
             switch result {
             case let .success(result): self.items = result.items ?? []

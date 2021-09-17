@@ -9,9 +9,9 @@ import Combine
 import SwiftUI
 
 public class PreferenceStore: ObservableObject {
-    static let shared: PreferenceStore = .init()
+    static var shared: PreferenceStore = .init()
 
-    private enum Keys {
+    internal enum Keys {
         static let firstBoot = "analytics.firstboot"
         static let lastVersion = "analytics.lastversion"
 
@@ -35,17 +35,20 @@ public class PreferenceStore: ObservableObject {
         Keys.grouping: CollectionGrouping.default.rawValue,
         Keys.posterType: PosterType.default.rawValue,
         Keys.showsTitles: false,
-        Keys.betaflags: []
+        Keys.betaflags: [],
     ]
 
-    public static func reset() {
-        let defaults = UserDefaults.standard
-
-        for pair in Self.defaultValues {
+    public func reset() {
+        for pair in PreferenceStore.defaultValues {
             defaults.removeObject(forKey: pair.key)
         }
 
-        defaults.register(defaults: Self.defaultValues)
+        for pair in PreferenceStore.defaultValues {
+            defaults.set(pair.value, forKey: pair.key)
+        }
+
+        print("CHANGED", defaults.bool(forKey: Keys.firstBoot))
+        objectWillChange.send()
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -57,10 +60,6 @@ public class PreferenceStore: ObservableObject {
             .publisher(for: UserDefaults.didChangeNotification)
             .map { _ in () }
             .subscribe(objectWillChange)
-
-        defer {
-            defaults.set(false, forKey: Keys.firstBoot)
-        }
     }
 
     /// Current client version
@@ -68,8 +67,8 @@ public class PreferenceStore: ObservableObject {
 
     /// Defines whether this is the first boot of the app
     public var isFirstBoot: Bool {
-        let value = defaults.bool(forKey: Keys.firstBoot)
-        return value
+        get { defaults.bool(forKey: Keys.firstBoot) }
+        set { defaults.set(newValue, forKey: Keys.firstBoot) }
     }
 
     // Defines whether the app was updated (first boot new version)

@@ -21,12 +21,12 @@ class CommandLineArguments {
         }
     }
 
-    static var isRunningTests: Bool {
-        return arguments.contains("enable-testing")
+    static var shouldReset: Bool {
+        arguments.contains("reset-stores")
     }
 
-    static var host: String {
-        return ""
+    static var isRunningTests: Bool {
+        arguments.contains("enable-testing")
     }
 
     static func getValue(for key: String) -> String? {

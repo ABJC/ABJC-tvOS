@@ -26,16 +26,16 @@ class AppConfiguration {
                 "major": version.major,
                 "minor": version.minor,
                 "patch": version.patch,
-                "build": version.build ?? 0
+                "build": version.build ?? 0,
             ],
             "os": [
                 "name": DeviceInfo.osName,
-                "version": DeviceInfo.osVersion
+                "version": DeviceInfo.osVersion,
             ],
-            "device": .init(DeviceInfo.modelName)
+            "device": .init(DeviceInfo.modelName),
         ]
 
-        let engine: AnalyticsEngine = environment == .debug ? DebugAnalyticsEngine() : ProductionAnalyticsEngine()
+        let engine: AnalyticsEngine = environment == .debug ? MockAnalyticsEngine() : TestflightAnalyticsEngine()
         analytics = .init(engine: engine, appInfo: appInfo)
     }
 

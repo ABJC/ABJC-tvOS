@@ -32,7 +32,7 @@ class SessionStore: ObservableObject {
 
     func setServerURI(_ uri: String) {
         JellyfinAPI.basePath = uri
-        print("BASEURL", JellyfinAPI.basePath)
+        //        print("BASEURL", JellyfinAPI.basePath)
     }
 
     func generateHeaders() {
@@ -44,7 +44,7 @@ class SessionStore: ObservableObject {
             "Emby Client=\"ABJC tvOS\"",
             "Device=\"\(deviceName)\"",
             "DeviceId=\"\(deviceID)\"",
-            "Version=\"\(appVersion ?? "0.0.1")\""
+            "Version=\"\(appVersion ?? "0.0.1")\"",
         ]
 
         if let credentials = credentials {
@@ -64,8 +64,8 @@ class SessionStore: ObservableObject {
 
     init(debug _: Bool = false) {
         #if DEBUG
-            if CommandLine.arguments.contains("reset-stores") {
-                PreferenceStore.reset()
+            if CommandLineArguments.shouldReset {
+                PreferenceStore.shared.reset()
             }
 
             CommandLineArguments.shouldAuthenticate { username in
@@ -86,15 +86,14 @@ class SessionStore: ObservableObject {
                 }
             }
         #endif
-        
-        app.analytics.send(.installed, with: [:])
-        
-//        if PreferenceStore.shared.isFirstBoot {
-//            app.analytics.send(.installed, with: [:])
-//        }
-//
-//        if PreferenceStore.shared.wasUpdated {
-//            app.analytics.send(.updated, with: [:])
-//        }
+
+        if PreferenceStore.shared.isFirstBoot {
+            app.analytics.send(.installed, with: [:])
+            PreferenceStore.shared.isFirstBoot = false
+        }
+
+        if PreferenceStore.shared.wasUpdated {
+            app.analytics.send(.updated, with: [:])
+        }
     }
 }

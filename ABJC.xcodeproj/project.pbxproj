@@ -3,123 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-		093F665F266323F00058AEA2 /* ServerUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F665E266323F00058AEA2 /* ServerUserListView.swift */; };
-		09EAC87526606E09000661BB /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAC87426606E09000661BB /* ColorExtensions.swift */; };
-		09EAC877266071CE000661BB /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EAC876266071CE000661BB /* ViewExtensions.swift */; };
-		FD1877DF26E6CC8A00844B47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD1877DE26E6CC8A00844B47 /* GoogleService-Info.plist */; };
-		FD1877E226E6D6AE00844B47 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FD1877E126E6D6AE00844B47 /* FirebaseFirestore */; };
-		FD1877E426E6DB0000844B47 /* FirestoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1877E326E6DB0000844B47 /* FirestoreClient.swift */; };
-		FD1919D426E4FCFB007F05B4 /* TestflightAnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1919D326E4FCFB007F05B4 /* TestflightAnalyticsEngine.swift */; };
-		FD27CD74260F55BB002C763F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = FD27CD73260F55BB002C763F /* URLImage */; };
-		FD27CD79260F565E002C763F /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD78260F565E002C763F /* ImageType.swift */; };
-		FD27CD7E260F56C2002C763F /* API+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD7D260F56C2002C763F /* API+Images.swift */; };
-		FD27CD83260F5ABD002C763F /* WatchNowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD82260F5ABD002C763F /* WatchNowView.swift */; };
-		FD27CD88260F5B10002C763F /* CoverRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD87260F5B10002C763F /* CoverRowView.swift */; };
-		FD27CD8D260F5C18002C763F /* CoverCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD8C260F5C18002C763F /* CoverCardView.swift */; };
-		FD27CDA0260F6272002C763F /* ItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CD9F260F6272002C763F /* ItemPage.swift */; };
-		FD27CDA9260F629F002C763F /* MoviePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CDA8260F629F002C763F /* MoviePage.swift */; };
-		FD27CDB1260F62A6002C763F /* SeriesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CDB0260F62A6002C763F /* SeriesPage.swift */; };
-		FD27CDB6260F6436002C763F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CDB5260F6436002C763F /* Movie.swift */; };
-		FD27CDBC260F6469002C763F /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27CDBB260F6469002C763F /* Series.swift */; };
-		FD2FA85426C2BFAB00634692 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2FA85326C2BFAB00634692 /* Chapter.swift */; };
-		FD36130A2633293A00298BEF /* Preferences+GeneralInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3613092633293A00298BEF /* Preferences+GeneralInfo.swift */; };
-		FD36130C263329E400298BEF /* PreferencesView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD36130B263329E400298BEF /* PreferencesView+Subviews.swift */; };
-		FD36624E26C2EE7E0001C1DE /* AsyncImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD36624D26C2EE7E0001C1DE /* AsyncImg.swift */; };
-		FD367BFB269F195600E6A161 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = FD367BFD269F195600E6A161 /* Localizable.stringsdict */; };
-		FD367C01269F221700E6A161 /* Grouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD367C00269F221700E6A161 /* Grouping.swift */; };
-		FD40C020261886A900719C7E /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C01F261886A900719C7E /* PreferencesView.swift */; };
-		FD40C02E2618894B00719C7E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C02D2618894B00719C7E /* Person.swift */; };
-		FD40C0332618899900719C7E /* PeopleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C0322618899900719C7E /* PeopleRowView.swift */; };
-		FD40C03F26188A1300719C7E /* PersonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C03E26188A1300719C7E /* PersonCardView.swift */; };
-		FD40C04426188E9900719C7E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C04326188E9800719C7E /* UserData.swift */; };
-		FD40C04926188F2200719C7E /* Preferences+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C04826188F2200719C7E /* Preferences+Debug.swift */; };
-		FD40C04E26188F8E00719C7E /* Preferences+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C04D26188F8E00719C7E /* Preferences+Client.swift */; };
-		FD40C054261895A300719C7E /* MediaPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C053261895A300719C7E /* MediaPlayerView.swift */; };
-		FD40C0592618967300719C7E /* API+Playback.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C0582618967300719C7E /* API+Playback.swift */; };
-		FD40C05E2618985C00719C7E /* PlayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C05D2618985C00719C7E /* PlayItem.swift */; };
-		FD40C063261898E400719C7E /* MediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40C062261898E400719C7E /* MediaSource.swift */; };
-		FD5C8CEB265444D000E70575 /* PosterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C8CEA265444D000E70575 /* PosterType.swift */; };
-		FD5C8CEE2654492B00E70575 /* Blurhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C8CED2654492B00E70575 /* Blurhash.swift */; };
-		FD5C8CF0265449D000E70575 /* BlurhashDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C8CEF265449D000E70575 /* BlurhashDecode.swift */; };
-		FD6EDDF126E25579001AE04E /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6EDDF026E25579001AE04E /* AnalyticsTests.swift */; };
-		FD6EDDF426E2681A001AE04E /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD6EDDF326E2681A001AE04E /* Constants.plist */; };
-		FD6EDDF626E2686D001AE04E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6EDDF526E2686D001AE04E /* Constants.swift */; };
-		FD8FE3F12631C508004B9C5F /* PlaystateReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FE3F02631C508004B9C5F /* PlaystateReport.swift */; };
-		FD8FE4012631F26A004B9C5F /* Playstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FE4002631F26A004B9C5F /* Playstate.swift */; };
-		FD8FE41726320196004B9C5F /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8FE41626320196004B9C5F /* TVServices.framework */; };
-		FD913D7B264AFD17001A085F /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD913D7A264AFD17001A085F /* ActivityIndicatorView.swift */; };
-		FDA4C69F2635CFF900316E59 /* ButtonArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4C69E2635CFF900316E59 /* ButtonArea.swift */; };
-		FDA62762260E2765002F9ECC /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA62761260E2765002F9ECC /* AuthView.swift */; };
-		FDA62770260E27EE002F9ECC /* ServerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6276F260E27EE002F9ECC /* ServerSelectionView.swift */; };
-		FDA62778260E2932002F9ECC /* ServerLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA62777260E2932002F9ECC /* ServerLocator.swift */; };
-		FDA62781260E2968002F9ECC /* UDPBroadCastConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA62780260E2968002F9ECC /* UDPBroadCastConnection.swift */; };
-		FDA62786260E299A002F9ECC /* UDPBroadcastConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA62785260E299A002F9ECC /* UDPBroadcastConnectionError.swift */; };
-		FDA6278B260E29CB002F9ECC /* ServerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6278A260E29CB002F9ECC /* ServerCardView.swift */; };
-		FDA627B0260E2FA2002F9ECC /* ServerSelectionManualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627AF260E2FA2002F9ECC /* ServerSelectionManualView.swift */; };
-		FDA627B5260E306B002F9ECC /* CredentialEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627B4260E306B002F9ECC /* CredentialEntryView.swift */; };
-		FDA627C0260E3728002F9ECC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627BF260E3728002F9ECC /* LibraryView.swift */; };
-		FDA627C5260E3950002F9ECC /* PreferenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627C4260E3950002F9ECC /* PreferenceStore.swift */; };
-		FDA627D2260E3C78002F9ECC /* MediaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627D1260E3C78002F9ECC /* MediaCollectionView.swift */; };
-		FDA627D7260E3E58002F9ECC /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627D6260E3E58002F9ECC /* Genre.swift */; };
-		FDA627E5260E3EEB002F9ECC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627E4260E3EEB002F9ECC /* Extensions.swift */; };
-		FDA627EA260E4508002F9ECC /* ItemCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627E9260E4508002F9ECC /* ItemCounts.swift */; };
-		FDA627EF260E6399002F9ECC /* MediaRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627EE260E6399002F9ECC /* MediaRowView.swift */; };
-		FDA627F4260E64BF002F9ECC /* MediaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627F3260E64BF002F9ECC /* MediaCardView.swift */; };
-		FDA627F9260E6585002F9ECC /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA627F8260E6585002F9ECC /* Blur.swift */; };
-		FDA81FEE26E104F20098493E /* FullScreenCoverContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA81FED26E104F20098493E /* FullScreenCoverContainer.swift */; };
-		FDA81FF926E145E30098493E /* AnalyticsClient in Frameworks */ = {isa = PBXBuildFile; productRef = FDA81FF826E145E30098493E /* AnalyticsClient */; };
-		FDAC930F26333EC600BA2E5C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAC930E26333EC600BA2E5C /* Keychain.swift */; };
-		FDBA0E17263439E3001D38CC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA0E16263439E3001D38CC /* SearchView.swift */; };
-		FDBA0E1F26343F46001D38CC /* API+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA0E1E26343F46001D38CC /* API+Search.swift */; };
-		FDBA0E5726345815001D38CC /* BetaFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA0E5626345815001D38CC /* BetaFlag.swift */; };
-		FDBA0E5C26345822001D38CC /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA0E5B26345822001D38CC /* Tabs.swift */; };
-		FDBA0E61263466F7001D38CC /* ReportAProblemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA0E60263466F7001D38CC /* ReportAProblemView.swift */; };
-		FDE08257260E0B9D0088419A /* ABJCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE08256260E0B9D0088419A /* ABJCApp.swift */; };
-		FDE0825B260E0B9F0088419A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0825A260E0B9F0088419A /* Assets.xcassets */; };
-		FDE0825E260E0B9F0088419A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0825D260E0B9F0088419A /* Preview Assets.xcassets */; };
-		FDE08274260E0B9F0088419A /* ABJCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE08273260E0B9F0088419A /* ABJCUITests.swift */; };
-		FDE08286260E0C030088419A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE08285260E0C030088419A /* MainView.swift */; };
-		FDE0828B260E0C1E0088419A /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0828A260E0C1E0088419A /* SessionStore.swift */; };
-		FDE08290260E0C680088419A /* Jellyfin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0828F260E0C680088419A /* Jellyfin.swift */; };
-		FDE08295260E0CF80088419A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE08294260E0CF80088419A /* API.swift */; };
-		FDE0829D260E11DC0088419A /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0829C260E11DC0088419A /* HTTPMethod.swift */; };
-		FDE082A2260E15340088419A /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082A1260E15340088419A /* AuthResponse.swift */; };
-		FDE082A7260E16210088419A /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082A6260E16210088419A /* APITests.swift */; };
-		FDE082AC260E1ABE0088419A /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082AB260E1ABE0088419A /* APIModels.swift */; };
-		FDE082B2260E1AEB0088419A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082B1260E1AEB0088419A /* User.swift */; };
-		FDE082BA260E1AFD0088419A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082B9260E1AFD0088419A /* APIError.swift */; };
-		FDE082CB260E1BB10088419A /* APIError+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082CA260E1BB10088419A /* APIError+Authentication.swift */; };
-		FDE082D4260E1E590088419A /* API+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082D3260E1E590088419A /* API+Authentication.swift */; };
-		FDE082DC260E1EA00088419A /* API+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082DB260E1EA00088419A /* API+System.swift */; };
-		FDE082E1260E1EFB0088419A /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082E0260E1EFB0088419A /* SystemInfo.swift */; };
-		FDE082E9260E23A00088419A /* API+Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082E8260E23A00088419A /* API+Library.swift */; };
-		FDE082EE260E23DC0088419A /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082ED260E23DC0088419A /* MediaType.swift */; };
-		FDE082F3260E24010088419A /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082F2260E24010088419A /* MediaItem.swift */; };
-		FDE082F8260E25280088419A /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE082F7260E25280088419A /* ItemResponse.swift */; };
-		FDE3932C261B426A007A6C85 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3932B261B426A007A6C85 /* Season.swift */; };
-		FDE39331261B4272007A6C85 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE39330261B4272007A6C85 /* Episode.swift */; };
-		FDE39336261B45CD007A6C85 /* EpisodeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE39335261B45CD007A6C85 /* EpisodeRowView.swift */; };
-		FDE3933B261B45D4007A6C85 /* EpisodeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3933A261B45D4007A6C85 /* EpisodeCardView.swift */; };
-		FDED0AD6269C87D10081F598 /* SwiftUICollection in Frameworks */ = {isa = PBXBuildFile; productRef = FDED0AD5269C87D10081F598 /* SwiftUICollection */; };
-		FDED0AD8269C880E0081F598 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDED0AD7269C880E0081F598 /* ShelfView.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FDE08265260E0B9F0088419A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FDE0824B260E0B9D0088419A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FDE08252260E0B9D0088419A;
-			remoteInfo = ABJC;
-		};
-		FDE08270260E0B9F0088419A /* PBXContainerItemProxy */ = {
-=======
-		F97C914B2540039B41167F29 /* Pods_ABJC_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */; };
+		9D3EB0A2275D250C0B59A705 /* Pods_ABJC_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */; };
 		FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */; };
 		FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C426EB6F24003E0534 /* MediaCard.swift */; };
 		FD6351C726EB7227003E0534 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C626EB7227003E0534 /* Blur.swift */; };
@@ -138,6 +26,16 @@
 		FD64119F26ED1A01008E3170 /* ABJCAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD64119E26ED1A01008E3170 /* ABJCAnalytics */; };
 		FD6411A226ED1A97008E3170 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6411A126ED1A97008E3170 /* AppConfiguration.swift */; };
 		FD6411A426ED1AF2008E3170 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6411A326ED1AF2008E3170 /* AppEnvironment.swift */; };
+		FD6559D126F387CD002A229A /* LibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559D026F387CD002A229A /* LibraryUITests.swift */; };
+		FD6559D326F398CB002A229A /* SeriesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559D226F398CB002A229A /* SeriesDetailView.swift */; };
+		FD6559F226F3B1E0002A229A /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559F126F3B1E0002A229A /* Snapshots.swift */; };
+		FD6559FB26F3B20D002A229A /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559FA26F3B20D002A229A /* SnapshotHelper.swift */; };
+		FD6559FD26F3B234002A229A /* UITestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */; };
+		FD6559FF26F3B70A002A229A /* UITestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559FE26F3B70A002A229A /* UITestExtensions.swift */; };
+		FD655A0026F3B713002A229A /* UITestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559FE26F3B70A002A229A /* UITestExtensions.swift */; };
+		FD655A0126F3B773002A229A /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
+		FD655A0226F3B773002A229A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333E26F0A0E1007EAE08 /* Constants.swift */; };
+		FD655A0326F3BEAE002A229A /* UITestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7226EFB265000EEC36 /* UITestConstants.swift */; };
 		FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */; };
 		FD687F1326EE2C0A0034A622 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */; };
 		FD687F1526EE2D260034A622 /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */; };
@@ -154,6 +52,14 @@
 		FD72334226F0ADA9007EAE08 /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
 		FD72334626F0B843007EAE08 /* ABJCAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD72334526F0B843007EAE08 /* ABJCAnalytics */; };
 		FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */; };
+		FD72334A26F0D60F007EAE08 /* PreferenceStore+summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */; };
+		FD72334C26F0D79D007EAE08 /* ViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334B26F0D79D007EAE08 /* ViewIdentifier.swift */; };
+		FD72334F26F0E403007EAE08 /* PlayerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */; };
+		FD72335126F0E409007EAE08 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335026F0E409007EAE08 /* PlayerView.swift */; };
+		FD72335726F0E474007EAE08 /* VLCPlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */; };
+		FD72335926F0E835007EAE08 /* PlaybackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335826F0E835007EAE08 /* PlaybackUITests.swift */; };
+		FD72335B26F0F619007EAE08 /* PlayerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */; };
+		FD72335D26F0F8C2007EAE08 /* PlayerControllsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */; };
 		FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */; };
 		FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F1026EA2F1A00BF2A42 /* MainView.swift */; };
 		FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */; };
@@ -169,6 +75,7 @@
 		FD792F5226EA45AF00BF2A42 /* Jellyfin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */; };
 		FD792F5626EA5E1D00BF2A42 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5526EA5E1D00BF2A42 /* UserAvatarView.swift */; };
 		FD792F5826EA5E4500BF2A42 /* AsyncImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */; };
+		FDADDCC926F2233000B2DF6F /* PlaybackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */; };
 		FDC9579C26EB949F00655F55 /* BaseItemDto+blurhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */; };
 		FDC957A026EB952A00655F55 /* Blurhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9579F26EB952A00655F55 /* Blurhash.swift */; };
 		FDC957A226EB95A600655F55 /* ImageBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC957A126EB95A600655F55 /* ImageBrightness.swift */; };
@@ -180,8 +87,7 @@
 		FDD29D5826EF880E000EEC36 /* AlertObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5726EF880E000EEC36 /* AlertObject.swift */; };
 		FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */; };
 		FDD29D5C26EF8B37000EEC36 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5B26EF8B37000EEC36 /* Alerts.swift */; };
-		FDD29D6E26EF9344000EEC36 /* ABJC__tvOS__UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */; };
-		FDD29D6F26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */; };
+		FDD29D6F26EF9344000EEC36 /* GeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */; };
 		FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */; };
 		FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7226EFB265000EEC36 /* UITestConstants.swift */; };
 		FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */; };
@@ -197,148 +103,31 @@
 		FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */; };
 		FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8D26EABC4F001E4363 /* Version.swift */; };
 		FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8F26EABD4B001E4363 /* ItemType.swift */; };
+		FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C8E26F2547B00C738C3 /* PlayButton.swift */; };
+		FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FDD29D6726EF92F7000EEC36 /* PBXContainerItemProxy */ = {
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
+		FD6559F526F3B1E0002A229A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FDE0824B260E0B9D0088419A /* Project object */;
+			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FDE08252260E0B9D0088419A;
-			remoteInfo = ABJC;
+			remoteGlobalIDString = FD792F0B26EA2F1A00BF2A42;
+			remoteInfo = "ABJC tvOS";
+		};
+		FDD29D6726EF92F7000EEC36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD792F0B26EA2F1A00BF2A42;
+			remoteInfo = "ABJC tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
-		093F665E266323F00058AEA2 /* ServerUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUserListView.swift; sourceTree = "<group>"; };
-		09EAC87426606E09000661BB /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
-		09EAC876266071CE000661BB /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		FD1877DE26E6CC8A00844B47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FD1877E326E6DB0000844B47 /* FirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreClient.swift; sourceTree = "<group>"; };
-		FD1919D326E4FCFB007F05B4 /* TestflightAnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestflightAnalyticsEngine.swift; sourceTree = "<group>"; };
-		FD27CD78260F565E002C763F /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
-		FD27CD7D260F56C2002C763F /* API+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Images.swift"; sourceTree = "<group>"; };
-		FD27CD82260F5ABD002C763F /* WatchNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNowView.swift; sourceTree = "<group>"; };
-		FD27CD87260F5B10002C763F /* CoverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverRowView.swift; sourceTree = "<group>"; };
-		FD27CD8C260F5C18002C763F /* CoverCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverCardView.swift; sourceTree = "<group>"; };
-		FD27CD9F260F6272002C763F /* ItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPage.swift; sourceTree = "<group>"; };
-		FD27CDA8260F629F002C763F /* MoviePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePage.swift; sourceTree = "<group>"; };
-		FD27CDB0260F62A6002C763F /* SeriesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesPage.swift; sourceTree = "<group>"; };
-		FD27CDB5260F6436002C763F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		FD27CDBB260F6469002C763F /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
-		FD2FA85326C2BFAB00634692 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
-		FD3613092633293A00298BEF /* Preferences+GeneralInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+GeneralInfo.swift"; sourceTree = "<group>"; };
-		FD36130B263329E400298BEF /* PreferencesView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesView+Subviews.swift"; sourceTree = "<group>"; };
-		FD36624D26C2EE7E0001C1DE /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
-		FD367BFE269F195B00E6A161 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		FD367C00269F221700E6A161 /* Grouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grouping.swift; sourceTree = "<group>"; };
-		FD40C01F261886A900719C7E /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		FD40C02D2618894B00719C7E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		FD40C0322618899900719C7E /* PeopleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleRowView.swift; sourceTree = "<group>"; };
-		FD40C03E26188A1300719C7E /* PersonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCardView.swift; sourceTree = "<group>"; };
-		FD40C04326188E9800719C7E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		FD40C04826188F2200719C7E /* Preferences+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+Debug.swift"; sourceTree = "<group>"; };
-		FD40C04D26188F8E00719C7E /* Preferences+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+Client.swift"; sourceTree = "<group>"; };
-		FD40C0522618955A00719C7E /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
-		FD40C053261895A300719C7E /* MediaPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerView.swift; sourceTree = "<group>"; };
-		FD40C0582618967300719C7E /* API+Playback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Playback.swift"; sourceTree = "<group>"; };
-		FD40C05D2618985C00719C7E /* PlayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayItem.swift; sourceTree = "<group>"; };
-		FD40C062261898E400719C7E /* MediaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSource.swift; sourceTree = "<group>"; };
-		FD5C8CEA265444D000E70575 /* PosterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterType.swift; sourceTree = "<group>"; };
-		FD5C8CED2654492B00E70575 /* Blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurhash.swift; sourceTree = "<group>"; };
-		FD5C8CEF265449D000E70575 /* BlurhashDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurhashDecode.swift; sourceTree = "<group>"; };
-		FD6B65FB261BCF5F00FDABC0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		FD6EDDF026E25579001AE04E /* AnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTests.swift; sourceTree = "<group>"; };
-		FD6EDDF326E2681A001AE04E /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Constants.plist; sourceTree = "<group>"; };
-		FD6EDDF526E2686D001AE04E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FD8FE3F02631C508004B9C5F /* PlaystateReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaystateReport.swift; sourceTree = "<group>"; };
-		FD8FE4002631F26A004B9C5F /* Playstate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playstate.swift; sourceTree = "<group>"; };
-		FD8FE41426320196004B9C5F /* ABJC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ABJC.entitlements; sourceTree = "<group>"; };
-		FD8FE41626320196004B9C5F /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
-		FD913D7A264AFD17001A085F /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
-		FDA4C69E2635CFF900316E59 /* ButtonArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonArea.swift; sourceTree = "<group>"; };
-		FDA62761260E2765002F9ECC /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		FDA6276F260E27EE002F9ECC /* ServerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectionView.swift; sourceTree = "<group>"; };
-		FDA62777260E2932002F9ECC /* ServerLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerLocator.swift; sourceTree = "<group>"; };
-		FDA62780260E2968002F9ECC /* UDPBroadCastConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPBroadCastConnection.swift; sourceTree = "<group>"; };
-		FDA62785260E299A002F9ECC /* UDPBroadcastConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPBroadcastConnectionError.swift; sourceTree = "<group>"; };
-		FDA6278A260E29CB002F9ECC /* ServerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCardView.swift; sourceTree = "<group>"; };
-		FDA627AF260E2FA2002F9ECC /* ServerSelectionManualView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectionManualView.swift; sourceTree = "<group>"; };
-		FDA627B4260E306B002F9ECC /* CredentialEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialEntryView.swift; sourceTree = "<group>"; };
-		FDA627BF260E3728002F9ECC /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
-		FDA627C4260E3950002F9ECC /* PreferenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceStore.swift; sourceTree = "<group>"; };
-		FDA627D1260E3C78002F9ECC /* MediaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionView.swift; sourceTree = "<group>"; };
-		FDA627D6260E3E58002F9ECC /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
-		FDA627E4260E3EEB002F9ECC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		FDA627E9260E4508002F9ECC /* ItemCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCounts.swift; sourceTree = "<group>"; };
-		FDA627EE260E6399002F9ECC /* MediaRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRowView.swift; sourceTree = "<group>"; };
-		FDA627F3260E64BF002F9ECC /* MediaCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCardView.swift; sourceTree = "<group>"; };
-		FDA627F8260E6585002F9ECC /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
-		FDA81FED26E104F20098493E /* FullScreenCoverContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverContainer.swift; sourceTree = "<group>"; };
-		FDAC930E26333EC600BA2E5C /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		FDBA0E16263439E3001D38CC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		FDBA0E1E26343F46001D38CC /* API+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Search.swift"; sourceTree = "<group>"; };
-		FDBA0E5626345815001D38CC /* BetaFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaFlag.swift; sourceTree = "<group>"; };
-		FDBA0E5B26345822001D38CC /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
-		FDBA0E60263466F7001D38CC /* ReportAProblemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAProblemView.swift; sourceTree = "<group>"; };
-		FDE08253260E0B9D0088419A /* ABJC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABJC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDE08256260E0B9D0088419A /* ABJCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJCApp.swift; sourceTree = "<group>"; };
-		FDE0825A260E0B9F0088419A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FDE0825D260E0B9F0088419A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FDE0825F260E0B9F0088419A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDE08264260E0B9F0088419A /* ABJCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABJCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDE0826A260E0B9F0088419A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDE0826F260E0B9F0088419A /* ABJCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABJCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDE08273260E0B9F0088419A /* ABJCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJCUITests.swift; sourceTree = "<group>"; };
-		FDE08275260E0B9F0088419A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDE08285260E0C030088419A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		FDE0828A260E0C1E0088419A /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
-		FDE0828F260E0C680088419A /* Jellyfin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jellyfin.swift; sourceTree = "<group>"; };
-		FDE08294260E0CF80088419A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		FDE0829C260E11DC0088419A /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		FDE082A1260E15340088419A /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
-		FDE082A6260E16210088419A /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
-		FDE082AB260E1ABE0088419A /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
-		FDE082B1260E1AEB0088419A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FDE082B9260E1AFD0088419A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		FDE082CA260E1BB10088419A /* APIError+Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIError+Authentication.swift"; sourceTree = "<group>"; };
-		FDE082D3260E1E590088419A /* API+Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Authentication.swift"; sourceTree = "<group>"; };
-		FDE082DB260E1EA00088419A /* API+System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+System.swift"; sourceTree = "<group>"; };
-		FDE082E0260E1EFB0088419A /* SystemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfo.swift; sourceTree = "<group>"; };
-		FDE082E8260E23A00088419A /* API+Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Library.swift"; sourceTree = "<group>"; };
-		FDE082ED260E23DC0088419A /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
-		FDE082F2260E24010088419A /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
-		FDE082F7260E25280088419A /* ItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponse.swift; sourceTree = "<group>"; };
-		FDE3932B261B426A007A6C85 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
-		FDE39330261B4272007A6C85 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
-		FDE39335261B45CD007A6C85 /* EpisodeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRowView.swift; sourceTree = "<group>"; };
-		FDE3933A261B45D4007A6C85 /* EpisodeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardView.swift; sourceTree = "<group>"; };
-		FDED0AD7269C880E0081F598 /* ShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		FDE08250260E0B9D0088419A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD8FE41726320196004B9C5F /* TVServices.framework in Frameworks */,
-				FDED0AD6269C87D10081F598 /* SwiftUICollection in Frameworks */,
-				FDA81FF926E145E30098493E /* AnalyticsClient in Frameworks */,
-				FD27CD74260F55BB002C763F /* URLImage in Frameworks */,
-				FD1877E226E6D6AE00844B47 /* FirebaseFirestore in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDE08261260E0B9F0088419A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-=======
-		189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewDelegate.swift; sourceTree = "<group>"; };
 		FD6351C426EB6F24003E0534 /* MediaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCard.swift; sourceTree = "<group>"; };
 		FD6351C626EB7227003E0534 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -353,6 +142,12 @@
 		FD6351E426EB854B003E0534 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		FD6411A126ED1A97008E3170 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		FD6411A326ED1AF2008E3170 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		FD6559D026F387CD002A229A /* LibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryUITests.swift; sourceTree = "<group>"; };
+		FD6559D226F398CB002A229A /* SeriesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailView.swift; sourceTree = "<group>"; };
+		FD6559EF26F3B1E0002A229A /* Snapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD6559F126F3B1E0002A229A /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
+		FD6559FA26F3B20D002A229A /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		FD6559FE26F3B70A002A229A /* UITestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestExtensions.swift; sourceTree = "<group>"; };
 		FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngines.swift; sourceTree = "<group>"; };
 		FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvents.swift; sourceTree = "<group>"; };
@@ -364,6 +159,15 @@
 		FD72333B26F0A07E007EAE08 /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Constants.plist; path = "ABJC tvOS/Constants.plist"; sourceTree = "<group>"; };
 		FD72333E26F0A0E1007EAE08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+DebugView.swift"; sourceTree = "<group>"; };
+		FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferenceStore+summary.swift"; sourceTree = "<group>"; };
+		FD72334B26F0D79D007EAE08 /* ViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifier.swift; sourceTree = "<group>"; };
+		FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewDelegate.swift; sourceTree = "<group>"; };
+		FD72335026F0E409007EAE08 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		FD72335226F0E42C007EAE08 /* TVVLCKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TVVLCKit.xcframework; path = Pods/TVVLCKit/TVVLCKit.xcframework; sourceTree = "<group>"; };
+		FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerUIView.swift; sourceTree = "<group>"; };
+		FD72335826F0E835007EAE08 /* PlaybackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackUITests.swift; sourceTree = "<group>"; };
+		FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainerView.swift; sourceTree = "<group>"; };
+		FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControllsView.swift; sourceTree = "<group>"; };
 		FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ABJC (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC.swift; sourceTree = "<group>"; };
 		FD792F1026EA2F1A00BF2A42 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -380,6 +184,7 @@
 		FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jellyfin.swift; sourceTree = "<group>"; };
 		FD792F5526EA5E1D00BF2A42 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 		FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
+		FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackBar.swift; sourceTree = "<group>"; };
 		FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseItemDto+blurhash.swift"; sourceTree = "<group>"; };
 		FDC9579F26EB952A00655F55 /* Blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurhash.swift; sourceTree = "<group>"; };
 		FDC957A126EB95A600655F55 /* ImageBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBrightness.swift; sourceTree = "<group>"; };
@@ -392,8 +197,7 @@
 		FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert View Extension.swift"; sourceTree = "<group>"; };
 		FDD29D5B26EF8B37000EEC36 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ABJC (tvOS) UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABJC__tvOS__UITests.swift; sourceTree = "<group>"; };
-		FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABJC__tvOS__UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTests.swift; sourceTree = "<group>"; };
 		FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestHelpers.swift; sourceTree = "<group>"; };
 		FDD29D7226EFB265000EEC36 /* UITestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestConstants.swift; sourceTree = "<group>"; };
 		FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUITests.swift; sourceTree = "<group>"; };
@@ -409,9 +213,18 @@
 		FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaFlag.swift; sourceTree = "<group>"; };
 		FDD63F8D26EABC4F001E4363 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		FDD63F8F26EABD4B001E4363 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		FDF62C8E26F2547B00C738C3 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FD6559EC26F3B1E0002A229A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD792F0926EA2F1A00BF2A42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,12 +236,11 @@
 				FD6351DC26EB836A003E0534 /* URLImage in Frameworks */,
 				FD687F1D26EE4B9E0034A622 /* AnyCodable in Frameworks */,
 				FD687F2026EE52BC0034A622 /* JellyfinAPI in Frameworks */,
-				F97C914B2540039B41167F29 /* Pods_ABJC_tvOS.framework in Frameworks */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
+				9D3EB0A2275D250C0B59A705 /* Pods_ABJC_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDE0826C260E0B9F0088419A /* Frameworks */ = {
+		FDD29D5E26EF92F7000EEC36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,17 +250,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FD1919D526E4FD77007F05B4 /* Analytics */ = {
+		2B59F07F9EB01FF8D8E67E00 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FD1919D326E4FCFB007F05B4 /* TestflightAnalyticsEngine.swift */,
-				FD1877E326E6DB0000844B47 /* FirestoreClient.swift */,
-			);
-			path = Analytics;
-=======
-				5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */,
-				D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */,
+				48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */,
+				4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -456,7 +262,8 @@
 		948DECD89EC453E75950DA9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */,
+				FD72335226F0E42C007EAE08 /* TVVLCKit.xcframework */,
+				B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -490,63 +297,37 @@
 				FD6351D526EB7885003E0534 /* ToggleRow.swift */,
 			);
 			path = Components;
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			sourceTree = "<group>";
 		};
-		FD27CD97260F6252002C763F /* Media Row & Card */ = {
+		FD6351E326EB8446003E0534 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FDA627EE260E6399002F9ECC /* MediaRowView.swift */,
-				FDA627F3260E64BF002F9ECC /* MediaCardView.swift */,
-=======
+				FD6351E126EB843C003E0534 /* DetailViewDelegate.swift */,
 				FD6351DF26EB8434003E0534 /* DetailView.swift */,
 				FD6351E426EB854B003E0534 /* MovieDetailView.swift */,
-				FD6351E126EB843C003E0534 /* DetailViewDelegate.swift */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
+				FD6559D226F398CB002A229A /* SeriesDetailView.swift */,
 			);
-			path = "Media Row & Card";
+			path = DetailView;
 			sourceTree = "<group>";
 		};
-		FD27CD9B260F625A002C763F /* Cover Row & Card */ = {
+		FD6411A026ED1A89008E3170 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FD27CD87260F5B10002C763F /* CoverRowView.swift */,
-				FD27CD8C260F5C18002C763F /* CoverCardView.swift */,
-=======
-				FD687F0F26EE279E0034A622 /* Analytics */,
 				FD6411A126ED1A97008E3170 /* AppConfiguration.swift */,
 				FD6411A326ED1AF2008E3170 /* AppEnvironment.swift */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
-			path = "Cover Row & Card";
+			path = Configuration;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		FD27CDA7260F6295002C763F /* Detail View */ = {
+		FD6559F026F3B1E0002A229A /* Snapshots */ = {
 			isa = PBXGroup;
 			children = (
-				FD27CD9F260F6272002C763F /* ItemPage.swift */,
-				FD27CDA8260F629F002C763F /* MoviePage.swift */,
-				FD27CDB0260F62A6002C763F /* SeriesPage.swift */,
-				FDA4C69E2635CFF900316E59 /* ButtonArea.swift */,
+				FD6559FA26F3B20D002A229A /* SnapshotHelper.swift */,
+				FD6559F126F3B1E0002A229A /* Snapshots.swift */,
 			);
-			path = "Detail View";
+			path = Snapshots;
 			sourceTree = "<group>";
 		};
-		FD27CDBA260F644D002C763F /* Media Item */ = {
-			isa = PBXGroup;
-			children = (
-				FDE082F2260E24010088419A /* MediaItem.swift */,
-				FD40C05D2618985C00719C7E /* PlayItem.swift */,
-				FD27CDB5260F6436002C763F /* Movie.swift */,
-				FD27CDBB260F6469002C763F /* Series.swift */,
-				FDE3932B261B426A007A6C85 /* Season.swift */,
-				FDE39330261B4272007A6C85 /* Episode.swift */,
-			);
-			path = "Media Item";
-=======
 		FD687F0F26EE279E0034A622 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,53 +335,41 @@
 				FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */,
 				FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */,
 				FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */,
+				FD72334B26F0D79D007EAE08 /* ViewIdentifier.swift */,
 			);
 			path = Analytics;
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			sourceTree = "<group>";
 		};
-		FD40C024261886AE00719C7E /* Preferences */ = {
+		FD687F1826EE37110034A622 /* Data Extensions */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FD40C01F261886A900719C7E /* PreferencesView.swift */,
-				FDBA0E65263466FB001D38CC /* Report A Problem */,
-				FD36130B263329E400298BEF /* PreferencesView+Subviews.swift */,
-				FD3613092633293A00298BEF /* Preferences+GeneralInfo.swift */,
-				FD40C04D26188F8E00719C7E /* Preferences+Client.swift */,
-				FD40C04826188F2200719C7E /* Preferences+Debug.swift */,
-=======
 				FD687F1926EE371B0034A622 /* NetworkError.swift */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
+				FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */,
 			);
-			path = Preferences;
+			path = "Data Extensions";
 			sourceTree = "<group>";
 		};
-		FD40C0372618899D00719C7E /* People Row & Card */ = {
+		FD6A9BAB26EBCD7400DF975C /* PeopleRow */ = {
 			isa = PBXGroup;
 			children = (
-				FD40C0322618899900719C7E /* PeopleRowView.swift */,
-				FD40C03E26188A1300719C7E /* PersonCardView.swift */,
+				FD6A9BAC26EBCD8200DF975C /* PeopleCardRow.swift */,
+				FD6A9BAE26EBCD8900DF975C /* PeopleCard.swift */,
 			);
-			path = "People Row & Card";
+			path = PeopleRow;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		FD5C8CEC2654491C00E70575 /* Blurhash */ = {
+		FD72334D26F0E3F2007EAE08 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				FD5C8CED2654492B00E70575 /* Blurhash.swift */,
-				FD5C8CEF265449D000E70575 /* BlurhashDecode.swift */,
+				FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */,
+				FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */,
+				FD72335026F0E409007EAE08 /* PlayerView.swift */,
+				FDADDCC726F2231100B2DF6F /* Controlls */,
+				FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */,
 			);
-			path = Blurhash;
+			path = PlayerView;
 			sourceTree = "<group>";
 		};
-		FD69013A2659436F00CDEDE8 /* SessionStore */ = {
-			isa = PBXGroup;
-			children = (
-				FDE0828A260E0C1E0088419A /* SessionStore.swift */,
-				FDAC930E26333EC600BA2E5C /* Keychain.swift */,
-=======
 		FD792ED226EA2F0100BF2A42 = {
 			isa = PBXGroup;
 			children = (
@@ -608,148 +377,111 @@
 				FD72333E26F0A0E1007EAE08 /* Constants.swift */,
 				FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */,
+				FD6559F026F3B1E0002A229A /* Snapshots */,
 				FD792EDC26EA2F0200BF2A42 /* Products */,
 				2B59F07F9EB01FF8D8E67E00 /* Pods */,
 				948DECD89EC453E75950DA9D /* Frameworks */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
-			path = SessionStore;
 			sourceTree = "<group>";
 		};
-		FD8FE3D22631BFC0004B9C5F /* Subviews */ = {
+		FD792EDC26EA2F0200BF2A42 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FD5C8CEC2654491C00E70575 /* Blurhash */,
-				FDA627FD260E658C002F9ECC /* Utility */,
-				FD27CD9B260F625A002C763F /* Cover Row & Card */,
-				FD27CD97260F6252002C763F /* Media Row & Card */,
-				FD40C0372618899D00719C7E /* People Row & Card */,
-				FDE3933F261B45D8007A6C85 /* Episode Row & Card */,
-				FD913D7A264AFD17001A085F /* ActivityIndicatorView.swift */,
-				FD36624D26C2EE7E0001C1DE /* AsyncImg.swift */,
-			);
-			path = Subviews;
-=======
 				FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */,
 				FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */,
+				FD6559EF26F3B1E0002A229A /* Snapshots.xctest */,
 			);
 			name = Products;
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			sourceTree = "<group>";
 		};
-		FD8FE41526320196004B9C5F /* Frameworks */ = {
+		FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				FD8FE41626320196004B9C5F /* TVServices.framework */,
+				FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */,
+				FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */,
+				FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */,
+				FD792F4526EA367000BF2A42 /* Logic */,
+				FD792F5026EA45A900BF2A42 /* Models */,
+				FD792F3826EA2FA700BF2A42 /* UI */,
+				FD792F1426EA2F1C00BF2A42 /* Preview Content */,
 			);
-			name = Frameworks;
+			path = "ABJC tvOS";
 			sourceTree = "<group>";
 		};
-		FDA62766260E276C002F9ECC /* UI */ = {
+		FD792F1426EA2F1C00BF2A42 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				FDE08285260E0C030088419A /* MainView.swift */,
-				FDA81FED26E104F20098493E /* FullScreenCoverContainer.swift */,
-				FD40C053261895A300719C7E /* MediaPlayerView.swift */,
-				FDA627D0260E3C69002F9ECC /* LibraryView */,
-				FDA6276E260E27E5002F9ECC /* AuthView */,
-				FD27CDA7260F6295002C763F /* Detail View */,
-				FD40C024261886AE00719C7E /* Preferences */,
-				FD8FE3D22631BFC0004B9C5F /* Subviews */,
+				FD792F1526EA2F1C00BF2A42 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD792F3826EA2FA700BF2A42 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FD792F1026EA2F1A00BF2A42 /* MainView.swift */,
+				FDC9579E26EB950000655F55 /* Extensions */,
+				FD792F5426EA5E1700BF2A42 /* Components */,
+				FD792F4D26EA3F4600BF2A42 /* Modifiers */,
+				FDD63F7026EAA9A3001E4363 /* Views */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		FDA6276A260E2778002F9ECC /* Logic */ = {
+		FD792F3B26EA309200BF2A42 /* AuthenticationView */ = {
 			isa = PBXGroup;
 			children = (
-				FDE082CF260E1E510088419A /* API */,
-				FDE082BE260E1B070088419A /* APIError */,
-				FDA6277C260E2956002F9ECC /* ServerLocator */,
-				FD8FE4002631F26A004B9C5F /* Playstate.swift */,
-				FDE0829C260E11DC0088419A /* HTTPMethod.swift */,
-				FDE0828F260E0C680088419A /* Jellyfin.swift */,
-				FDA627E4260E3EEB002F9ECC /* Extensions.swift */,
+				FD792F3926EA302800BF2A42 /* AuthenticationView.swift */,
+				FD792F3C26EA309D00BF2A42 /* AuthenticationViewDelegate.swift */,
+			);
+			path = AuthenticationView;
+			sourceTree = "<group>";
+		};
+		FD792F4526EA367000BF2A42 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				FD792F4626EA367600BF2A42 /* ServerDiscovery */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
 		};
-		FDA6276E260E27E5002F9ECC /* AuthView */ = {
+		FD792F4626EA367600BF2A42 /* ServerDiscovery */ = {
 			isa = PBXGroup;
 			children = (
-				FDA62761260E2765002F9ECC /* AuthView.swift */,
-				FDA6276F260E27EE002F9ECC /* ServerSelectionView.swift */,
-				FDA627AF260E2FA2002F9ECC /* ServerSelectionManualView.swift */,
-				FDA6278A260E29CB002F9ECC /* ServerCardView.swift */,
-				FDA627B4260E306B002F9ECC /* CredentialEntryView.swift */,
-				093F665E266323F00058AEA2 /* ServerUserListView.swift */,
+				FD792F4726EA368300BF2A42 /* UDPBroadcast.swift */,
+				FD792F4926EA369200BF2A42 /* ServerDiscovery.swift */,
 			);
-			path = AuthView;
+			path = ServerDiscovery;
 			sourceTree = "<group>";
 		};
-		FDA6277C260E2956002F9ECC /* ServerLocator */ = {
+		FD792F4D26EA3F4600BF2A42 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				FDA62777260E2932002F9ECC /* ServerLocator.swift */,
-				FDA62780260E2968002F9ECC /* UDPBroadCastConnection.swift */,
-				FDA62785260E299A002F9ECC /* UDPBroadcastConnectionError.swift */,
+				FD792F4E26EA3F5200BF2A42 /* ViewModifiers.swift */,
 			);
-			path = ServerLocator;
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		FDA627D0260E3C69002F9ECC /* LibraryView */ = {
+		FD792F5026EA45A900BF2A42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FDED0AD7269C880E0081F598 /* ShelfView.swift */,
-				FDBA0E16263439E3001D38CC /* SearchView.swift */,
-				FD27CD82260F5ABD002C763F /* WatchNowView.swift */,
-				FDA627D1260E3C78002F9ECC /* MediaCollectionView.swift */,
-				FDA627BF260E3728002F9ECC /* LibraryView.swift */,
-			);
-			path = LibraryView;
-			sourceTree = "<group>";
-		};
-		FDA627FD260E658C002F9ECC /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				FDA627F8260E6585002F9ECC /* Blur.swift */,
-				09EAC87426606E09000661BB /* ColorExtensions.swift */,
-				09EAC876266071CE000661BB /* ViewExtensions.swift */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		FDBA0E55263457FE001D38CC /* PreferencesStore */ = {
-			isa = PBXGroup;
-			children = (
-<<<<<<< HEAD
-				FDA627C4260E3950002F9ECC /* PreferenceStore.swift */,
-				FDBA0E5626345815001D38CC /* BetaFlag.swift */,
-				FD367C00269F221700E6A161 /* Grouping.swift */,
-				FDBA0E5B26345822001D38CC /* Tabs.swift */,
-				FD5C8CEA265444D000E70575 /* PosterType.swift */,
-=======
+				FD687F0F26EE279E0034A622 /* Analytics */,
 				FD6411A026ED1A89008E3170 /* Configuration */,
 				FDC9579A26EB948C00655F55 /* JellyfinAPI Extension */,
 				FDD63F8426EABAD3001E4363 /* Preferences */,
 				FD792F3626EA2F9500BF2A42 /* SessionStore.swift */,
 				FD792F3E26EA30C600BF2A42 /* ViewDelegate.swift */,
 				FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */,
-				FDD63F8F26EABD4B001E4363 /* ItemType.swift */,
 				FDC957A926EBA4CD00655F55 /* Tab.swift */,
 				FD72333926F09E34007EAE08 /* CommandLineArguments.swift */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
-			path = PreferencesStore;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		FDBA0E65263466FB001D38CC /* Report A Problem */ = {
+		FD792F5426EA5E1700BF2A42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FDBA0E60263466F7001D38CC /* ReportAProblemView.swift */,
-=======
+				FDF62C8E26F2547B00C738C3 /* PlayButton.swift */,
 				FDD29D5626EF8804000EEC36 /* Alert */,
 				FD6A9BAB26EBCD7400DF975C /* PeopleRow */,
 				FDD63F7D26EABA13001E4363 /* Shelf, Rows & Cards */,
@@ -758,429 +490,268 @@
 				FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */,
 				FDC9579F26EB952A00655F55 /* Blurhash.swift */,
 				FDC957A326EB99C900655F55 /* ButtonArea.swift */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
-			path = "Report A Problem";
+			path = Components;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		FDE0824A260E0B9D0088419A = {
+		FDADDCC726F2231100B2DF6F /* Controlls */ = {
 			isa = PBXGroup;
 			children = (
-				FD6B65FB261BCF5F00FDABC0 /* README.md */,
-				FD40C0522618955A00719C7E /* CHANGELOG.md */,
-				FDE08255260E0B9D0088419A /* ABJC */,
-				FDE08267260E0B9F0088419A /* ABJCTests */,
-				FDE08272260E0B9F0088419A /* ABJCUITests */,
-				FDE08254260E0B9D0088419A /* Products */,
-				FD8FE41526320196004B9C5F /* Frameworks */,
+				FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */,
+				FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */,
 			);
+			path = Controlls;
 			sourceTree = "<group>";
 		};
-		FDE08254260E0B9D0088419A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FDE08253260E0B9D0088419A /* ABJC.app */,
-				FDE08264260E0B9F0088419A /* ABJCTests.xctest */,
-				FDE0826F260E0B9F0088419A /* ABJCUITests.xctest */,
-=======
 		FDC9579A26EB948C00655F55 /* JellyfinAPI Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FDD63F8F26EABD4B001E4363 /* ItemType.swift */,
 				FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */,
 				FDC957A726EB9F3C00655F55 /* BaseItemDto+Identifiable.swift */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
-			name = Products;
+			path = "JellyfinAPI Extension";
 			sourceTree = "<group>";
 		};
-		FDE08255260E0B9D0088419A /* ABJC */ = {
+		FDC9579E26EB950000655F55 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FD1877DE26E6CC8A00844B47 /* GoogleService-Info.plist */,
-				FD6EDDF326E2681A001AE04E /* Constants.plist */,
-				FD6EDDF526E2686D001AE04E /* Constants.swift */,
-				FD8FE41426320196004B9C5F /* ABJC.entitlements */,
-				FDE08256260E0B9D0088419A /* ABJCApp.swift */,
-				FD367BFD269F195600E6A161 /* Localizable.stringsdict */,
-				FD1919D526E4FD77007F05B4 /* Analytics */,
-				FDA62766260E276C002F9ECC /* UI */,
-				FDA6276A260E2778002F9ECC /* Logic */,
-				FD69013A2659436F00CDEDE8 /* SessionStore */,
-				FDBA0E55263457FE001D38CC /* PreferencesStore */,
-				FDE082B0260E1AD80088419A /* APIModels */,
-				FDE0825A260E0B9F0088419A /* Assets.xcassets */,
-				FDE0825F260E0B9F0088419A /* Info.plist */,
-				FDE0825C260E0B9F0088419A /* Preview Content */,
+				FDC957A126EB95A600655F55 /* ImageBrightness.swift */,
+				FDC957A526EB9E0500655F55 /* BlurhashDecode.swift */,
 			);
-			path = ABJC;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FDE0825C260E0B9F0088419A /* Preview Content */ = {
+		FDD29D5626EF8804000EEC36 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				FDE0825D260E0B9F0088419A /* Preview Assets.xcassets */,
+				FDD29D5726EF880E000EEC36 /* AlertObject.swift */,
+				FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */,
+				FDD29D5B26EF8B37000EEC36 /* Alerts.swift */,
 			);
-			path = "Preview Content";
+			path = Alert;
 			sourceTree = "<group>";
 		};
-		FDE08267260E0B9F0088419A /* ABJCTests */ = {
+		FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FD6EDDF026E25579001AE04E /* AnalyticsTests.swift */,
-				FDE082A6260E16210088419A /* APITests.swift */,
-				FDE0826A260E0B9F0088419A /* Info.plist */,
-=======
+				FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */,
+				FD6559D026F387CD002A229A /* LibraryUITests.swift */,
+				FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */,
+				FD72335826F0E835007EAE08 /* PlaybackUITests.swift */,
 				FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */,
-				FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */,
-				FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */,
 				FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */,
+				FD6559FE26F3B70A002A229A /* UITestExtensions.swift */,
 				FDD29D7226EFB265000EEC36 /* UITestConstants.swift */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
-			path = ABJCTests;
+			path = "ABJC (tvOS) UITests";
 			sourceTree = "<group>";
 		};
-		FDE08272260E0B9F0088419A /* ABJCUITests */ = {
+		FDD63F7026EAA9A3001E4363 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				FDE08273260E0B9F0088419A /* ABJCUITests.swift */,
-				FDE08275260E0B9F0088419A /* Info.plist */,
-=======
+				FD72334D26F0E3F2007EAE08 /* PlayerView */,
 				FD6351C926EB7551003E0534 /* PreferencesView */,
 				FDD63F7826EAB7E2001E4363 /* MediaCollectionView */,
 				FDD63F7326EAB742001E4363 /* LibraryView */,
 				FD792F3B26EA309200BF2A42 /* AuthenticationView */,
 				FD6351E326EB8446003E0534 /* DetailView */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
-			path = ABJCUITests;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		FDE082B0260E1AD80088419A /* APIModels */ = {
+		FDD63F7326EAB742001E4363 /* LibraryView */ = {
 			isa = PBXGroup;
 			children = (
-				FDE082AB260E1ABE0088419A /* APIModels.swift */,
-				FD40C04326188E9800719C7E /* UserData.swift */,
-				FDE082A1260E15340088419A /* AuthResponse.swift */,
-				FD27CD78260F565E002C763F /* ImageType.swift */,
-				FDE082B1260E1AEB0088419A /* User.swift */,
-				FDE082E0260E1EFB0088419A /* SystemInfo.swift */,
-				FDE082ED260E23DC0088419A /* MediaType.swift */,
-				FDA627D6260E3E58002F9ECC /* Genre.swift */,
-				FD40C02D2618894B00719C7E /* Person.swift */,
-				FDE082F7260E25280088419A /* ItemResponse.swift */,
-				FD40C062261898E400719C7E /* MediaSource.swift */,
-				FD2FA85326C2BFAB00634692 /* Chapter.swift */,
-				FD8FE3F02631C508004B9C5F /* PlaystateReport.swift */,
-				FD27CDBA260F644D002C763F /* Media Item */,
-				FDA627E9260E4508002F9ECC /* ItemCounts.swift */,
+				FDD63F7426EAB750001E4363 /* LibraryView.swift */,
+				FDD63F7626EAB759001E4363 /* LibraryViewDelegate.swift */,
 			);
-			path = APIModels;
+			path = LibraryView;
 			sourceTree = "<group>";
 		};
-		FDE082BE260E1B070088419A /* APIError */ = {
+		FDD63F7826EAB7E2001E4363 /* MediaCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				FDE082B9260E1AFD0088419A /* APIError.swift */,
-				FDE082CA260E1BB10088419A /* APIError+Authentication.swift */,
+				FDD63F7926EAB7E8001E4363 /* MediaCollectionView.swift */,
+				FDD63F7B26EAB7F0001E4363 /* MediaCollectionViewDelegate.swift */,
 			);
-			path = APIError;
+			path = MediaCollectionView;
 			sourceTree = "<group>";
 		};
-		FDE082CF260E1E510088419A /* API */ = {
+		FDD63F7D26EABA13001E4363 /* Shelf, Rows & Cards */ = {
 			isa = PBXGroup;
 			children = (
-				FDE08294260E0CF80088419A /* API.swift */,
-				FDE082D3260E1E590088419A /* API+Authentication.swift */,
-				FDE082DB260E1EA00088419A /* API+System.swift */,
-				FDE082E8260E23A00088419A /* API+Library.swift */,
-				FD27CD7D260F56C2002C763F /* API+Images.swift */,
-				FD40C0582618967300719C7E /* API+Playback.swift */,
-				FDBA0E1E26343F46001D38CC /* API+Search.swift */,
+				FDC957AB26EBA92400655F55 /* MediaCardRow.swift */,
+				FD6351C426EB6F24003E0534 /* MediaCard.swift */,
+				FDD63F7E26EABA1A001E4363 /* Shelf.swift */,
+				FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */,
 			);
-			path = API;
+			path = "Shelf, Rows & Cards";
 			sourceTree = "<group>";
 		};
-		FDE3933F261B45D8007A6C85 /* Episode Row & Card */ = {
+		FDD63F8426EABAD3001E4363 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				FDE39335261B45CD007A6C85 /* EpisodeRowView.swift */,
-				FDE3933A261B45D4007A6C85 /* EpisodeCardView.swift */,
+				FDD63F8226EABACC001E4363 /* PreferenceStore.swift */,
+				FDD63F8D26EABC4F001E4363 /* Version.swift */,
+				FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */,
+				FDD63F8526EABB1F001E4363 /* Tabs.swift */,
+				FDD63F8726EABB7A001E4363 /* CollectionGrouping.swift */,
+				FDD63F8926EABBB4001E4363 /* PosterType.swift */,
 			);
-			path = "Episode Row & Card";
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-<<<<<<< HEAD
-		FDE08252260E0B9D0088419A /* ABJC */ = {
+		FD6559EE26F3B1E0002A229A /* Snapshots */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FDE08278260E0B9F0088419A /* Build configuration list for PBXNativeTarget "ABJC" */;
+			buildConfigurationList = FD6559F726F3B1E0002A229A /* Build configuration list for PBXNativeTarget "Snapshots" */;
 			buildPhases = (
-				FDE0824F260E0B9D0088419A /* Sources */,
-				FDE08250260E0B9D0088419A /* Frameworks */,
-				FDE08251260E0B9D0088419A /* Resources */,
+				FD6559EB26F3B1E0002A229A /* Sources */,
+				FD6559EC26F3B1E0002A229A /* Frameworks */,
+				FD6559ED26F3B1E0002A229A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FD6559F626F3B1E0002A229A /* PBXTargetDependency */,
 			);
-			name = ABJC;
-			packageProductDependencies = (
-				FD27CD73260F55BB002C763F /* URLImage */,
-				FDED0AD5269C87D10081F598 /* SwiftUICollection */,
-				FDA81FF826E145E30098493E /* AnalyticsClient */,
-				FD1877E126E6D6AE00844B47 /* FirebaseFirestore */,
-			);
-			productName = ABJC;
-			productReference = FDE08253260E0B9D0088419A /* ABJC.app */;
-			productType = "com.apple.product-type.application";
+			name = Snapshots;
+			productName = Snapshots;
+			productReference = FD6559EF26F3B1E0002A229A /* Snapshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		FDE08263260E0B9F0088419A /* ABJCTests */ = {
-=======
 		FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */ = {
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			isa = PBXNativeTarget;
-			buildConfigurationList = FDE0827B260E0B9F0088419A /* Build configuration list for PBXNativeTarget "ABJCTests" */;
+			buildConfigurationList = FD792F2D26EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "ABJC tvOS" */;
 			buildPhases = (
-<<<<<<< HEAD
-				FDE08260260E0B9F0088419A /* Sources */,
-				FDE08261260E0B9F0088419A /* Frameworks */,
-				FDE08262260E0B9F0088419A /* Resources */,
-=======
-				9EE9E219C6B8C110837D1FE0 /* [CP] Check Pods Manifest.lock */,
+				BEE22E9357FEC4C3CBC9E959 /* [CP] Check Pods Manifest.lock */,
 				FD792F0826EA2F1A00BF2A42 /* Sources */,
 				FD792F0926EA2F1A00BF2A42 /* Frameworks */,
 				FD792F0A26EA2F1A00BF2A42 /* Resources */,
-				D19CA750DBD4272282656280 /* [CP] Embed Pods Frameworks */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
+				F6D9DE89E42F4D1C6F5B97C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FDE08266260E0B9F0088419A /* PBXTargetDependency */,
 			);
-			name = ABJCTests;
-			productName = ABJCTests;
-			productReference = FDE08264260E0B9F0088419A /* ABJCTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = "ABJC tvOS";
+			packageProductDependencies = (
+				FD6351D826EB8326003E0534 /* SwiftUICollection */,
+				FD6351DB26EB836A003E0534 /* URLImage */,
+				FD6351DD26EB836A003E0534 /* URLImageStore */,
+				FD64119E26ED1A01008E3170 /* ABJCAnalytics */,
+				FD687F1C26EE4B9E0034A622 /* AnyCodable */,
+				FD687F1F26EE52BC0034A622 /* JellyfinAPI */,
+				FD72334526F0B843007EAE08 /* ABJCAnalytics */,
+			);
+			productName = "ABJC tvOS";
+			productReference = FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */;
+			productType = "com.apple.product-type.application";
 		};
-		FDE0826E260E0B9F0088419A /* ABJCUITests */ = {
+		FDD29D6026EF92F7000EEC36 /* ABJC (tvOS) UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FDE0827E260E0B9F0088419A /* Build configuration list for PBXNativeTarget "ABJCUITests" */;
+			buildConfigurationList = FDD29D6926EF92F7000EEC36 /* Build configuration list for PBXNativeTarget "ABJC (tvOS) UITests" */;
 			buildPhases = (
-				FDE0826B260E0B9F0088419A /* Sources */,
-				FDE0826C260E0B9F0088419A /* Frameworks */,
-				FDE0826D260E0B9F0088419A /* Resources */,
+				FDD29D5D26EF92F7000EEC36 /* Sources */,
+				FDD29D5E26EF92F7000EEC36 /* Frameworks */,
+				FDD29D5F26EF92F7000EEC36 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FDE08271260E0B9F0088419A /* PBXTargetDependency */,
+				FDD29D6826EF92F7000EEC36 /* PBXTargetDependency */,
 			);
-			name = ABJCUITests;
-			productName = ABJCUITests;
-			productReference = FDE0826F260E0B9F0088419A /* ABJCUITests.xctest */;
+			name = "ABJC (tvOS) UITests";
+			productName = "ABJC (tvOS) UITests";
+			productReference = FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FDE0824B260E0B9D0088419A /* Project object */ = {
+		FD792ED326EA2F0200BF2A42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1250;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
-<<<<<<< HEAD
-					FDE08252260E0B9D0088419A = {
-						CreatedOnToolsVersion = 12.4;
+					FD6559EE26F3B1E0002A229A = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = FD792F0B26EA2F1A00BF2A42;
 					};
-					FDE08263260E0B9F0088419A = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = FDE08252260E0B9D0088419A;
-=======
 					FD792F0B26EA2F1A00BF2A42 = {
 						CreatedOnToolsVersion = 13.0;
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 					};
-					FDE0826E260E0B9F0088419A = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = FDE08252260E0B9D0088419A;
+					FDD29D6026EF92F7000EEC36 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = FD792F0B26EA2F1A00BF2A42;
 					};
 				};
 			};
-			buildConfigurationList = FDE0824E260E0B9D0088419A /* Build configuration list for PBXProject "ABJC" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = FD792ED626EA2F0200BF2A42 /* Build configuration list for PBXProject "ABJC" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
-			mainGroup = FDE0824A260E0B9D0088419A;
+			mainGroup = FD792ED226EA2F0100BF2A42;
 			packageReferences = (
-				FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */,
-				FDED0AD4269C87D10081F598 /* XCRemoteSwiftPackageReference "SwiftUICollection" */,
-				FD1877E026E6D6AE00844B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FD6351D726EB8326003E0534 /* XCRemoteSwiftPackageReference "SwiftUICollection" */,
+				FD6351DA26EB836A003E0534 /* XCRemoteSwiftPackageReference "url-image" */,
+				FD687F1B26EE4B9E0034A622 /* XCRemoteSwiftPackageReference "AnyCodable" */,
+				FD687F1E26EE52BC0034A622 /* XCRemoteSwiftPackageReference "JellyfinAPI" */,
+				FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */,
 			);
-			productRefGroup = FDE08254260E0B9D0088419A /* Products */;
+			productRefGroup = FD792EDC26EA2F0200BF2A42 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-<<<<<<< HEAD
-				FDE08252260E0B9D0088419A /* ABJC */,
-				FDE08263260E0B9F0088419A /* ABJCTests */,
-				FDE0826E260E0B9F0088419A /* ABJCUITests */,
-=======
 				FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6026EF92F7000EEC36 /* ABJC (tvOS) UITests */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
+				FD6559EE26F3B1E0002A229A /* Snapshots */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-<<<<<<< HEAD
-		FDE08251260E0B9D0088419A /* Resources */ = {
+		FD6559ED26F3B1E0002A229A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE0825E260E0B9F0088419A /* Preview Assets.xcassets in Resources */,
-				FDE0825B260E0B9F0088419A /* Assets.xcassets in Resources */,
-				FD1877DF26E6CC8A00844B47 /* GoogleService-Info.plist in Resources */,
-				FD6EDDF426E2681A001AE04E /* Constants.plist in Resources */,
-				FD367BFB269F195600E6A161 /* Localizable.stringsdict in Resources */,
+				FD655A0126F3B773002A229A /* Constants.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDE08262260E0B9F0088419A /* Resources */ = {
-=======
 		FD792F0A26EA2F1A00BF2A42 /* Resources */ = {
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD72333C26F0A07E007EAE08 /* Constants.plist in Resources */,
+				FD792F1626EA2F1C00BF2A42 /* Preview Assets.xcassets in Resources */,
+				FD687F6D26EE6F0E0034A622 /* ABJC-tvOS-Info.plist in Resources */,
+				FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDE0826D260E0B9F0088419A /* Resources */ = {
+		FDD29D5F26EF92F7000EEC36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD72334226F0ADA9007EAE08 /* Constants.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-<<<<<<< HEAD
-/* Begin PBXSourcesBuildPhase section */
-		FDE0824F260E0B9D0088419A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDA627C0260E3728002F9ECC /* LibraryView.swift in Sources */,
-				FD8FE3F12631C508004B9C5F /* PlaystateReport.swift in Sources */,
-				FDA627D7260E3E58002F9ECC /* Genre.swift in Sources */,
-				FDA4C69F2635CFF900316E59 /* ButtonArea.swift in Sources */,
-				FD27CD7E260F56C2002C763F /* API+Images.swift in Sources */,
-				FDE082AC260E1ABE0088419A /* APIModels.swift in Sources */,
-				FD913D7B264AFD17001A085F /* ActivityIndicatorView.swift in Sources */,
-				FDBA0E5C26345822001D38CC /* Tabs.swift in Sources */,
-				FDA627B5260E306B002F9ECC /* CredentialEntryView.swift in Sources */,
-				FDE08290260E0C680088419A /* Jellyfin.swift in Sources */,
-				FDA627C5260E3950002F9ECC /* PreferenceStore.swift in Sources */,
-				FD27CDB1260F62A6002C763F /* SeriesPage.swift in Sources */,
-				FD40C054261895A300719C7E /* MediaPlayerView.swift in Sources */,
-				FDBA0E17263439E3001D38CC /* SearchView.swift in Sources */,
-				FDA627F9260E6585002F9ECC /* Blur.swift in Sources */,
-				FD27CD83260F5ABD002C763F /* WatchNowView.swift in Sources */,
-				FD36130C263329E400298BEF /* PreferencesView+Subviews.swift in Sources */,
-				FDA62770260E27EE002F9ECC /* ServerSelectionView.swift in Sources */,
-				FD40C063261898E400719C7E /* MediaSource.swift in Sources */,
-				FDA6278B260E29CB002F9ECC /* ServerCardView.swift in Sources */,
-				FD367C01269F221700E6A161 /* Grouping.swift in Sources */,
-				FDE39331261B4272007A6C85 /* Episode.swift in Sources */,
-				FDA627EA260E4508002F9ECC /* ItemCounts.swift in Sources */,
-				FDA627F4260E64BF002F9ECC /* MediaCardView.swift in Sources */,
-				FDE082BA260E1AFD0088419A /* APIError.swift in Sources */,
-				FDE082D4260E1E590088419A /* API+Authentication.swift in Sources */,
-				FDED0AD8269C880E0081F598 /* ShelfView.swift in Sources */,
-				FD27CDA9260F629F002C763F /* MoviePage.swift in Sources */,
-				FDE3933B261B45D4007A6C85 /* EpisodeCardView.swift in Sources */,
-				FD27CD79260F565E002C763F /* ImageType.swift in Sources */,
-				FDBA0E5726345815001D38CC /* BetaFlag.swift in Sources */,
-				FDE0829D260E11DC0088419A /* HTTPMethod.swift in Sources */,
-				FD40C020261886A900719C7E /* PreferencesView.swift in Sources */,
-				FD1919D426E4FCFB007F05B4 /* TestflightAnalyticsEngine.swift in Sources */,
-				FDA62762260E2765002F9ECC /* AuthView.swift in Sources */,
-				093F665F266323F00058AEA2 /* ServerUserListView.swift in Sources */,
-				FDE082E9260E23A00088419A /* API+Library.swift in Sources */,
-				FDA627D2260E3C78002F9ECC /* MediaCollectionView.swift in Sources */,
-				FDE3932C261B426A007A6C85 /* Season.swift in Sources */,
-				FDE08286260E0C030088419A /* MainView.swift in Sources */,
-				FD2FA85426C2BFAB00634692 /* Chapter.swift in Sources */,
-				FD36130A2633293A00298BEF /* Preferences+GeneralInfo.swift in Sources */,
-				FD40C04426188E9900719C7E /* UserData.swift in Sources */,
-				FD8FE4012631F26A004B9C5F /* Playstate.swift in Sources */,
-				FDE082DC260E1EA00088419A /* API+System.swift in Sources */,
-				FDA62781260E2968002F9ECC /* UDPBroadCastConnection.swift in Sources */,
-				FDA62778260E2932002F9ECC /* ServerLocator.swift in Sources */,
-				FDA627EF260E6399002F9ECC /* MediaRowView.swift in Sources */,
-				FDE082EE260E23DC0088419A /* MediaType.swift in Sources */,
-				FD40C0332618899900719C7E /* PeopleRowView.swift in Sources */,
-				FD27CDB6260F6436002C763F /* Movie.swift in Sources */,
-				FDE0828B260E0C1E0088419A /* SessionStore.swift in Sources */,
-				FDE082F3260E24010088419A /* MediaItem.swift in Sources */,
-				FD27CDA0260F6272002C763F /* ItemPage.swift in Sources */,
-				09EAC87526606E09000661BB /* ColorExtensions.swift in Sources */,
-				FD27CD8D260F5C18002C763F /* CoverCardView.swift in Sources */,
-				FD6EDDF626E2686D001AE04E /* Constants.swift in Sources */,
-				FD5C8CEB265444D000E70575 /* PosterType.swift in Sources */,
-				FDE08295260E0CF80088419A /* API.swift in Sources */,
-				FDE082A2260E15340088419A /* AuthResponse.swift in Sources */,
-				FD5C8CEE2654492B00E70575 /* Blurhash.swift in Sources */,
-				FD40C0592618967300719C7E /* API+Playback.swift in Sources */,
-				FD27CD88260F5B10002C763F /* CoverRowView.swift in Sources */,
-				FD5C8CF0265449D000E70575 /* BlurhashDecode.swift in Sources */,
-				FD40C02E2618894B00719C7E /* Person.swift in Sources */,
-				FDE082B2260E1AEB0088419A /* User.swift in Sources */,
-				FDE08257260E0B9D0088419A /* ABJCApp.swift in Sources */,
-				09EAC877266071CE000661BB /* ViewExtensions.swift in Sources */,
-				FDBA0E61263466F7001D38CC /* ReportAProblemView.swift in Sources */,
-				FD40C04E26188F8E00719C7E /* Preferences+Client.swift in Sources */,
-				FD40C03F26188A1300719C7E /* PersonCardView.swift in Sources */,
-				FDAC930F26333EC600BA2E5C /* Keychain.swift in Sources */,
-				FD36624E26C2EE7E0001C1DE /* AsyncImg.swift in Sources */,
-				FDE082F8260E25280088419A /* ItemResponse.swift in Sources */,
-				FDA627E5260E3EEB002F9ECC /* Extensions.swift in Sources */,
-				FD40C04926188F2200719C7E /* Preferences+Debug.swift in Sources */,
-				FDA81FEE26E104F20098493E /* FullScreenCoverContainer.swift in Sources */,
-				FDE082E1260E1EFB0088419A /* SystemInfo.swift in Sources */,
-				FD1877E426E6DB0000844B47 /* FirestoreClient.swift in Sources */,
-				FDBA0E1F26343F46001D38CC /* API+Search.swift in Sources */,
-				FDA62786260E299A002F9ECC /* UDPBroadcastConnectionError.swift in Sources */,
-				FDE082CB260E1BB10088419A /* APIError+Authentication.swift in Sources */,
-				FD27CDBC260F6469002C763F /* Series.swift in Sources */,
-				FDA627B0260E2FA2002F9ECC /* ServerSelectionManualView.swift in Sources */,
-				FD40C05E2618985C00719C7E /* PlayItem.swift in Sources */,
-				FDE39336261B45CD007A6C85 /* EpisodeRowView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDE08260260E0B9F0088419A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD6EDDF126E25579001AE04E /* AnalyticsTests.swift in Sources */,
-				FDE082A7260E16210088419A /* APITests.swift in Sources */,
-=======
 /* Begin PBXShellScriptBuildPhase section */
-		9EE9E219C6B8C110837D1FE0 /* [CP] Check Pods Manifest.lock */ = {
+		BEE22E9357FEC4C3CBC9E959 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1202,7 +773,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D19CA750DBD4272282656280 /* [CP] Embed Pods Frameworks */ = {
+		F6D9DE89E42F4D1C6F5B97C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1222,6 +793,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FD6559EB26F3B1E0002A229A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD655A0326F3BEAE002A229A /* UITestConstants.swift in Sources */,
+				FD6559F226F3B1E0002A229A /* Snapshots.swift in Sources */,
+				FD6559FB26F3B20D002A229A /* SnapshotHelper.swift in Sources */,
+				FD655A0026F3B713002A229A /* UITestExtensions.swift in Sources */,
+				FD655A0226F3B773002A229A /* Constants.swift in Sources */,
+				FD6559FD26F3B234002A229A /* UITestHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD792F0826EA2F1A00BF2A42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1235,15 +819,18 @@
 				FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */,
 				FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */,
 				FDC9579C26EB949F00655F55 /* BaseItemDto+blurhash.swift in Sources */,
+				FD72335126F0E409007EAE08 /* PlayerView.swift in Sources */,
 				FD792F4826EA368300BF2A42 /* UDPBroadcast.swift in Sources */,
 				FD6351D126EB763E003E0534 /* Preferences+ClientView.swift in Sources */,
 				FDD63F8626EABB1F001E4363 /* Tabs.swift in Sources */,
 				FD6351E226EB843C003E0534 /* DetailViewDelegate.swift in Sources */,
 				FD792F4A26EA369200BF2A42 /* ServerDiscovery.swift in Sources */,
+				FD6559D326F398CB002A229A /* SeriesDetailView.swift in Sources */,
 				FD6351D426EB7871003E0534 /* InfoRow.swift in Sources */,
 				FD792F4C26EA3C0F00BF2A42 /* BackgroundGradient.swift in Sources */,
 				FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */,
 				FD72333F26F0A0E1007EAE08 /* Constants.swift in Sources */,
+				FD72335726F0E474007EAE08 /* VLCPlayerUIView.swift in Sources */,
 				FD6351CF26EB7600003E0534 /* Preferences+InfoView.swift in Sources */,
 				FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */,
 				FD792F5826EA5E4500BF2A42 /* AsyncImg.swift in Sources */,
@@ -1257,6 +844,7 @@
 				FDC957A626EB9E0500655F55 /* BlurhashDecode.swift in Sources */,
 				FDC957A426EB99C900655F55 /* ButtonArea.swift in Sources */,
 				FDC957A026EB952A00655F55 /* Blurhash.swift in Sources */,
+				FD72335B26F0F619007EAE08 /* PlayerContainerView.swift in Sources */,
 				FD6351D626EB7885003E0534 /* ToggleRow.swift in Sources */,
 				FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */,
 				FDC957AA26EBA4CD00655F55 /* Tab.swift in Sources */,
@@ -1266,16 +854,21 @@
 				FD72333A26F09E34007EAE08 /* CommandLineArguments.swift in Sources */,
 				FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */,
 				FD792F3F26EA30C600BF2A42 /* ViewDelegate.swift in Sources */,
+				FD72334C26F0D79D007EAE08 /* ViewIdentifier.swift in Sources */,
 				FD792F3A26EA302800BF2A42 /* AuthenticationView.swift in Sources */,
+				FD72334F26F0E403007EAE08 /* PlayerViewDelegate.swift in Sources */,
 				FD6411A426ED1AF2008E3170 /* AppEnvironment.swift in Sources */,
 				FD6351E526EB854B003E0534 /* MovieDetailView.swift in Sources */,
 				FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */,
 				FD6351CB26EB7556003E0534 /* PreferencesView.swift in Sources */,
+				FD72335D26F0F8C2007EAE08 /* PlayerControllsView.swift in Sources */,
 				FDD63F7726EAB759001E4363 /* LibraryViewDelegate.swift in Sources */,
 				FD6A9BAD26EBCD8200DF975C /* PeopleCardRow.swift in Sources */,
 				FD6A9BAF26EBCD8900DF975C /* PeopleCard.swift in Sources */,
 				FD6351E026EB8434003E0534 /* DetailView.swift in Sources */,
+				FD72334A26F0D60F007EAE08 /* PreferenceStore+summary.swift in Sources */,
 				FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */,
+				FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */,
 				FD6411A226ED1A97008E3170 /* AppConfiguration.swift in Sources */,
 				FD792F3726EA2F9500BF2A42 /* SessionStore.swift in Sources */,
 				FDC957A226EB95A600655F55 /* ImageBrightness.swift in Sources */,
@@ -1285,71 +878,97 @@
 				FD687F1A26EE371B0034A622 /* NetworkError.swift in Sources */,
 				FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */,
 				FDD63F7C26EAB7F0001E4363 /* MediaCollectionViewDelegate.swift in Sources */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
+				FDADDCC926F2233000B2DF6F /* PlaybackBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDE0826B260E0B9F0088419A /* Sources */ = {
+		FDD29D5D26EF92F7000EEC36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				FDE08274260E0B9F0088419A /* ABJCUITests.swift in Sources */,
-=======
 				FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */,
-				FDD29D6E26EF9344000EEC36 /* ABJC__tvOS__UITests.swift in Sources */,
+				FD6559FF26F3B70A002A229A /* UITestExtensions.swift in Sources */,
+				FD6559D126F387CD002A229A /* LibraryUITests.swift in Sources */,
 				FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */,
-				FDD29D6F26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift in Sources */,
+				FDD29D6F26EF9344000EEC36 /* GeneralTests.swift in Sources */,
 				FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */,
+				FD72335926F0E835007EAE08 /* PlaybackUITests.swift in Sources */,
+				FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */,
 				FD72334126F0ADA6007EAE08 /* Constants.swift in Sources */,
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-<<<<<<< HEAD
-		FDE08266260E0B9F0088419A /* PBXTargetDependency */ = {
+		FD6559F626F3B1E0002A229A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FDE08252260E0B9D0088419A /* ABJC */;
-			targetProxy = FDE08265260E0B9F0088419A /* PBXContainerItemProxy */;
+			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
+			targetProxy = FD6559F526F3B1E0002A229A /* PBXContainerItemProxy */;
 		};
-		FDE08271260E0B9F0088419A /* PBXTargetDependency */ = {
-=======
 		FDD29D6826EF92F7000EEC36 /* PBXTargetDependency */ = {
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			isa = PBXTargetDependency;
-			target = FDE08252260E0B9D0088419A /* ABJC */;
-			targetProxy = FDE08270260E0B9F0088419A /* PBXContainerItemProxy */;
+			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
+			targetProxy = FDD29D6726EF92F7000EEC36 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-<<<<<<< HEAD
-/* Begin PBXVariantGroup section */
-		FD367BFD269F195600E6A161 /* Localizable.stringsdict */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD367BFE269F195B00E6A161 /* en */,
-			);
-			name = Localizable.stringsdict;
-			sourceTree = "<group>";
+/* Begin XCBuildConfiguration section */
+		FD6559F826F3B1E0002A229A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.Snapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "ABJC tvOS";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
 		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		FDE08276260E0B9F0088419A /* Debug */ = {
-=======
-/* Begin XCBuildConfiguration section */
+		FD6559F926F3B1E0002A229A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.Snapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "ABJC tvOS";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Release;
+		};
 		FD792EFD26EA2F0500BF2A42 /* Debug */ = {
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1394,24 +1013,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = appletvos;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 14.3;
 			};
 			name = Debug;
 		};
-		FDE08277260E0B9F0088419A /* Release */ = {
+		FD792EFE26EA2F0500BF2A42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1450,213 +1068,163 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = appletvos;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 14.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		FDE08279260E0B9F0088419A /* Debug */ = {
+		FD792F2E26EA2F1D00BF2A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 27;
-				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
-=======
-			baseConfigurationReference = 5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */;
+			baseConfigurationReference = 48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC tvOS/Preview Content\"";
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ABJC/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ABJC-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ABJC;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ABJC requires access to your local network to search for Jellyfin Servers";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ABJC tvOS App Store Distribution";
+				PRODUCT_NAME = "ABJC (tvOS)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
-		FDE0827A260E0B9F0088419A /* Release */ = {
+		FD792F2F26EA2F1D00BF2A42 /* Release */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 27;
-				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
-=======
-			baseConfigurationReference = D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */;
+			baseConfigurationReference = 4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC tvOS/Preview Content\"";
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ABJC/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ABJC-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ABJC;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ABJC requires access to your local network to search for Jellyfin Servers";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ABJC tvOS App Store Distribution";
+				PRODUCT_NAME = "ABJC (tvOS)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
-		FDE0827C260E0B9F0088419A /* Debug */ = {
+		FDD29D6A26EF92F7000EEC36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
-				INFOPLIST_FILE = ABJCTests/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJCTests;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC--tvOS--UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABJC.app/ABJC";
-				TVOS_DEPLOYMENT_TARGET = 14.5;
+				TEST_TARGET_NAME = "ABJC tvOS";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
-		FDE0827D260E0B9F0088419A /* Release */ = {
+		FDD29D6B26EF92F7000EEC36 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
-				INFOPLIST_FILE = ABJCTests/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJCTests;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.ABJC--tvOS--UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABJC.app/ABJC";
-				TVOS_DEPLOYMENT_TARGET = 14.5;
-			};
-			name = Release;
-		};
-		FDE0827F260E0B9F0088419A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ME2UKFKL5H;
-				INFOPLIST_FILE = ABJCUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJCUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_TARGET_NAME = ABJC;
-			};
-			name = Debug;
-		};
-		FDE08280260E0B9F0088419A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ME2UKFKL5H;
-				INFOPLIST_FILE = ABJCUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJCUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_TARGET_NAME = ABJC;
+				TEST_TARGET_NAME = "ABJC tvOS";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-<<<<<<< HEAD
-		FDE0824E260E0B9D0088419A /* Build configuration list for PBXProject "ABJC" */ = {
+		FD6559F726F3B1E0002A229A /* Build configuration list for PBXNativeTarget "Snapshots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDE08276260E0B9F0088419A /* Debug */,
-				FDE08277260E0B9F0088419A /* Release */,
+				FD6559F826F3B1E0002A229A /* Debug */,
+				FD6559F926F3B1E0002A229A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FDE08278260E0B9F0088419A /* Build configuration list for PBXNativeTarget "ABJC" */ = {
-=======
 		FD792ED626EA2F0200BF2A42 /* Build configuration list for PBXProject "ABJC" */ = {
->>>>>>> parent of 78afc87 (Rewrote App to utilise autogenerated jellyfin api)
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDE08279260E0B9F0088419A /* Debug */,
-				FDE0827A260E0B9F0088419A /* Release */,
+				FD792EFD26EA2F0500BF2A42 /* Debug */,
+				FD792EFE26EA2F0500BF2A42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FDE0827B260E0B9F0088419A /* Build configuration list for PBXNativeTarget "ABJCTests" */ = {
+		FD792F2D26EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "ABJC tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDE0827C260E0B9F0088419A /* Debug */,
-				FDE0827D260E0B9F0088419A /* Release */,
+				FD792F2E26EA2F1D00BF2A42 /* Debug */,
+				FD792F2F26EA2F1D00BF2A42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FDE0827E260E0B9F0088419A /* Build configuration list for PBXNativeTarget "ABJCUITests" */ = {
+		FDD29D6926EF92F7000EEC36 /* Build configuration list for PBXNativeTarget "ABJC (tvOS) UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDE0827F260E0B9F0088419A /* Debug */,
-				FDE08280260E0B9F0088419A /* Release */,
+				FDD29D6A26EF92F7000EEC36 /* Debug */,
+				FDD29D6B26EF92F7000EEC36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1664,23 +1232,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FD1877E026E6D6AE00844B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
-			requirement = {
-				kind = exactVersion;
-				version = 3.0.1;
-			};
-		};
-		FDED0AD4269C87D10081F598 /* XCRemoteSwiftPackageReference "SwiftUICollection" */ = {
+		FD6351D726EB8326003E0534 /* XCRemoteSwiftPackageReference "SwiftUICollection" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ABJC/SwiftUICollection";
 			requirement = {
@@ -1688,29 +1240,76 @@
 				kind = branch;
 			};
 		};
+		FD6351DA26EB836A003E0534 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		FD687F1B26EE4B9E0034A622 /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/AnyCodable";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		FD687F1E26EE52BC0034A622 /* XCRemoteSwiftPackageReference "JellyfinAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/JellyfinAPI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ABJC/Analytics";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FD1877E126E6D6AE00844B47 /* FirebaseFirestore */ = {
+		FD6351D826EB8326003E0534 /* SwiftUICollection */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FD1877E026E6D6AE00844B47 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
+			package = FD6351D726EB8326003E0534 /* XCRemoteSwiftPackageReference "SwiftUICollection" */;
+			productName = SwiftUICollection;
 		};
-		FD27CD73260F55BB002C763F /* URLImage */ = {
+		FD6351DB26EB836A003E0534 /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FD27CD72260F55BB002C763F /* XCRemoteSwiftPackageReference "url-image" */;
+			package = FD6351DA26EB836A003E0534 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
 		};
-		FDA81FF826E145E30098493E /* AnalyticsClient */ = {
+		FD6351DD26EB836A003E0534 /* URLImageStore */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AnalyticsClient;
+			package = FD6351DA26EB836A003E0534 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
 		};
-		FDED0AD5269C87D10081F598 /* SwiftUICollection */ = {
+		FD64119E26ED1A01008E3170 /* ABJCAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FDED0AD4269C87D10081F598 /* XCRemoteSwiftPackageReference "SwiftUICollection" */;
-			productName = SwiftUICollection;
+			productName = ABJCAnalytics;
+		};
+		FD687F1C26EE4B9E0034A622 /* AnyCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD687F1B26EE4B9E0034A622 /* XCRemoteSwiftPackageReference "AnyCodable" */;
+			productName = AnyCodable;
+		};
+		FD687F1F26EE52BC0034A622 /* JellyfinAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD687F1E26EE52BC0034A622 /* XCRemoteSwiftPackageReference "JellyfinAPI" */;
+			productName = JellyfinAPI;
+		};
+		FD72334526F0B843007EAE08 /* ABJCAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */;
+			productName = ABJCAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = FDE0824B260E0B9D0088419A /* Project object */;
+	rootObject = FD792ED326EA2F0200BF2A42 /* Project object */;
 }

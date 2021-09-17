@@ -5,16 +5,16 @@
 	<key>analytics</key>
 	<dict>
 		<key>uri</key>
-		<string>https://localhost:8080/addReport</string>
+		<string>https://us-central1-abjc-analytics.cloudfunctions.net/addReport</string>
 		<key>key</key>
-		<string>apikey</string>
+		<string>zSf4NnJQqcSU3dJmjmhr</string>
 	</dict>
 	<key>server</key>
 	<dict>
 		<key>scheme</key>
 		<string>http</string>
 		<key>host</key>
-		<string>localhost</string>
+		<string>192.168.178.35</string>
 		<key>port</key>
 		<string>8096</string>
 		<key>path</key>

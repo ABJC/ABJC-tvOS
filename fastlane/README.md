@@ -16,16 +16,21 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios beta
-```
-fastlane ios beta
-```
-Push a new beta build to TestFlight
 ### ios lint
 ```
 fastlane ios lint
 ```
 Run SwiftLint
+### ios tests
+```
+fastlane ios tests
+```
+Run Tests
+### ios snap
+```
+fastlane ios snap
+```
+Create Screenshots
 
 ----
 

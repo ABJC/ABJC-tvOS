@@ -205,6 +205,7 @@ struct AuthenticationView: View {
                                 .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
                                 .buttonStyle(CardButtonStyle())
                             }.padding()
+                                .background(Color.pink)
 
                             // Manual User Entry
                             Button {
