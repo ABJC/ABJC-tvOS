@@ -31,7 +31,8 @@
       localizableStringsDataGatheringEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDD29D6026EF92F7000EEC36"
@@ -68,6 +69,16 @@
                   Identifier = "AuthenticationUITests/testManualUserEntryFields()">
                </Test>
             </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD6559EE26F3B1E0002A229A"
+               BuildableName = "Snapshots.xctest"
+               BlueprintName = "Snapshots"
+               ReferencedContainer = "container:ABJC.xcodeproj">
+            </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>

@@ -11,9 +11,9 @@ public struct Constants: Codable {
     var users: [String: Credentials]
     var server: Server
     var analytics: AnalyticsInfo
-    
+
     var serverURI: String { server.uri }
-    
+
     static func with(bundle: Bundle) -> Constants? {
         guard let path = bundle.path(forResource: "Constants", ofType: "plist") else {
             return nil

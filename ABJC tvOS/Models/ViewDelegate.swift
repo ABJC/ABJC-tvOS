@@ -57,11 +57,13 @@ class ViewDelegate: ObservableObject {
         metadata["error-location"] = [
             "file": file,
             "line": line,
-            "function": function
+            "function": function,
         ]
 
         if let errorResponse = error as? ErrorResponse {
             app.analytics.send(.networkError(errorResponse), with: metadata)
+        } else {
+            app.analytics.send(.unknownError(error), with: metadata)
         }
         //        switch error {
         //            case .error(let statusCode, let data, let urlResponse, let error) as ErrorResponse:

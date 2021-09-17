@@ -7,7 +7,12 @@
 		<key>ABJC (authenticated).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>1</integer>
+		</dict>
+		<key>ABJC Snapshots.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>ABJC tvOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -22,6 +27,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FD6559EE26F3B1E0002A229A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FD792F0B26EA2F1A00BF2A42</key>
 		<dict>
 			<key>primary</key>

@@ -15,5 +15,12 @@ public extension PreferenceStore {
         case wide = "Wide"
 
         var localizedName: LocalizedStringKey { .init(rawValue) }
+
+        var systemImage: String {
+            switch self {
+            case .poster: return "rectangle.portrait.fill"
+            case .wide: return "rectangle.fill"
+            }
+        }
     }
 }

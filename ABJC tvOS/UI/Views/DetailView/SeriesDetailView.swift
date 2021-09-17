@@ -1,13 +1,13 @@
 //
-//  MovieDetailView.swift
-//  MovieDetailView
+//  SeriesDetailView.swift
+//  SeriesDetailView
 //
-//  Created by Noah Kamara on 10.09.21.
+//  Created by Noah Kamara on 16.09.21.
 //
 
 import SwiftUI
 
-struct MovieDetailView: View {
+struct SeriesDetailView: View {
     @StateObject
     var store: DetailViewDelegate
 
@@ -22,18 +22,16 @@ struct MovieDetailView: View {
                     .padding(80)
                     .frame(width: 1920, height: 1080 + 50)
                 peopleView
-                recommendedView
             }
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear(perform: store.onAppear)
-        #warning("Playback disabled")
-//        .fullScreenCover(isPresented: $store.isPlaying) {
-//            self.store.isPlaying = false
-//        } content: {
-//            PlayerContainerView()
-//                .environmentObject(store.playerStore)
-//        }
+        .fullScreenCover(isPresented: $store.isPlaying) {
+            self.store.isPlaying = false
+        } content: {
+            PlayerContainerView()
+                .environmentObject(store.playerStore)
+        }
     }
 
     var headerView: some View {
@@ -42,7 +40,6 @@ struct MovieDetailView: View {
                 // Poster Image
                 poster
                 HStack(alignment: .top) {
-                    // Item Label
                     VStack(alignment: .leading) {
                         Text(store.item.name ?? "No Name")
                             .bold()
@@ -51,11 +48,10 @@ struct MovieDetailView: View {
                             Text(store.item.productionYear != nil ? "\(String(store.item.productionYear!))" : "")
                             Text(store.item.type ?? "")
                         }.foregroundColor(.secondary)
-                    }.accessibilityIdentifier("titleLbl")
-
+                    }
                     Spacer()
-                    // Play Button
-                    Button(action: self.store.play) {
+                    //                    PlayButton(isContinue ? "buttons.play" : "buttons.continue", play)
+                    Button(action: { self.store.isPlaying = true }) {
                         Text("Playbutton")
                     }
                     .accessibilityIdentifier("playBtn")
@@ -66,7 +62,7 @@ struct MovieDetailView: View {
                     Divider()
                     HStack {
                         Text(store.item.overview!)
-                    }.accessibilityIdentifier("overviewLbl")
+                    }
                 } else {
                     Text("IS NIL")
                 }
@@ -82,9 +78,7 @@ struct MovieDetailView: View {
         Group {
             Divider().padding(.horizontal, 80)
             PeopleCardRow("Cast & Crew", store.item.people ?? [])
-        }
-        .edgesIgnoringSafeArea(.horizontal)
-        .accessibilityIdentifier("peopleView")
+        }.edgesIgnoringSafeArea(.horizontal)
     }
 
     /// Recommended Items View
@@ -93,8 +87,6 @@ struct MovieDetailView: View {
             Divider().padding(.horizontal, 80)
             MediaCardRow(store: .init(), label: "Similar Items", items: store.itemSimilars)
         }
-        .edgesIgnoringSafeArea(.horizontal)
-        .accessibilityIdentifier("recommendedView")
     }
 
     // Poster View
@@ -119,8 +111,8 @@ struct MovieDetailView: View {
     }
 }
 
-// struct MovieDetailView_Previews: PreviewProvider {
+// struct SeriesDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        MovieDetailView(store: .init(.preview))
+//        SeriesDetailView(store: .init(<#T##item: BaseItemDto##BaseItemDto#>))
 //    }
 // }

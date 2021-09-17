@@ -8,7 +8,13 @@
 import ABJCAnalytics
 import Foundation
 
-class DebugAnalyticsEngine: AnalyticsEngine {
+class MockAnalyticsEngine: AnalyticsEngine {
+    func send(_ report: AnalyticsReport) {
+        print("REPORT", report.eventName)
+    }
+}
+
+class TestflightAnalyticsEngine: AnalyticsEngine {
     func send(_ report: AnalyticsReport) {
         guard let analytics = Constants.current?.analytics else {
             return
@@ -16,31 +22,25 @@ class DebugAnalyticsEngine: AnalyticsEngine {
         guard var urlComponents = URLComponents(string: analytics.uri) else {
             return
         }
-        urlComponents.queryItems = [ URLQueryItem(name: "apikey", value: analytics.key) ]
+        urlComponents.queryItems = [URLQueryItem(name: "apikey", value: analytics.key)]
         guard let url = urlComponents.url else {
             return
         }
-        
+
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         request.httpMethod = "POST"
         request.httpBody = try? JSONEncoder().encode(report)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
+
+        URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 print(error)
             }
-            
+
             if let data = data {
                 let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                print(json)
+                print("RESULT", json ?? "")
             }
         }.resume()
-    }
-}
-
-class ProductionAnalyticsEngine: AnalyticsEngine {
-    func send(_ report: AnalyticsReport) {
-        print("REPORT", report.description)
     }
 }

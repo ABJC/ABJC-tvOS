@@ -5,11 +5,15 @@
 //  Created by Noah Kamara on 09.09.21.
 //
 
+import AnyCodable
 import Combine
 import Foundation
 import JellyfinAPI
 
 class AuthenticationViewDelegate: ViewDelegate {
+    let analyticsMetadata: [String: AnyEncodable] = [
+        "view": .init(ViewIdentifier.auth),
+    ]
     @Published
     var isConnected: Bool = false
 
@@ -39,15 +43,15 @@ class AuthenticationViewDelegate: ViewDelegate {
     var publicUsers: [UserDto] = []
     @Published
     var willEnterUserManually: Bool = false
-//    #if DEBUG
-//    @Published var username: String = "jellyfin"
-//    @Published var password: String = "password"
-//    #else
+    //    #if DEBUG
+    //    @Published var username: String = "jellyfin"
+    //    @Published var password: String = "password"
+    //    #else
     @Published
     var username: String = ""
     @Published
     var password: String = ""
-//    #endif
+    //    #endif
 
     /// Discover Servers in local network
     func lookupServers() {
@@ -60,7 +64,6 @@ class AuthenticationViewDelegate: ViewDelegate {
 
         discovery.locateServer { [self] server in
             if let server = server, !discoveredServers.contains(server) {
-                print(server.id, server.host)
                 discoveredServers.append(server)
             }
             isDiscoveringServers = false
@@ -105,7 +108,7 @@ class AuthenticationViewDelegate: ViewDelegate {
                 self.isConnected = true
             case let .failure(error):
                 self.alert = .init(.cantConnectToHost)
-                self.handleApiError(error)
+                self.handleApiError(error, with: self.analyticsMetadata)
             }
         }
     }
@@ -120,7 +123,7 @@ class AuthenticationViewDelegate: ViewDelegate {
                 self.session.didAuthenticate(result)
             case let .failure(error):
                 self.alert = .init(.authenticationFailed)
-                self.handleApiError(error)
+                self.handleApiError(error, with: self.analyticsMetadata)
             }
         }
     }

@@ -35,9 +35,10 @@ struct MediaCard: View {
     var body: some View {
         VStack {
             ZStack {
-                blur
                 if !store.preferences.beta_uglymode {
                     image
+                } else {
+                    blur
                 }
             }
             .aspectRatio(store.imageAspectRatio, contentMode: .fill)
@@ -53,6 +54,7 @@ struct MediaCard: View {
                 .frame(width: store.cardSize.width, height: 90, alignment: .top)
             }
         }.onAppear(perform: loadImageUrl)
+            .accessibilityIdentifier(item.name ?? "No Title")
     }
 
     private var uglymode: some View {
@@ -68,15 +70,15 @@ struct MediaCard: View {
 
     /// Placeholder for missing URLImage
     private var blur: some View {
-        Blur()
-            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            .overlay(
-                VStack {
-                    Text(item.name ?? "No Name")
-                        .font(.headline)
-                    Text(item.productionYear != nil ? "(" + String(item.productionYear!) + ")" : "")
-                }.padding()
-            )
+        ZStack(alignment: .center) {
+            Blur()
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            VStack {
+                Text(item.name ?? "No Name")
+                    .font(.headline)
+                Text(item.productionYear != nil ? "(" + String(item.productionYear!) + ")" : "")
+            }.padding()
+        }
     }
 
     /// URLImage
@@ -86,7 +88,14 @@ struct MediaCard: View {
                 .renderingMode(.original)
                 .resizable()
         } placeholder: {
-            Blur()
+            ZStack {
+                Blur()
+                VStack {
+                    Text(item.name ?? "No Name")
+                        .font(.headline)
+                    Text(item.productionYear != nil ? "(" + String(item.productionYear!) + ")" : "")
+                }.padding()
+            }
         }
     }
 

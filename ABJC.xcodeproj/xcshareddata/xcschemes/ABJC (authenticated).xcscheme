@@ -37,6 +37,30 @@
                BlueprintName = "ABJC (tvOS) UITests"
                ReferencedContainer = "container:ABJC.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ABJC__tvOS__UITests">
+               </Test>
+               <Test
+                  Identifier = "ABJC__tvOS__UITestsLaunchTests">
+               </Test>
+               <Test
+                  Identifier = "LocalizationUITests">
+               </Test>
+               <Test
+                  Identifier = "PlaybackUITests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD6559EE26F3B1E0002A229A"
+               BuildableName = "Snapshots.xctest"
+               BlueprintName = "Snapshots"
+               ReferencedContainer = "container:ABJC.xcodeproj">
+            </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
@@ -61,6 +85,10 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
+         <CommandLineArgument
+            argument = "reset-stores"
+            isEnabled = "YES">
+         </CommandLineArgument>
          <CommandLineArgument
             argument = "authenticate"
             isEnabled = "YES">

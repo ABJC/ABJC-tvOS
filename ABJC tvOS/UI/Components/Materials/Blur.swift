@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct Blur: View {
+    public var style: UIBlurEffect.Style = .regular
+
     var body: some View {
-        LegacyBlur()
+        LegacyBlur(style)
     }
 }
 
@@ -20,7 +22,7 @@ struct Blur_Previews: PreviewProvider {
 }
 
 public struct LegacyBlur: UIViewRepresentable {
-    var style: UIBlurEffect.Style = .prominent
+    var style: UIBlurEffect.Style
 
     public init(_ style: UIBlurEffect.Style = .regular) {
         self.style = style

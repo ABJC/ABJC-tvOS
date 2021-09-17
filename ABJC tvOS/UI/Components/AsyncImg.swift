@@ -32,7 +32,7 @@ struct AsyncImg<I: View, P: View>: View {
             } else {
                 placeholder()
             }
-        }
+        }.accessibilityIdentifier("async-img")
     }
 }
 

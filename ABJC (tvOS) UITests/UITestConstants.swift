@@ -8,22 +8,26 @@
 import Foundation
 
 class UITestConstants {
-    static let constants: Constants = .with(bundle: .init(for: ABJC__tvOS__UITests.self))!
+    let constants: Constants
 
-    static let serverHost: String = constants.server.host
-    static let serverPort: String = constants.server.port
-    static let serverPath: String = constants.server.path
-    static let serverSsl: Bool = constants.server.scheme == "https"
+    init(_ bundle: Bundle) {
+        constants = .with(bundle: bundle)!
+    }
 
-    static var manualUser: Constants.Credentials { constants.users["user_hidden"]! }
-    static var manualUserName: String { manualUser.username }
-    static var manualUserPass: String { manualUser.password ?? "" }
+    var serverHost: String { constants.server.host }
+    var serverPort: String { constants.server.port }
+    var serverPath: String { constants.server.path }
+    var serverSsl: Bool { constants.server.scheme == "https" }
 
-    static var nopassUser: Constants.Credentials { constants.users["user_nopass"]! }
-    static var nopassUserName: String { nopassUser.username }
-    static var nopassUserPass: String { nopassUser.password ?? "" }
+    var manualUser: Constants.Credentials { constants.users["user_hidden"]! }
+    var manualUserName: String { manualUser.username }
+    var manualUserPass: String { manualUser.password ?? "" }
 
-    static var passUser: Constants.Credentials { constants.users["user_pass"]! }
-    static var passUserName: String { passUser.username }
-    static var passUserPass: String { passUser.password ?? "" }
+    var nopassUser: Constants.Credentials { constants.users["user_nopass"]! }
+    var nopassUserName: String { nopassUser.username }
+    var nopassUserPass: String { nopassUser.password ?? "" }
+
+    var passUser: Constants.Credentials { constants.users["user_pass"]! }
+    var passUserName: String { passUser.username }
+    var passUserPass: String { passUser.password ?? "" }
 }

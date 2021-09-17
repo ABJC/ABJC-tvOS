@@ -8,6 +8,9 @@
 import XCTest
 
 class AuthenticationUITests: XCTestCase {
+    let app = XCUIApplication()
+    let constants = UITestConstants(.init(for: AuthenticationUITests.self))
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -15,18 +18,16 @@ class AuthenticationUITests: XCTestCase {
         continueAfterFailure = false
 
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        app.launchArguments = ["enable-testing"]
+        app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app.terminate()
     }
 
     /// Test UI Elements in ManualServerEntry
-    func testManualServerEntryFields() {
-        let app = XCUIApplication()
-        app.launch()
-
+    func testManualServerEntryUI() {
         // Wait for welcome screen
         UITestHelpers.findAndPressButton(app.buttons["enterServerManuallyBtn"], .down)
 
@@ -36,6 +37,9 @@ class AuthenticationUITests: XCTestCase {
         let pathField = app.textFields["pathField"]
         let sslSwitch = app.switches["sslSwitch"]
         let continueButton = app.buttons["continueBtn"]
+
+        // Take Screenshot
+        add(UITestHelpers.takeScreenshot("ManualServerEntryUI"))
 
         // Check if all UI Elements exist
         XCTAssert(hostField.waitForExistence(timeout: 5.0), "Host Field exists")
@@ -59,57 +63,47 @@ class AuthenticationUITests: XCTestCase {
             pathField.clearAndEnterText(text: "PATH")
         }
         XCTAssert(pathField.value as! String == "PATH", "Path Field is settable")
-
-        app.terminate()
     }
 
     /// Test Manually Connecting to Server
     func testManualServerEntry() {
-        let app = XCUIApplication()
-        app.launch()
-
         // Navigate to Manual Server Entry Screen
         let enterServerManuallyBtn = app.buttons["enterServerManuallyBtn"]
-        UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
+        UITestHelpers.findAndPressButton(app.buttons["enterServerManuallyBtn"], .down)
 
         // manually enter server information
         UITestHelpers.authConnectToServer(app,
-                                          host: UITestConstants.serverHost,
-                                          port: UITestConstants.serverPort,
-                                          path: UITestConstants.serverPath)
-
-        app.terminate()
+                                          host: constants.serverHost,
+                                          port: constants.serverPort,
+                                          path: constants.serverPath)
     }
 
     /// Test Manually Connecting to Server
-    func testDiscoveredServer() {
-        let app = XCUIApplication()
-        app.launch()
+    func testDiscoveredServerUI() {
+        XCTExpectFailure("Server currently not exposed over Multicast")
 
         // Navigate to Manual Server Entry Screen
         let enterServerManuallyBtn = app.buttons["enterServerManuallyBtn"]
         UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
 
+        // Take Screenshot
+        add(UITestHelpers.takeScreenshot("DiscoveredServerUI"))
+
         // test whether server has buttons
         XCTAssert(app.buttons.matching(identifier: "serverBtn").firstMatch.waitForExistence(timeout: 30.0))
-
-        app.terminate()
     }
 
     /// Test UI Elements in ManualUserEntry
-    func testManualUserEntryFields() {
-        let app = XCUIApplication()
-        app.launch()
-
+    func testManualUserEntryUI() {
         // Navigate to Manual Server Entry Screen
         let enterServerManuallyBtn = app.buttons["enterServerManuallyBtn"]
         UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
 
         // manually enter server information
         UITestHelpers.authConnectToServer(app,
-                                          host: UITestConstants.serverHost,
-                                          port: UITestConstants.serverPort,
-                                          path: UITestConstants.serverPath)
+                                          host: constants.serverHost,
+                                          port: constants.serverPort,
+                                          path: constants.serverPath)
 
         // Navigate to Manual User Entry Screen
         UITestHelpers.findAndPressButton(app.buttons["manualUserBtn"], .down)
@@ -117,6 +111,9 @@ class AuthenticationUITests: XCTestCase {
         let usernameField = app.textFields["usernameField"]
         let passwordField = app.secureTextFields["passwordField"]
         let continueButton = app.buttons["continueBtn"]
+
+        // Take Screenshot
+        add(UITestHelpers.takeScreenshot("UserEntryUI"))
 
         // Verify that elements exist
         XCTAssert(usernameField.waitForExistence(timeout: 5.0), "Username Field exists")
@@ -133,8 +130,6 @@ class AuthenticationUITests: XCTestCase {
             passwordField.clearAndEnterText(text: "PASSWORD")
         }
         XCTAssert(passwordField.value as! String == "••••••••", "Password Field is settable")
-
-        app.terminate()
     }
 
     /// Test Manually Authenticating Users
@@ -149,9 +144,9 @@ class AuthenticationUITests: XCTestCase {
 
             // manually enter server information
             UITestHelpers.authConnectToServer(app,
-                                              host: UITestConstants.serverHost,
-                                              port: UITestConstants.serverPort,
-                                              path: UITestConstants.serverPath)
+                                              host: constants.serverHost,
+                                              port: constants.serverPort,
+                                              path: constants.serverPath)
 
             // Navigate to Manual User Entry Screen
             UITestHelpers.findAndPressButton(app.buttons["manualUserBtn"], .down)
@@ -161,21 +156,24 @@ class AuthenticationUITests: XCTestCase {
                                                username: username,
                                                password: password)
 
+            // Take Screenshot
+            add(UITestHelpers.takeScreenshot("ManualUserEntry-\(username)-\(password)"))
+
             return app
         }
 
         // Test with correct credentials
-        let resultCorrect = test(username: UITestConstants.manualUserName, password: UITestConstants.manualUserPass)
-        XCTAssert(resultCorrect.tabBars.count == 1,
+        let resultCorrect = test(username: constants.manualUserName, password: constants.manualUserPass)
+        XCTAssert(resultCorrect.otherElements["main-nav"].waitForExistence(timeout: 15.0),
                   "Authenticated Successfully")
 
         // Test with wrong username
-        let resultWrongUser = test(username: "wrongUser", password: UITestConstants.manualUserPass)
+        let resultWrongUser = test(username: "wrongUser", password: constants.manualUserPass)
         XCTAssert(resultWrongUser.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
                   "Alert 'Authentication Failure' displayed")
 
         // Test with wrong password
-        let resultWrongPass = test(username: UITestConstants.manualUserName, password: "wrongPassword")
+        let resultWrongPass = test(username: constants.manualUserName, password: "wrongPassword")
         XCTAssert(resultWrongPass.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
                   "Alert 'Authentication Failure' displayed")
 
@@ -197,9 +195,9 @@ class AuthenticationUITests: XCTestCase {
 
             // manually enter server information
             UITestHelpers.authConnectToServer(app,
-                                              host: UITestConstants.serverHost,
-                                              port: UITestConstants.serverPort,
-                                              path: UITestConstants.serverPath)
+                                              host: constants.serverHost,
+                                              port: constants.serverPort,
+                                              path: constants.serverPath)
 
             XCTAssert(app.buttons["manualUserBtn"].waitForExistence(timeout: 15.0))
             completion(app)
@@ -209,8 +207,8 @@ class AuthenticationUITests: XCTestCase {
         // Test with password success
         let testWithPasswordSuccess = expectation(description: "Test with password success")
         test { app in
-            let username = UITestConstants.passUserName
-            let password = UITestConstants.passUserPass
+            let username = constants.passUserName
+            let password = constants.passUserPass
 
             let userBtn = app.buttons["userBtn-" + username]
             XCTAssert(userBtn.waitForExistence(timeout: 15.0))
@@ -230,6 +228,9 @@ class AuthenticationUITests: XCTestCase {
                 passwordField.clearAndEnterText(text: password)
             }
 
+            // Take Screenshot
+            add(UITestHelpers.takeScreenshot("PublicUserSelection-with_password_success"))
+
             UITestHelpers.findAndPressButton(continueButton, .down)
 
             XCTAssertFalse(app.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
@@ -242,7 +243,7 @@ class AuthenticationUITests: XCTestCase {
         // Test with password failure
         let testWithPasswordFail = expectation(description: "Test with password failure")
         test { app in
-            let username = UITestConstants.passUserName
+            let username = constants.passUserName
             let password = "wrongPassword"
 
             let userBtn = app.buttons["userBtn-" + username]
@@ -273,7 +274,7 @@ class AuthenticationUITests: XCTestCase {
         // Test without password
         let testWithoutPassword = expectation(description: "Test without password")
         test { app in
-            let username = UITestConstants.nopassUserName
+            let username = constants.nopassUserName
 
             let userBtn = app.buttons["userBtn-" + username]
             XCTAssert(userBtn.waitForExistence(timeout: 15.0))

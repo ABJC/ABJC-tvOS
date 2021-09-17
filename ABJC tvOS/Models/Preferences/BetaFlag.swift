@@ -36,7 +36,7 @@ public extension PreferenceStore {
             return [
                 .uglymode: true,
                 .singlePageMode: false,
-                .watchnowtab: false
+                .watchnowtab: false,
             ]
         }
     }

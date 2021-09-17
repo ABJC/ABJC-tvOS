@@ -36,6 +36,7 @@ class PreferencesViewDelegate: ViewDelegate {
 
     func onDisappear() {
         savePreferences()
+        app.analytics.send(.preferences(preferences))
     }
 
     func loadPreferences() {

@@ -15,21 +15,20 @@ extension PreferencesView {
         var body: some View {
             Form {
                 Section("System Information") {
-                    InfoRow("Name", store.systemInfo?.serverName ?? "")
-                    InfoRow("System Architecture", store.systemInfo?.systemArchitecture ?? "")
-                    InfoRow("Operating System", store.systemInfo?.operatingSystem ?? "")
-                    InfoRow("Identifier", store.systemInfo?.id ?? "")
-                    InfoRow("Jellyfin Version", store.systemInfo?.version ?? "")
+                    InfoRow("Name", store.systemInfo?.serverName ?? "ERR")
+                    InfoRow("System Architecture", store.systemInfo?.systemArchitecture ?? "ERR")
+                    InfoRow("Operating System", store.systemInfo?.operatingSystem ?? "ERR")
+                    InfoRow("Identifier", store.systemInfo?.id ?? "ERR")
+                    InfoRow("Jellyfin Version", store.systemInfo?.version ?? "ERR")
                 }
 
                 Section("Server Configuration") {
-                    InfoRow("Local Address", store.systemInfo?.localAddress ?? "")
-                    InfoRow("IPv6", store.serverConfiguration?.enableIPV4 ?? false)
-                    InfoRow("IPv6", store.serverConfiguration?.enableIPV6 ?? false)
-
-                    InfoRow("HTTP Port", store.serverConfiguration?.httpServerPortNumber ?? "")
-                    InfoRow("HTTPS Port", store.serverConfiguration?.httpsPortNumber ?? "")
-                    InfoRow("AutoDiscovery", store.serverConfiguration?.autoDiscovery ?? false)
+                    InfoRow("Local Address", store.systemInfo?.localAddress ?? "ERR")
+                    InfoRow("IPv4", store.serverConfiguration?.enableIPV4?.description ?? "ERR")
+                    InfoRow("IPv6", store.serverConfiguration?.enableIPV6?.description ?? "ERR")
+                    InfoRow("HTTP Port", store.serverConfiguration?.httpServerPortNumber ?? "ERR")
+                    InfoRow("HTTPS Port", store.serverConfiguration?.httpsPortNumber ?? "ERR")
+                    InfoRow("AutoDiscovery", store.serverConfiguration?.autoDiscovery?.description ?? "ERR")
                 }
             }
             .onAppear {

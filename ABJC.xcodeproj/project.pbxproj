@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F97C914B2540039B41167F29 /* Pods_ABJC_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */; };
+		9D3EB0A2275D250C0B59A705 /* Pods_ABJC_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */; };
 		FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */; };
 		FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C426EB6F24003E0534 /* MediaCard.swift */; };
 		FD6351C726EB7227003E0534 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C626EB7227003E0534 /* Blur.swift */; };
@@ -26,6 +26,16 @@
 		FD64119F26ED1A01008E3170 /* ABJCAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD64119E26ED1A01008E3170 /* ABJCAnalytics */; };
 		FD6411A226ED1A97008E3170 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6411A126ED1A97008E3170 /* AppConfiguration.swift */; };
 		FD6411A426ED1AF2008E3170 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6411A326ED1AF2008E3170 /* AppEnvironment.swift */; };
+		FD6559D126F387CD002A229A /* LibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559D026F387CD002A229A /* LibraryUITests.swift */; };
+		FD6559D326F398CB002A229A /* SeriesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559D226F398CB002A229A /* SeriesDetailView.swift */; };
+		FD6559F226F3B1E0002A229A /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559F126F3B1E0002A229A /* Snapshots.swift */; };
+		FD6559FB26F3B20D002A229A /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559FA26F3B20D002A229A /* SnapshotHelper.swift */; };
+		FD6559FD26F3B234002A229A /* UITestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */; };
+		FD6559FF26F3B70A002A229A /* UITestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559FE26F3B70A002A229A /* UITestExtensions.swift */; };
+		FD655A0026F3B713002A229A /* UITestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6559FE26F3B70A002A229A /* UITestExtensions.swift */; };
+		FD655A0126F3B773002A229A /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
+		FD655A0226F3B773002A229A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333E26F0A0E1007EAE08 /* Constants.swift */; };
+		FD655A0326F3BEAE002A229A /* UITestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7226EFB265000EEC36 /* UITestConstants.swift */; };
 		FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */; };
 		FD687F1326EE2C0A0034A622 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */; };
 		FD687F1526EE2D260034A622 /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */; };
@@ -42,6 +52,14 @@
 		FD72334226F0ADA9007EAE08 /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
 		FD72334626F0B843007EAE08 /* ABJCAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD72334526F0B843007EAE08 /* ABJCAnalytics */; };
 		FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */; };
+		FD72334A26F0D60F007EAE08 /* PreferenceStore+summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */; };
+		FD72334C26F0D79D007EAE08 /* ViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334B26F0D79D007EAE08 /* ViewIdentifier.swift */; };
+		FD72334F26F0E403007EAE08 /* PlayerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */; };
+		FD72335126F0E409007EAE08 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335026F0E409007EAE08 /* PlayerView.swift */; };
+		FD72335726F0E474007EAE08 /* VLCPlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */; };
+		FD72335926F0E835007EAE08 /* PlaybackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335826F0E835007EAE08 /* PlaybackUITests.swift */; };
+		FD72335B26F0F619007EAE08 /* PlayerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */; };
+		FD72335D26F0F8C2007EAE08 /* PlayerControllsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */; };
 		FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */; };
 		FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F1026EA2F1A00BF2A42 /* MainView.swift */; };
 		FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */; };
@@ -57,6 +75,7 @@
 		FD792F5226EA45AF00BF2A42 /* Jellyfin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */; };
 		FD792F5626EA5E1D00BF2A42 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5526EA5E1D00BF2A42 /* UserAvatarView.swift */; };
 		FD792F5826EA5E4500BF2A42 /* AsyncImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */; };
+		FDADDCC926F2233000B2DF6F /* PlaybackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */; };
 		FDC9579C26EB949F00655F55 /* BaseItemDto+blurhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */; };
 		FDC957A026EB952A00655F55 /* Blurhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9579F26EB952A00655F55 /* Blurhash.swift */; };
 		FDC957A226EB95A600655F55 /* ImageBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC957A126EB95A600655F55 /* ImageBrightness.swift */; };
@@ -68,8 +87,7 @@
 		FDD29D5826EF880E000EEC36 /* AlertObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5726EF880E000EEC36 /* AlertObject.swift */; };
 		FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */; };
 		FDD29D5C26EF8B37000EEC36 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5B26EF8B37000EEC36 /* Alerts.swift */; };
-		FDD29D6E26EF9344000EEC36 /* ABJC__tvOS__UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */; };
-		FDD29D6F26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */; };
+		FDD29D6F26EF9344000EEC36 /* GeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */; };
 		FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */; };
 		FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7226EFB265000EEC36 /* UITestConstants.swift */; };
 		FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */; };
@@ -85,9 +103,18 @@
 		FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */; };
 		FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8D26EABC4F001E4363 /* Version.swift */; };
 		FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8F26EABD4B001E4363 /* ItemType.swift */; };
+		FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C8E26F2547B00C738C3 /* PlayButton.swift */; };
+		FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FD6559F526F3B1E0002A229A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD792F0B26EA2F1A00BF2A42;
+			remoteInfo = "ABJC tvOS";
+		};
 		FDD29D6726EF92F7000EEC36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
@@ -98,9 +125,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewDelegate.swift; sourceTree = "<group>"; };
 		FD6351C426EB6F24003E0534 /* MediaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCard.swift; sourceTree = "<group>"; };
 		FD6351C626EB7227003E0534 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -115,6 +142,12 @@
 		FD6351E426EB854B003E0534 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		FD6411A126ED1A97008E3170 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		FD6411A326ED1AF2008E3170 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		FD6559D026F387CD002A229A /* LibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryUITests.swift; sourceTree = "<group>"; };
+		FD6559D226F398CB002A229A /* SeriesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailView.swift; sourceTree = "<group>"; };
+		FD6559EF26F3B1E0002A229A /* Snapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD6559F126F3B1E0002A229A /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
+		FD6559FA26F3B20D002A229A /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		FD6559FE26F3B70A002A229A /* UITestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestExtensions.swift; sourceTree = "<group>"; };
 		FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngines.swift; sourceTree = "<group>"; };
 		FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvents.swift; sourceTree = "<group>"; };
@@ -126,6 +159,15 @@
 		FD72333B26F0A07E007EAE08 /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Constants.plist; path = "ABJC tvOS/Constants.plist"; sourceTree = "<group>"; };
 		FD72333E26F0A0E1007EAE08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+DebugView.swift"; sourceTree = "<group>"; };
+		FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferenceStore+summary.swift"; sourceTree = "<group>"; };
+		FD72334B26F0D79D007EAE08 /* ViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIdentifier.swift; sourceTree = "<group>"; };
+		FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewDelegate.swift; sourceTree = "<group>"; };
+		FD72335026F0E409007EAE08 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		FD72335226F0E42C007EAE08 /* TVVLCKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TVVLCKit.xcframework; path = Pods/TVVLCKit/TVVLCKit.xcframework; sourceTree = "<group>"; };
+		FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerUIView.swift; sourceTree = "<group>"; };
+		FD72335826F0E835007EAE08 /* PlaybackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackUITests.swift; sourceTree = "<group>"; };
+		FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainerView.swift; sourceTree = "<group>"; };
+		FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControllsView.swift; sourceTree = "<group>"; };
 		FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ABJC (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC.swift; sourceTree = "<group>"; };
 		FD792F1026EA2F1A00BF2A42 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -142,6 +184,7 @@
 		FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jellyfin.swift; sourceTree = "<group>"; };
 		FD792F5526EA5E1D00BF2A42 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 		FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
+		FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackBar.swift; sourceTree = "<group>"; };
 		FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseItemDto+blurhash.swift"; sourceTree = "<group>"; };
 		FDC9579F26EB952A00655F55 /* Blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurhash.swift; sourceTree = "<group>"; };
 		FDC957A126EB95A600655F55 /* ImageBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBrightness.swift; sourceTree = "<group>"; };
@@ -154,8 +197,7 @@
 		FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert View Extension.swift"; sourceTree = "<group>"; };
 		FDD29D5B26EF8B37000EEC36 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ABJC (tvOS) UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABJC__tvOS__UITests.swift; sourceTree = "<group>"; };
-		FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABJC__tvOS__UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTests.swift; sourceTree = "<group>"; };
 		FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestHelpers.swift; sourceTree = "<group>"; };
 		FDD29D7226EFB265000EEC36 /* UITestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestConstants.swift; sourceTree = "<group>"; };
 		FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUITests.swift; sourceTree = "<group>"; };
@@ -171,9 +213,18 @@
 		FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaFlag.swift; sourceTree = "<group>"; };
 		FDD63F8D26EABC4F001E4363 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		FDD63F8F26EABD4B001E4363 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		FDF62C8E26F2547B00C738C3 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FD6559EC26F3B1E0002A229A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD792F0926EA2F1A00BF2A42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,7 +236,7 @@
 				FD6351DC26EB836A003E0534 /* URLImage in Frameworks */,
 				FD687F1D26EE4B9E0034A622 /* AnyCodable in Frameworks */,
 				FD687F2026EE52BC0034A622 /* JellyfinAPI in Frameworks */,
-				F97C914B2540039B41167F29 /* Pods_ABJC_tvOS.framework in Frameworks */,
+				9D3EB0A2275D250C0B59A705 /* Pods_ABJC_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,8 +253,8 @@
 		2B59F07F9EB01FF8D8E67E00 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */,
-				D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */,
+				48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */,
+				4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -211,7 +262,8 @@
 		948DECD89EC453E75950DA9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				189A2FE89A2AC7878C3D0A77 /* Pods_ABJC_tvOS.framework */,
+				FD72335226F0E42C007EAE08 /* TVVLCKit.xcframework */,
+				B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,9 +302,10 @@
 		FD6351E326EB8446003E0534 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				FD6351E126EB843C003E0534 /* DetailViewDelegate.swift */,
 				FD6351DF26EB8434003E0534 /* DetailView.swift */,
 				FD6351E426EB854B003E0534 /* MovieDetailView.swift */,
-				FD6351E126EB843C003E0534 /* DetailViewDelegate.swift */,
+				FD6559D226F398CB002A229A /* SeriesDetailView.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -260,11 +313,19 @@
 		FD6411A026ED1A89008E3170 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				FD687F0F26EE279E0034A622 /* Analytics */,
 				FD6411A126ED1A97008E3170 /* AppConfiguration.swift */,
 				FD6411A326ED1AF2008E3170 /* AppEnvironment.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		FD6559F026F3B1E0002A229A /* Snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				FD6559FA26F3B20D002A229A /* SnapshotHelper.swift */,
+				FD6559F126F3B1E0002A229A /* Snapshots.swift */,
+			);
+			path = Snapshots;
 			sourceTree = "<group>";
 		};
 		FD687F0F26EE279E0034A622 /* Analytics */ = {
@@ -274,6 +335,7 @@
 				FD687F1026EE27C00034A622 /* AnalyticsEngines.swift */,
 				FD687F1426EE2D260034A622 /* AnalyticsEvents.swift */,
 				FD687F1226EE2C0A0034A622 /* DeviceInfo.swift */,
+				FD72334B26F0D79D007EAE08 /* ViewIdentifier.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -282,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				FD687F1926EE371B0034A622 /* NetworkError.swift */,
+				FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */,
 			);
 			path = "Data Extensions";
 			sourceTree = "<group>";
@@ -295,6 +358,18 @@
 			path = PeopleRow;
 			sourceTree = "<group>";
 		};
+		FD72334D26F0E3F2007EAE08 /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */,
+				FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */,
+				FD72335026F0E409007EAE08 /* PlayerView.swift */,
+				FDADDCC726F2231100B2DF6F /* Controlls */,
+				FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */,
+			);
+			path = PlayerView;
+			sourceTree = "<group>";
+		};
 		FD792ED226EA2F0100BF2A42 = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +377,7 @@
 				FD72333E26F0A0E1007EAE08 /* Constants.swift */,
 				FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */,
+				FD6559F026F3B1E0002A229A /* Snapshots */,
 				FD792EDC26EA2F0200BF2A42 /* Products */,
 				2B59F07F9EB01FF8D8E67E00 /* Pods */,
 				948DECD89EC453E75950DA9D /* Frameworks */,
@@ -313,6 +389,7 @@
 			children = (
 				FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */,
 				FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */,
+				FD6559EF26F3B1E0002A229A /* Snapshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,13 +465,13 @@
 		FD792F5026EA45A900BF2A42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FD687F0F26EE279E0034A622 /* Analytics */,
 				FD6411A026ED1A89008E3170 /* Configuration */,
 				FDC9579A26EB948C00655F55 /* JellyfinAPI Extension */,
 				FDD63F8426EABAD3001E4363 /* Preferences */,
 				FD792F3626EA2F9500BF2A42 /* SessionStore.swift */,
 				FD792F3E26EA30C600BF2A42 /* ViewDelegate.swift */,
 				FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */,
-				FDD63F8F26EABD4B001E4363 /* ItemType.swift */,
 				FDC957A926EBA4CD00655F55 /* Tab.swift */,
 				FD72333926F09E34007EAE08 /* CommandLineArguments.swift */,
 			);
@@ -404,6 +481,7 @@
 		FD792F5426EA5E1700BF2A42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FDF62C8E26F2547B00C738C3 /* PlayButton.swift */,
 				FDD29D5626EF8804000EEC36 /* Alert */,
 				FD6A9BAB26EBCD7400DF975C /* PeopleRow */,
 				FDD63F7D26EABA13001E4363 /* Shelf, Rows & Cards */,
@@ -416,9 +494,19 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FDADDCC726F2231100B2DF6F /* Controlls */ = {
+			isa = PBXGroup;
+			children = (
+				FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */,
+				FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */,
+			);
+			path = Controlls;
+			sourceTree = "<group>";
+		};
 		FDC9579A26EB948C00655F55 /* JellyfinAPI Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FDD63F8F26EABD4B001E4363 /* ItemType.swift */,
 				FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */,
 				FDC957A726EB9F3C00655F55 /* BaseItemDto+Identifiable.swift */,
 			);
@@ -447,10 +535,13 @@
 		FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */ = {
 			isa = PBXGroup;
 			children = (
+				FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */,
+				FD6559D026F387CD002A229A /* LibraryUITests.swift */,
+				FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */,
+				FD72335826F0E835007EAE08 /* PlaybackUITests.swift */,
 				FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */,
-				FDD29D6C26EF9344000EEC36 /* ABJC__tvOS__UITests.swift */,
-				FDD29D6D26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift */,
 				FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */,
+				FD6559FE26F3B70A002A229A /* UITestExtensions.swift */,
 				FDD29D7226EFB265000EEC36 /* UITestConstants.swift */,
 			);
 			path = "ABJC (tvOS) UITests";
@@ -459,6 +550,7 @@
 		FDD63F7026EAA9A3001E4363 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD72334D26F0E3F2007EAE08 /* PlayerView */,
 				FD6351C926EB7551003E0534 /* PreferencesView */,
 				FDD63F7826EAB7E2001E4363 /* MediaCollectionView */,
 				FDD63F7326EAB742001E4363 /* LibraryView */,
@@ -513,15 +605,33 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FD6559EE26F3B1E0002A229A /* Snapshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD6559F726F3B1E0002A229A /* Build configuration list for PBXNativeTarget "Snapshots" */;
+			buildPhases = (
+				FD6559EB26F3B1E0002A229A /* Sources */,
+				FD6559EC26F3B1E0002A229A /* Frameworks */,
+				FD6559ED26F3B1E0002A229A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD6559F626F3B1E0002A229A /* PBXTargetDependency */,
+			);
+			name = Snapshots;
+			productName = Snapshots;
+			productReference = FD6559EF26F3B1E0002A229A /* Snapshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD792F2D26EA2F1D00BF2A42 /* Build configuration list for PBXNativeTarget "ABJC tvOS" */;
 			buildPhases = (
-				9EE9E219C6B8C110837D1FE0 /* [CP] Check Pods Manifest.lock */,
+				BEE22E9357FEC4C3CBC9E959 /* [CP] Check Pods Manifest.lock */,
 				FD792F0826EA2F1A00BF2A42 /* Sources */,
 				FD792F0926EA2F1A00BF2A42 /* Frameworks */,
 				FD792F0A26EA2F1A00BF2A42 /* Resources */,
-				D19CA750DBD4272282656280 /* [CP] Embed Pods Frameworks */,
+				F6D9DE89E42F4D1C6F5B97C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -569,6 +679,10 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					FD6559EE26F3B1E0002A229A = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = FD792F0B26EA2F1A00BF2A42;
+					};
 					FD792F0B26EA2F1A00BF2A42 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -601,11 +715,20 @@
 			targets = (
 				FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6026EF92F7000EEC36 /* ABJC (tvOS) UITests */,
+				FD6559EE26F3B1E0002A229A /* Snapshots */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FD6559ED26F3B1E0002A229A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD655A0126F3B773002A229A /* Constants.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD792F0A26EA2F1A00BF2A42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -628,7 +751,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9EE9E219C6B8C110837D1FE0 /* [CP] Check Pods Manifest.lock */ = {
+		BEE22E9357FEC4C3CBC9E959 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -650,7 +773,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D19CA750DBD4272282656280 /* [CP] Embed Pods Frameworks */ = {
+		F6D9DE89E42F4D1C6F5B97C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -670,6 +793,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FD6559EB26F3B1E0002A229A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD655A0326F3BEAE002A229A /* UITestConstants.swift in Sources */,
+				FD6559F226F3B1E0002A229A /* Snapshots.swift in Sources */,
+				FD6559FB26F3B20D002A229A /* SnapshotHelper.swift in Sources */,
+				FD655A0026F3B713002A229A /* UITestExtensions.swift in Sources */,
+				FD655A0226F3B773002A229A /* Constants.swift in Sources */,
+				FD6559FD26F3B234002A229A /* UITestHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD792F0826EA2F1A00BF2A42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,15 +819,18 @@
 				FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */,
 				FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */,
 				FDC9579C26EB949F00655F55 /* BaseItemDto+blurhash.swift in Sources */,
+				FD72335126F0E409007EAE08 /* PlayerView.swift in Sources */,
 				FD792F4826EA368300BF2A42 /* UDPBroadcast.swift in Sources */,
 				FD6351D126EB763E003E0534 /* Preferences+ClientView.swift in Sources */,
 				FDD63F8626EABB1F001E4363 /* Tabs.swift in Sources */,
 				FD6351E226EB843C003E0534 /* DetailViewDelegate.swift in Sources */,
 				FD792F4A26EA369200BF2A42 /* ServerDiscovery.swift in Sources */,
+				FD6559D326F398CB002A229A /* SeriesDetailView.swift in Sources */,
 				FD6351D426EB7871003E0534 /* InfoRow.swift in Sources */,
 				FD792F4C26EA3C0F00BF2A42 /* BackgroundGradient.swift in Sources */,
 				FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */,
 				FD72333F26F0A0E1007EAE08 /* Constants.swift in Sources */,
+				FD72335726F0E474007EAE08 /* VLCPlayerUIView.swift in Sources */,
 				FD6351CF26EB7600003E0534 /* Preferences+InfoView.swift in Sources */,
 				FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */,
 				FD792F5826EA5E4500BF2A42 /* AsyncImg.swift in Sources */,
@@ -705,6 +844,7 @@
 				FDC957A626EB9E0500655F55 /* BlurhashDecode.swift in Sources */,
 				FDC957A426EB99C900655F55 /* ButtonArea.swift in Sources */,
 				FDC957A026EB952A00655F55 /* Blurhash.swift in Sources */,
+				FD72335B26F0F619007EAE08 /* PlayerContainerView.swift in Sources */,
 				FD6351D626EB7885003E0534 /* ToggleRow.swift in Sources */,
 				FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */,
 				FDC957AA26EBA4CD00655F55 /* Tab.swift in Sources */,
@@ -714,16 +854,21 @@
 				FD72333A26F09E34007EAE08 /* CommandLineArguments.swift in Sources */,
 				FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */,
 				FD792F3F26EA30C600BF2A42 /* ViewDelegate.swift in Sources */,
+				FD72334C26F0D79D007EAE08 /* ViewIdentifier.swift in Sources */,
 				FD792F3A26EA302800BF2A42 /* AuthenticationView.swift in Sources */,
+				FD72334F26F0E403007EAE08 /* PlayerViewDelegate.swift in Sources */,
 				FD6411A426ED1AF2008E3170 /* AppEnvironment.swift in Sources */,
 				FD6351E526EB854B003E0534 /* MovieDetailView.swift in Sources */,
 				FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */,
 				FD6351CB26EB7556003E0534 /* PreferencesView.swift in Sources */,
+				FD72335D26F0F8C2007EAE08 /* PlayerControllsView.swift in Sources */,
 				FDD63F7726EAB759001E4363 /* LibraryViewDelegate.swift in Sources */,
 				FD6A9BAD26EBCD8200DF975C /* PeopleCardRow.swift in Sources */,
 				FD6A9BAF26EBCD8900DF975C /* PeopleCard.swift in Sources */,
 				FD6351E026EB8434003E0534 /* DetailView.swift in Sources */,
+				FD72334A26F0D60F007EAE08 /* PreferenceStore+summary.swift in Sources */,
 				FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */,
+				FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */,
 				FD6411A226ED1A97008E3170 /* AppConfiguration.swift in Sources */,
 				FD792F3726EA2F9500BF2A42 /* SessionStore.swift in Sources */,
 				FDC957A226EB95A600655F55 /* ImageBrightness.swift in Sources */,
@@ -733,6 +878,7 @@
 				FD687F1A26EE371B0034A622 /* NetworkError.swift in Sources */,
 				FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */,
 				FDD63F7C26EAB7F0001E4363 /* MediaCollectionViewDelegate.swift in Sources */,
+				FDADDCC926F2233000B2DF6F /* PlaybackBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,10 +887,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */,
-				FDD29D6E26EF9344000EEC36 /* ABJC__tvOS__UITests.swift in Sources */,
+				FD6559FF26F3B70A002A229A /* UITestExtensions.swift in Sources */,
+				FD6559D126F387CD002A229A /* LibraryUITests.swift in Sources */,
 				FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */,
-				FDD29D6F26EF9344000EEC36 /* ABJC__tvOS__UITestsLaunchTests.swift in Sources */,
+				FDD29D6F26EF9344000EEC36 /* GeneralTests.swift in Sources */,
 				FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */,
+				FD72335926F0E835007EAE08 /* PlaybackUITests.swift in Sources */,
+				FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */,
 				FD72334126F0ADA6007EAE08 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,6 +901,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FD6559F626F3B1E0002A229A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
+			targetProxy = FD6559F526F3B1E0002A229A /* PBXContainerItemProxy */;
+		};
 		FDD29D6826EF92F7000EEC36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
@@ -760,6 +914,54 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		FD6559F826F3B1E0002A229A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.Snapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "ABJC tvOS";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		FD6559F926F3B1E0002A229A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.Snapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "ABJC tvOS";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Release;
+		};
 		FD792EFD26EA2F0500BF2A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -878,12 +1080,12 @@
 		};
 		FD792F2E26EA2F1D00BF2A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C4A5C84A06544107D1CEFEA /* Pods-ABJC tvOS.debug.xcconfig */;
+			baseConfigurationReference = 48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC tvOS/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
@@ -910,12 +1112,12 @@
 		};
 		FD792F2F26EA2F1D00BF2A42 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6B52AD2D127960E682FB337 /* Pods-ABJC tvOS.release.xcconfig */;
+			baseConfigurationReference = 4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC tvOS/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
@@ -991,6 +1193,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FD6559F726F3B1E0002A229A /* Build configuration list for PBXNativeTarget "Snapshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD6559F826F3B1E0002A229A /* Debug */,
+				FD6559F926F3B1E0002A229A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FD792ED626EA2F0200BF2A42 /* Build configuration list for PBXProject "ABJC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

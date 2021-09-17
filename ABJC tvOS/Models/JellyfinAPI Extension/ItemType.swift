@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ItemType: String {
+enum ItemType: String, Encodable {
     case movie = "Movie"
     case series = "Series"
     case episode = "Episode"
