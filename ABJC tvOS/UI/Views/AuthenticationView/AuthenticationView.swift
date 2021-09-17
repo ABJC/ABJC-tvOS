@@ -19,7 +19,7 @@ struct AuthenticationView: View {
             HStack(alignment: .center) {
                 // ABJC Logo
                 VStack {
-                    Image("logo_wide")
+                    Image("logo_stacked")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .scaleEffect(0.75)
@@ -38,6 +38,7 @@ struct AuthenticationView: View {
             }
         }
         .abjcAlert($store.alert)
+        .background(BackgroundViews.gradient)
     }
 
     var serverSelectionView: some View {

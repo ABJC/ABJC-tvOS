@@ -15,14 +15,11 @@ struct MainView: View {
     var session = SessionStore.shared
 
     var body: some View {
-        ZStack {
-            BackgroundViews.gradient
-            Group {
-                if session.isAuthenticated {
-                    LibraryView()
-                } else {
-                    AuthenticationView()
-                }
+        Group {
+            if session.isAuthenticated {
+                LibraryView()
+            } else {
+                AuthenticationView()
             }
         }
     }

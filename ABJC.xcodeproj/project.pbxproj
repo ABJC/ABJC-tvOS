@@ -125,9 +125,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		74874B6683CCCAC14778BBD8 /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EC7789183B3CCDA3F726DD /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewDelegate.swift; sourceTree = "<group>"; };
 		FD6351C426EB6F24003E0534 /* MediaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCard.swift; sourceTree = "<group>"; };
 		FD6351C626EB7227003E0534 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -250,12 +250,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B59F07F9EB01FF8D8E67E00 /* Pods */ = {
+		0FA00CC754AF1978FB87512B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */,
-				4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */,
+				74874B6683CCCAC14778BBD8 /* Pods-ABJC tvOS.debug.xcconfig */,
+				F8EC7789183B3CCDA3F726DD /* Pods-ABJC tvOS.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -376,11 +377,11 @@
 				FD72333B26F0A07E007EAE08 /* Constants.plist */,
 				FD72333E26F0A0E1007EAE08 /* Constants.swift */,
 				FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */,
-				FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */,
+				FDD29D6226EF92F7000EEC36 /* ABJCUITests */,
 				FD6559F026F3B1E0002A229A /* Snapshots */,
 				FD792EDC26EA2F0200BF2A42 /* Products */,
-				2B59F07F9EB01FF8D8E67E00 /* Pods */,
 				948DECD89EC453E75950DA9D /* Frameworks */,
+				0FA00CC754AF1978FB87512B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -532,7 +533,7 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		FDD29D6226EF92F7000EEC36 /* ABJC (tvOS) UITests */ = {
+		FDD29D6226EF92F7000EEC36 /* ABJCUITests */ = {
 			isa = PBXGroup;
 			children = (
 				FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */,
@@ -544,7 +545,7 @@
 				FD6559FE26F3B70A002A229A /* UITestExtensions.swift */,
 				FDD29D7226EFB265000EEC36 /* UITestConstants.swift */,
 			);
-			path = "ABJC (tvOS) UITests";
+			path = ABJCUITests;
 			sourceTree = "<group>";
 		};
 		FDD63F7026EAA9A3001E4363 /* Views */ = {
@@ -1080,7 +1081,7 @@
 		};
 		FD792F2E26EA2F1D00BF2A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48CD51F5CF1F395559B4C3BC /* Pods-ABJC tvOS.debug.xcconfig */;
+			baseConfigurationReference = 74874B6683CCCAC14778BBD8 /* Pods-ABJC tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1112,7 +1113,7 @@
 		};
 		FD792F2F26EA2F1D00BF2A42 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4AB854BC9FFA4755CB21B016 /* Pods-ABJC tvOS.release.xcconfig */;
+			baseConfigurationReference = F8EC7789183B3CCDA3F726DD /* Pods-ABJC tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

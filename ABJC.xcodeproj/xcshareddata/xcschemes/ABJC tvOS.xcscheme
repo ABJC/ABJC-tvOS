@@ -68,6 +68,9 @@
                <Test
                   Identifier = "AuthenticationUITests/testManualUserEntryFields()">
                </Test>
+               <Test
+                  Identifier = "PlaybackUITests">
+               </Test>
             </SkippedTests>
          </TestableReference>
          <TestableReference

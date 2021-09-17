@@ -31,7 +31,7 @@ class TestflightAnalyticsEngine: AnalyticsEngine {
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         request.httpMethod = "POST"
         request.httpBody = try? JSONEncoder().encode(report)
-
+        
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 print(error)
