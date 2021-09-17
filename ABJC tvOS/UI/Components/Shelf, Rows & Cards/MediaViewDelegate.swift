@@ -13,7 +13,7 @@ class MediaViewDelegate: ViewDelegate {
     public var edgeInsets = EdgeInsets(top: 20, leading: 80, bottom: 50, trailing: 80)
 
     public var cardSize: CGSize {
-        return preferences.posterType == .poster
+        preferences.posterType == .poster
             ? CGSize(width: 225, height: 337.5)
             : CGSize(width: 548, height: 308.25)
     }
@@ -29,6 +29,6 @@ class MediaViewDelegate: ViewDelegate {
 
     /// Title image  aspect ratio
     public var imageAspectRatio: CGFloat {
-        return preferences.posterType == .poster ? 2 / 3 : 16 / 9
+        preferences.posterType == .poster ? 2 / 3 : 16 / 9
     }
 }

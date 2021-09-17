@@ -105,6 +105,7 @@
 		FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */; };
 		FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8D26EABC4F001E4363 /* Version.swift */; };
 		FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8F26EABD4B001E4363 /* ItemType.swift */; };
+		FDE60C2E26F50E0B009E123F /* formattests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE60C2D26F50E0A009E123F /* formattests.swift */; };
 		FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C8E26F2547B00C738C3 /* PlayButton.swift */; };
 		FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */; };
 /* End PBXBuildFile section */
@@ -217,6 +218,7 @@
 		FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaFlag.swift; sourceTree = "<group>"; };
 		FDD63F8D26EABC4F001E4363 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		FDD63F8F26EABD4B001E4363 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		FDE60C2D26F50E0A009E123F /* formattests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = formattests.swift; sourceTree = "<group>"; };
 		FDF62C8E26F2547B00C738C3 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -405,6 +407,7 @@
 			children = (
 				FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */,
 				FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */,
+				FDE60C2D26F50E0A009E123F /* formattests.swift */,
 				FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */,
 				FD792F4526EA367000BF2A42 /* Logic */,
 				FD792F5026EA45A900BF2A42 /* Models */,
@@ -639,6 +642,7 @@
 				FD792F0A26EA2F1A00BF2A42 /* Resources */,
 				F6D9DE89E42F4D1C6F5B97C1 /* [CP] Embed Pods Frameworks */,
 				FD3C398D26F4F72D00BFC2E8 /* ShellScript */,
+				FDE60C2C26F50D06009E123F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -799,7 +803,6 @@
 		};
 		FD3C398D26F4F72D00BFC2E8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -813,7 +816,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		FDE60C2C26F50D06009E123F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -867,6 +887,7 @@
 				FD687F1326EE2C0A0034A622 /* DeviceInfo.swift in Sources */,
 				FD792F4F26EA3F5200BF2A42 /* ViewModifiers.swift in Sources */,
 				FD6351CD26EB755D003E0534 /* PreferencesViewDelegate.swift in Sources */,
+				FDE60C2E26F50E0B009E123F /* formattests.swift in Sources */,
 				FDC957A626EB9E0500655F55 /* BlurhashDecode.swift in Sources */,
 				FDC957A426EB99C900655F55 /* ButtonArea.swift in Sources */,
 				FDC957A026EB952A00655F55 /* Blurhash.swift in Sources */,

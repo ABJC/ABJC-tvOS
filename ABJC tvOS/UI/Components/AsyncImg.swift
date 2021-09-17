@@ -27,7 +27,14 @@ struct AsyncImg<I: View, P: View>: View {
                     #warning("Replace palceholder with AsyncImage for iOS 15")
                     AsyncImage(url: url, content: content, placeholder: placeholder)
                 } else {
-                    URLImage(url, identifier: url.absoluteString, empty: placeholder, inProgress: { _ in placeholder() }, failure: { _, _ in placeholder() }, content: content)
+                    URLImage(
+                        url,
+                        identifier: url.absoluteString,
+                        empty: placeholder,
+                        inProgress: { _ in placeholder() },
+                        failure: { _, _ in placeholder() },
+                        content: content
+                    )
                 }
             } else {
                 placeholder()

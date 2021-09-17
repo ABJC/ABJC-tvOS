@@ -17,7 +17,7 @@ struct ErrorMessage: Identifiable {
     let displayMessage: String
 
     var id: String {
-        return "\(code)\(title)\(displayMessage)"
+        "\(code)\(title)\(displayMessage)"
     }
 
     /// If the custom displayMessage is `nil`, it will be set to the given logConstructor's message
@@ -51,13 +51,19 @@ class ViewDelegate: ObservableObject {
         //        loading.loading.assign(to: \.isLoading, on: self).store(in: &cancellables)
     }
 
-    func handleApiError(_ error: Error, with metadata: [String: AnyEncodable] = [:], function: String = #function, file: String = #file, line: UInt = #line) {
+    func handleApiError(
+        _ error: Error,
+        with metadata: [String: AnyEncodable] = [:],
+        function: String = #function,
+        file: String = #file,
+        line: UInt = #line
+    ) {
         var metadata = metadata
 
         metadata["error-location"] = [
             "file": file,
             "line": line,
-            "function": function
+            "function": function,
         ]
 
         if let errorResponse = error as? ErrorResponse {

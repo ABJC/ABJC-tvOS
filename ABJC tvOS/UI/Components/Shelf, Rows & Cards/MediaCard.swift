@@ -12,13 +12,13 @@ struct MediaCard: View {
     /// Media Item
     @ObservedObject
     var store: MediaViewDelegate
-    
+
     /// Media Item
     public let item: BaseItemDto
-    
+
     @State
     private var imageUrl: URL?
-    
+
     func loadImageUrl() {
         guard let itemId = item.id else {
             return
@@ -26,12 +26,12 @@ struct MediaCard: View {
         let imageType: ImageType = store.preferences.posterType == .poster ? .primary : .backdrop
         ImageAPI.getItemImage(itemId: itemId, imageType: imageType) { result in
             switch result {
-                case let .success(url): self.imageUrl = url
-                case let .failure(error): print(error)
+            case let .success(url): self.imageUrl = url
+            case let .failure(error): print(error)
             }
         }
     }
-    
+
     var body: some View {
         VStack {
             ZStack {
@@ -56,18 +56,16 @@ struct MediaCard: View {
         }.onAppear(perform: loadImageUrl)
             .accessibilityIdentifier(item.name ?? "No Title")
     }
-    
+
     private var uglymode: some View {
         Blur()
-            .overlay(
-                VStack {
-                    Text(item.name ?? "No Title")
-                        .font(.headline)
-                    Text(item.productionYear != nil ? "(" + String(item.productionYear!) + ")" : "")
-                }.padding()
-            )
+            .overlay(VStack {
+                Text(item.name ?? "No Title")
+                    .font(.headline)
+                Text(item.productionYear != nil ? "(" + String(item.productionYear!) + ")" : "")
+            }.padding())
     }
-    
+
     /// Placeholder for missing URLImage
     private var blur: some View {
         ZStack(alignment: .center) {
@@ -80,7 +78,7 @@ struct MediaCard: View {
             }.padding()
         }
     }
-    
+
     /// URLImage
     private var image: some View {
         AsyncImg(url: imageUrl) { image in
@@ -98,7 +96,7 @@ struct MediaCard: View {
             }
         }
     }
-    
+
     /// Placeholder for loading URLImage
     private var placeholder: some View {
         //        Image(uiImage: UIImage(blurHash: self.item.blurHash(for: .backdrop) ?? self.item.blurHash(for: .primary) ?? "", size: CGSize(width: 8, height: 8)) ?? UIImage())
@@ -106,7 +104,7 @@ struct MediaCard: View {
         //            .resizable()
         Blur()
     }
-    
+
     /// PlaybackPosition Overlay
     private var overlay: some View {
         VStack {

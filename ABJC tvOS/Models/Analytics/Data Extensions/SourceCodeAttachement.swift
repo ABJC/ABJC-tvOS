@@ -8,7 +8,6 @@
 import Foundation
 
 class SourceCodeAttachement: Encodable {
-
     let file: String
     let line: UInt
     let function: String

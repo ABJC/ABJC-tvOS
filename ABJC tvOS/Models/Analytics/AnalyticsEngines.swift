@@ -11,7 +11,8 @@ import Foundation
 class MockAnalyticsEngine: AnalyticsEngine {
     func send(_ report: AnalyticsReport) {
         if let data = try? JSONEncoder().encode(report),
-           let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+           let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+        {
             print("REPORT '\(report.eventName)'", json)
         } else {
             print("REPORT '\(report.eventName)'")

@@ -11,14 +11,18 @@ extension View {
     func abjcAlert(_ binding: SwiftUI.Binding<AlertObject?>) -> some View {
         alert(item: binding) { alert in
             if !alert.hasTwoButtons {
-                return Alert(title: alert.title,
-                             message: alert.message,
-                             dismissButton: alert.primaryBtn)
+                return Alert(
+                    title: alert.title,
+                    message: alert.message,
+                    dismissButton: alert.primaryBtn
+                )
             } else {
-                return Alert(title: alert.title,
-                             message: alert.message,
-                             primaryButton: alert.primaryBtn,
-                             secondaryButton: alert.secondaryBtn)
+                return Alert(
+                    title: alert.title,
+                    message: alert.message,
+                    primaryButton: alert.primaryBtn,
+                    secondaryButton: alert.secondaryBtn
+                )
             }
         }
     }

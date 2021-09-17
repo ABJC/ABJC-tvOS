@@ -33,7 +33,7 @@ public struct Constants: Codable {
     }
 
     static var current: Constants? {
-        return with(bundle: .main)
+        with(bundle: .main)
     }
 }
 
@@ -52,7 +52,7 @@ extension Constants {
         var path: String
 
         var uri: String {
-            return scheme + "://" + host + ":" + port + path
+            scheme + "://" + host + ":" + port + path
         }
     }
 }

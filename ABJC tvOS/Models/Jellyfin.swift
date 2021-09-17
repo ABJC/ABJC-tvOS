@@ -19,7 +19,7 @@ class Jellyfin {
         var path: String
 
         var baseURI: String {
-            return "\(scheme)//\(host):\(port)/\(path)"
+            "\(scheme)//\(host):\(port)/\(path)"
         }
 
         init(discovered server: ServerDiscovery.ServerLookupResponse) {

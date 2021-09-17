@@ -161,14 +161,28 @@ class UITestHelpers {
 
     static func takeScreenshot(_ name: String, _ lifetime: XCTAttachment.Lifetime = .deleteOnSuccess) -> XCTAttachment {
         let fullScreenshot = XCUIScreen.main.screenshot()
-        let screenshot = XCTAttachment(uniformTypeIdentifier: "public.png", name: "Screenshot-\(name)-\(UIDevice.current.name).png", payload: fullScreenshot.pngRepresentation, userInfo: nil)
+        let screenshot = XCTAttachment(
+            uniformTypeIdentifier: "public.png",
+            name: "Screenshot-\(name)-\(UIDevice.current.name).png",
+            payload: fullScreenshot.pngRepresentation,
+            userInfo: nil
+        )
         screenshot.lifetime = lifetime
         return screenshot
     }
 
-    static func takeScreenshot(_ name: String, of element: XCUIElement, _ lifetime: XCTAttachment.Lifetime = .deleteOnSuccess) -> XCTAttachment {
+    static func takeScreenshot(
+        _ name: String,
+        of element: XCUIElement,
+        _ lifetime: XCTAttachment.Lifetime = .deleteOnSuccess
+    ) -> XCTAttachment {
         let fullScreenshot = element.screenshot()
-        let screenshot = XCTAttachment(uniformTypeIdentifier: "public.png", name: "Screenshot-\(name)-\(UIDevice.current.name).png", payload: fullScreenshot.pngRepresentation, userInfo: nil)
+        let screenshot = XCTAttachment(
+            uniformTypeIdentifier: "public.png",
+            name: "Screenshot-\(name)-\(UIDevice.current.name).png",
+            payload: fullScreenshot.pngRepresentation,
+            userInfo: nil
+        )
         screenshot.lifetime = lifetime
         return screenshot
     }

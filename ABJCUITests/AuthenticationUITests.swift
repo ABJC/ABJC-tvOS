@@ -71,10 +71,12 @@ class AuthenticationUITests: XCTestCase {
         UITestHelpers.findAndPressButton(app.buttons["enterServerManuallyBtn"], .down)
 
         // manually enter server information
-        UITestHelpers.authConnectToServer(app,
-                                          host: constants.serverHost,
-                                          port: constants.serverPort,
-                                          path: constants.serverPath)
+        UITestHelpers.authConnectToServer(
+            app,
+            host: constants.serverHost,
+            port: constants.serverPort,
+            path: constants.serverPath
+        )
     }
 
     /// Test Manually Connecting to Server
@@ -99,10 +101,12 @@ class AuthenticationUITests: XCTestCase {
         UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
 
         // manually enter server information
-        UITestHelpers.authConnectToServer(app,
-                                          host: constants.serverHost,
-                                          port: constants.serverPort,
-                                          path: constants.serverPath)
+        UITestHelpers.authConnectToServer(
+            app,
+            host: constants.serverHost,
+            port: constants.serverPort,
+            path: constants.serverPath
+        )
 
         // Navigate to Manual User Entry Screen
         UITestHelpers.findAndPressButton(app.buttons["manualUserBtn"], .down)
@@ -142,18 +146,22 @@ class AuthenticationUITests: XCTestCase {
             UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
 
             // manually enter server information
-            UITestHelpers.authConnectToServer(app,
-                                              host: constants.serverHost,
-                                              port: constants.serverPort,
-                                              path: constants.serverPath)
+            UITestHelpers.authConnectToServer(
+                app,
+                host: constants.serverHost,
+                port: constants.serverPort,
+                path: constants.serverPath
+            )
 
             // Navigate to Manual User Entry Screen
             UITestHelpers.findAndPressButton(app.buttons["manualUserBtn"], .down)
 
             // manually enter user information
-            UITestHelpers.authAuthenticateUser(app,
-                                               username: username,
-                                               password: password)
+            UITestHelpers.authAuthenticateUser(
+                app,
+                username: username,
+                password: password
+            )
 
             // Take Screenshot
             add(UITestHelpers.takeScreenshot("ManualUserEntry-\(username)-\(password)"))
@@ -163,23 +171,31 @@ class AuthenticationUITests: XCTestCase {
 
         // Test with correct credentials
         let resultCorrect = test(username: constants.manualUserName, password: constants.manualUserPass)
-        XCTAssert(resultCorrect.otherElements["main-nav"].waitForExistence(timeout: 15.0),
-                  "Authenticated Successfully")
+        XCTAssert(
+            resultCorrect.otherElements["main-nav"].waitForExistence(timeout: 15.0),
+            "Authenticated Successfully"
+        )
 
         // Test with wrong username
         let resultWrongUser = test(username: "wrongUser", password: constants.manualUserPass)
-        XCTAssert(resultWrongUser.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
-                  "Alert 'Authentication Failure' displayed")
+        XCTAssert(
+            resultWrongUser.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
+            "Alert 'Authentication Failure' displayed"
+        )
 
         // Test with wrong password
         let resultWrongPass = test(username: constants.manualUserName, password: "wrongPassword")
-        XCTAssert(resultWrongPass.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
-                  "Alert 'Authentication Failure' displayed")
+        XCTAssert(
+            resultWrongPass.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
+            "Alert 'Authentication Failure' displayed"
+        )
 
         // Test with wrong username and password
         let resultWrongAll = test(username: "wrongUser", password: "wrongPassword")
-        XCTAssert(resultWrongAll.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
-                  "Alert 'Authentication Failure' displayed")
+        XCTAssert(
+            resultWrongAll.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
+            "Alert 'Authentication Failure' displayed"
+        )
     }
 
     /// Test Authenticating Public Users
@@ -193,10 +209,12 @@ class AuthenticationUITests: XCTestCase {
             UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
 
             // manually enter server information
-            UITestHelpers.authConnectToServer(app,
-                                              host: constants.serverHost,
-                                              port: constants.serverPort,
-                                              path: constants.serverPath)
+            UITestHelpers.authConnectToServer(
+                app,
+                host: constants.serverHost,
+                port: constants.serverPort,
+                path: constants.serverPath
+            )
 
             XCTAssert(app.buttons["manualUserBtn"].waitForExistence(timeout: 15.0))
             completion(app)
@@ -232,10 +250,14 @@ class AuthenticationUITests: XCTestCase {
 
             UITestHelpers.findAndPressButton(continueButton, .down)
 
-            XCTAssertFalse(app.alerts["Authentication failed"].waitForExistence(timeout: 5.0),
-                           "No Alert 'Authentication Failure' displayed")
-            XCTAssert(app.tabBars.count == 1,
-                      "Authenticated Successfully")
+            XCTAssertFalse(
+                app.alerts["Authentication failed"].waitForExistence(timeout: 5.0),
+                "No Alert 'Authentication Failure' displayed"
+            )
+            XCTAssert(
+                app.tabBars.count == 1,
+                "Authenticated Successfully"
+            )
             testWithPasswordSuccess.fulfill()
         }
 
@@ -265,8 +287,10 @@ class AuthenticationUITests: XCTestCase {
 
             UITestHelpers.findAndPressButton(continueButton, .down)
 
-            XCTAssert(app.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
-                      "Alert 'Authentication Failure' displayed")
+            XCTAssert(
+                app.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
+                "Alert 'Authentication Failure' displayed"
+            )
             testWithPasswordFail.fulfill()
         }
 
@@ -279,10 +303,14 @@ class AuthenticationUITests: XCTestCase {
             XCTAssert(userBtn.waitForExistence(timeout: 15.0))
             UITestHelpers.findAndPressButton(userBtn, .up)
 
-            XCTAssertFalse(app.alerts["Authentication failed"].waitForExistence(timeout: 5.0),
-                           "No Alert 'Authentication Failure' displayed")
-            XCTAssert(app.tabBars.count == 1,
-                      "Authenticated Successfully")
+            XCTAssertFalse(
+                app.alerts["Authentication failed"].waitForExistence(timeout: 5.0),
+                "No Alert 'Authentication Failure' displayed"
+            )
+            XCTAssert(
+                app.tabBars.count == 1,
+                "Authenticated Successfully"
+            )
             testWithoutPassword.fulfill()
         }
 

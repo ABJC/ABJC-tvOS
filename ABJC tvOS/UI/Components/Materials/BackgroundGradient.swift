@@ -15,10 +15,12 @@ extension View {
 
 enum BackgroundViews {
     static var gradient: some View {
-        LinearGradient(colors: [Color(uiColor: .init(red: 0.003, green: 0.095, blue: 0.310, alpha: 1))],
-                       startPoint: .topLeading,
-                       endPoint: .bottomTrailing)
-            .edgesIgnoringSafeArea(.all)
+        LinearGradient(
+            colors: [Color(uiColor: .init(red: 0.003, green: 0.095, blue: 0.310, alpha: 1))],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        .edgesIgnoringSafeArea(.all)
     }
 
     static var blur: some View {

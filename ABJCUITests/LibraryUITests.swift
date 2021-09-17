@@ -23,7 +23,7 @@ class LibraryUITests: XCTestCase {
             "enable-testing",
             "reset-stores",
             "authenticate",
-            "user=user_hidden"
+            "user=user_hidden",
         ]
         app.launch()
     }

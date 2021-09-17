@@ -29,7 +29,7 @@ public struct LegacyBlur: UIViewRepresentable {
     }
 
     public func makeUIView(context _: Context) -> UIVisualEffectView {
-        return UIVisualEffectView(effect: UIBlurEffect(style: style))
+        UIVisualEffectView(effect: UIBlurEffect(style: style))
     }
 
     public func updateUIView(_ uiView: UIVisualEffectView, context _: Context) {

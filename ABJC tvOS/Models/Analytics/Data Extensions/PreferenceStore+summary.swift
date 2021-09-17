@@ -10,12 +10,12 @@ import Foundation
 
 extension PreferenceStore {
     var analyticsData: [String: AnyEncodable] {
-        return [
+        [
             Keys.betaflags: .init(betaflags),
             Keys.grouping: .init(collectionGrouping),
             Keys.debugMode: .init(isDebugEnabled),
             Keys.posterType: .init(posterType),
-            Keys.showsTitles: .init(showsTitles)
+            Keys.showsTitles: .init(showsTitles),
         ]
     }
 }

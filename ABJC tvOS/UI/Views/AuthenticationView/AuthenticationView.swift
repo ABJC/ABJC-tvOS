@@ -182,9 +182,11 @@ struct AuthenticationView: View {
                                     HStack {
                                         UserAvatarView(user: user)
                                             .frame(width: 60, height: 60, alignment: .center)
-                                            .overlay(Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
-                                                .padding(2),
-                                                alignment: .bottomLeading)
+                                            .overlay(
+                                                Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
+                                                    .padding(2),
+                                                alignment: .bottomLeading
+                                            )
                                             .padding()
 
                                         VStack(alignment: .leading) {

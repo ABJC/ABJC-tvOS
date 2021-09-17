@@ -24,7 +24,7 @@ public struct Version {
     public let build: Int?
 
     public var isTestFlight: Bool {
-        return build != nil
+        build != nil
     }
 
     public init() {

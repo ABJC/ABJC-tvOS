@@ -5,8 +5,8 @@
 //  Created by Noah Kamara on 26.03.21.
 //
 
-import XCTest
 @testable import ABJC
+import XCTest
 
 class APITests: XCTestCase {
 //    #warning("Change Server & Authentication Info before testing")
@@ -30,20 +30,20 @@ class APITests: XCTestCase {
         let expect = expectation(description: "Waiting for Authorization")
         API.authorize(server, client, username, password) { result in
             switch result {
-                case .success(let jellyfin):
-                    self.jellyfin = jellyfin
-                    API.items(jellyfin) { result in
-                        switch result {
-                            case .success(let items):
-                                self.testMovieItem = items.first(where: { $0.type == .movie})
-                                self.testSeriesItem = items.first(where: { $0.type == .series})
-                            case .failure: break
-                        }
-                        expect.fulfill()
+            case let .success(jellyfin):
+                self.jellyfin = jellyfin
+                API.items(jellyfin) { result in
+                    switch result {
+                    case let .success(items):
+                        self.testMovieItem = items.first(where: { $0.type == .movie })
+                        self.testSeriesItem = items.first(where: { $0.type == .series })
+                    case .failure: break
                     }
-                case .failure(let error):
-                    print(error)
-                    fatalError("Couldn't authorize")
+                    expect.fulfill()
+                }
+            case let .failure(error):
+                print(error)
+                fatalError("Couldn't authorize")
             }
         }
 
@@ -53,10 +53,10 @@ class APITests: XCTestCase {
     func testSystemInfo() {
         let expect = expectation(description: "")
 
-        API.systemInfo(self.jellyfin) { result in
+        API.systemInfo(jellyfin) { result in
             do {
                 _ = try result.get()
-            } catch let error {
+            } catch {
                 print(error)
                 XCTFail("Failed API.systemInfo")
             }
@@ -67,13 +67,9 @@ class APITests: XCTestCase {
         wait(for: [expect], timeout: 60.0)
     }
 
-    func testLatest() {
+    func testLatest() {}
 
-    }
-
-    func testFavorites() {
-
-    }
+    func testFavorites() {}
 
     func testItems() {
         let expect = expectation(description: "")
@@ -81,7 +77,7 @@ class APITests: XCTestCase {
         API.items(jellyfin) { result in
             do {
                 _ = try result.get()
-            } catch let error {
+            } catch {
                 print(error)
                 XCTFail("Fetching Items Failed")
             }
@@ -102,7 +98,7 @@ class APITests: XCTestCase {
         API.movie(jellyfin, movieId) { result in
             do {
                 _ = try result.get()
-            } catch let error {
+            } catch {
                 print(error)
                 XCTFail("Failed API.movie")
             }
@@ -123,7 +119,7 @@ class APITests: XCTestCase {
         API.seasons(jellyfin, seriesId) { result in
             do {
                 _ = try result.get()
-            } catch let error {
+            } catch {
                 print(error)
                 XCTFail("Failed API.seasons")
             }
@@ -144,7 +140,7 @@ class APITests: XCTestCase {
         API.episodes(jellyfin, seriesId) { result in
             do {
                 _ = try result.get()
-            } catch let error {
+            } catch {
                 print(error)
                 XCTFail("Failed API.episodes")
             }
@@ -161,7 +157,7 @@ class APITests: XCTestCase {
         API.searchItems(jellyfin, itemQuery) { result in
             do {
                 _ = try result.get()
-            } catch let error {
+            } catch {
                 print(error)
                 XCTFail("Failed API.searchItems")
             }
@@ -171,7 +167,7 @@ class APITests: XCTestCase {
         API.searchPeople(jellyfin, peopleQuery) { result in
             do {
                 _ = try result.get()
-            } catch let error {
+            } catch {
                 print(error)
                 XCTFail("Failed API.searchPeople")
             }

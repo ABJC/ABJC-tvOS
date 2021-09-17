@@ -11,12 +11,12 @@ enum ViewIdentifier: Encodable {
     case auth
     case library(ItemType)
     case detail(ItemType)
-    
+
     var rawValue: String {
         switch self {
-            case .auth: return "auth"
-            case let .library(type): return "library-\(type)"
-            case let .detail(type): return "detail-\(type)"
+        case .auth: return "auth"
+        case let .library(type): return "library-\(type)"
+        case let .detail(type): return "detail-\(type)"
         }
     }
 }

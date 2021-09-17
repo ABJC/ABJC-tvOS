@@ -80,8 +80,19 @@ public extension UIImage {
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
 
         guard let provider = CGDataProvider(data: data) else { return nil }
-        guard let cgImage = CGImage(width: width, height: height, bitsPerComponent: 8, bitsPerPixel: 24, bytesPerRow: bytesPerRow,
-                                    space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: bitmapInfo, provider: provider, decode: nil, shouldInterpolate: true, intent: .defaultIntent) else { return nil }
+        guard let cgImage = CGImage(
+            width: width,
+            height: height,
+            bitsPerComponent: 8,
+            bitsPerPixel: 24,
+            bytesPerRow: bytesPerRow,
+            space: CGColorSpaceCreateDeviceRGB(),
+            bitmapInfo: bitmapInfo,
+            provider: provider,
+            decode: nil,
+            shouldInterpolate: true,
+            intent: .defaultIntent
+        ) else { return nil }
 
         self.init(cgImage: cgImage)
     }
@@ -99,15 +110,17 @@ private func decodeAC(_ value: Int, maximumValue: Float) -> (Float, Float, Float
     let quantG = (value / 19) % 19
     let quantB = value % 19
 
-    let rgb = (signPow((Float(quantR) - 9) / 9, 2) * maximumValue,
-               signPow((Float(quantG) - 9) / 9, 2) * maximumValue,
-               signPow((Float(quantB) - 9) / 9, 2) * maximumValue)
+    let rgb = (
+        signPow((Float(quantR) - 9) / 9, 2) * maximumValue,
+        signPow((Float(quantG) - 9) / 9, 2) * maximumValue,
+        signPow((Float(quantB) - 9) / 9, 2) * maximumValue
+    )
 
     return rgb
 }
 
 private func signPow(_ value: Float, _ exp: Float) -> Float {
-    return copysign(pow(abs(value), exp), value)
+    copysign(pow(abs(value), exp), value)
 }
 
 private func linearTosRGB(_ value: Float) -> Int {
@@ -146,7 +159,7 @@ extension String {
 
 private extension String {
     subscript(offset: Int) -> Character {
-        return self[index(startIndex, offsetBy: offset)]
+        self[index(startIndex, offsetBy: offset)]
     }
 
     subscript(bounds: CountableClosedRange<Int>) -> Substring {

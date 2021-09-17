@@ -15,15 +15,15 @@ public extension PreferenceStore {
         case search = "Searchh"
 
         public var label: LocalizedStringKey {
-            return .init(rawValue)
+            .init(rawValue)
         }
 
         public var description: LocalizedStringKey {
-            return .init("")
+            .init("")
         }
 
         public static var `default`: Set<Tabs> {
-            return Set([Tabs.movies, Tabs.series, Tabs.search])
+            Set([Tabs.movies, Tabs.series, Tabs.search])
         }
     }
 }
@@ -52,6 +52,6 @@ public extension Set where Element == PreferenceStore.Tabs {
     }
 
     func isEnabled(_ tab: Element) -> Bool {
-        return contains(tab)
+        contains(tab)
     }
 }

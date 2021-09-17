@@ -5,11 +5,10 @@
 //  Created by Noah Kamara on 17.09.21.
 //
 
-import Foundation
 import AnyCodable
+import Foundation
 
 class AppError: Encodable {
-
     let location: SourceCodeAttachement
     let data: [String: AnyEncodable]
 

@@ -29,6 +29,6 @@ extension CGImage {
 
 extension UIImage {
     var brightness: Double {
-        return (cgImage?.brightness)!
+        (cgImage?.brightness)!
     }
 }

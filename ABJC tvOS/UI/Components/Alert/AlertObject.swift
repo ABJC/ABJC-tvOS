@@ -15,19 +15,19 @@ class AlertObject: Identifiable {
     public let _secondaryBtn: Alert.Button?
 
     var title: Text {
-        return Text(_title)
+        Text(_title)
     }
 
     var message: Text {
-        return Text(_message)
+        Text(_message)
     }
 
     var primaryBtn: Alert.Button {
-        return _primaryBtn!
+        _primaryBtn!
     }
 
     var secondaryBtn: Alert.Button {
-        return _secondaryBtn!
+        _secondaryBtn!
     }
 
     var hasTwoButtons: Bool {
@@ -51,6 +51,12 @@ class AlertObject: Identifiable {
     }
 
     convenience init(_ alert: Alerts) {
-        self.init(id: alert.rawValue, title: alert.title, message: alert.message, primaryBtn: alert.primaryBtn, secondaryBtn: alert.secondaryBtn)
+        self.init(
+            id: alert.rawValue,
+            title: alert.title,
+            message: alert.message,
+            primaryBtn: alert.primaryBtn,
+            secondaryBtn: alert.secondaryBtn
+        )
     }
 }

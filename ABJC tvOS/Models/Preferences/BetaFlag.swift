@@ -20,11 +20,11 @@ public extension PreferenceStore {
         case watchnowtab
 
         public var label: LocalizedStringKey {
-            return .init("betaflags." + rawValue + ".label")
+            .init("betaflags." + rawValue + ".label")
         }
 
         public var description: LocalizedStringKey {
-            return .init("betaflags." + rawValue + ".descr")
+            .init("betaflags." + rawValue + ".descr")
         }
 
         public static func availableFlags() -> [BetaFlag] {
@@ -33,10 +33,10 @@ public extension PreferenceStore {
         }
 
         public static func configuration() -> [BetaFlag: Bool] {
-            return [
+            [
                 .uglymode: true,
                 .singlePageMode: false,
-                .watchnowtab: false
+                .watchnowtab: false,
             ]
         }
     }
@@ -66,6 +66,6 @@ public extension Set where Element == PreferenceStore.BetaFlag {
     }
 
     func isEnabled(_ flag: Element) -> Bool {
-        return contains(flag)
+        contains(flag)
     }
 }

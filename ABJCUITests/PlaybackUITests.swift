@@ -19,7 +19,7 @@ class PlaybackUITests: XCTestCase {
         app.launchArguments = [
             "enable-testing",
             "authenticate",
-            "user=user_hidden"
+            "user=user_hidden",
         ]
         app.launch()
     }

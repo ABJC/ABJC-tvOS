@@ -43,10 +43,12 @@ class Snapshots: XCTestCase {
         // User Selection
         withApp(["enable-testing", "reset-stores"]) { app in
             UITestHelpers.findAndPressButton(app.buttons["enterServerManuallyBtn"], .down)
-            UITestHelpers.authConnectToServer(app,
-                                              host: constants.serverHost,
-                                              port: constants.serverPort,
-                                              path: constants.serverPath)
+            UITestHelpers.authConnectToServer(
+                app,
+                host: constants.serverHost,
+                port: constants.serverPort,
+                path: constants.serverPath
+            )
 
             // UserSelectionUI
             snapshot("UserSelectionUI")

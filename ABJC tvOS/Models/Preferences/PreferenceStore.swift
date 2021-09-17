@@ -35,7 +35,7 @@ public class PreferenceStore: ObservableObject {
         Keys.grouping: CollectionGrouping.default.rawValue,
         Keys.posterType: PosterType.default.rawValue,
         Keys.showsTitles: false,
-        Keys.betaflags: []
+        Keys.betaflags: [],
     ]
 
     public func reset() {
@@ -116,7 +116,7 @@ public class PreferenceStore: ObservableObject {
             return Set(flags)
         }
         set {
-            defaults.set(newValue.map { $0.rawValue }, forKey: Keys.betaflags)
+            defaults.set(newValue.map(\.rawValue), forKey: Keys.betaflags)
             objectWillChange.send()
         }
     }

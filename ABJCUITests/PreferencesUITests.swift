@@ -8,7 +8,7 @@
 import XCTest
 
 extension Bool {
-    var flip: Bool { return !self }
+    var flip: Bool { !self }
 }
 
 class PreferencesUITests: XCTestCase {
@@ -24,7 +24,7 @@ class PreferencesUITests: XCTestCase {
             "enable-testing",
             "reset-stores",
             "authenticate",
-            "user=user_hidden"
+            "user=user_hidden",
         ]
         app.launch()
     }
@@ -81,7 +81,7 @@ class PreferencesUITests: XCTestCase {
             "inforow-IPv4",
             "inforow-HTTP Port",
             "inforow-HTTPS Port",
-            "inforow-AutoDiscovery"
+            "inforow-AutoDiscovery",
         ]
 
         // Test whether all rows exist
@@ -115,7 +115,7 @@ class PreferencesUITests: XCTestCase {
         let rows = [
             "togglerow-Always Show Titles",
             "Poster Type",
-            "Collection Grouping"
+            "Collection Grouping",
         ]
 
         // Test whether all rows exist
