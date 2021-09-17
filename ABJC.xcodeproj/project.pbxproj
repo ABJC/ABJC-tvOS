@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9D3EB0A2275D250C0B59A705 /* Pods_ABJC_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */; };
+		FD3C398826F4EB8800BFC2E8 /* SourceCodeAttachement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */; };
+		FD3C398A26F4EC4100BFC2E8 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C398926F4EC4100BFC2E8 /* AppError.swift */; };
 		FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */; };
 		FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C426EB6F24003E0534 /* MediaCard.swift */; };
 		FD6351C726EB7227003E0534 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C626EB7227003E0534 /* Blur.swift */; };
@@ -87,7 +89,7 @@
 		FDD29D5826EF880E000EEC36 /* AlertObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5726EF880E000EEC36 /* AlertObject.swift */; };
 		FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */; };
 		FDD29D5C26EF8B37000EEC36 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D5B26EF8B37000EEC36 /* Alerts.swift */; };
-		FDD29D6F26EF9344000EEC36 /* GeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */; };
+		FDD29D6F26EF9344000EEC36 /* GeneralUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D6D26EF9344000EEC36 /* GeneralUITests.swift */; };
 		FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */; };
 		FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7226EFB265000EEC36 /* UITestConstants.swift */; };
 		FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */; };
@@ -128,6 +130,8 @@
 		74874B6683CCCAC14778BBD8 /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC7789183B3CCDA3F726DD /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeAttachement.swift; sourceTree = "<group>"; };
+		FD3C398926F4EC4100BFC2E8 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewDelegate.swift; sourceTree = "<group>"; };
 		FD6351C426EB6F24003E0534 /* MediaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCard.swift; sourceTree = "<group>"; };
 		FD6351C626EB7227003E0534 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -197,7 +201,7 @@
 		FDD29D5926EF881B000EEC36 /* Alert View Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert View Extension.swift"; sourceTree = "<group>"; };
 		FDD29D5B26EF8B37000EEC36 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ABJC (tvOS) UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTests.swift; sourceTree = "<group>"; };
+		FDD29D6D26EF9344000EEC36 /* GeneralUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUITests.swift; sourceTree = "<group>"; };
 		FDD29D7026EFAF7A000EEC36 /* UITestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestHelpers.swift; sourceTree = "<group>"; };
 		FDD29D7226EFB265000EEC36 /* UITestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestConstants.swift; sourceTree = "<group>"; };
 		FDD29D7426EFBB43000EEC36 /* AuthenticationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUITests.swift; sourceTree = "<group>"; };
@@ -256,7 +260,6 @@
 				74874B6683CCCAC14778BBD8 /* Pods-ABJC tvOS.debug.xcconfig */,
 				F8EC7789183B3CCDA3F726DD /* Pods-ABJC tvOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -346,6 +349,8 @@
 			children = (
 				FD687F1926EE371B0034A622 /* NetworkError.swift */,
 				FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */,
+				FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */,
+				FD3C398926F4EC4100BFC2E8 /* AppError.swift */,
 			);
 			path = "Data Extensions";
 			sourceTree = "<group>";
@@ -536,7 +541,7 @@
 		FDD29D6226EF92F7000EEC36 /* ABJCUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FDD29D6D26EF9344000EEC36 /* GeneralTests.swift */,
+				FDD29D6D26EF9344000EEC36 /* GeneralUITests.swift */,
 				FD6559D026F387CD002A229A /* LibraryUITests.swift */,
 				FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */,
 				FD72335826F0E835007EAE08 /* PlaybackUITests.swift */,
@@ -633,6 +638,7 @@
 				FD792F0926EA2F1A00BF2A42 /* Frameworks */,
 				FD792F0A26EA2F1A00BF2A42 /* Resources */,
 				F6D9DE89E42F4D1C6F5B97C1 /* [CP] Embed Pods Frameworks */,
+				FD3C398D26F4F72D00BFC2E8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -791,6 +797,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FD3C398D26F4F72D00BFC2E8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -830,6 +854,7 @@
 				FD6351D426EB7871003E0534 /* InfoRow.swift in Sources */,
 				FD792F4C26EA3C0F00BF2A42 /* BackgroundGradient.swift in Sources */,
 				FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */,
+				FD3C398826F4EB8800BFC2E8 /* SourceCodeAttachement.swift in Sources */,
 				FD72333F26F0A0E1007EAE08 /* Constants.swift in Sources */,
 				FD72335726F0E474007EAE08 /* VLCPlayerUIView.swift in Sources */,
 				FD6351CF26EB7600003E0534 /* Preferences+InfoView.swift in Sources */,
@@ -867,6 +892,7 @@
 				FD6A9BAD26EBCD8200DF975C /* PeopleCardRow.swift in Sources */,
 				FD6A9BAF26EBCD8900DF975C /* PeopleCard.swift in Sources */,
 				FD6351E026EB8434003E0534 /* DetailView.swift in Sources */,
+				FD3C398A26F4EC4100BFC2E8 /* AppError.swift in Sources */,
 				FD72334A26F0D60F007EAE08 /* PreferenceStore+summary.swift in Sources */,
 				FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */,
 				FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */,
@@ -891,7 +917,7 @@
 				FD6559FF26F3B70A002A229A /* UITestExtensions.swift in Sources */,
 				FD6559D126F387CD002A229A /* LibraryUITests.swift in Sources */,
 				FDD29D7126EFAF7A000EEC36 /* UITestHelpers.swift in Sources */,
-				FDD29D6F26EF9344000EEC36 /* GeneralTests.swift in Sources */,
+				FDD29D6F26EF9344000EEC36 /* GeneralUITests.swift in Sources */,
 				FDD29D7326EFB265000EEC36 /* UITestConstants.swift in Sources */,
 				FD72335926F0E835007EAE08 /* PlaybackUITests.swift in Sources */,
 				FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */,

@@ -23,7 +23,7 @@ class LibraryUITests: XCTestCase {
             "enable-testing",
             "reset-stores",
             "authenticate",
-            "user=user_hidden",
+            "user=user_hidden"
         ]
         app.launch()
     }
@@ -47,13 +47,13 @@ class LibraryUITests: XCTestCase {
     /// Test Search View
     func testSearchView() throws {
         XCTExpectFailure("Not Implemented Yet")
-        XCTFail()
+        XCTFail("Not Implemented Yet")
     }
 
     /// Test Watch Now View
     func testWatchNowView() throws {
         XCTExpectFailure("Not Implemented Yet")
-        XCTFail()
+        XCTFail("Not Implemented Yet")
     }
 
     /// Test Correct DetailViews
@@ -149,16 +149,12 @@ class LibraryUITests: XCTestCase {
     /// Test Movie Detail View Navigation
     func testMovieDetailViewNavigation() {
         XCTExpectFailure("Not Implemented Yet")
-        XCTFail()
-//        UITestHelpers.navigateToTab(with: "Movies", app: app)
-//        sleep(1)
-//        XCUIRemote.shared.press(.select)
-//        XCUIRemote.shared.press(.select)
+        XCTFail("Not Implemented Yet")
     }
 
     /// Test Series Detail View
     func testSeriesDetailView() {
         XCTExpectFailure("Not Implemented Yet")
-        XCTFail()
+        XCTFail("Not Implemented Yet")
     }
 }

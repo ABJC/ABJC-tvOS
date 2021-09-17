@@ -7,7 +7,7 @@
 
 import XCTest
 
-class ABJC__tvOS__UITestsLaunchTests: XCTestCase {
+class GeneralUITests: XCTestCase {
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
@@ -19,7 +19,6 @@ class ABJC__tvOS__UITestsLaunchTests: XCTestCase {
     /// Test Launch Performance
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
             measure(metrics: [XCTApplicationLaunchMetric()]) {
                 XCUIApplication().launch()
             }

@@ -39,7 +39,7 @@ class Jellyfin {
     }
 
     class Credentials: ObservableObject {
-        static var _deviceId: String = "tvOS_\(UIDevice.current.identifierForVendor!.uuidString)"
+        static var staticDeviceId: String = "tvOS_\(UIDevice.current.identifierForVendor!.uuidString)"
 
         let userId: String
         let deviceId: String
@@ -48,7 +48,7 @@ class Jellyfin {
         init(userId: String, accessToken: String) {
             self.userId = userId
             self.accessToken = accessToken
-            deviceId = Self._deviceId
+            deviceId = Self.staticDeviceId
         }
 
         init(userId: String, accessToken: String, deviceId: String) {

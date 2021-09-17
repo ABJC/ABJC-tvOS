@@ -99,7 +99,6 @@ class UITestHelpers {
         withOpenTextField(passwordField, .down) {
             passwordField.clearAndEnterText(text: password)
         }
-        print(passwordField.value)
 
         XCTAssert(passwordField.value as! String == String(repeating: "•", count: password.count))
 

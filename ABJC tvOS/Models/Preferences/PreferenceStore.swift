@@ -35,7 +35,7 @@ public class PreferenceStore: ObservableObject {
         Keys.grouping: CollectionGrouping.default.rawValue,
         Keys.posterType: PosterType.default.rawValue,
         Keys.showsTitles: false,
-        Keys.betaflags: [],
+        Keys.betaflags: []
     ]
 
     public func reset() {
@@ -122,7 +122,7 @@ public class PreferenceStore: ObservableObject {
     }
 
     /// Indicates wether single page mode is active
-    public var beta_showWatchNowTab: Bool {
+    public var betaShowWatchNowTab: Bool {
         get {
             betaflags.isEnabled(.watchnowtab)
         }
@@ -132,7 +132,7 @@ public class PreferenceStore: ObservableObject {
     }
 
     /// Indicates wether uglymode is active
-    public var beta_uglymode: Bool {
+    public var betaUglymode: Bool {
         get {
             betaflags.isEnabled(.uglymode)
         }

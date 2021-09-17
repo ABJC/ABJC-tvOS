@@ -41,7 +41,7 @@ struct LibraryView: View {
                     .tag(Tab.preferences)
             }
         }
-        .id(store.preferences.beta_showWatchNowTab.description)
+        .id(store.preferences.betaShowWatchNowTab.description)
         .navigationBarTitle(selectedTab.title)
         .accessibilityIdentifier("main-nav")
     }

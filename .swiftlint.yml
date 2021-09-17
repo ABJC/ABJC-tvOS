@@ -1,0 +1,57 @@
+
+
+# Disabled Rules
+disabled_rules:
+  - nesting
+  - function_parameter_count
+  - line_length
+  - function_body_length
+  - force_try
+  - multiple_closures_with_trailing_closure
+
+# Opt-In Rules
+opt_in_rules: 
+  - control_statement
+  - trailing_newline
+  - colon
+  - comma
+
+# Included Paths
+included: 
+  - ABJC tvOS
+
+
+
+# Options for Rules
+
+## Identifier Name Violation
+identifier_name:
+  min_length: 0
+  max_length: 25
+  allowed_symbols: 
+    - "_"
+
+## Large Tuple
+large_tuple:
+  warning: 4
+  error: 5
+
+## Type Body Length
+type_body_length:
+  warning: 250
+  error: 400
+
+## Switch and Case Statement Alignment
+switch_case_alignment:
+  indented_cases: true
+
+
+## Trailing Whitespace
+trailing_whitespace:
+  ignores_empty_lines: true
+  ignores_comments: true
+
+
+# Cyclomatic Complexity
+cyclomatic_complexity:
+  ignores_case_statements: true

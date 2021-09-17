@@ -17,7 +17,6 @@ class CommandLineArguments {
             withUser(user)
         } else {
             fatalError("authenticate but no user provided")
-            return
         }
     }
 

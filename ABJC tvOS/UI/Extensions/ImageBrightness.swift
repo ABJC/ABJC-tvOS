@@ -11,18 +11,18 @@ extension CGImage {
     var brightness: Double {
         let imageData = dataProvider?.data
         let ptr = CFDataGetBytePtr(imageData)
-        var x = 0
+        var val = 0
         var result: Double = 0
         for _ in 0 ..< height {
             for _ in 0 ..< width {
-                let r = ptr![0]
-                let g = ptr![1]
-                let b = ptr![2]
-                result += (0.299 * Double(r) + 0.587 * Double(g) + 0.114 * Double(b))
-                x += 1
+                let red = ptr![0]
+                let green = ptr![1]
+                let blue = ptr![2]
+                result += (0.299 * Double(red) + 0.587 * Double(green) + 0.114 * Double(blue))
+                val += 1
             }
         }
-        let bright = result / Double(x)
+        let bright = result / Double(val)
         return bright
     }
 }

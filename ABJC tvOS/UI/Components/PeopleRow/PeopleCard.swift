@@ -11,31 +11,31 @@ import SwiftUI
 struct PeopleCard: View {
     /// Person Item
     var person: BaseItemPerson
-
+    
     private var size: CGSize = .init(width: 300, height: 400)
-
+    
     @State
     var imageUrl: URL?
-
+    
     func loadImageUrl() {
         guard let name = person.name else {
             return
         }
-
+        
         ImageAPI.getPersonImage(name: name, imageType: .primary) { result in
             switch result {
-            case let .success(url): self.imageUrl = url
-            case let .failure(error): print(error)
+                case let .success(url): self.imageUrl = url
+                case let .failure(error): print(error)
             }
         }
     }
-
+    
     /// Initializer
     /// - Parameter person: Person Item
     public init(_ person: BaseItemPerson) {
         self.person = person
     }
-
+    
     var body: some View {
         VStack {
             AsyncImg(url: imageUrl) { image in
@@ -51,7 +51,7 @@ struct PeopleCard: View {
             .clipped()
             .padding([.horizontal, .top], 15)
             .frame(width: size.width, height: size.width)
-
+            
             VStack {
                 Text(person.name ?? "No Name")
                 Text(person.role ?? " ")

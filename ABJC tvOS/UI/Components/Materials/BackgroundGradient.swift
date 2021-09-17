@@ -20,7 +20,7 @@ enum BackgroundViews {
                        endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
     }
-    
+
     static var blur: some View {
         Blur()
             .edgesIgnoringSafeArea(.all)

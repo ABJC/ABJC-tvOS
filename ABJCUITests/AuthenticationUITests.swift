@@ -68,7 +68,6 @@ class AuthenticationUITests: XCTestCase {
     /// Test Manually Connecting to Server
     func testManualServerEntry() {
         // Navigate to Manual Server Entry Screen
-        let enterServerManuallyBtn = app.buttons["enterServerManuallyBtn"]
         UITestHelpers.findAndPressButton(app.buttons["enterServerManuallyBtn"], .down)
 
         // manually enter server information
@@ -233,7 +232,7 @@ class AuthenticationUITests: XCTestCase {
 
             UITestHelpers.findAndPressButton(continueButton, .down)
 
-            XCTAssertFalse(app.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
+            XCTAssertFalse(app.alerts["Authentication failed"].waitForExistence(timeout: 5.0),
                            "No Alert 'Authentication Failure' displayed")
             XCTAssert(app.tabBars.count == 1,
                       "Authenticated Successfully")
@@ -280,7 +279,7 @@ class AuthenticationUITests: XCTestCase {
             XCTAssert(userBtn.waitForExistence(timeout: 15.0))
             UITestHelpers.findAndPressButton(userBtn, .up)
 
-            XCTAssertFalse(app.alerts["Authentication failed"].waitForExistence(timeout: 30.0),
+            XCTAssertFalse(app.alerts["Authentication failed"].waitForExistence(timeout: 5.0),
                            "No Alert 'Authentication Failure' displayed")
             XCTAssert(app.tabBars.count == 1,
                       "Authenticated Successfully")

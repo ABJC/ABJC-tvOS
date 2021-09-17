@@ -11,20 +11,20 @@ enum AppEnvironment {
     case debug
     case appstore
     case testflight
-
+    
     static var current: AppEnvironment {
         guard let path = Bundle.main.appStoreReceiptURL?.path else {
             print("Couldn't Fetch AppStoreReceiptURL")
             return .debug
         }
-
+        
         switch path {
-        case let path where path.contains("CoreSimulator"):
-            return .debug
-        case let path where path.contains("sandboxReceipt"):
-            return .testflight
-        default:
-            return .appstore
+            case let path where path.contains("CoreSimulator"):
+                return .debug
+            case let path where path.contains("sandboxReceipt"):
+                return .testflight
+            default:
+                return .appstore
         }
     }
 }

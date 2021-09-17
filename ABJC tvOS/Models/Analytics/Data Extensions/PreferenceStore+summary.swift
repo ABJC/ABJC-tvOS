@@ -15,7 +15,7 @@ extension PreferenceStore {
             Keys.grouping: .init(collectionGrouping),
             Keys.debugMode: .init(isDebugEnabled),
             Keys.posterType: .init(posterType),
-            Keys.showsTitles: .init(showsTitles),
+            Keys.showsTitles: .init(showsTitles)
         ]
     }
 }

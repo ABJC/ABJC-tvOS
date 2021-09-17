@@ -14,19 +14,19 @@ class APITests: XCTestCase {
     let port: Int = 8096
     let username: String = "jellyfin"
     let password: String = "password"
-    
+
     var jellyfin: Jellyfin!
-    
-    var testMovieItem: APIModels.MediaItem? = nil
-    var testSeriesItem: APIModels.MediaItem? = nil
-    
+
+    var testMovieItem: APIModels.MediaItem?
+    var testSeriesItem: APIModels.MediaItem?
+
     var itemQuery: String = "A"
     var peopleQuery: String = "A"
-    
+
     override func setUpWithError() throws {
         let server = Jellyfin.Server(host, port)
         let client = Jellyfin.Client()
-        
+
         let expect = expectation(description: "Waiting for Authorization")
         API.authorize(server, client, username, password) { result in
             switch result {
@@ -37,7 +37,7 @@ class APITests: XCTestCase {
                             case .success(let items):
                                 self.testMovieItem = items.first(where: { $0.type == .movie})
                                 self.testSeriesItem = items.first(where: { $0.type == .series})
-                            case .failure(_ ): break
+                            case .failure: break
                         }
                         expect.fulfill()
                     }
@@ -46,14 +46,13 @@ class APITests: XCTestCase {
                     fatalError("Couldn't authorize")
             }
         }
-        
+
         wait(for: [expect], timeout: 60.0)
     }
 
-    
     func testSystemInfo() {
         let expect = expectation(description: "")
-        
+
         API.systemInfo(self.jellyfin) { result in
             do {
                 _ = try result.get()
@@ -61,24 +60,24 @@ class APITests: XCTestCase {
                 print(error)
                 XCTFail("Failed API.systemInfo")
             }
-            
+
             expect.fulfill()
         }
-        
+
         wait(for: [expect], timeout: 60.0)
     }
-    
+
     func testLatest() {
-        
+
     }
-    
+
     func testFavorites() {
-        
+
     }
 
     func testItems() {
         let expect = expectation(description: "")
-        
+
         API.items(jellyfin) { result in
             do {
                 _ = try result.get()
@@ -88,18 +87,18 @@ class APITests: XCTestCase {
             }
             expect.fulfill()
         }
-        
+
         wait(for: [expect], timeout: 60.0)
     }
-    
+
     func testMovie() {
         let expect = expectation(description: "")
-        
+
         guard let movieId = testMovieItem?.id else {
             XCTFail("Failed API.movie - No Movie found in Library")
             return
         }
-        
+
         API.movie(jellyfin, movieId) { result in
             do {
                 _ = try result.get()
@@ -109,18 +108,18 @@ class APITests: XCTestCase {
             }
             expect.fulfill()
         }
-        
+
         wait(for: [expect], timeout: 60.0)
     }
-    
+
     func testSeasons() {
         let expect = expectation(description: "")
-        
+
         guard let seriesId = testSeriesItem?.id else {
             XCTFail("Failed API.seasons - No Series found in Library")
             return
         }
-        
+
         API.seasons(jellyfin, seriesId) { result in
             do {
                 _ = try result.get()
@@ -130,18 +129,18 @@ class APITests: XCTestCase {
             }
             expect.fulfill()
         }
-        
+
         wait(for: [expect], timeout: 60.0)
     }
-    
+
     func testEpisodes() {
         let expect = expectation(description: "")
-        
+
         guard let seriesId = testSeriesItem?.id else {
             XCTFail("Failed API.episodes - No Series found in Library")
             return
         }
-        
+
         API.episodes(jellyfin, seriesId) { result in
             do {
                 _ = try result.get()
@@ -151,14 +150,14 @@ class APITests: XCTestCase {
             }
             expect.fulfill()
         }
-        
+
         wait(for: [expect], timeout: 60.0)
     }
-    
+
     func testSearch() {
         let searchItems = expectation(description: "")
         let searchPeople = expectation(description: "")
-        
+
         API.searchItems(jellyfin, itemQuery) { result in
             do {
                 _ = try result.get()
@@ -168,7 +167,7 @@ class APITests: XCTestCase {
             }
             searchItems.fulfill()
         }
-        
+
         API.searchPeople(jellyfin, peopleQuery) { result in
             do {
                 _ = try result.get()
@@ -178,7 +177,7 @@ class APITests: XCTestCase {
             }
             searchPeople.fulfill()
         }
-        
+
         wait(for: [searchItems, searchPeople], timeout: 60.0)
     }
 }

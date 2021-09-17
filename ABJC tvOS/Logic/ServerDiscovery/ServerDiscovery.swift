@@ -71,7 +71,8 @@ public class ServerDiscovery {
         func receiveHandler(_: String, _: Int, _: Data) {}
 
         func errorHandler(error _: UDPBroadcastConnection.ConnectionError) {}
-        broadcastConn = try! UDPBroadcastConnection(port: 7359, handler: receiveHandler, errorHandler: errorHandler)
+
+        self.broadcastConn = try! UDPBroadcastConnection(port: 7359, handler: receiveHandler, errorHandler: errorHandler)
     }
 
     public func locateServer(completion: @escaping (ServerLookupResponse?) -> Void) {

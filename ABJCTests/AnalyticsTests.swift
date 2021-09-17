@@ -10,15 +10,15 @@ import AnalyticsClient
 @testable import ABJC
 
 class AnalyticsTests: XCTestCase {
-    
+
     private var manager: AnalyticsManager!
-    
+
     override func setUpWithError() throws {
         let constants = Constants.load
         self.manager = .testflight(url: constants.analytics_url,
                                    version: "NONE")
     }
-    
+
     func testSendReport() throws {
         self.manager.log(.detailedReport([:]), in: .none, with: [:])
     }

@@ -8,6 +8,7 @@
 import ABJCAnalytics
 import Foundation
 import JellyfinAPI
+import AnyCodable
 
 enum AnalyticsEvents: AnalyticsEvent {
     case installed
@@ -15,28 +16,31 @@ enum AnalyticsEvents: AnalyticsEvent {
     case networkError(ErrorResponse)
     case unknownError(Error)
     case preferences(PreferenceStore)
+    case appError(AppError)
 
     var name: String {
         switch self {
-        case .installed: return "installed"
-        case .updated: return "updated"
-        case .networkError: return "network-error"
-        case .unknownError: return "unknown-error"
-        case .preferences: return "preferences"
+            case .installed: return "installed"
+            case .updated: return "updated"
+            case .networkError: return "network-error"
+            case .unknownError: return "unknown-error"
+            case .appError: return "app-error"
+            case .preferences: return "preferences"
         }
     }
 
     var data: AnalyticsData {
         switch self {
-        case .installed: return nil
-        case .updated: return nil
-        case let .networkError(error): return .init(NetworkError(error))
-        case let .unknownError(error): return [
+            case .installed: return nil
+            case .updated: return nil
+            case let .networkError(error): return .init(NetworkError(error))
+            case let .unknownError(error): return [
                 "type": String(describing: type(of: error)),
                 "detail": String(describing: error),
-                "localizedDescription": error.localizedDescription,
+                "localizedDescription": error.localizedDescription
             ]
-        case let .preferences(store): return .init(store.analyticsData)
+            case .appError(let error): return .init(error)
+            case let .preferences(store): return .init(store.analyticsData)
         }
     }
 }

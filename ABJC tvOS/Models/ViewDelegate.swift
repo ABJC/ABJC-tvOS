@@ -57,7 +57,7 @@ class ViewDelegate: ObservableObject {
         metadata["error-location"] = [
             "file": file,
             "line": line,
-            "function": function,
+            "function": function
         ]
 
         if let errorResponse = error as? ErrorResponse {
@@ -65,37 +65,5 @@ class ViewDelegate: ObservableObject {
         } else {
             app.analytics.send(.unknownError(error), with: metadata)
         }
-        //        switch error {
-        //            case .error(let statusCode, let data, let urlResponse, let error) as ErrorResponse:
-        //                app.analytics.send(.apiError(statusCode, data, urlResponse, error))
-        //
-        //
-        ////                print("DATA", data?.count)
-        ////                print("ERR;", error)
-        //            default: print("Unknown Error", type(of: error))
-        //        }
     }
-    //    func handleAPIRequestError(displayMessage: String? = nil, logLevel: LogLevel = .error, tag: String = "", function: String = #function, file: String = #file, line: UInt = #line, completion: Subscribers.Completion<Error>) {
-    //        switch completion {
-    //            case .finished:
-    //                break
-    //            case .failure(let error):
-    //                if let errorResponse = error as? ErrorResponse {
-    //                    print(errorResponse)
-    //                    switch errorResponse {
-    //                        case .error(-1, _, _, _):
-    //
-    //                            print("Request failed: URL request failed with error \(networkError.errorMessage.code): \(errorResponse.localizedDescription)")
-    //                        case .error(-2, _, _, _):
-    //                            networkError = .HTTPURLError(response: errorResponse, displayMessage: displayMessage)
-    //                            print("Request failed: HTTP URL request failed with description: \(errorResponse.localizedDescription)")
-    //                        default:
-    //                            networkError = .JellyfinError(response: errorResponse, displayMessage: displayMessage)
-    //                            // Able to use user-facing friendly description here since just HTTP status codes
-    //                            print("Request failed: \(networkError.errorMessage.code) - \(networkError.errorMessage.title): \(networkError.errorMessage.displayMessage)\n\(error.localizedDescription)")
-    //                    }
-    //                    self.errorMessage = networkError.errorMessage
-    //                }
-    //        }
-    //    }
 }

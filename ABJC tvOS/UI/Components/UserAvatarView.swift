@@ -13,20 +13,20 @@ class UserAvatarViewDelegate: ViewDelegate {
     private let user: UserDto
     @Published
     var imageUrl: URL?
-
+    
     init(user: UserDto) {
         self.user = user
     }
-
+    
     func loadImageUrl() {
         guard let userId = user.id else {
             return
         }
-
+        
         ImageAPI.getUserImage(userId: userId, imageType: .profile) { result in
             switch result {
-            case let .success(url): self.imageUrl = url
-            case let .failure(error): self.handleApiError(error)
+                case let .success(url): self.imageUrl = url
+                case let .failure(error): self.handleApiError(error)
             }
         }
     }
@@ -34,11 +34,11 @@ class UserAvatarViewDelegate: ViewDelegate {
 
 struct UserAvatarView: View {
     private let store: UserAvatarViewDelegate
-
+    
     init(user: UserDto) {
         store = .init(user: user)
     }
-
+    
     var body: some View {
         AsyncImg(url: store.imageUrl) { image in
             image

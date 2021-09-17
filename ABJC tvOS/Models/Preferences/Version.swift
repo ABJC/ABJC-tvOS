@@ -28,8 +28,8 @@ public struct Version {
     }
 
     public init() {
-        let versionString = Bundle.main.infoDictionary!["CFBundleShortVersionString"]! as! String
-        let buildString = Bundle.main.infoDictionary!["CFBundleVersion"]! as! String
+        let versionString = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "0.0.0"
+        let buildString = Bundle.main.infoDictionary!["CFBundleVersion"] as? String ?? "0"
 
         let versionArray = versionString.split(separator: ".")
 

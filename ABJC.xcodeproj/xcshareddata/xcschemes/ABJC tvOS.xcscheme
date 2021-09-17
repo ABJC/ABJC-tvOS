@@ -57,13 +57,7 @@
                   Identifier = "AuthenticationUITests/testDiscoveredServer()">
                </Test>
                <Test
-                  Identifier = "AuthenticationUITests/testManualServerEntry()">
-               </Test>
-               <Test
                   Identifier = "AuthenticationUITests/testManualServerEntryFields()">
-               </Test>
-               <Test
-                  Identifier = "AuthenticationUITests/testManualUserEntry()">
                </Test>
                <Test
                   Identifier = "AuthenticationUITests/testManualUserEntryFields()">

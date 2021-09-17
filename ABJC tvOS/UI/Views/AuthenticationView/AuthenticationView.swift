@@ -19,7 +19,7 @@ struct AuthenticationView: View {
             HStack(alignment: .center) {
                 // ABJC Logo
                 VStack {
-                    Image("logo_stacked")
+                    Image("logo_square")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .scaleEffect(0.75)

@@ -10,7 +10,12 @@ import Foundation
 
 class MockAnalyticsEngine: AnalyticsEngine {
     func send(_ report: AnalyticsReport) {
-        print("REPORT", report.eventName)
+        if let data = try? JSONEncoder().encode(report),
+           let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+            print("REPORT '\(report.eventName)'", json)
+        } else {
+            print("REPORT '\(report.eventName)'")
+        }
     }
 }
 
@@ -31,7 +36,7 @@ class TestflightAnalyticsEngine: AnalyticsEngine {
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         request.httpMethod = "POST"
         request.httpBody = try? JSONEncoder().encode(report)
-        
+
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 print(error)

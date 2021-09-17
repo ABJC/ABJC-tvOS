@@ -12,32 +12,32 @@ import JellyfinAPI
 
 class AuthenticationViewDelegate: ViewDelegate {
     let analyticsMetadata: [String: AnyEncodable] = [
-        "view": .init(ViewIdentifier.auth),
+        "view": .init(ViewIdentifier.auth)
     ]
     @Published
     var isConnected: Bool = false
-
+    
     // Discovery of Servers
     private let discovery = ServerDiscovery()
-
+    
     @Published
     var discoveredServers: [ServerDiscovery.ServerLookupResponse] = []
     @Published
     var isDiscoveringServers: Bool = false
-
+    
     // Manual Server Entry
     @Published
     var willEnterServerManually: Bool = false
     @Published
     var manualHost: String = ""
-
+    
     @Published
     var manualPort: String = "8096"
     @Published
     var manualPath: String = ""
     @Published
     var manualHttps: Bool = false
-
+    
     // User Selection
     @Published
     var publicUsers: [UserDto] = []
@@ -52,16 +52,16 @@ class AuthenticationViewDelegate: ViewDelegate {
     @Published
     var password: String = ""
     //    #endif
-
+    
     /// Discover Servers in local network
     func lookupServers() {
         isDiscoveringServers = true
-
+        
         // Timeout after 5 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.isDiscoveringServers = false
         }
-
+        
         discovery.locateServer { [self] server in
             if let server = server, !discoveredServers.contains(server) {
                 discoveredServers.append(server)
@@ -69,14 +69,14 @@ class AuthenticationViewDelegate: ViewDelegate {
             isDiscoveringServers = false
         }
     }
-
+    
     /// Set Server in Session
     /// - Parameter uri: Server baseURI
     func setServer(to uri: String) {
         session.setServerURI(uri)
         loadPublicUsers()
     }
-
+    
     /// Manually set server
     func setServerManual() {
         var urlComps = URLComponents()
@@ -92,38 +92,39 @@ class AuthenticationViewDelegate: ViewDelegate {
             }
         }
         urlComps.path = manualPath
-
+        
         guard let url = urlComps.url else {
+            session.app.analytics.send(.appError(.with(["message": "URL Couldn't be generated"])))
             fatalError("Failed to construct URL")
         }
         setServer(to: url.absoluteString)
     }
-
+    
     /// Load Public Users
     func loadPublicUsers() {
         UserAPI.getPublicUsers { result in
             switch result {
-            case let .success(response):
-                self.publicUsers = response
-                self.isConnected = true
-            case let .failure(error):
-                self.alert = .init(.cantConnectToHost)
-                self.handleApiError(error, with: self.analyticsMetadata)
+                case let .success(response):
+                    self.publicUsers = response
+                    self.isConnected = true
+                case let .failure(error):
+                    self.alert = .init(.cantConnectToHost)
+                    self.handleApiError(error, with: self.analyticsMetadata)
             }
         }
     }
-
+    
     func authenticate(username: String, password: String? = nil) {
         session.generateHeaders()
         let body = AuthenticateUserByName(username: username, pw: password)
-
+        
         UserAPI.authenticateUserByName(authenticateUserByName: body) { result in
             switch result {
-            case let .success(result):
-                self.session.didAuthenticate(result)
-            case let .failure(error):
-                self.alert = .init(.authenticationFailed)
-                self.handleApiError(error, with: self.analyticsMetadata)
+                case let .success(result):
+                    self.session.didAuthenticate(result)
+                case let .failure(error):
+                    self.alert = .init(.authenticationFailed)
+                    self.handleApiError(error, with: self.analyticsMetadata)
             }
         }
     }
