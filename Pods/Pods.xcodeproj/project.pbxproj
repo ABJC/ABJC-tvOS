@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0BAD53B4A3D10AF4C69C36853F976CD6 /* TVVLCKit */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C519416E3C4B94836DF6EA300DAF0240 /* Build configuration list for PBXAggregateTarget "TVVLCKit" */;
+			buildPhases = (
+				8F8A06347CB3A1CA1A6F4B37EBA0FD29 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = TVVLCKit;
+			productName = TVVLCKit;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		243C92FA1E184F717655ED169CB969E7 /* Pods-ABJC tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F34B3D70457E53685FA581751358C8 /* Pods-ABJC tvOS-dummy.m */; };
+		B91014B23911CC7F9D36E2D8D1DC7446 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE704B3F7EFE27740FC25A5CE60A6651 /* Foundation.framework */; };
+		F8D8F9B5B5AB98A31CD28CA723C1B1C6 /* Pods-ABJC tvOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C6AC3CFD50AACEE41739A4FA26224B5C /* Pods-ABJC tvOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B4451A3D1E35E3921A38644EDE7088D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BAD53B4A3D10AF4C69C36853F976CD6;
+			remoteInfo = TVVLCKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A505C84BB63FF52472AFC1DCF3ACCA5 /* Pods-ABJC tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ABJC tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		1B544B73B87C7A0293C44F222FF43B17 /* Pods-ABJC tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ABJC tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1B9DD2DA0E020B2365B1F1B9563B4AB3 /* Pods-ABJC tvOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ABJC tvOS"; path = Pods_ABJC_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F34B3D70457E53685FA581751358C8 /* Pods-ABJC tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ABJC tvOS-dummy.m"; sourceTree = "<group>"; };
+		79DA1C8C3D64D2D4CD1852C303AB57D5 /* TVVLCKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = TVVLCKit.xcframework; sourceTree = "<group>"; };
+		878099A186404950697CB0D248A8AFF3 /* Pods-ABJC tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ABJC tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		910114F5C7FCA8FCE5A11E03E974AE47 /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		9407F9F8222286ADC91AE8C4964BD47E /* TVVLCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TVVLCKit.debug.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AE704B3F7EFE27740FC25A5CE60A6651 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C6AC3CFD50AACEE41739A4FA26224B5C /* Pods-ABJC tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ABJC tvOS-umbrella.h"; sourceTree = "<group>"; };
+		C791789990A01CEE115855D584C21528 /* Pods-ABJC tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ABJC tvOS.modulemap"; sourceTree = "<group>"; };
+		CE102C2435FD7BDA2068B0D35D0CECD8 /* Pods-ABJC tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABJC tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		CE327874222D7672E6F160BA514B06E5 /* TVVLCKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TVVLCKit.release.xcconfig; sourceTree = "<group>"; };
+		F421AA000B88B88A5E6F5AC6B1ACEDC5 /* Pods-ABJC tvOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ABJC tvOS-Info.plist"; sourceTree = "<group>"; };
+		FB2048D0C3B5D8A5C0A4688E7B4FBEA8 /* TVVLCKit-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "TVVLCKit-xcframeworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7DFD80D91004AC17AD713573CB50ECC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B91014B23911CC7F9D36E2D8D1DC7446 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1399D94197C4E1DB5E07C1025B3A90BD /* Pods-ABJC tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				C791789990A01CEE115855D584C21528 /* Pods-ABJC tvOS.modulemap */,
+				1B544B73B87C7A0293C44F222FF43B17 /* Pods-ABJC tvOS-acknowledgements.markdown */,
+				878099A186404950697CB0D248A8AFF3 /* Pods-ABJC tvOS-acknowledgements.plist */,
+				62F34B3D70457E53685FA581751358C8 /* Pods-ABJC tvOS-dummy.m */,
+				1A505C84BB63FF52472AFC1DCF3ACCA5 /* Pods-ABJC tvOS-frameworks.sh */,
+				F421AA000B88B88A5E6F5AC6B1ACEDC5 /* Pods-ABJC tvOS-Info.plist */,
+				C6AC3CFD50AACEE41739A4FA26224B5C /* Pods-ABJC tvOS-umbrella.h */,
+				CE102C2435FD7BDA2068B0D35D0CECD8 /* Pods-ABJC tvOS.debug.xcconfig */,
+				910114F5C7FCA8FCE5A11E03E974AE47 /* Pods-ABJC tvOS.release.xcconfig */,
+			);
+			name = "Pods-ABJC tvOS";
+			path = "Target Support Files/Pods-ABJC tvOS";
+			sourceTree = "<group>";
+		};
+		1F9FCB3618DC551B524D67B669081319 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCADEF5968BA4BD0936606315FB57A49 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		462B60B56B696051A419548858D73AB7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB2048D0C3B5D8A5C0A4688E7B4FBEA8 /* TVVLCKit-xcframeworks.sh */,
+				9407F9F8222286ADC91AE8C4964BD47E /* TVVLCKit.debug.xcconfig */,
+				CE327874222D7672E6F160BA514B06E5 /* TVVLCKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TVVLCKit";
+			sourceTree = "<group>";
+		};
+		62BB79F27C0189834F06B711B10C0CB7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1399D94197C4E1DB5E07C1025B3A90BD /* Pods-ABJC tvOS */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6D7566E7ACC45C01CFA87222FA72E729 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79DA1C8C3D64D2D4CD1852C303AB57D5 /* TVVLCKit.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F92471FA85187E2118AC59CEDC8F9A8 /* TVVLCKit */ = {
+			isa = PBXGroup;
+			children = (
+				6D7566E7ACC45C01CFA87222FA72E729 /* Frameworks */,
+				462B60B56B696051A419548858D73AB7 /* Support Files */,
+			);
+			path = TVVLCKit;
+			sourceTree = "<group>";
+		};
+		8924BE1DBD47618E476E99AEE6D7E303 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F92471FA85187E2118AC59CEDC8F9A8 /* TVVLCKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1F9FCB3618DC551B524D67B669081319 /* Frameworks */,
+				8924BE1DBD47618E476E99AEE6D7E303 /* Pods */,
+				ECD936BC439DB92FE97CF468A315ADAC /* Products */,
+				62BB79F27C0189834F06B711B10C0CB7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DCADEF5968BA4BD0936606315FB57A49 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				AE704B3F7EFE27740FC25A5CE60A6651 /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		ECD936BC439DB92FE97CF468A315ADAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B9DD2DA0E020B2365B1F1B9563B4AB3 /* Pods-ABJC tvOS */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		81E05B1BD9020B59D0D14C51D566653A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8D8F9B5B5AB98A31CD28CA723C1B1C6 /* Pods-ABJC tvOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A2A493E58BB88B29E85C0DE0FEE913C0 /* Pods-ABJC tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915E4ABBA77B45B930D3E4A3B53AA431 /* Build configuration list for PBXNativeTarget "Pods-ABJC tvOS" */;
+			buildPhases = (
+				81E05B1BD9020B59D0D14C51D566653A /* Headers */,
+				F4EC2C63EBADA17CF3F4407449703095 /* Sources */,
+				7DFD80D91004AC17AD713573CB50ECC3 /* Frameworks */,
+				9CB7550D62FA4D64A35008D5B6BB3349 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				113A0EB9AF5D1A4FAE2CA7B148F4CB8B /* PBXTargetDependency */,
+			);
+			name = "Pods-ABJC tvOS";
+			productName = Pods_ABJC_tvOS;
+			productReference = 1B9DD2DA0E020B2365B1F1B9563B4AB3 /* Pods-ABJC tvOS */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = ECD936BC439DB92FE97CF468A315ADAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2A493E58BB88B29E85C0DE0FEE913C0 /* Pods-ABJC tvOS */,
+				0BAD53B4A3D10AF4C69C36853F976CD6 /* TVVLCKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CB7550D62FA4D64A35008D5B6BB3349 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8F8A06347CB3A1CA1A6F4B37EBA0FD29 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/TVVLCKit/TVVLCKit-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/TVVLCKit/TVVLCKit-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/TVVLCKit/TVVLCKit-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4EC2C63EBADA17CF3F4407449703095 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243C92FA1E184F717655ED169CB969E7 /* Pods-ABJC tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		113A0EB9AF5D1A4FAE2CA7B148F4CB8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TVVLCKit;
+			target = 0BAD53B4A3D10AF4C69C36853F976CD6 /* TVVLCKit */;
+			targetProxy = 8B4451A3D1E35E3921A38644EDE7088D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16316EB55081E1F4C33C438F3F4B051D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 910114F5C7FCA8FCE5A11E03E974AE47 /* Pods-ABJC tvOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1ED3E4B04A283CEA011A808E29CDAF19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9407F9F8222286ADC91AE8C4964BD47E /* TVVLCKit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Debug;
+		};
+		327FD0992A5D0CA9C06211FA579758A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		51993FA20007993766427B98BC7E23B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE102C2435FD7BDA2068B0D35D0CECD8 /* Pods-ABJC tvOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7B497327EA82237513035A07DC58F2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE327874222D7672E6F160BA514B06E5 /* TVVLCKit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E4EE50445F2B1DDBF425201F7A51A34F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				327FD0992A5D0CA9C06211FA579758A2 /* Debug */,
+				E4EE50445F2B1DDBF425201F7A51A34F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		915E4ABBA77B45B930D3E4A3B53AA431 /* Build configuration list for PBXNativeTarget "Pods-ABJC tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51993FA20007993766427B98BC7E23B6 /* Debug */,
+				16316EB55081E1F4C33C438F3F4B051D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C519416E3C4B94836DF6EA300DAF0240 /* Build configuration list for PBXAggregateTarget "TVVLCKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ED3E4B04A283CEA011A808E29CDAF19 /* Debug */,
+				C7B497327EA82237513035A07DC58F2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
