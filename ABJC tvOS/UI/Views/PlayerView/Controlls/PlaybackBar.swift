@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 20.09.21
  */
 
 import SwiftUI
@@ -22,29 +22,25 @@ struct PlaybackBar: View {
         VStack(alignment: .leading, spacing: 20) {
             itemDescription
             progressBar
-
-            labels
+            bottomRow
         }
     }
 
     var progressBar: some View {
-        ZStack(alignment: .leading) {
-            Capsule().foregroundStyle(Material.ultraThin)
-            Capsule()
-                .frame(width: CGFloat(store.player.position) * 1920)
-                .animation(.spring(), value: 0.5)
-        }.frame(height: barHeight, alignment: .center)
-    }
-
-    var labels: some View {
-        ZStack(alignment: .center) {
-            timeLabels
-            stateLabel
+        GeometryReader { geo in
+            ZStack(alignment: .leading) {
+                Capsule().foregroundStyle(Material.ultraThin)
+                Capsule()
+                    .frame(width: min(CGFloat(store.player.position) * geo.size.width, geo.size.width))
+                    .animation(.spring(), value: 0.5)
+            }
         }
+        .frame(height: barHeight, alignment: .center)
     }
 
-    var timeLabels: some View {
+    var bottomRow: some View {
         HStack(alignment: .center) {
+            stateLabel
             Text(toTimeLabel(store.time / 1000))
             Spacer()
             Text(toTimeLabel(store.timeRemaining / 1000))
@@ -64,7 +60,6 @@ struct PlaybackBar: View {
         Group {
             switch store.state {
                 case .playing: Image(systemName: "play.fill")
-                case .paused: Image(systemName: "pause.fill")
                 case .stopped,
                      .ended: Image(systemName: "stop.fill")
                 case .opening,

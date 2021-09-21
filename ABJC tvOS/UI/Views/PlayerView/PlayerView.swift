@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 20.09.21
  */
 
 import JellyfinAPI
@@ -23,22 +23,23 @@ struct PlayerView: UIViewRepresentable {
     }
 
     func updateUIView(_: VLCPlayerUIView, context _: Context) {
-//        if !uiView.mediaPlayer.isPlaying,
-//           let streamURL = store.streamURL {
-//            uiView.play(url: streamURL)
-//        }
+        //        if !uiView.mediaPlayer.isPlaying,
+        //           let streamURL = store.streamURL {
+        //            uiView.play(url: streamURL)
+        //        }
     }
 
     func makeUIView(context: Context) -> VLCPlayerUIView {
         let view = VLCPlayerUIView(frame: .zero)
         view.initialize(with: store)
         view.mediaPlayer.delegate = context.coordinator
+        view.mediaPlayer.media.delegate = context.coordinator
         return view
     }
 }
 
 extension PlayerView {
-    class Coordinator: NSObject, VLCLibraryLogReceiverProtocol, VLCMediaPlayerDelegate {
+    class Coordinator: NSObject, VLCLibraryLogReceiverProtocol, VLCMediaPlayerDelegate, VLCMediaDelegate {
         var parent: PlayerView
 
         init(_ parent: PlayerView) {
@@ -49,11 +50,30 @@ extension PlayerView {
             print("VLC LOG", level, message)
         }
 
+        func mediaDidFinishParsing(_: VLCMedia) {
+            if let videoTrack = parent.store.player.currentVideoTrack {
+                DispatchQueue.main.async {
+                    self.parent.store.currentVideoTrack = videoTrack
+                }
+            }
+
+            if let audioTrack = parent.store.player.currentAudioTrack {
+                DispatchQueue.main.async {
+                    self.parent.store.currentAudioTrack = audioTrack
+                }
+            }
+        }
+
         func mediaPlayerStateChanged(_ aNotification: Notification!) {
             guard let player = aNotification.object as? VLCMediaPlayer else {
                 return
             }
             parent.store.state = player.state
+            print("STATE", player.state.debugDescription)
+
+            if player.state == .error {
+                parent.store.session.app.analytics.send(.playbackError(player))
+            }
         }
 
         func mediaPlayerTimeChanged(_ aNotification: Notification!) {

@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 20.09.21
  */
 
 import Foundation
@@ -37,6 +37,12 @@ class PlayerViewDelegate: ViewDelegate {
     var timeRemaining: Int = 0
     @Published
     var state: VLCMediaPlayerState?
+
+    // Tracks
+    @Published
+    var currentVideoTrack = Track(index: -99, name: "NO TRACK")
+    @Published
+    var currentAudioTrack = Track(index: -99, name: "NO TRACK")
 
     init(_ item: BaseItemDto) {
         self.item = item
@@ -97,6 +103,11 @@ class PlayerViewDelegate: ViewDelegate {
         }
     }
 
+    func onAppear() {
+        player.play()
+        showsControlls = true
+    }
+
     func onDisappear() {
         player.stop()
     }
@@ -111,13 +122,24 @@ class PlayerViewDelegate: ViewDelegate {
         }
     }
 
-    func quickSeek(_ direction: MoveCommandDirection) {
-        //        print("MOVE \(String(describing: direction))")
+    func quickSeekForward() {
+        showsControlls = true
+        player.jumpForward(30)
+    }
+
+    func quickSeekBackward() {
+        showsControlls = true
+        player.jumpBackward(15)
+    }
+
+    func onMoveCommand(_ direction: MoveCommandDirection) {
+        showsControlls = true
+        print("MOVED")
         switch direction {
             case .up: showsControlls = true
-            case .down: showsControlls = false
-            case .left: player.jumpBackward(15)
-            case .right: player.jumpForward(30)
+            case .down: showsControlls = true
+            case .left: quickSeekBackward()
+            case .right: quickSeekForward()
             @unknown default: break
         }
     }
@@ -125,10 +147,10 @@ class PlayerViewDelegate: ViewDelegate {
     /// Initialize Playback
     func initPlayback() {
         player.stop()
+        player.setDeinterlaceFilter(nil)
         guard let streamURL = streamURL else {
             return
         }
         player.media = .init(url: streamURL)
-        player.play()
     }
 }

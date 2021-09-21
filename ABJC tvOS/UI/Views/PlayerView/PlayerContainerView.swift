@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 20.09.21
  */
 
 import SwiftUI
@@ -18,22 +18,26 @@ struct PlayerContainerView: SwiftUI.View {
     var store: PlayerViewDelegate
 
     var body: some SwiftUI.View {
-        //        VideoPlayer(player: store.player)
         ZStack(alignment: .bottom) {
-            Blur()
-            PlayerView().environmentObject(store)
+            Color.green
+            PlayerView()
+                .environmentObject(store)
+                .focusable()
+                .onPlayPauseCommand(perform: store.playPause)
+                .onMoveCommand(perform: store.onMoveCommand)
+//                .onSwipeLeft(store.quickSeekForward)
+//                .onSwipeRight(store.quickSeekBackward)
+//                .onSwipeUp { store.showsControlls = true }
+//                .onSwipeDown { store.showsControlls = false }
             if store.showsControlls {
                 PlayerControllsView()
                     .environmentObject(store)
                     .animation(.easeInOut, value: 0.5)
             }
         }
-        .accessibilityIdentifier("playerView")
         .edgesIgnoringSafeArea(.all)
-        .focusable()
-        .onPlayPauseCommand(perform: store.playPause)
-        .onMoveCommand(perform: store.quickSeek)
-
+        .accessibilityIdentifier("playerView")
+        .onAppear(perform: store.onAppear)
         .onDisappear(perform: store.onDisappear)
     }
 }

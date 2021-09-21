@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 21.09.21
  */
 
 import AnyCodable
@@ -37,8 +37,11 @@ class ViewDelegate: ObservableObject {
     @Environment(\.appConfiguration)
     var app
 
+    let logger: Logger = .shared
+
     @ObservedObject
     var session: SessionStore = .shared
+
     @ObservedObject
     var preferences: PreferenceStore = .shared
 
@@ -70,6 +73,9 @@ class ViewDelegate: ObservableObject {
             "line": line,
             "function": function
         ]
+
+        #warning("better error logging")
+        logger.log.error("error in \(function) L.\(line): \(error.localizedDescription)", tag: "ApiErrorHandling")
 
         if let errorResponse = error as? ErrorResponse {
             app.analytics.send(.networkError(errorResponse), with: metadata)

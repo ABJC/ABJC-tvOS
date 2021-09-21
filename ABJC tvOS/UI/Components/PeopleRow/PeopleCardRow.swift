@@ -15,7 +15,7 @@ import SwiftUI
 
 struct PeopleCardRow: View {
     /// Edge Insets
-    private var edgeInsets = EdgeInsets(top: 30, leading: 85, bottom: 50, trailing: 0)
+    private var edgeInsets = EdgeInsets(top: 30, leading: 80, bottom: 50, trailing: 80)
 
     /// Label
     private let label: LocalizedStringKey

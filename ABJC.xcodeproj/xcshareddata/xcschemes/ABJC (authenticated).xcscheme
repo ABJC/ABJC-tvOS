@@ -90,6 +90,10 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "enable-debug"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "authenticate"
             isEnabled = "YES">
          </CommandLineArgument>

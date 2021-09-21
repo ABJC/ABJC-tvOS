@@ -7,13 +7,15 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 21.09.21
  */
 
 import ABJCAnalytics
 import Foundation
 
 class MockAnalyticsEngine: AnalyticsEngine {
+    let logger: Logger = .shared
+
     func send(_ report: AnalyticsReport) {
         if let data = try? JSONEncoder().encode(report),
            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
@@ -25,7 +27,11 @@ class MockAnalyticsEngine: AnalyticsEngine {
 }
 
 class TestflightAnalyticsEngine: AnalyticsEngine {
+    let logger: Logger = .shared
+
     func send(_ report: AnalyticsReport) {
+        logger.log.info("sending report for \(report.eventName)", tag: "Analytics")
+
         guard let analytics = Constants.current?.analytics else {
             return
         }

@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 21.09.21
  */
 
 import Foundation
@@ -17,6 +17,8 @@ import SwiftUI
 class SessionStore: ObservableObject {
     @Environment(\.appConfiguration)
     var app
+
+    let logger: Logger = .shared
 
     static let shared: SessionStore = .init()
     static let debug: SessionStore = .init(debug: true)
@@ -44,6 +46,11 @@ class SessionStore: ObservableObject {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         let deviceName = UIDevice.current.name
 
+        logger.log.info(
+            "generateHeaders: deviceID='\(deviceID)', appVersion='\(appVersion ?? "ERR")', deviceName='\(String(repeating: "*", count: deviceName.count))'",
+            tag: "SessionStore"
+        )
+
         var embyAuthorization = [
             "Emby Client=\"ABJC tvOS\"",
             "Device=\"\(deviceName)\"",
@@ -64,6 +71,8 @@ class SessionStore: ObservableObject {
         generateHeaders()
         isAuthenticated = true
         objectWillChange.send()
+
+        logger.log.info("didAuthenticate \(result.user?.id ?? "No USERID")", tag: "SessionStore")
     }
 
     init(debug _: Bool = false) {
@@ -71,6 +80,10 @@ class SessionStore: ObservableObject {
             app.analytics.send(.appError(.with(["message": "URL Couldn't be generated"])))
             if CommandLineArguments.shouldReset {
                 PreferenceStore.shared.reset()
+            }
+
+            if CommandLineArguments.isDebugEnabled {
+                PreferenceStore.shared.isDebugEnabled = true
             }
 
             CommandLineArguments.shouldAuthenticate { username in

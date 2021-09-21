@@ -18,7 +18,7 @@ devices([
 # Command Options
 scheme("ABJC Snapshots") # Scheme
 clear_previous_screenshots(true) # Clear old screenshots
-output_directory("./screenshots") # Output Directory
+output_directory("./fastlane/screenshots") # Output Directory
 html_template("fastlane/screenshots.html.erb") # HTML Template
 
 # Appearance Options

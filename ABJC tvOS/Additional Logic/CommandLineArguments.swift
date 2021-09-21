@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 19.09.21
  */
 
 import Foundation
@@ -23,6 +23,10 @@ class CommandLineArguments {
         } else {
             fatalError("authenticate but no user provided")
         }
+    }
+
+    static var isDebugEnabled: Bool {
+        arguments.contains("enable-debug")
     }
 
     static var shouldReset: Bool {

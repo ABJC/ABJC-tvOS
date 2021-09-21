@@ -7,21 +7,25 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 19.09.21
  */
 
 import ABJCAnalytics
 import AnyCodable
 import Foundation
 import JellyfinAPI
+import TVVLCKit
 
 enum AnalyticsEvents: AnalyticsEvent {
     case installed
     case updated
+
     case networkError(ErrorResponse)
     case unknownError(Error)
-    case preferences(PreferenceStore)
     case appError(AppError)
+    case playbackError(VLCMediaPlayer)
+
+    case preferences(PreferenceStore)
 
     var name: String {
         switch self {
@@ -30,6 +34,7 @@ enum AnalyticsEvents: AnalyticsEvent {
             case .networkError: return "network-error"
             case .unknownError: return "unknown-error"
             case .appError: return "app-error"
+            case .playbackError: return "playback-error"
             case .preferences: return "preferences"
         }
     }
@@ -45,6 +50,7 @@ enum AnalyticsEvents: AnalyticsEvent {
                     "localizedDescription": error.localizedDescription
                 ]
             case let .appError(error): return .init(error)
+            case let .playbackError(player): return .init(player.analyticsData)
             case let .preferences(store): return .init(store.analyticsData)
         }
     }

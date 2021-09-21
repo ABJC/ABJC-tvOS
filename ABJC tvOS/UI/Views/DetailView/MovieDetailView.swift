@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 19.09.21
  */
 
 import SwiftUI
@@ -24,21 +24,19 @@ struct MovieDetailView: View {
             backdrop.edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: true) {
                 headerView
-                    .padding(80)
-                    .frame(width: 1920, height: 1080 + 50)
                 peopleView
                 recommendedView
             }
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear(perform: store.onAppear)
-        #warning("Playback disabled")
-//        .fullScreenCover(isPresented: $store.isPlaying) {
-//            self.store.isPlaying = false
-//        } content: {
-//            PlayerContainerView()
-//                .environmentObject(store.playerStore)
-//        }
+
+        .fullScreenCover(isPresented: $store.isPlaying) {
+            self.store.isPlaying = false
+        } content: {
+            PlayerContainerView()
+                .environmentObject(store.playerStore)
+        }
     }
 
     var headerView: some View {
@@ -78,8 +76,7 @@ struct MovieDetailView: View {
             }
         }
         .prefersDefaultFocus(in: namespace)
-        .padding(.horizontal, 80)
-        .padding(.bottom, 80)
+        .padding(80)
     }
 
     /// People (Actors, etc.)

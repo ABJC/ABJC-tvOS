@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 21.09.21
  */
 
 import AnyCodable
@@ -48,15 +48,11 @@ class AuthenticationViewDelegate: ViewDelegate {
     var publicUsers: [UserDto] = []
     @Published
     var willEnterUserManually: Bool = false
-    //    #if DEBUG
-    //    @Published var username: String = "jellyfin"
-    //    @Published var password: String = "password"
-    //    #else
+
     @Published
     var username: String = ""
     @Published
     var password: String = ""
-    //    #endif
 
     /// Discover Servers in local network
     func lookupServers() {
@@ -66,6 +62,8 @@ class AuthenticationViewDelegate: ViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.isDiscoveringServers = false
         }
+
+        logger.log.info("locating servers", tag: "AuthenticationView")
 
         discovery.locateServer { [self] server in
             if let server = server, !discoveredServers.contains(server) {
@@ -107,6 +105,7 @@ class AuthenticationViewDelegate: ViewDelegate {
 
     /// Load Public Users
     func loadPublicUsers() {
+        logger.log.info("loading public users", tag: "AuthenticationView")
         UserAPI.getPublicUsers { result in
             switch result {
                 case let .success(response):
@@ -120,6 +119,7 @@ class AuthenticationViewDelegate: ViewDelegate {
     }
 
     func authenticate(username: String, password: String? = nil) {
+        logger.log.info("authenticating user", tag: "AuthenticationView")
         session.generateHeaders()
         let body = AuthenticateUserByName(username: username, pw: password)
 

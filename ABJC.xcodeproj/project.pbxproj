@@ -10,6 +10,7 @@
 		9D3EB0A2275D250C0B59A705 /* Pods_ABJC_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */; };
 		FD3C398826F4EB8800BFC2E8 /* SourceCodeAttachement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */; };
 		FD3C398A26F4EC4100BFC2E8 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C398926F4EC4100BFC2E8 /* AppError.swift */; };
+		FD3DD6E726F89D210018846C /* TrackPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3DD6E626F89D210018846C /* TrackPicker.swift */; };
 		FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */; };
 		FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C426EB6F24003E0534 /* MediaCard.swift */; };
 		FD6351C726EB7227003E0534 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C626EB7227003E0534 /* Blur.swift */; };
@@ -77,6 +78,10 @@
 		FD792F5626EA5E1D00BF2A42 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5526EA5E1D00BF2A42 /* UserAvatarView.swift */; };
 		FD792F5826EA5E4500BF2A42 /* AsyncImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */; };
 		FDADDCC926F2233000B2DF6F /* PlaybackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */; };
+		FDBDBF7B26F9E89100DB65A8 /* Puppy in Frameworks */ = {isa = PBXBuildFile; productRef = FDBDBF7A26F9E89100DB65A8 /* Puppy */; };
+		FDBDBF7F26F9E8F500DB65A8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBDBF7E26F9E8F500DB65A8 /* Logger.swift */; };
+		FDBDBF8126F9E94B00DB65A8 /* LogFileRotationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBDBF8026F9E94B00DB65A8 /* LogFileRotationDelegate.swift */; };
+		FDBDBF8326F9EB8300DB65A8 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBDBF8226F9EB8300DB65A8 /* LogFormatter.swift */; };
 		FDC9579C26EB949F00655F55 /* BaseItemDto+blurhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */; };
 		FDC957A026EB952A00655F55 /* Blurhash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9579F26EB952A00655F55 /* Blurhash.swift */; };
 		FDC957A226EB95A600655F55 /* ImageBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC957A126EB95A600655F55 /* ImageBrightness.swift */; };
@@ -104,6 +109,11 @@
 		FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */; };
 		FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8D26EABC4F001E4363 /* Version.swift */; };
 		FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8F26EABD4B001E4363 /* ItemType.swift */; };
+		FDDAA09E26F7DDB200C0FAA8 /* VLCPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDAA09D26F7DDB200C0FAA8 /* VLCPlayer.swift */; };
+		FDDAA0A126F7EADB00C0FAA8 /* VLCMediaPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDAA0A026F7EADB00C0FAA8 /* VLCMediaPlayerState.swift */; };
+		FDDAA0A426F7EC5900C0FAA8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDAA0A326F7EC5900C0FAA8 /* Array.swift */; };
+		FDDAA0A626F7F04B00C0FAA8 /* VLCMediaPlayer+Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDAA0A526F7F04B00C0FAA8 /* VLCMediaPlayer+Tracks.swift */; };
+		FDE70DD326F76AAB00294F84 /* DragGestureActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE70DD226F76AAB00294F84 /* DragGestureActions.swift */; };
 		FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C8E26F2547B00C738C3 /* PlayButton.swift */; };
 		FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */; };
 /* End PBXBuildFile section */
@@ -131,6 +141,7 @@
 		F8EC7789183B3CCDA3F726DD /* Pods-ABJC tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC tvOS.release.xcconfig"; path = "Target Support Files/Pods-ABJC tvOS/Pods-ABJC tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeAttachement.swift; sourceTree = "<group>"; };
 		FD3C398926F4EC4100BFC2E8 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		FD3DD6E626F89D210018846C /* TrackPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPicker.swift; sourceTree = "<group>"; };
 		FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewDelegate.swift; sourceTree = "<group>"; };
 		FD6351C426EB6F24003E0534 /* MediaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCard.swift; sourceTree = "<group>"; };
 		FD6351C626EB7227003E0534 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -188,6 +199,9 @@
 		FD792F5526EA5E1D00BF2A42 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 		FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
 		FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackBar.swift; sourceTree = "<group>"; };
+		FDBDBF7E26F9E8F500DB65A8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		FDBDBF8026F9E94B00DB65A8 /* LogFileRotationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFileRotationDelegate.swift; sourceTree = "<group>"; };
+		FDBDBF8226F9EB8300DB65A8 /* LogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
 		FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseItemDto+blurhash.swift"; sourceTree = "<group>"; };
 		FDC9579F26EB952A00655F55 /* Blurhash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurhash.swift; sourceTree = "<group>"; };
 		FDC957A126EB95A600655F55 /* ImageBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBrightness.swift; sourceTree = "<group>"; };
@@ -216,6 +230,11 @@
 		FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaFlag.swift; sourceTree = "<group>"; };
 		FDD63F8D26EABC4F001E4363 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		FDD63F8F26EABD4B001E4363 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		FDDAA09D26F7DDB200C0FAA8 /* VLCPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayer.swift; sourceTree = "<group>"; };
+		FDDAA0A026F7EADB00C0FAA8 /* VLCMediaPlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCMediaPlayerState.swift; sourceTree = "<group>"; };
+		FDDAA0A326F7EC5900C0FAA8 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		FDDAA0A526F7F04B00C0FAA8 /* VLCMediaPlayer+Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VLCMediaPlayer+Tracks.swift"; sourceTree = "<group>"; };
+		FDE70DD226F76AAB00294F84 /* DragGestureActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureActions.swift; sourceTree = "<group>"; };
 		FDF62C8E26F2547B00C738C3 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDBDBF7B26F9E89100DB65A8 /* Puppy in Frameworks */,
 				FD6351DE26EB836A003E0534 /* URLImageStore in Frameworks */,
 				FD64119F26ED1A01008E3170 /* ABJCAnalytics in Frameworks */,
 				FD72334626F0B843007EAE08 /* ABJCAnalytics in Frameworks */,
@@ -284,9 +304,9 @@
 			isa = PBXGroup;
 			children = (
 				FD6351CA26EB7556003E0534 /* PreferencesView.swift */,
-				FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */,
 				FD6351CE26EB7600003E0534 /* Preferences+InfoView.swift */,
 				FD6351D026EB763E003E0534 /* Preferences+ClientView.swift */,
+				FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */,
 				FD6351CC26EB755D003E0534 /* PreferencesViewDelegate.swift */,
 				FD6351D226EB786A003E0534 /* Components */,
 			);
@@ -350,6 +370,7 @@
 				FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */,
 				FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */,
 				FD3C398926F4EC4100BFC2E8 /* AppError.swift */,
+				FDDAA09D26F7DDB200C0FAA8 /* VLCPlayer.swift */,
 			);
 			path = "Data Extensions";
 			sourceTree = "<group>";
@@ -405,8 +426,9 @@
 				FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */,
 				FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */,
 				FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */,
-				FD792F4526EA367000BF2A42 /* Logic */,
-				FD792F5026EA45A900BF2A42 /* Models */,
+				FDDAA0A226F7EC4B00C0FAA8 /* Extensions */,
+				FD792F4526EA367000BF2A42 /* Additional Logic */,
+				FD792F5026EA45A900BF2A42 /* Stores */,
 				FD792F3826EA2FA700BF2A42 /* UI */,
 				FD792F1426EA2F1C00BF2A42 /* Preview Content */,
 			);
@@ -442,12 +464,16 @@
 			path = AuthenticationView;
 			sourceTree = "<group>";
 		};
-		FD792F4526EA367000BF2A42 /* Logic */ = {
+		FD792F4526EA367000BF2A42 /* Additional Logic */ = {
 			isa = PBXGroup;
 			children = (
+				FD72333926F09E34007EAE08 /* CommandLineArguments.swift */,
+				FD6411A026ED1A89008E3170 /* Configuration */,
+				FD687F0F26EE279E0034A622 /* Analytics */,
+				FDBDBF7D26F9E8BA00DB65A8 /* Logging */,
 				FD792F4626EA367600BF2A42 /* ServerDiscovery */,
 			);
-			path = Logic;
+			path = "Additional Logic";
 			sourceTree = "<group>";
 		};
 		FD792F4626EA367600BF2A42 /* ServerDiscovery */ = {
@@ -463,24 +489,21 @@
 			isa = PBXGroup;
 			children = (
 				FD792F4E26EA3F5200BF2A42 /* ViewModifiers.swift */,
+				FDE70DD226F76AAB00294F84 /* DragGestureActions.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		FD792F5026EA45A900BF2A42 /* Models */ = {
+		FD792F5026EA45A900BF2A42 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				FD687F0F26EE279E0034A622 /* Analytics */,
-				FD6411A026ED1A89008E3170 /* Configuration */,
-				FDC9579A26EB948C00655F55 /* JellyfinAPI Extension */,
 				FDD63F8426EABAD3001E4363 /* Preferences */,
 				FD792F3626EA2F9500BF2A42 /* SessionStore.swift */,
 				FD792F3E26EA30C600BF2A42 /* ViewDelegate.swift */,
 				FD792F5126EA45AF00BF2A42 /* Jellyfin.swift */,
 				FDC957A926EBA4CD00655F55 /* Tab.swift */,
-				FD72333926F09E34007EAE08 /* CommandLineArguments.swift */,
 			);
-			path = Models;
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		FD792F5426EA5E1700BF2A42 /* Components */ = {
@@ -504,18 +527,29 @@
 			children = (
 				FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */,
 				FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */,
+				FD3DD6E626F89D210018846C /* TrackPicker.swift */,
 			);
 			path = Controlls;
 			sourceTree = "<group>";
 		};
-		FDC9579A26EB948C00655F55 /* JellyfinAPI Extension */ = {
+		FDBDBF7D26F9E8BA00DB65A8 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				FDBDBF7E26F9E8F500DB65A8 /* Logger.swift */,
+				FDBDBF8026F9E94B00DB65A8 /* LogFileRotationDelegate.swift */,
+				FDBDBF8226F9EB8300DB65A8 /* LogFormatter.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		FDC9579A26EB948C00655F55 /* JellyfinAPI */ = {
 			isa = PBXGroup;
 			children = (
 				FDD63F8F26EABD4B001E4363 /* ItemType.swift */,
 				FDC9579B26EB949F00655F55 /* BaseItemDto+blurhash.swift */,
 				FDC957A726EB9F3C00655F55 /* BaseItemDto+Identifiable.swift */,
 			);
-			path = "JellyfinAPI Extension";
+			path = JellyfinAPI;
 			sourceTree = "<group>";
 		};
 		FDC9579E26EB950000655F55 /* Extensions */ = {
@@ -607,6 +641,25 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		FDDAA09F26F7EABB00C0FAA8 /* TVVLCKit */ = {
+			isa = PBXGroup;
+			children = (
+				FDDAA0A026F7EADB00C0FAA8 /* VLCMediaPlayerState.swift */,
+				FDDAA0A526F7F04B00C0FAA8 /* VLCMediaPlayer+Tracks.swift */,
+			);
+			path = TVVLCKit;
+			sourceTree = "<group>";
+		};
+		FDDAA0A226F7EC4B00C0FAA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9579A26EB948C00655F55 /* JellyfinAPI */,
+				FDDAA09F26F7EABB00C0FAA8 /* TVVLCKit */,
+				FDDAA0A326F7EC5900C0FAA8 /* Array.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -637,8 +690,8 @@
 				FD792F0926EA2F1A00BF2A42 /* Frameworks */,
 				FD792F0A26EA2F1A00BF2A42 /* Resources */,
 				F6D9DE89E42F4D1C6F5B97C1 /* [CP] Embed Pods Frameworks */,
-				FD3C398D26F4F72D00BFC2E8 /* ShellScript */,
 				FDE60C2C26F50D06009E123F /* ShellScript */,
+				FD3C398D26F4F72D00BFC2E8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -653,6 +706,7 @@
 				FD687F1C26EE4B9E0034A622 /* AnyCodable */,
 				FD687F1F26EE52BC0034A622 /* JellyfinAPI */,
 				FD72334526F0B843007EAE08 /* ABJCAnalytics */,
+				FDBDBF7A26F9E89100DB65A8 /* Puppy */,
 			);
 			productName = "ABJC tvOS";
 			productReference = FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */;
@@ -715,6 +769,7 @@
 				FD687F1B26EE4B9E0034A622 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 				FD687F1E26EE52BC0034A622 /* XCRemoteSwiftPackageReference "JellyfinAPI" */,
 				FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */,
+				FDBDBF7926F9E89100DB65A8 /* XCRemoteSwiftPackageReference "Puppy" */,
 			);
 			productRefGroup = FD792EDC26EA2F0200BF2A42 /* Products */;
 			projectDirPath = "";
@@ -851,6 +906,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDC957A826EB9F3C00655F55 /* BaseItemDto+Identifiable.swift in Sources */,
+				FDE70DD326F76AAB00294F84 /* DragGestureActions.swift in Sources */,
 				FDD29D5C26EF8B37000EEC36 /* Alerts.swift in Sources */,
 				FDD63F8A26EABBB4001E4363 /* PosterType.swift in Sources */,
 				FDD63F7F26EABA1A001E4363 /* Shelf.swift in Sources */,
@@ -858,6 +914,7 @@
 				FDD63F7526EAB750001E4363 /* LibraryView.swift in Sources */,
 				FDD29D5A26EF881B000EEC36 /* Alert View Extension.swift in Sources */,
 				FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */,
+				FDDAA09E26F7DDB200C0FAA8 /* VLCPlayer.swift in Sources */,
 				FDC9579C26EB949F00655F55 /* BaseItemDto+blurhash.swift in Sources */,
 				FD72335126F0E409007EAE08 /* PlayerView.swift in Sources */,
 				FD792F4826EA368300BF2A42 /* UDPBroadcast.swift in Sources */,
@@ -869,6 +926,7 @@
 				FD6351D426EB7871003E0534 /* InfoRow.swift in Sources */,
 				FD792F4C26EA3C0F00BF2A42 /* BackgroundGradient.swift in Sources */,
 				FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */,
+				FDDAA0A426F7EC5900C0FAA8 /* Array.swift in Sources */,
 				FD3C398826F4EB8800BFC2E8 /* SourceCodeAttachement.swift in Sources */,
 				FD72333F26F0A0E1007EAE08 /* Constants.swift in Sources */,
 				FD72335726F0E474007EAE08 /* VLCPlayerUIView.swift in Sources */,
@@ -889,12 +947,16 @@
 				FD6351D626EB7885003E0534 /* ToggleRow.swift in Sources */,
 				FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */,
 				FDC957AA26EBA4CD00655F55 /* Tab.swift in Sources */,
+				FD3DD6E726F89D210018846C /* TrackPicker.swift in Sources */,
+				FDBDBF8126F9E94B00DB65A8 /* LogFileRotationDelegate.swift in Sources */,
 				FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */,
+				FDDAA0A626F7F04B00C0FAA8 /* VLCMediaPlayer+Tracks.swift in Sources */,
 				FDD63F7A26EAB7E8001E4363 /* MediaCollectionView.swift in Sources */,
 				FD6351C726EB7227003E0534 /* Blur.swift in Sources */,
 				FD72333A26F09E34007EAE08 /* CommandLineArguments.swift in Sources */,
 				FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */,
 				FD792F3F26EA30C600BF2A42 /* ViewDelegate.swift in Sources */,
+				FDBDBF8326F9EB8300DB65A8 /* LogFormatter.swift in Sources */,
 				FD72334C26F0D79D007EAE08 /* ViewIdentifier.swift in Sources */,
 				FD792F3A26EA302800BF2A42 /* AuthenticationView.swift in Sources */,
 				FD72334F26F0E403007EAE08 /* PlayerViewDelegate.swift in Sources */,
@@ -903,8 +965,10 @@
 				FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */,
 				FD6351CB26EB7556003E0534 /* PreferencesView.swift in Sources */,
 				FD72335D26F0F8C2007EAE08 /* PlayerControllsView.swift in Sources */,
+				FDDAA0A126F7EADB00C0FAA8 /* VLCMediaPlayerState.swift in Sources */,
 				FDD63F7726EAB759001E4363 /* LibraryViewDelegate.swift in Sources */,
 				FD6A9BAD26EBCD8200DF975C /* PeopleCardRow.swift in Sources */,
+				FDBDBF7F26F9E8F500DB65A8 /* Logger.swift in Sources */,
 				FD6A9BAF26EBCD8900DF975C /* PeopleCard.swift in Sources */,
 				FD6351E026EB8434003E0534 /* DetailView.swift in Sources */,
 				FD3C398A26F4EC4100BFC2E8 /* AppError.swift in Sources */,
@@ -1314,6 +1378,14 @@
 				kind = branch;
 			};
 		};
+		FDBDBF7926F9E89100DB65A8 /* XCRemoteSwiftPackageReference "Puppy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sushichop/Puppy";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1350,6 +1422,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FD72334426F0B843007EAE08 /* XCRemoteSwiftPackageReference "Analytics" */;
 			productName = ABJCAnalytics;
+		};
+		FDBDBF7A26F9E89100DB65A8 /* Puppy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDBDBF7926F9E89100DB65A8 /* XCRemoteSwiftPackageReference "Puppy" */;
+			productName = Puppy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

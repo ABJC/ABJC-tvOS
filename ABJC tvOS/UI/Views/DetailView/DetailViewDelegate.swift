@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 21.09.21
  */
 
 import Foundation
@@ -24,6 +24,10 @@ class DetailViewDelegate: ViewDelegate {
     @Published
     var imageUrl: URL?
 
+    var logTag: String {
+        (item.type?.capitalized ?? "Unknown") + "DetailView"
+    }
+
     @Published
     var itemSimilars: [BaseItemDto] = []
     //    @Published var actors: [BaseItemPerson] = []
@@ -33,6 +37,7 @@ class DetailViewDelegate: ViewDelegate {
 
     // Loads imageUrl
     func loadImageUrl() {
+        logger.log.info("loading poster for item", tag: logTag)
         guard let itemId = item.id else {
             return
         }
@@ -48,6 +53,7 @@ class DetailViewDelegate: ViewDelegate {
 
     // Load similar items
     func loadItemsSimilar() {
+        logger.log.info("loading similar items", tag: logTag)
         guard let userId = session.credentials?.userId, let itemId = item.id else {
             return
         }

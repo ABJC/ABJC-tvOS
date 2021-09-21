@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 19.09.21
  */
 
 import ABJCAnalytics
@@ -21,9 +21,12 @@ extension PreferencesView {
 
         var body: some View {
             Form {
+                ToggleRow("Debug Mode", "Toggle Debug Mode", $store.isDebugEnabled)
                 #if DEBUG
                     analyticsSection
                 #endif
+
+//                alertsSection
             }
             .navigationBarTitle("General Information")
         }
@@ -38,6 +41,10 @@ extension PreferencesView {
                     store.app.analytics.send(.updated, with: [:])
                 }
             }
+        }
+
+        var alertsSection: some View {
+            Section("Alerts") {}
         }
     }
 }

@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 20.09.21
  */
 
 import SwiftUI
@@ -15,29 +15,45 @@ import SwiftUI
 extension PreferencesView {
     struct InfoRow: View {
         private let label: LocalizedStringKey
-        private let data: Any
+        private let data: Any?
+        private let focusable: Bool
 
         private var value: String {
             switch data {
+                case nil: return "-"
                 case let v as String: return v
                 case let v as Int: return "\(v)"
+                case let v as Int32: return "\(v)"
+                case let v as Float: return "\(v)"
+                case let v as Bool: return v ? "yes" : "no"
                 default: return "\(type(of: data))"
             }
         }
 
-        init(_ label: LocalizedStringKey, _ data: Any) {
+        init(_ label: LocalizedStringKey, _ data: Any?, _ focusable: Bool = true) {
             self.label = label
             self.data = data
+            self.focusable = focusable
         }
 
         var body: some View {
-            Button(action: {}) {
-                HStack {
-                    Text(label)
-                    Spacer()
-                    Text(value)
+            Group {
+                if focusable {
+                    Button(action: {}) {
+                        innerView
+                    }
+                } else {
+                    innerView
                 }
             }.accessibilityIdentifier("inforow-" + label.stringKey)
+        }
+
+        var innerView: some View {
+            HStack {
+                Text(label)
+                Spacer()
+                Text(value)
+            }
         }
     }
 
