@@ -71,8 +71,12 @@ extension PlayerView {
             parent.store.state = player.state
             print("STATE", player.state.debugDescription)
 
-            if player.state == .error {
-                parent.store.session.app.analytics.send(.playbackError(player))
+            switch player.state {
+                case .error:
+                    parent.store.session.app.analytics.send(.playbackError(player))
+                case .playing:
+                    parent.store.showsControlls = false
+                default: break
             }
         }
 

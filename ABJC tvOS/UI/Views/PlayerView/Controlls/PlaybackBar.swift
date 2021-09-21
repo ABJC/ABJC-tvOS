@@ -40,8 +40,8 @@ struct PlaybackBar: View {
 
     var bottomRow: some View {
         HStack(alignment: .center) {
-            stateLabel
             Text(toTimeLabel(store.time / 1000))
+            stateLabel.padding(.leading, 10)
             Spacer()
             Text(toTimeLabel(store.timeRemaining / 1000))
         }

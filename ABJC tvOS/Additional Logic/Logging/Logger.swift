@@ -19,7 +19,7 @@ class Logger {
     let log = Puppy()
     let logLevel: LogLevel
 
-    let fileRotationDelegate = LogFileRotationDelegate()
+    weak var fileRotationDelegate: LogFileRotationDelegate? { LogFileRotationDelegate() }
     let fileURL: URL
 
     init(logLevel: LogLevel = .debug) {
@@ -46,7 +46,10 @@ class Logger {
         let fileRotation = try FileRotationLogger("com.noahkamara.abjc.filerotation", fileURL: fileURL)
         fileRotation.maxFileSize = 10 * 1024 * 1024
         fileRotation.maxArchivedFilesCount = 5
-        fileRotation.delegate = fileRotationDelegate
+        if let fileRotationDelegate = fileRotationDelegate {
+            fileRotation.delegate = fileRotationDelegate
+        }
+
         let log = Puppy()
         log.add(fileRotation)
         log.info("INFO message")

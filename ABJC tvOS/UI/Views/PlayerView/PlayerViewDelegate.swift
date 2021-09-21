@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 20.09.21
+ Created on 22.09.21
  */
 
 import Foundation
@@ -135,9 +135,13 @@ class PlayerViewDelegate: ViewDelegate {
     func onMoveCommand(_ direction: MoveCommandDirection) {
         showsControlls = true
         print("MOVED")
+
+        if direction != .down {
+            showsControlls = true
+        }
         switch direction {
-            case .up: showsControlls = true
-            case .down: showsControlls = true
+            case .up: break
+            case .down: showsControlls = false
             case .left: quickSeekBackward()
             case .right: quickSeekForward()
             @unknown default: break
