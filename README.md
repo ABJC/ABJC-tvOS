@@ -20,10 +20,11 @@ __As a developer I want to make ABJC perfect. I welcome all user ideas and opini
 
 ## How to report a bug, missing feature, or suggest an enhancement
 
-1. Open the `Issues` tab above. Search existing issues to see if someone else has already beat you to it. 
+1. Open the [`Issues`](https://github.com/ABJC/ABJC-tvOS/issues) tab above. Search existing issues to see if someone else has already beat you to it. 
 2. If someone has, feel free to vote that issue up or add your own feedback in a comment.
 3. If not, click the `New Issue` button and explain. 
--  For bug reports, **please provide your OS version, ABJC version, and if possible, detailed steps to reproduce the bug**.
+
+For bug reports, **please provide your OS version, ABJC version, and if possible, detailed steps to reproduce the bug**.
 
 If you have multiple bugs or requests that are not closely related, please separate them into different issues.
 
