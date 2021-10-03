@@ -27,5 +27,8 @@ __As a developer I want to make ABJC perfect. I welcome all user ideas and opini
 
 If you have multiple bugs or requests that are not closely related, please separate them into different issues.
 
+## How to Contribute
+If you want to help development, take a look at [open issues](https://github.com/ABJC/ABJC-tvOS/issues) and the "todo" items in the [projects section](https://github.com/ABJC/ABJC-tvOS/projects/3).
 
-This is the main repository for ABJC
+
+
