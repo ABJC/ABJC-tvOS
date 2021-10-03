@@ -1,3 +1,5 @@
+![Logo](https://github.com/ABJC/ABJC-tvOS/blob/main/Assets/wide_dark%403x.png)
+
 # [ABJC](http://abjc.tech/beta) is A Better Jellyfin Client
 
 ABJC is currently in TestFlight beta and I'm planning to publish it on the App Store. 
