@@ -10,11 +10,7 @@ ABJC is currently in TestFlight beta and I'm planning to publish it on the App S
 
 ## How to keep up with development progress
 
-I am publishing new information on builds, beta progress, surveys and polls on different channels.
-
-- Take a look at my [Website](https://abjc.tech)
-- Sign up to my [Newsletter](https://abjc.tech/newsletter)
-- Follow my [Twitter](https://twitter.com/abjc_app)
+I am publishing new information on builds on twitter (Follow my [Twitter](https://twitter.com/abjc_app))
 
 # Issues
 
