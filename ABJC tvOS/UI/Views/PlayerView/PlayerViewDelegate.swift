@@ -53,7 +53,7 @@ class PlayerViewDelegate: ViewDelegate {
     /// Load PlaybackInfo Response
     func loadPlaybackInfo() {
         playbackInfo = nil
-        guard let userId = session.credentials?.userId,
+        guard let userId = session.user?.id,
               let itemId = item.id else {
             return
         }
@@ -82,7 +82,7 @@ class PlayerViewDelegate: ViewDelegate {
             }
             // Item will be directly played by the client
             else {
-                guard let credentials = session.credentials else {
+                guard let user = session.user else {
                     return
                 }
                 var urlComponents = URLComponents(string: JellyfinAPI.basePath)!
@@ -90,8 +90,8 @@ class PlayerViewDelegate: ViewDelegate {
                 urlComponents.queryItems = [
                     .init(name: "Static", value: "true"),
                     .init(name: "mediaSourceId", value: mediaSource.id!),
-                    .init(name: "deviceId", value: credentials.deviceId),
-                    .init(name: "api_key", value: credentials.accessToken),
+                    .init(name: "deviceId", value: user.deviceId),
+                    .init(name: "api_key", value: user.token),
                     .init(name: "Tag", value: mediaSource.eTag!)
                 ]
                 guard let url = urlComponents.url else {

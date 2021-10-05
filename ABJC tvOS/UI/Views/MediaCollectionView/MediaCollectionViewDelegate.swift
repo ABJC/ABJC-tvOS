@@ -20,7 +20,7 @@ class MediaCollectionViewDelegate: ViewDelegate {
     func loadItems(for types: [ItemType]) {
         logger.log.info("loading items for (\(types.map(\.rawValue).joined(separator: ",")))", tag: "MediaCollectionView")
         ItemsAPI.getItems(
-            userId: session.credentials!.userId,
+            userId: session.user!.id,
             recursive: true,
             fields: [.genres, .overview, .people],
             includeItemTypes: types.map(\.rawValue)

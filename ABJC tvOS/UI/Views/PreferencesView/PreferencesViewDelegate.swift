@@ -90,7 +90,7 @@ class PreferencesViewDelegate: ViewDelegate {
     func loadItemCounts() {
         logger.log.info("loading item counts", tag: "PreferencesView")
 
-        guard let userId = session.credentials?.userId else {
+        guard let userId = session.user?.id else {
             print("No UserID")
             return
         }

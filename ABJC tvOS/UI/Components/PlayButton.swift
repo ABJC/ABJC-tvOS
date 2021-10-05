@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 22.09.21
  */
 
 import SwiftUI
@@ -16,11 +16,9 @@ struct PlayButton: View {
     @Environment(\.isFocused)
     var isFocused
     private let label: LocalizedStringKey
-    private let action: () -> Void
 
-    init(_ label: LocalizedStringKey, _ action: @escaping () -> Void) {
+    init(_ label: LocalizedStringKey) {
         self.label = label
-        self.action = action
     }
 
     var body: some View {
@@ -38,17 +36,12 @@ struct PlayButton: View {
         }
         .frame(width: 300)
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(isFocused ? .thickMaterial : .thinMaterial)
-        )
+        .background(Blur(style: isFocused ? .extraLight : .light))
+        .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
 
         .scaleEffect(isFocused ? 1.2 : 1)
-        .animation(.easeInOut, value: isFocused)
+        .animation(.spring(), value: isFocused)
         .frame(width: 200, height: 80)
-        .onLongPressGesture(minimumDuration: 0.01, pressing: { _ in }) {
-            action()
-        }
         .focusable(true)
     }
 }

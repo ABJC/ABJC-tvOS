@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 19.09.21
+ Created on 22.09.21
  */
 
 import SwiftUI
@@ -23,7 +23,7 @@ struct MovieDetailView: View {
         ZStack {
             backdrop.edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: true) {
-                headerView
+                headerView.frame(width: 1920, height: 1080, alignment: .center)
                 peopleView
                 recommendedView
             }
@@ -50,19 +50,15 @@ struct MovieDetailView: View {
                         Text(store.item.name ?? "No Name")
                             .bold()
                             .font(.title2)
-                        HStack {
-                            Text(store.item.productionYear != nil ? "\(String(store.item.productionYear!))" : "")
-                            Text(store.item.type ?? "")
-                        }.foregroundColor(.secondary)
+                        Text(store.item.productionYear != nil ? "\(String(store.item.productionYear!))" : "")
+                            .foregroundColor(.secondary)
                     }.accessibilityIdentifier("titleLbl")
 
                     Spacer()
                     // Play Button
-                    Button(action: self.store.play) {
-                        Text("Playbutton")
-                    }
-                    .accessibilityIdentifier("playBtn")
-                    .padding(.trailing)
+                    PlayButton(store.item.isContinue ? "Continue" : "Play")
+                        .accessibilityIdentifier("playBtn")
+                        .padding(.trailing, 80)
                 }
 
                 if store.item.overview != nil {

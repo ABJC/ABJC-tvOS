@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 21.09.21
+ Created on 05.10.21
  */
 
 import SwiftUI
@@ -15,7 +15,7 @@ import SwiftUI
 struct AuthenticationView: View {
     @Namespace
     var namespace
-    // Store for View
+
     @StateObject
     var store: AuthenticationViewDelegate = .init()
 
@@ -31,239 +31,238 @@ struct AuthenticationView: View {
                 }
                 .frame(width: geometry.size.width * 4 / 10)
 
-                // View
-                Group {
-                    if store.isConnected {
-                        userSelectionView.frame(width: geometry.size.width * 6 / 10, height: geometry.size.height)
-                    } else {
-                        serverSelectionView.frame(width: geometry.size.width * 6 / 10, height: geometry.size.height)
-                    }
+                VStack(alignment: .center) {
+                    contentViewHeader
+                    contentView
                 }
+                .frame(maxHeight: .infinity)
                 .frame(width: geometry.size.width * 6 / 10, height: geometry.size.height)
+                .background(Color.blue)
             }
         }
         .abjcAlert($store.alert)
         .background(BackgroundViews.gradient)
     }
 
-    var serverSelectionView: some View {
-        VStack(alignment: .center) {
-            HStack(spacing: 5) {
-                Text("Server Selection")
-                    .font(.title2).bold()
-
-                ProgressView()
-                    .frame(width: 200)
-                    .hidden(!store.isDiscoveringServers)
-            }
-
-            Group {
-                if !store.willEnterServerManually {
-                    VStack(spacing: 10) {
-                        ScrollView {
-                            // List of discovered Servers
-                            ForEach(store.discoveredServers) { server in
-                                Button {
-                                    store.setServer(to: server.url.absoluteString)
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "server.rack")
-                                            .font(.system(.largeTitle))
-                                        VStack(alignment: .leading) {
-                                            Text(server.name)
-                                                .bold()
-                                                .font(.headline)
-                                                .textCase(.uppercase)
-                                            Text(server.url.absoluteString)
-                                                .font(.system(.callout, design: .monospaced))
-                                                .foregroundColor(.secondary)
-                                        }
-                                        Spacer()
-                                        Image(systemName: "chevron.forward")
-                                    }
-                                }
-                                .accessibilityIdentifier("serverBtn")
-                            }
-                            .padding()
-
-                            // Manual Server entry
-                            Button {
-                                store.willEnterServerManually = true
-                            } label: {
-                                HStack {
-                                    Image(systemName: "server.rack")
-                                        .font(.system(.largeTitle))
-                                    VStack(alignment: .leading) {
-                                        Text("Enter Manually")
-                                            .bold()
-                                            .font(.headline)
-                                            .textCase(.uppercase)
-                                        Text("Enter host, port, etc. manually")
-                                            .font(.system(.callout, design: .monospaced))
-                                            .foregroundColor(.secondary)
-                                    }
-                                    Spacer()
-                                    Image(systemName: "chevron.forward")
-                                }
-                            }
-                            .accessibilityIdentifier("enterServerManuallyBtn")
-                            .padding()
-                        }
-                    }
-                } else {
-                    // Manually enter Server info
-                    manualServerEntryView
-                }
-            }
-        }.frame(maxHeight: .infinity)
+    @ViewBuilder
+    var contentView: some View {
+        switch store.viewState {
+            case .initial: initView
+            case .serverSelection: serverSelectionView
+            case .serverManual: serverManualView
+            case .userSelection: userSelectionView
+            case .userManual: userManualView
+            case .persistence: persistenceSelectionView
+        }
     }
 
-    /// View for entering server manually
-    var manualServerEntryView: some View {
-        VStack {
-            Group {
-                TextField(LocalizedStringKey("Host"), text: $store.manualHost)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                    .textContentType(.URL)
-                    .prefersDefaultFocus(store.manualHost.isEmpty, in: namespace)
-                    .accessibilityIdentifier("hostField")
+    @ViewBuilder
+    var contentViewHeader: some View {
+        HStack(spacing: 5) {
+            Text(store.viewState.localized)
+                .font(.title2).bold()
 
-                TextField(LocalizedStringKey("Port"), text: $store.manualPort)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                    .textContentType(.oneTimeCode)
-                    .keyboardType(.numberPad)
-                    .prefersDefaultFocus(!store.manualHost.isEmpty && store.manualPort.isEmpty, in: namespace)
-                    .accessibilityIdentifier("portField")
+            ProgressView()
+                .frame(width: 200)
+                .hidden(!store.isLoading)
+        }
+    }
 
-                TextField("/jellyfin", text: $store.manualPath)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                    .prefersDefaultFocus(!store.manualHost.isEmpty && !store.manualPort.isEmpty && store.manualPath.isEmpty, in: namespace)
-                    .accessibilityIdentifier("pathField")
+    var initView: some View {
+        ProgressView()
+            .onAppear {
+                store.checkForPersistence()
+            }
+    }
 
-                Toggle("Use SSL (HTTPS)", isOn: $store.manualHttps)
-                    .accessibilityIdentifier("sslSwitch")
+    /// View for selecting discovered Servers
+    var serverSelectionView: some View {
+        VStack(spacing: 10) {
+            ScrollView {
+                // List of discovered Servers
+                ForEach(store.discoveredServers) { server in
+                    Button {
+                        store.setServer(to: server.url.absoluteString)
+                    } label: {
+                        HStack {
+                            Image(systemName: "server.rack")
+                                .font(.system(.largeTitle))
+                            VStack(alignment: .leading) {
+                                Text(server.name)
+                                    .bold()
+                                    .font(.headline)
+                                    .textCase(.uppercase)
+                                Text(server.url.absoluteString)
+                                    .font(.system(.callout, design: .monospaced))
+                                    .foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                        }
+                    }
+                    .accessibilityIdentifier("serverBtn")
+                }
+                .padding()
 
+                // Manual Server entry
                 Button {
-                    store.setServerManual()
+                    store.viewState = .serverManual
                 } label: {
-                    if store.isLoading {
-                        ProgressView()
-                            .edgesIgnoringSafeArea(.all)
-                    } else {
-                        Text("Continue").textCase(.uppercase)
+                    HStack {
+                        Image(systemName: "server.rack")
+                            .font(.system(.largeTitle))
+                        VStack(alignment: .leading) {
+                            Text("Enter Manually")
+                                .bold()
+                                .font(.headline)
+                                .textCase(.uppercase)
+                            Text("Enter host, port, etc. manually")
+                                .font(.system(.callout, design: .monospaced))
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.forward")
                     }
                 }
-                .accessibilityIdentifier("continueBtn")
-                .prefersDefaultFocus(!store.manualHost.isEmpty && !store.manualPort.isEmpty && !store.manualPath.isEmpty, in: namespace)
+                .accessibilityIdentifier("enterServerManuallyBtn")
+                .padding()
             }
         }
     }
 
-    var userSelectionView: some View {
-        VStack {
-            Text("Who's Watching?")
-                .font(.title)
-                .padding(.bottom, 30)
+    /// View for manually entering Server-info
+    var serverManualView: some View {
+        VStack(spacing: 10) {
+            Spacer()
+            TextField(LocalizedStringKey("Host"), text: $store.manualHost)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .textContentType(.URL)
+                .prefersDefaultFocus(store.manualHost.isEmpty, in: namespace)
+                .accessibilityIdentifier("hostField")
 
-            Group {
-                if !store.willEnterUserManually {
-                    VStack(spacing: 10) {
-                        ScrollView {
-                            // List of public users
+            TextField(LocalizedStringKey("Port"), text: $store.manualPort)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .textContentType(.oneTimeCode)
+                .keyboardType(.numberPad)
+                .prefersDefaultFocus(!store.manualHost.isEmpty && store.manualPort.isEmpty, in: namespace)
+                .accessibilityIdentifier("portField")
 
-                            ForEach(store.publicUsers, id: \.id) { user in
-                                Button {
-                                    store.username = user.name!
-                                    if !(user.hasPassword ?? true) {
-                                        store.authenticate(username: user.name ?? "")
-                                    } else {
-                                        store.willEnterUserManually = true
-                                    }
+            TextField("/jellyfin", text: $store.manualPath)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .prefersDefaultFocus(!store.manualHost.isEmpty && !store.manualPort.isEmpty && store.manualPath.isEmpty, in: namespace)
+                .accessibilityIdentifier("pathField")
 
-                                } label: {
-                                    HStack {
-                                        UserAvatarView(user: user)
-                                            .frame(width: 60, height: 60, alignment: .center)
-                                            .overlay(
-                                                Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
-                                                    .padding(2),
-                                                alignment: .bottomLeading
-                                            )
-                                            .padding()
+            Toggle("Use SSL (HTTPS)", isOn: $store.manualHttps)
+                .accessibilityIdentifier("sslSwitch")
 
-                                        VStack(alignment: .leading) {
-                                            Text(user.name ?? "Missing Username")
-                                                .bold()
-                                                .font(.headline)
-                                                .textCase(.uppercase)
-                                            Text("user.")
-                                                .font(.system(.callout, design: .monospaced))
-                                                .foregroundColor(.secondary)
-                                        }
-
-                                        Spacer()
-
-                                        Image(systemName: "chevron.forward")
-                                    }
-                                }
-                                .prefersDefaultFocus(store.publicUsers.firstIndex(of: user) == store.publicUsers.startIndex, in: namespace)
-                                .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
-                                .buttonStyle(CardButtonStyle())
-                            }.padding()
-                                .background(Color.pink)
-
-                            // Manual User Entry
-                            Button {
-                                store.willEnterUserManually = true
-                            } label: {
-                                HStack {
-                                    ZStack {
-                                        Circle().fill(.thickMaterial)
-                                        Image(systemName: "person.fill.badge.plus")
-                                            .foregroundColor(.accentColor)
-                                            .font(.system(.largeTitle))
-                                    }
-                                    .frame(width: 60, height: 60, alignment: .center)
-                                    .padding()
-
-                                    VStack(alignment: .leading) {
-                                        Text("Enter Manually")
-                                            .bold()
-                                            .font(.headline)
-                                            .textCase(.uppercase)
-                                        Text("Enter credentials manually")
-                                            .font(.system(.callout, design: .monospaced))
-                                            .foregroundColor(.secondary)
-                                    }
-                                    Spacer()
-                                    Image(systemName: "chevron.forward")
-                                }
-                            }
-                            .accessibilityIdentifier("manualUserBtn")
-                            .buttonStyle(CardButtonStyle())
-                            .padding()
-                        }
-                    }
+            Button {
+                store.setServerManual()
+            } label: {
+                if store.isLoading {
+                    ProgressView()
+                        .edgesIgnoringSafeArea(.all)
                 } else {
-                    userEntryView
+                    Text("Continue").textCase(.uppercase)
                 }
             }
-            .padding(.top)
-        }.background(Color.blue)
+            .accessibilityIdentifier("continueBtn")
+            .prefersDefaultFocus(!store.manualHost.isEmpty && !store.manualPort.isEmpty && !store.manualPath.isEmpty, in: namespace)
+            Spacer()
+        }
     }
 
-    /// View for entering user manually
-    var userEntryView: some View {
+    /// View for selecting a public user
+    var userSelectionView: some View {
+        VStack(spacing: 10) {
+            ScrollView {
+                // List of public users
+
+                ForEach(store.publicUsers, id: \.id) { user in
+                    Button {
+                        store.username = user.name!
+                        if !(user.hasPassword ?? true) {
+                            store.authenticate(username: user.name ?? "")
+                        } else {
+                            store.viewState = .userManual
+                        }
+                    } label: {
+                        HStack {
+                            UserAvatarView(user: user)
+                                .frame(width: 60, height: 60, alignment: .center)
+                                .overlay(
+                                    Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
+                                        .foregroundColor(.secondary)
+                                        .padding(2),
+                                    alignment: .bottomLeading
+                                )
+                                .padding()
+                                .frame(width: 60, height: 60, alignment: .center)
+
+                            VStack(alignment: .leading) {
+                                Text(user.name ?? "Missing Username")
+                                    .bold()
+                                    .font(.headline)
+                                    .textCase(.uppercase)
+                                Text("user.")
+                                    .font(.system(.callout, design: .monospaced))
+                                    .foregroundColor(.secondary)
+                            }
+
+                            Spacer()
+
+                            Image(systemName: "chevron.forward")
+                        }
+                    }
+                    .prefersDefaultFocus(store.publicUsers.firstIndex(of: user) == store.publicUsers.startIndex, in: namespace)
+                    .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
+                    .buttonStyle(CardButtonStyle())
+                }
+
+                // Manual User Entry
+                Button {
+                    store.viewState = .userManual
+                } label: {
+                    HStack {
+                        ZStack {
+                            Circle().fill(.thickMaterial)
+                            Image(systemName: "person.fill.badge.plus")
+                                .foregroundColor(.accentColor)
+                                .font(.system(.largeTitle))
+                        }
+                        .frame(width: 60, height: 60, alignment: .center)
+                        .padding()
+
+                        VStack(alignment: .leading) {
+                            Text("Enter Manually")
+                                .bold()
+                                .font(.headline)
+                                .textCase(.uppercase)
+                            Text("Enter credentials manually")
+                                .font(.system(.callout, design: .monospaced))
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }
+                }
+                .accessibilityIdentifier("manualUserBtn")
+                .buttonStyle(CardButtonStyle())
+                .padding()
+            }
+        }
+    }
+
+    /// View for manually entering user-info
+    var userManualView: some View {
         VStack {
             Group {
                 TextField(LocalizedStringKey("username"), text: $store.username)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
                     .textContentType(.username)
-                    .disabled(!store.willEnterUserManually)
                     .prefersDefaultFocus(store.username.isEmpty, in: namespace)
                     .accessibilityIdentifier("usernameField")
 
@@ -291,6 +290,84 @@ struct AuthenticationView: View {
                 }
                 .accessibilityIdentifier("continueBtn")
                 .prefersDefaultFocus(!store.username.isEmpty && !store.password.isEmpty, in: namespace)
+            }
+        }
+    }
+
+    var persistenceSelectionView: some View {
+        VStack(spacing: 10) {
+            ScrollView {
+                // List of persisted users
+                ForEach(store.persistedUsers, id: \.id) { user in
+                    Button {
+                        store.authenticate(user)
+                    } label: {
+                        HStack {
+                            #warning("Implement UserAvatarView for Persisted User")
+//                            UserAvatarView(user: user)
+//                                .frame(width: 60, height: 60, alignment: .center)
+//                                .overlay(
+//                                    Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
+//                                        .foregroundColor(.secondary)
+//                                        .padding(2),
+//                                    alignment: .bottomLeading
+//                                )
+//                                .padding()
+//                                .frame(width: 60, height: 60, alignment: .center)
+
+                            VStack(alignment: .leading) {
+                                Text(user.name ?? "Missing Username")
+                                    .bold()
+                                    .font(.headline)
+                                    .textCase(.uppercase)
+                                HStack {
+                                    Text(user.serverName ?? "No Server Name")
+                                    Text(user.serverURI ?? "No Server URI")
+                                }
+                                .font(.callout)
+                                .foregroundColor(.secondary)
+                            }
+
+                            Spacer()
+
+                            Image(systemName: "chevron.forward")
+                        }
+                    }
+                    .prefersDefaultFocus(store.persistedUsers.firstIndex(of: user) == store.persistedUsers.startIndex, in: namespace)
+                    .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
+                    .buttonStyle(CardButtonStyle())
+                }
+
+                // Manual User Entry
+                Button {
+                    store.viewState = .userManual
+                } label: {
+                    HStack {
+                        ZStack {
+                            Circle().fill(.thickMaterial)
+                            Image(systemName: "person.fill.badge.plus")
+                                .foregroundColor(.accentColor)
+                                .font(.system(.largeTitle))
+                        }
+                        .frame(width: 60, height: 60, alignment: .center)
+                        .padding()
+
+                        VStack(alignment: .leading) {
+                            Text("New User")
+                                .bold()
+                                .font(.headline)
+                                .textCase(.uppercase)
+                            Text("Add another user")
+                                .font(.system(.callout, design: .monospaced))
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }
+                }
+                .accessibilityIdentifier("newUserBtn")
+                .buttonStyle(CardButtonStyle())
+                .padding()
             }
         }
     }

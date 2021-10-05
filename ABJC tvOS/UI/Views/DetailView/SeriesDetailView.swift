@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 19.09.21
+ Created on 22.09.21
  */
 
 import SwiftUI
@@ -23,7 +23,8 @@ struct SeriesDetailView: View {
         ZStack {
             backdrop.edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: true) {
-                headerView
+                headerView.frame(width: 1920, height: 1080, alignment: .center)
+                episodeView
                 peopleView
                 recommendedView
             }
@@ -50,19 +51,15 @@ struct SeriesDetailView: View {
                         Text(store.item.name ?? "No Name")
                             .bold()
                             .font(.title2)
-                        HStack {
-                            Text(store.item.productionYear != nil ? "\(String(store.item.productionYear!))" : "")
-                            Text(store.item.type ?? "")
-                        }.foregroundColor(.secondary)
+                        Text(store.item.productionYear != nil ? "\(String(store.item.productionYear!))" : "")
+                            .foregroundColor(.secondary)
                     }.accessibilityIdentifier("titleLbl")
 
                     Spacer()
                     // Play Button
-                    Button(action: self.store.play) {
-                        Text("Playbutton")
-                    }
-                    .accessibilityIdentifier("playBtn")
-                    .padding(.trailing)
+                    PlayButton(store.item.isContinue ? "Continue" : "Play")
+                        .accessibilityIdentifier("playBtn")
+                        .padding(.trailing, 80)
                 }
 
                 if store.item.overview != nil {
@@ -77,6 +74,43 @@ struct SeriesDetailView: View {
         }
         .prefersDefaultFocus(in: namespace)
         .padding(80)
+    }
+
+    /// Episode View with Season Switcher
+    var episodeView: some View {
+        VStack {
+            seasonSwitcher
+//            EpisodeRowView(episodes,
+//                           seasons,
+//                           $needsViewUpdate,
+//                           $selectedSeason,
+//                           $selectedEpisode)
+        }
+    }
+
+    /// Buttongroup for Season selection
+    var seasonSwitcher: some View {
+        HStack {
+            Button(action: {
+                if let season = store.selectedSeason {
+                    let prev = store.seasons.firstIndex(of: season)! - 1
+                    store.selectedSeason = store.seasons[prev]
+                }
+            }) {
+                Image(systemName: "chevron.left")
+            }.disabled(store.seasons.first == store.selectedSeason)
+            Text(store.selectedSeason?.name ?? "-")
+                .font(.headline)
+                .frame(width: 200)
+            Button(action: {
+                if let season = store.selectedSeason {
+                    let next = store.seasons.firstIndex(of: season)! + 1
+                    store.selectedSeason = store.seasons[next]
+                }
+            }) {
+                Image(systemName: "chevron.right")
+            }.disabled(store.seasons.last == store.selectedSeason)
+        }
     }
 
     /// People (Actors, etc.)

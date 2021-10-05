@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 21.09.21
+ Created on 22.09.21
  */
 
 import Foundation
@@ -35,6 +35,16 @@ class DetailViewDelegate: ViewDelegate {
     //    @Published var director: String?
     //    @Published var itemPeople: [Person] = []
 
+    @Published
+    var seasons: [BaseItemDto] = []
+    @Published
+    var episodes: [BaseItemDto] = []
+
+    @Published
+    var selectedSeason: BaseItemDto? = nil
+    @Published
+    var selectedEpisode: BaseItemDto? = nil
+
     // Loads imageUrl
     func loadImageUrl() {
         logger.log.info("loading poster for item", tag: logTag)
@@ -54,7 +64,7 @@ class DetailViewDelegate: ViewDelegate {
     // Load similar items
     func loadItemsSimilar() {
         logger.log.info("loading similar items", tag: logTag)
-        guard let userId = session.credentials?.userId, let itemId = item.id else {
+        guard let userId = session.user?.id, let itemId = item.id else {
             return
         }
         LibraryAPI.getSimilarItems(
@@ -74,7 +84,55 @@ class DetailViewDelegate: ViewDelegate {
         }
     }
 
+    func loadSeasons() {
+        guard let itemId = item.id else {
+            return
+        }
+
+        TvShowsAPI.getSeasons(seriesId: itemId) { result in
+            switch result {
+                case let .success(response):
+                    self.seasons = response.items ?? []
+                    self.loadEpisodes()
+                case let .failure(error):
+                    self.alert = .init(.failedToLoadItems)
+                    self.handleApiError(error)
+            }
+        }
+    }
+
+    func loadEpisodes() {
+        guard let itemId = item.id else {
+            return
+        }
+
+        TvShowsAPI.getEpisodes(seriesId: itemId) { result in
+            switch result {
+                case let .success(response):
+                    self.episodes = response.items?.sorted(by: { $0.indexNumber ?? 0 < $1.indexNumber ?? 0 }) ?? []
+                    for episode in self.episodes {
+                        if episode.isContinue {
+                            self.selectedEpisode = episode
+                            self.selectedSeason = self.seasons.first(where: { $0.id == episode.seasonId })
+                        }
+                    }
+
+                    if self.selectedSeason == nil {
+                        self.selectedSeason = self.seasons.first
+                        self.selectedEpisode = self.episodes.first
+                    }
+
+                case let .failure(error):
+                    self.alert = .init(.failedToLoadItems)
+                    self.handleApiError(error)
+            }
+        }
+    }
+
     func onAppear() {
+        if ItemType(rawValue: item.type ?? "") == .episode {
+            loadSeasons()
+        }
         loadImageUrl()
         loadItemsSimilar()
     }
