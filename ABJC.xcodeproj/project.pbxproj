@@ -171,7 +171,7 @@
 		FD6A9BAC26EBCD8200DF975C /* PeopleCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCardRow.swift; sourceTree = "<group>"; };
 		FD6A9BAE26EBCD8900DF975C /* PeopleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCard.swift; sourceTree = "<group>"; };
 		FD72333926F09E34007EAE08 /* CommandLineArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineArguments.swift; sourceTree = "<group>"; };
-		FD72333B26F0A07E007EAE08 /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Constants.plist; path = "ABJC tvOS/Constants.plist"; sourceTree = "<group>"; };
+		FD72333B26F0A07E007EAE08 /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Constants.plist; sourceTree = "<group>"; };
 		FD72333E26F0A0E1007EAE08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD72334726F0BF60007EAE08 /* Preferences+DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+DebugView.swift"; sourceTree = "<group>"; };
 		FD72334926F0D60F007EAE08 /* PreferenceStore+summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferenceStore+summary.swift"; sourceTree = "<group>"; };
@@ -401,8 +401,7 @@
 		FD792ED226EA2F0100BF2A42 = {
 			isa = PBXGroup;
 			children = (
-				FD72333B26F0A07E007EAE08 /* Constants.plist */,
-				FD72333E26F0A0E1007EAE08 /* Constants.swift */,
+				FDF8C7D0270DE57700821B8A /* Shared */,
 				FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6226EF92F7000EEC36 /* ABJCUITests */,
 				FD6559F026F3B1E0002A229A /* Snapshots */,
@@ -669,6 +668,15 @@
 				FDDAA0A326F7EC5900C0FAA8 /* Array.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDF8C7D0270DE57700821B8A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FD72333B26F0A07E007EAE08 /* Constants.plist */,
+				FD72333E26F0A0E1007EAE08 /* Constants.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
