@@ -28,11 +28,20 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES"
       localizableStringsDataGatheringEnabled = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FD792F0B26EA2F1A00BF2A42"
+            BuildableName = "ABJC (tvOS).app"
+            BlueprintName = "ABJC tvOS"
+            ReferencedContainer = "container:ABJC.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDD29D6026EF92F7000EEC36"
@@ -42,40 +51,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "ABJC__tvOS__UITests">
-               </Test>
-               <Test
-                  Identifier = "ABJC__tvOS__UITests/testDiscoveredServer()">
-               </Test>
-               <Test
-                  Identifier = "ABJC__tvOS__UITests/testLaunchPerformance()">
-               </Test>
-               <Test
-                  Identifier = "ABJC__tvOS__UITestsLaunchTests">
-               </Test>
-               <Test
-                  Identifier = "AuthenticationUITests/testDiscoveredServer()">
-               </Test>
-               <Test
-                  Identifier = "AuthenticationUITests/testManualServerEntryFields()">
-               </Test>
-               <Test
-                  Identifier = "AuthenticationUITests/testManualUserEntryFields()">
-               </Test>
-               <Test
-                  Identifier = "PlaybackUITests">
+                  Identifier = "AuthenticationUITests/testPersistedUserSelection()">
                </Test>
             </SkippedTests>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD6559EE26F3B1E0002A229A"
-               BuildableName = "Snapshots.xctest"
-               BlueprintName = "Snapshots"
-               ReferencedContainer = "container:ABJC.xcodeproj">
-            </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>

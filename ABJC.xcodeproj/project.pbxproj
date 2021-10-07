@@ -11,6 +11,8 @@
 		FD3C398826F4EB8800BFC2E8 /* SourceCodeAttachement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */; };
 		FD3C398A26F4EC4100BFC2E8 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C398926F4EC4100BFC2E8 /* AppError.swift */; };
 		FD3DD6E726F89D210018846C /* TrackPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3DD6E626F89D210018846C /* TrackPicker.swift */; };
+		FD4B3DD5270F3578007A17C7 /* ReportAProblemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4B3DD4270F3578007A17C7 /* ReportAProblemView.swift */; };
+		FD633F52270DE707009C37FB /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD633F51270DE707009C37FB /* TVServices.framework */; };
 		FD6351C326EB6EC4003E0534 /* MediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */; };
 		FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C426EB6F24003E0534 /* MediaCard.swift */; };
 		FD6351C726EB7227003E0534 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6351C626EB7227003E0534 /* Blur.swift */; };
@@ -143,6 +145,9 @@
 		FD3C398726F4EB8800BFC2E8 /* SourceCodeAttachement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeAttachement.swift; sourceTree = "<group>"; };
 		FD3C398926F4EC4100BFC2E8 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		FD3DD6E626F89D210018846C /* TrackPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPicker.swift; sourceTree = "<group>"; };
+		FD4B3DD4270F3578007A17C7 /* ReportAProblemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAProblemView.swift; sourceTree = "<group>"; };
+		FD633F50270DE707009C37FB /* ABJC tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ABJC tvOS.entitlements"; sourceTree = "<group>"; };
+		FD633F51270DE707009C37FB /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS15.0.sdk/System/Library/Frameworks/TVServices.framework; sourceTree = DEVELOPER_DIR; };
 		FD6351C226EB6EC4003E0534 /* MediaViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewDelegate.swift; sourceTree = "<group>"; };
 		FD6351C426EB6F24003E0534 /* MediaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCard.swift; sourceTree = "<group>"; };
 		FD6351C626EB7227003E0534 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -253,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD633F52270DE707009C37FB /* TVServices.framework in Frameworks */,
 				FDBDBF7B26F9E89100DB65A8 /* Puppy in Frameworks */,
 				FD6351DE26EB836A003E0534 /* URLImageStore in Frameworks */,
 				FD64119F26ED1A01008E3170 /* ABJCAnalytics in Frameworks */,
@@ -287,6 +293,7 @@
 		948DECD89EC453E75950DA9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD633F51270DE707009C37FB /* TVServices.framework */,
 				FD72335226F0E42C007EAE08 /* TVVLCKit.xcframework */,
 				B9CF1140A701276963175BEE /* Pods_ABJC_tvOS.framework */,
 			);
@@ -320,6 +327,7 @@
 			children = (
 				FD6351D326EB7871003E0534 /* InfoRow.swift */,
 				FD6351D526EB7885003E0534 /* ToggleRow.swift */,
+				FD4B3DD4270F3578007A17C7 /* ReportAProblemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -424,6 +432,7 @@
 		FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				FD633F50270DE707009C37FB /* ABJC tvOS.entitlements */,
 				FD687F6C26EE6F0E0034A622 /* ABJC-tvOS-Info.plist */,
 				FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */,
 				FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */,
@@ -936,6 +945,7 @@
 				FDDAA09E26F7DDB200C0FAA8 /* VLCPlayer.swift in Sources */,
 				FD72335126F0E409007EAE08 /* PlayerView.swift in Sources */,
 				FD792F4826EA368300BF2A42 /* UDPBroadcast.swift in Sources */,
+				FD4B3DD5270F3578007A17C7 /* ReportAProblemView.swift in Sources */,
 				FD6351D126EB763E003E0534 /* Preferences+ClientView.swift in Sources */,
 				FDD63F8626EABB1F001E4363 /* Tabs.swift in Sources */,
 				FD6351E226EB843C003E0534 /* DetailViewDelegate.swift in Sources */,
@@ -1212,6 +1222,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ABJC tvOS/ABJC tvOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC tvOS/Preview Content\"";
@@ -1244,6 +1255,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ABJC tvOS/ABJC tvOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC tvOS/Preview Content\"";

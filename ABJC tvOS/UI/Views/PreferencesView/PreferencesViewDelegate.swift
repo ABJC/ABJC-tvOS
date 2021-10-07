@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 21.09.21
+ Created on 07.10.21
  */
 
 import Foundation
@@ -72,6 +72,16 @@ class PreferencesViewDelegate: ViewDelegate {
                 case let .failure(error): print(error)
             }
         }
+    }
+
+    /// Remove User from persistence
+    func removeUser() {
+        session.removeUser()
+    }
+
+    /// Remove User from persistence
+    func switchUser() {
+        session.switchUser()
     }
 
     /// Fetch System Info from API

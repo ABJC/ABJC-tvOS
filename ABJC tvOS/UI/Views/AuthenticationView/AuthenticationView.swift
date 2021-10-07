@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 05.10.21
+ Created on 06.10.21
  */
 
 import SwiftUI
@@ -32,12 +32,11 @@ struct AuthenticationView: View {
                 .frame(width: geometry.size.width * 4 / 10)
 
                 VStack(alignment: .center) {
-                    contentViewHeader
+                    contentViewHeader.accessibilityIdentifier(store.viewState.rawValue)
                     contentView
                 }
                 .frame(maxHeight: .infinity)
                 .frame(width: geometry.size.width * 6 / 10, height: geometry.size.height)
-                .background(Color.blue)
             }
         }
         .abjcAlert($store.alert)
@@ -218,7 +217,6 @@ struct AuthenticationView: View {
                     }
                     .prefersDefaultFocus(store.publicUsers.firstIndex(of: user) == store.publicUsers.startIndex, in: namespace)
                     .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
-                    .buttonStyle(CardButtonStyle())
                 }
 
                 // Manual User Entry
@@ -249,7 +247,6 @@ struct AuthenticationView: View {
                     }
                 }
                 .accessibilityIdentifier("manualUserBtn")
-                .buttonStyle(CardButtonStyle())
                 .padding()
             }
         }
@@ -315,12 +312,12 @@ struct AuthenticationView: View {
 //                                .padding()
 //                                .frame(width: 60, height: 60, alignment: .center)
 
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .leading, spacing: 10) {
                                 Text(user.name ?? "Missing Username")
                                     .bold()
                                     .font(.headline)
                                     .textCase(.uppercase)
-                                HStack {
+                                VStack(alignment: .leading, spacing: 3) {
                                     Text(user.serverName ?? "No Server Name")
                                     Text(user.serverURI ?? "No Server URI")
                                 }
@@ -332,15 +329,16 @@ struct AuthenticationView: View {
 
                             Image(systemName: "chevron.forward")
                         }
+                        .padding()
                     }
                     .prefersDefaultFocus(store.persistedUsers.firstIndex(of: user) == store.persistedUsers.startIndex, in: namespace)
                     .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
-                    .buttonStyle(CardButtonStyle())
+                    .padding()
                 }
 
                 // Manual User Entry
                 Button {
-                    store.viewState = .userManual
+                    store.viewState = .serverSelection
                 } label: {
                     HStack {
                         ZStack {
@@ -366,7 +364,6 @@ struct AuthenticationView: View {
                     }
                 }
                 .accessibilityIdentifier("newUserBtn")
-                .buttonStyle(CardButtonStyle())
                 .padding()
             }
         }

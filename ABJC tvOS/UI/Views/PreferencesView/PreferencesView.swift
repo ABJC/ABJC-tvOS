@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 07.10.21
  */
 
 import SwiftUI
@@ -15,6 +15,8 @@ import SwiftUI
 struct PreferencesView: View {
     @StateObject
     var store: PreferencesViewDelegate = .init()
+    @State
+    var showReportAProblem: Bool = false
 
     var body: some View {
         List {
@@ -36,49 +38,58 @@ struct PreferencesView: View {
             .tag(2)
             .accessibilityIdentifier("debugViewLink")
 
-            //                Button(action: {
-            //                    self.showReportAProblem.toggle()
-            //                }) {
-            //                    HStack {
-            //                        Spacer()
-            //                        Text("Send Feedback")
-            //                            .bold()
-            //                            .textCase(.uppercase)
-            //
-            //                        Spacer()
-            //                    }
-            //                }
+            Button(action: {
+                showReportAProblem.toggle()
+            }) {
+                HStack {
+                    Spacer()
+                    Text("Send Feedback")
+                        .bold()
+                        .textCase(.uppercase)
 
-            //                Button(action: {
-            //                    self.session.logout()
-            //                }) {
-            //                    HStack {
-            //                        Spacer()
-            //                        Text(LocalizedStringKey("buttons.logout"))
-            //                            .bold()
-            //                            .textCase(.uppercase)
-            //                            .foregroundColor(.red)
-            //
-            //                        Spacer()
-            //                    }
-            //                }
+                    Spacer()
+                }
+            }.accessibilityIdentifier("sendFeedbackBtn")
 
-            //                Button(action: {
-            //                    showRemoveServerAlert = true
-            //                }) {
-            //                    HStack {
-            //                        Spacer()
-            //                        Text(LocalizedStringKey("alerts.removeServer.title"))
-            //                            .bold()
-            //                            .textCase(.uppercase)
-            //                            .foregroundColor(.red)
-            //
-            //                        Spacer()
-            //                    }
-            //                }
+            Button(action: store.switchUser) {
+                HStack {
+                    Spacer()
+                    Text("Switch User")
+                        .bold()
+                        .textCase(.uppercase)
+
+                    Spacer()
+                }
+            }.accessibilityIdentifier("switchUserBtn")
+
+            Button(action: {
+                store.alert = .init(
+                    id: "remove-user-alert",
+                    title: "Remove User",
+                    message: "If you remove this user, you'll have to enter your credentials again to sign back in.",
+                    primaryBtn: .cancel(),
+                    secondaryBtn: .destructive(Text("Confirm"), action: store.removeUser)
+                )
+            }) {
+                HStack {
+                    Spacer()
+                    Text("Remove User")
+                        .bold()
+                        .textCase(.uppercase)
+                        .foregroundColor(.red)
+
+                    Spacer()
+                }
+            }.accessibilityIdentifier("removeUserBtn")
         }
         .onAppear(perform: store.onAppear)
         .onDisappear(perform: store.onDisappear)
+        .alert(item: $store.alert) { alert in
+            alert.alert()
+        }
+        .fullScreenCover(isPresented: $showReportAProblem) {} content: {
+            ReportAProblemView()
+        }
     }
 }
 

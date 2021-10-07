@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 07.10.21
  */
 
 import SwiftUI
@@ -37,6 +37,23 @@ class AlertObject: Identifiable {
 
     var hasTwoButtons: Bool {
         _secondaryBtn != nil
+    }
+
+    func alert() -> Alert {
+        if hasTwoButtons {
+            return Alert(
+                title: title,
+                message: message,
+                primaryButton: primaryBtn,
+                secondaryButton: secondaryBtn
+            )
+        } else {
+            return Alert(
+                title: title,
+                message: message,
+                dismissButton: primaryBtn
+            )
+        }
     }
 
     init(id: String? = nil, title: LocalizedStringKey, message: LocalizedStringKey, primaryBtn: Alert.Button, secondaryBtn: Alert.Button?) {

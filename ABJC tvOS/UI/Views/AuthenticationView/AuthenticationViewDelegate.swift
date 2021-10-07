@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 05.10.21
+ Created on 06.10.21
  */
 
 import AnyCodable
@@ -58,6 +58,28 @@ class AuthenticationViewDelegate: ViewDelegate {
     var username: String = ""
     @Published
     var password: String = ""
+
+    func exitButtonPressed() {
+        switch viewState {
+            case .initial,
+                 .persistence:
+                #warning("Don't use in production")
+                exit(0)
+            case .serverSelection:
+                if persistedUsers.count > 0 {
+                    viewState = .persistence
+                } else {
+                    #warning("Don't use in production")
+                    exit(0)
+                }
+            case .serverManual:
+                viewState = .serverSelection
+            case .userSelection:
+                viewState = .serverSelection
+            case .userManual:
+                viewState = .userSelection
+        }
+    }
 
     func checkForPersistence() {
         let fetchRequest = UserCredentials.fetchRequest()
@@ -143,6 +165,7 @@ class AuthenticationViewDelegate: ViewDelegate {
 
     func authenticate(_ creds: UserCredentials) {
         logger.log.info("authenticating user", tag: "AuthenticationView")
+        setServer(to: creds.serverURI ?? "")
         session.didAuthenticate(creds)
     }
 
@@ -161,6 +184,7 @@ class AuthenticationViewDelegate: ViewDelegate {
                     newUserCred.serverName = result.user?.serverName
                     newUserCred.serverURI = JellyfinAPI.basePath
                     newUserCred.imageTag = result.user?.primaryImageTag
+                    newUserCred.appletvId = self.session.tvUserId
 
                     do {
                         try self.session.viewContext.save()

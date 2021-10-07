@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 21.09.21
+ Created on 06.10.21
  */
 
 import JellyfinAPI
@@ -19,8 +19,11 @@ class MediaCollectionViewDelegate: ViewDelegate {
 
     func loadItems(for types: [ItemType]) {
         logger.log.info("loading items for (\(types.map(\.rawValue).joined(separator: ",")))", tag: "MediaCollectionView")
+        guard let userId = session.user?.id else {
+            return
+        }
         ItemsAPI.getItems(
-            userId: session.user!.id,
+            userId: userId,
             recursive: true,
             fields: [.genres, .overview, .people],
             includeItemTypes: types.map(\.rawValue)

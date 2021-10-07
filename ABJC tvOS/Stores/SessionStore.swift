@@ -7,12 +7,14 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 05.10.21
+ Created on 07.10.21
  */
 
+import CoreData
 import Foundation
 import JellyfinAPI
 import SwiftUI
+import TVServices
 
 class SessionStore: ObservableObject {
     @Environment(\.appConfiguration)
@@ -27,19 +29,12 @@ class SessionStore: ObservableObject {
 
     @Published
     var isAuthenticated: Bool = false
-    @Published
-    var credentials: Jellyfin.Credentials?
 
     @Published
     var user: UserCredentials?
 
-    var wrappedCredentials: Jellyfin.Credentials {
-        if let credentials = self.credentials {
-            return credentials
-        } else {
-            fatalError("No Credentials")
-        }
-    }
+    @Published
+    var tvUserId: String? = nil
 
     func setServerURI(_ uri: String) {
         JellyfinAPI.basePath = uri
@@ -77,14 +72,44 @@ class SessionStore: ObservableObject {
         generateHeaders()
         isAuthenticated = true
         objectWillChange.send()
-
         logger.log.info("didAuthenticate \(user.id ?? "No USERID")", tag: "SessionStore")
+    }
+
+    func switchUser() {
+        logger.log.info("Switching User \(user?.name ?? "no user")")
+        isAuthenticated = false
+
+        user = nil
+    }
+
+    func removeUser() {
+        logger.log.info("Removing User \(user?.name ?? "no user") from persistence")
+        isAuthenticated = false
+
+        do {
+            if let user = self.user {
+                viewContext.delete(user)
+                try viewContext.save()
+                self.user = nil
+                objectWillChange.send()
+            }
+        } catch {
+            fatalError("Failed to log out user '\(error)'")
+        }
     }
 
     init(debug _: Bool = false) {
         #if DEBUG
             if CommandLineArguments.shouldReset {
                 PreferenceStore.shared.reset()
+                let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserCredentials.fetchRequest()
+                let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+                do {
+                    try PersistenceController.shared.container.viewContext.execute(deleteRequest)
+                } catch {
+                    fatalError("Failed to Reset PersistenceContainer")
+                }
             }
 
             if CommandLineArguments.isDebugEnabled {
@@ -110,7 +135,7 @@ class SessionStore: ObservableObject {
                             newUserCred.serverName = result.user?.serverName
                             newUserCred.serverURI = JellyfinAPI.basePath
                             newUserCred.imageTag = result.user?.primaryImageTag
-
+                            newUserCred.appletvId = self.tvUserId
                             do {
                                 try self.viewContext.save()
                             } catch {
@@ -124,6 +149,19 @@ class SessionStore: ObservableObject {
                 }
             }
         #endif
+
+        let tvUserManager = TVUserManager()
+        tvUserId = tvUserManager.currentUserIdentifier
+        let usersFetchRequest: NSFetchRequest<UserCredentials> = UserCredentials.fetchRequest()
+        let users = try? PersistenceController.shared.container.viewContext.fetch(usersFetchRequest)
+
+        users?.forEach { user in
+            if user.appletvId == tvUserId {
+                logger.log.info("Authenticating TVUser with persisted credentials", tag: "SessionStore")
+                self.setServerURI(user.serverURI ?? "")
+                self.didAuthenticate(user)
+            }
+        }
 
         if PreferenceStore.shared.isFirstBoot {
             app.analytics.send(.installed, with: [:])

@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 06.10.21
  */
 
 import JellyfinAPI
@@ -40,7 +40,8 @@ struct MediaCardRow: View {
                 .frame(height: store.rowHeight)
                 .padding(store.edgeInsets)
             }.edgesIgnoringSafeArea(.horizontal)
-        }.edgesIgnoringSafeArea(.horizontal)
+        }
+        .edgesIgnoringSafeArea(.horizontal)
     }
 }
 

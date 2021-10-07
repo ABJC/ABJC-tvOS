@@ -34,6 +34,8 @@ class PlaybackUITests: XCTestCase {
     }
 
     func testPlaybackViewDisplays() throws {
+        XCTExpectFailure("Playback won't function for now")
+        XCTFail("Playback is Disable")
         let moviesTab = app.buttons["Movies"]
         XCTAssert(moviesTab.waitForExistence(timeout: 15.0))
         XCUIRemote.shared.press(.down)

@@ -47,9 +47,6 @@
                <Test
                   Identifier = "LocalizationUITests">
                </Test>
-               <Test
-                  Identifier = "PlaybackUITests">
-               </Test>
             </SkippedTests>
          </TestableReference>
          <TestableReference

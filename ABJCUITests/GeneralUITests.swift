@@ -25,4 +25,13 @@ class GeneralUITests: XCTestCase {
             }
         }
     }
+
+    func testDetailItemFocus() {
+        let app = XCUIApplication()
+        app.launchArguments = ["authenticate", "user=user_hidden"]
+        app.launch()
+        XCUIRemote.shared.press(.select)
+        XCUIRemote.shared.press(.select)
+        XCUIRemote.shared.press(.down)
+    }
 }

@@ -7,13 +7,12 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 07.10.21
  */
 
 import XCTest
 
 class AuthenticationUITests: XCTestCase {
-    let app = XCUIApplication()
     let constants = UITestConstants(.init(for: AuthenticationUITests.self))
 
     override func setUpWithError() throws {
@@ -21,18 +20,14 @@ class AuthenticationUITests: XCTestCase {
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        app.launchArguments = ["enable-testing"]
-        app.launch()
-    }
-
-    override func tearDownWithError() throws {
-        app.terminate()
     }
 
     /// Test UI Elements in ManualServerEntry
     func testManualServerEntryUI() {
+        let app = XCUIApplication()
+        app.launchArguments = ["enable-testing", "reset-stores"]
+        app.launch()
+
         // Wait for welcome screen
         UITestHelpers.findAndPressButton(app.buttons["enterServerManuallyBtn"], .down)
 
@@ -62,6 +57,8 @@ class AuthenticationUITests: XCTestCase {
         UITestHelpers.withOpenTextField(portField, .down) {
             portField.clearAndEnterText(text: "PORT")
         }
+        // Test won't succeed if not waiting
+        sleep(1)
         XCTAssert(portField.value as! String == "PORT", "Port Field is settable")
 
         UITestHelpers.withOpenTextField(pathField, .down) {
@@ -72,9 +69,14 @@ class AuthenticationUITests: XCTestCase {
 
     /// Test Manually Connecting to Server
     func testManualServerEntry() {
+        let app = XCUIApplication()
+        app.launchArguments = ["enable-testing", "reset-stores"]
+        app.launch()
+
         // Navigate to Manual Server Entry Screen
         UITestHelpers.findAndPressButton(app.buttons["enterServerManuallyBtn"], .down)
 
+        print(app.debugDescription)
         // manually enter server information
         UITestHelpers.authConnectToServer(
             app,
@@ -87,20 +89,23 @@ class AuthenticationUITests: XCTestCase {
     /// Test Manually Connecting to Server
     func testDiscoveredServerUI() {
         XCTExpectFailure("Server currently not exposed over Multicast")
-
-        // Navigate to Manual Server Entry Screen
-        let enterServerManuallyBtn = app.buttons["enterServerManuallyBtn"]
-        UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
+        let app = XCUIApplication()
+        app.launchArguments = ["enable-testing", "reset-stores"]
+        app.launch()
 
         // Take Screenshot
         add(UITestHelpers.takeScreenshot("DiscoveredServerUI"))
 
         // test whether server has buttons
-        XCTAssert(app.buttons.matching(identifier: "serverBtn").firstMatch.waitForExistence(timeout: 30.0))
+        XCTAssert(app.buttons.matching(identifier: "serverBtn").firstMatch.waitForExistence(timeout: 5.0))
     }
 
     /// Test UI Elements in ManualUserEntry
     func testManualUserEntryUI() {
+        let app = XCUIApplication()
+        app.launchArguments = ["enable-testing", "reset-stores"]
+        app.launch()
+
         // Navigate to Manual Server Entry Screen
         let enterServerManuallyBtn = app.buttons["enterServerManuallyBtn"]
         UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
@@ -144,6 +149,7 @@ class AuthenticationUITests: XCTestCase {
     func testManualUserEntry() {
         func test(username: String, password: String) -> XCUIApplication {
             let app = XCUIApplication()
+            app.launchArguments = ["enable-testing", "reset-stores"]
             app.launch()
 
             // Navigate to Manual Server Entry Screen
@@ -207,6 +213,7 @@ class AuthenticationUITests: XCTestCase {
     func testPublicUserSelection() {
         func test(_ completion: (XCUIApplication) -> Void) {
             let app = XCUIApplication()
+            app.launchArguments = ["enable-testing", "reset-stores"]
             app.launch()
 
             // Navigate to Manual Server Entry Screen
@@ -234,7 +241,7 @@ class AuthenticationUITests: XCTestCase {
 
             let userBtn = app.buttons["userBtn-" + username]
             XCTAssert(userBtn.waitForExistence(timeout: 15.0))
-            UITestHelpers.findAndPressButton(userBtn, .up)
+            UITestHelpers.findAndPressButton(userBtn, .down)
 
             let usernameField = app.textFields["usernameField"]
             let passwordField = app.secureTextFields["passwordField"]
@@ -274,7 +281,7 @@ class AuthenticationUITests: XCTestCase {
 
             let userBtn = app.buttons["userBtn-" + username]
             XCTAssert(userBtn.waitForExistence(timeout: 15.0))
-            UITestHelpers.findAndPressButton(userBtn, .up)
+            UITestHelpers.findAndPressButton(userBtn, .down)
 
             let usernameField = app.textFields["usernameField"]
             let passwordField = app.secureTextFields["passwordField"]
@@ -320,5 +327,176 @@ class AuthenticationUITests: XCTestCase {
         }
 
         wait(for: [testWithPasswordSuccess, testWithPasswordFail, testWithoutPassword], timeout: 15.0)
+    }
+
+    /// Test whether Users are persisted for the ATV User
+    func testPersistAtvUser() {
+        func test(username: String, password: String?) {
+            let app = XCUIApplication()
+            app.launchArguments = [
+                "enable-testing",
+                "reset-stores"
+            ]
+            app.launch()
+
+            // Navigate to Manual Server Entry Screen
+            let enterServerManuallyBtn = app.buttons["enterServerManuallyBtn"]
+            UITestHelpers.findAndPressButton(enterServerManuallyBtn, .down)
+
+            // manually enter server information
+            UITestHelpers.authConnectToServer(
+                app,
+                host: constants.serverHost,
+                port: constants.serverPort,
+                path: constants.serverPath
+            )
+
+            var searching = true
+            while searching {
+                let focusBtn = app.buttons.allElementsBoundByIndex.first(where: { button in
+                    button.buttons.allElementsBoundByIndex.contains(where: \.hasFocus)
+                })
+
+                guard let focusBtn = focusBtn else {
+                    print(app.debugDescription)
+                    XCTFail("No Button Focussed")
+                    return
+                }
+
+                if focusBtn.identifier.hasSuffix(username) || focusBtn.identifier == "manualUserBtn" {
+                    XCUIRemote.shared.press(.select)
+                    searching = false
+                } else {
+                    XCUIRemote.shared.press(.down)
+                }
+            }
+
+            // manually enter user information
+            if let password = password {
+                UITestHelpers.authAuthenticateUser(
+                    app,
+                    username: username,
+                    password: password
+                )
+            }
+
+            XCTAssert(
+                app.otherElements["main-nav"].waitForExistence(timeout: 15.0),
+                "Authenticated Successfully"
+            )
+
+            app.terminate()
+            app.launchArguments = ["enable-testing"]
+            app.launch()
+
+            XCTAssert(
+                app.otherElements["main-nav"].waitForExistence(timeout: 15.0),
+                "Authenticated Successfully"
+            )
+
+            // Take Screenshot
+            add(UITestHelpers.takeScreenshot("PersistedUser-\(username)-\(password)"))
+
+            app.terminate()
+        }
+
+        // Test User without password
+        test(username: constants.nopassUserName, password: nil)
+
+        // Test User with password
+        test(username: constants.passUserName, password: constants.passUserPass)
+
+        // Test User manually
+        test(username: constants.manualUserName, password: constants.manualUserPass)
+    }
+
+    /// Test Whether Removing a User actually Removes them
+    func testRemoveUser() {
+        let app = XCUIApplication()
+        app.launchArguments = [
+            "enable-testing",
+            "reset-stores",
+            "authenticate",
+            "user=user_hidden"
+        ]
+        app.launch()
+
+        // Wait for appear
+        XCTAssert(
+            app.otherElements["main-nav"].waitForExistence(timeout: 15.0),
+            "Authenticated Successfully"
+        )
+        UITestHelpers.navigateToTab(with: "Preferences", app: app)
+
+        // Press "Remove User" Button
+        UITestHelpers.findAndPressButton(app.cells["Remove User"], .down)
+        sleep(1)
+
+        // Cancel "Remove User"
+        add(UITestHelpers.takeScreenshot("RemoveUserAlert"))
+        XCTAssert(
+            app.alerts["Remove User"].waitForExistence(timeout: 15.0),
+            "Remove User Alert was presented successfully"
+        )
+        UITestHelpers.findAndPressButton(app.buttons["Cancel"].firstMatch, .up)
+
+        // Press "Remove User" Button
+        UITestHelpers.findAndPressButton(app.cells["Remove User"], .down)
+        sleep(1)
+
+        // Confirm "Remove User"
+        add(UITestHelpers.takeScreenshot("RemoveUserAlert"))
+        XCTAssert(
+            app.alerts["Remove User"].waitForExistence(timeout: 15.0),
+            "Remove User Alert was presented successfully"
+        )
+        UITestHelpers.findAndPressButton(app.buttons["Confirm"].firstMatch, .up)
+        sleep(1)
+        add(UITestHelpers.takeScreenshot("ChooseServerView"))
+        XCTAssert(
+            app.staticTexts["serverSelection"].waitForExistence(timeout: 15),
+            "Server Selection View did appear"
+        )
+    }
+
+    /// Test Whether Switching a User actually shows Persisted User View
+    func testSwitchUser() {
+        let app = XCUIApplication()
+        app.launchArguments = [
+            "enable-testing",
+            "reset-stores",
+            "authenticate",
+            "user=\(constants.passUserName)"
+        ]
+        app.launch()
+
+        // Wait for appear
+        XCTAssert(
+            app.otherElements["main-nav"].waitForExistence(timeout: 15.0),
+            "Authenticated Successfully"
+        )
+        UITestHelpers.navigateToTab(with: "Preferences", app: app)
+
+        // Press "Switch User" Button
+        UITestHelpers.findAndPressButton(app.cells["Switch User"], .down)
+        sleep(1)
+
+        // Test if Persistence View appears
+        add(UITestHelpers.takeScreenshot("ChoosePersistedUserView"))
+        XCTAssert(
+            app.staticTexts["persistence"].waitForExistence(timeout: 15.0),
+            "Persistent User Chooser did Appear"
+        )
+        XCTAssert(
+            app.buttons["userBtn-\(constants.passUserName)"].exists,
+            "Previously logged in user is option"
+        )
+
+        // Test if sign in by pressing button works
+        UITestHelpers.findAndPressButton(app.buttons["userBtn-\(constants.passUserName)"], .down)
+        XCTAssert(
+            app.otherElements["main-nav"].waitForExistence(timeout: 15.0),
+            "Authenticated Successfully"
+        )
     }
 }
