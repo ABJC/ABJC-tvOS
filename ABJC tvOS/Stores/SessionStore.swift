@@ -58,7 +58,7 @@ class SessionStore: ObservableObject {
             "Version=\"\(appVersion ?? "0.0.1")\""
         ]
 
-        if let user = self.user,
+        if let user = user,
            let token = user.token {
             // Add Token
             embyAuthorization.append("Token=\"\(token)\"")
@@ -87,7 +87,7 @@ class SessionStore: ObservableObject {
         isAuthenticated = false
 
         do {
-            if let user = self.user {
+            if let user = user {
                 viewContext.delete(user)
                 try viewContext.save()
                 self.user = nil

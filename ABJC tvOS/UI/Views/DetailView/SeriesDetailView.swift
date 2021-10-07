@@ -41,7 +41,10 @@ struct SeriesDetailView: View {
     }
 
     var headerView: some View {
-        ButtonArea(store.play) { _ in
+        NavigationLink(destination: {
+            PlayerContainerView()
+                .environmentObject(store.playerStore)
+        }) {
             VStack(alignment: .leading) {
                 // Poster Image
                 poster
@@ -72,6 +75,7 @@ struct SeriesDetailView: View {
                 }
             }
         }
+        .buttonStyle(.plain)
         .prefersDefaultFocus(in: namespace)
         .padding(80)
     }

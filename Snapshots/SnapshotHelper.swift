@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 07.10.21
  */
 
 // -----------------------------------------------------
@@ -56,8 +56,7 @@ enum SnapshotError: Error, CustomDebugStringConvertible {
     }
 }
 
-@objcMembers
-open class Snapshot: NSObject {
+@objcMembers open class Snapshot: NSObject {
     static var app: XCUIApplication?
     static var waitForAnimations = true
     static var cacheDirectory: URL?
@@ -81,7 +80,7 @@ open class Snapshot: NSObject {
     }
 
     class func setLanguage(_ app: XCUIApplication) {
-        guard let cacheDirectory = self.cacheDirectory else {
+        guard let cacheDirectory = cacheDirectory else {
             NSLog("CacheDirectory is not set - probably running on a physical device?")
             return
         }
@@ -98,7 +97,7 @@ open class Snapshot: NSObject {
     }
 
     class func setLocale(_ app: XCUIApplication) {
-        guard let cacheDirectory = self.cacheDirectory else {
+        guard let cacheDirectory = cacheDirectory else {
             NSLog("CacheDirectory is not set - probably running on a physical device?")
             return
         }
@@ -122,7 +121,7 @@ open class Snapshot: NSObject {
     }
 
     class func setLaunchArguments(_ app: XCUIApplication) {
-        guard let cacheDirectory = self.cacheDirectory else {
+        guard let cacheDirectory = cacheDirectory else {
             NSLog("CacheDirectory is not set - probably running on a physical device?")
             return
         }
@@ -155,7 +154,7 @@ open class Snapshot: NSObject {
         }
 
         #if os(OSX)
-            guard let app = self.app else {
+            guard let app = app else {
                 NSLog("XCUIApplication is not set. Please call setupSnapshot(app) before snapshot().")
                 return
             }
@@ -219,7 +218,7 @@ open class Snapshot: NSObject {
             return
         #endif
 
-        guard let app = self.app else {
+        guard let app = app else {
             NSLog("XCUIApplication is not set. Please call setupSnapshot(app) before snapshot().")
             return
         }

@@ -30,17 +30,13 @@ struct MovieDetailView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear(perform: store.onAppear)
-
-        .fullScreenCover(isPresented: $store.isPlaying) {
-            self.store.isPlaying = false
-        } content: {
-            PlayerContainerView()
-                .environmentObject(store.playerStore)
-        }
     }
 
     var headerView: some View {
-        ButtonArea(store.play) { _ in
+        NavigationLink(destination: {
+            PlayerContainerView()
+                .environmentObject(store.playerStore)
+        }) {
             VStack(alignment: .leading) {
                 // Poster Image
                 poster
@@ -71,6 +67,7 @@ struct MovieDetailView: View {
                 }
             }
         }
+        .buttonStyle(.plain)
         .prefersDefaultFocus(in: namespace)
         .padding(80)
     }

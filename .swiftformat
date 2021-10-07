@@ -12,8 +12,8 @@
 --wraparguments before-first
 --wrapparameters before-first
 --wrapconditions after-first
---funcattributes prev-line
---typeattributes prev-line
+--funcattributes same-line
+--typeattributes same-line
 --varattributes prev-line
 
 ## Trailing Commas

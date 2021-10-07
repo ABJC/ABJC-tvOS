@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 07.10.21
  */
 
 import Foundation
@@ -70,7 +70,7 @@ class PlayerViewDelegate: ViewDelegate {
 
     /// Load StreamURL
     func loadStreamURL() {
-        if let playbackInfo = self.playbackInfo {
+        if let playbackInfo = playbackInfo {
             guard let mediaSource = playbackInfo.mediaSources?.first else {
                 return
             }
