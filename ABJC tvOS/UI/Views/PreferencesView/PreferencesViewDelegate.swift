@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 07.10.21
+ Created on 08.10.21
  */
 
 import Foundation
@@ -15,28 +15,20 @@ import JellyfinAPI
 
 class PreferencesViewDelegate: ViewDelegate {
     // Preference Temporary Store
-    @Published
-    var showsTitles: Bool = true
-    @Published
-    var collectionGrouping: CollectionGrouping = .default
-    @Published
-    var posterType: PreferenceStore.PosterType = .default
-    @Published
-    var betaflags = Set<PreferenceStore.BetaFlag>()
+    @Published var showsTitles: Bool = true
+    @Published var collectionGrouping: CollectionGrouping = .default
+    @Published var posterType: PreferenceStore.PosterType = .default
+    @Published var betaflags = Set<PreferenceStore.BetaFlag>()
 
-    @Published
-    var isDebugEnabled: Bool = false
+    @Published var isDebugEnabled: Bool = false
 
     //    @Published var alwaysShowTitles: Bool = true
     //    @Published var alwaysShowTitles: Bool = true
     //    @Published var alwaysShowTitles: Bool = true
 
-    @Published
-    var serverConfiguration: ServerConfiguration?
-    @Published
-    var systemInfo: SystemInfo?
-    @Published
-    var itemCounts: ItemCounts?
+    @Published var serverConfiguration: ServerConfiguration?
+    @Published var systemInfo: SystemInfo?
+    @Published var itemCounts: ItemCounts?
 
     func onAppear() {
         loadPreferences()

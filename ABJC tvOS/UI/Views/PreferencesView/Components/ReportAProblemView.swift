@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 07.10.21
+ Created on 08.10.21
  */
 
 import CoreImage.CIFilterBuiltins
@@ -35,11 +35,9 @@ class ReportAProblemViewDelegate: ViewDelegate {
 }
 
 struct ReportAProblemView: View {
-    @Environment(\.presentationMode)
-    var presentationMode
+    @Environment(\.presentationMode) var presentationMode
 
-    @StateObject
-    var store: ReportAProblemViewDelegate = .init()
+    @StateObject var store: ReportAProblemViewDelegate = .init()
 
     var body: some View {
         ZStack {

@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 07.10.21
+ Created on 08.10.21
  */
 
 import CoreData
@@ -17,8 +17,7 @@ import SwiftUI
 import TVServices
 
 class SessionStore: ObservableObject {
-    @Environment(\.appConfiguration)
-    var app
+    @Environment(\.appConfiguration) var app
 
     let logger: Logger = .shared
 
@@ -27,14 +26,11 @@ class SessionStore: ObservableObject {
 
     let viewContext = PersistenceController.shared.container.viewContext
 
-    @Published
-    var isAuthenticated: Bool = false
+    @Published var isAuthenticated: Bool = false
 
-    @Published
-    var user: UserCredentials?
+    @Published var user: UserCredentials?
 
-    @Published
-    var tvUserId: String? = nil
+    @Published var tvUserId: String? = nil
 
     func setServerURI(_ uri: String) {
         JellyfinAPI.basePath = uri

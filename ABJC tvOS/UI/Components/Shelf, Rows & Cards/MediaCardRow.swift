@@ -7,15 +7,14 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 07.10.21
+ Created on 08.10.21
  */
 
 import JellyfinAPI
 import SwiftUI
 
 struct MediaCardRow: View {
-    @ObservedObject
-    var store: MediaViewDelegate
+    @ObservedObject var store: MediaViewDelegate
 
     /// Label
     public let label: LocalizedStringKey

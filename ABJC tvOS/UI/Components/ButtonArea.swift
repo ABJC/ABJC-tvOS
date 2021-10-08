@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
@@ -24,10 +24,8 @@ struct ButtonArea<Content: View>: View {
         self.content = content
     }
 
-    @Environment(\.isFocused)
-    var isFocused
-    @State
-    var isPressed: Bool = false
+    @Environment(\.isFocused) var isFocused
+    @State var isPressed: Bool = false
 
     var body: some View {
         content(isFocused)

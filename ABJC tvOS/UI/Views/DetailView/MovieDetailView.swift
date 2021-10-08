@@ -13,11 +13,9 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    @StateObject
-    var store: DetailViewDelegate
+    @StateObject var store: DetailViewDelegate
 
-    @Namespace
-    var namespace
+    @Namespace var namespace
 
     var body: some View {
         ZStack {

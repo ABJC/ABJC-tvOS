@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 07.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
@@ -16,8 +16,7 @@ extension PreferencesView {
     struct ToggleRow: View {
         private let title: LocalizedStringKey
         private let subtitle: LocalizedStringKey?
-        @Binding
-        var value: Bool
+        @Binding var value: Bool
 
         init(_ title: LocalizedStringKey, _ subtitle: LocalizedStringKey?, _ value: Binding<Bool>) {
             self.title = title

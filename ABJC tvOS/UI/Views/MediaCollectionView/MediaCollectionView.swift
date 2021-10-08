@@ -7,15 +7,14 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
 
 struct MediaCollectionView: View {
     public let itemType: ItemType
-    @StateObject
-    var store: MediaCollectionViewDelegate = .init()
+    @StateObject var store: MediaCollectionViewDelegate = .init()
 
     var body: some View {
         Shelf(store.items, grouped: store.preferences.collectionGrouping)

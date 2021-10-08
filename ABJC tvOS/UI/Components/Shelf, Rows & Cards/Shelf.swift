@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import JellyfinAPI
@@ -37,15 +37,13 @@ struct CollectionCell<Content: Hashable>: Hashable {
 }
 
 struct Shelf: View {
-    @ObservedObject
-    var store: MediaViewDelegate = .init()
+    @ObservedObject var store: MediaViewDelegate = .init()
 
     typealias Row = CollectionRow<String, CollectionCell<BaseItemDto>>
 
     private let grouping: CollectionGrouping
 
-    @State
-    var rows: [Row]
+    @State var rows: [Row]
 
     // , _ grouping: Grouping
     init(_ items: [BaseItemDto], grouped grouping: CollectionGrouping) {

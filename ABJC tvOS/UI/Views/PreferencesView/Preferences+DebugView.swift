@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import ABJCAnalytics
@@ -16,8 +16,7 @@ import SwiftUI
 
 extension PreferencesView {
     struct DebugView: View {
-        @ObservedObject
-        var store: PreferencesViewDelegate
+        @ObservedObject var store: PreferencesViewDelegate
 
         var body: some View {
             Form {

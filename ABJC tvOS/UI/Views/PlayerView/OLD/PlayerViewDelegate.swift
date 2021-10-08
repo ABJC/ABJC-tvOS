@@ -21,28 +21,20 @@ class PlayerViewDelegate: ViewDelegate {
 
     // Playback Item Objects
     public let item: BaseItemDto
-    @Published
-    var playbackInfo: PlaybackInfoResponse?
-    @Published
-    var streamURL: URL?
+    @Published var playbackInfo: PlaybackInfoResponse?
+    @Published var streamURL: URL?
 
     // Controlls State
-    @Published
-    var showsControlls: Bool = true
+    @Published var showsControlls: Bool = true
 
     // VideoPlayer States
-    @Published
-    var time: Int = 0
-    @Published
-    var timeRemaining: Int = 0
-    @Published
-    var state: VLCMediaPlayerState?
+    @Published var time: Int = 0
+    @Published var timeRemaining: Int = 0
+    @Published var state: VLCMediaPlayerState?
 
     // Tracks
-    @Published
-    var currentVideoTrack = Track(index: -99, name: "NO TRACK")
-    @Published
-    var currentAudioTrack = Track(index: -99, name: "NO TRACK")
+    @Published var currentVideoTrack = Track(index: -99, name: "NO TRACK")
+    @Published var currentAudioTrack = Track(index: -99, name: "NO TRACK")
 
     init(_ item: BaseItemDto) {
         self.item = item

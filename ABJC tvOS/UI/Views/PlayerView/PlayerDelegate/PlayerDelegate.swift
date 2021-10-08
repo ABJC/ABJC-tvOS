@@ -30,27 +30,18 @@ class PlayerDelegate: ViewDelegate {
         initPlayback()
     }
 
-    @Published
-    var isReadyToPlay: Bool = false
-    @Published
-    var isShowingInterface: Bool = false
+    @Published var isReadyToPlay: Bool = false
+    @Published var isShowingInterface: Bool = false
 
-    @Published
-    var playerState: VLCMediaPlayerState = .stopped
-    @Published
-    var playerTime: VLCTime = .init(int: 0)
-    @Published
-    var playerTimeRemaining: VLCTime = .init(int: 0)
+    @Published var playerState: VLCMediaPlayerState = .stopped
+    @Published var playerTime: VLCTime = .init(int: 0)
+    @Published var playerTimeRemaining: VLCTime = .init(int: 0)
 
-    @Published
-    var videoTracks: [Track] = []
-    @Published
-    var audioTracks: [Track] = []
+    @Published var videoTracks: [Track] = []
+    @Published var audioTracks: [Track] = []
 
-    @Published
-    var currentVideoTrack: Track?
-    @Published
-    var currentAudioTrack: Track?
+    @Published var currentVideoTrack: Track?
+    @Published var currentAudioTrack: Track?
 
     func initPlayback() {
         loadPlaybackInfo { result in

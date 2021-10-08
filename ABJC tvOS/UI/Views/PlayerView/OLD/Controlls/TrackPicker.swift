@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
@@ -15,8 +15,7 @@ import SwiftUI
 struct TrackPicker: View {
     private let label: LocalizedStringKey
     private let tracks: [Track]
-    @Binding
-    var selection: Track
+    @Binding var selection: Track
 
     init(_ label: LocalizedStringKey, _ selection: Binding<Track>, _ tracks: [Track]) {
         self.label = label
@@ -24,8 +23,7 @@ struct TrackPicker: View {
         self.tracks = tracks
     }
 
-    @State
-    var showPicker: Bool = false
+    @State var showPicker: Bool = false
 
     var body: some View {
         VStack {

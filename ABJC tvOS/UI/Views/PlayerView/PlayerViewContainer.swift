@@ -13,8 +13,7 @@
 import SwiftUI
 
 struct PlayerViewContainer: View {
-    @StateObject
-    var store: PlayerDelegate
+    @StateObject var store: PlayerDelegate
 
     var body: some View {
         ZStack {

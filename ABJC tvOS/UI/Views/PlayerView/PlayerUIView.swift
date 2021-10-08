@@ -14,8 +14,7 @@ import SwiftUI
 import TVVLCKit
 
 struct PlayerUIView: UIViewRepresentable {
-    @ObservedObject
-    var store: PlayerDelegate
+    @ObservedObject var store: PlayerDelegate
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)

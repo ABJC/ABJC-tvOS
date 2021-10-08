@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import Combine
@@ -16,8 +16,7 @@ import SwiftUI
 
 class UserAvatarViewDelegate: ViewDelegate {
     private let user: UserDto
-    @Published
-    var imageUrl: URL?
+    @Published var imageUrl: URL?
 
     init(user: UserDto) {
         self.user = user

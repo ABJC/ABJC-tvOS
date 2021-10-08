@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import JellyfinAPI
@@ -19,8 +19,7 @@ struct PeopleCard: View {
 
     private var size: CGSize = .init(width: 300, height: 400)
 
-    @State
-    var imageUrl: URL?
+    @State var imageUrl: URL?
 
     func loadImageUrl() {
         guard let name = person.name else {

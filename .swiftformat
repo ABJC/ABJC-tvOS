@@ -12,9 +12,11 @@
 --wraparguments before-first
 --wrapparameters before-first
 --wrapconditions after-first
+
+# Set @attributes to same-line
 --funcattributes same-line
 --typeattributes same-line
---varattributes prev-line
+--varattributes same-line
 
 ## Trailing Commas
 --commas inline

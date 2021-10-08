@@ -14,8 +14,7 @@ import SwiftUI
 import TVVLCKit
 
 struct PlayerContainerView: SwiftUI.View {
-    @EnvironmentObject
-    var store: PlayerViewDelegate
+    @EnvironmentObject var store: PlayerViewDelegate
 
     var body: some SwiftUI.View {
         Text("NOT IMPLEMENTED (DEPRACATED)")

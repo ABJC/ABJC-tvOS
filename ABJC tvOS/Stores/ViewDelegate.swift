@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import AnyCodable
@@ -34,24 +34,18 @@ struct ErrorMessage: Identifiable {
 }
 
 class ViewDelegate: ObservableObject {
-    @Environment(\.appConfiguration)
-    var app
+    @Environment(\.appConfiguration) var app
 
     let logger: Logger = .shared
 
-    @ObservedObject
-    var session: SessionStore = .shared
+    @ObservedObject var session: SessionStore = .shared
 
-    @ObservedObject
-    var preferences: PreferenceStore = .shared
+    @ObservedObject var preferences: PreferenceStore = .shared
 
-    @Published
-    var alert: AlertObject?
+    @Published var alert: AlertObject?
 
-    @Published
-    var isLoading = false
-    @Published
-    var errorMessage: ErrorMessage?
+    @Published var isLoading = false
+    @Published var errorMessage: ErrorMessage?
 
     var cancellables = Set<AnyCancellable>()
 

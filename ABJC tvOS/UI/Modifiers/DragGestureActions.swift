@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import GameController
@@ -32,18 +32,12 @@ struct SwipeGestureActions: ViewModifier {
     var onRight: () -> Void = {}
     var onLeft: () -> Void = {}
 
-    @State
-    var lastY: Float = 0
-    @State
-    var lastX: Float = 0
-    @State
-    var totalYSwipeDistance: Float = 0
-    @State
-    var totalXSwipeDistance: Float = 0
-    @State
-    var lastInteraction: TimeInterval = Date().timeIntervalSince1970
-    @State
-    var isNewSwipe: Bool = true
+    @State var lastY: Float = 0
+    @State var lastX: Float = 0
+    @State var totalYSwipeDistance: Float = 0
+    @State var totalXSwipeDistance: Float = 0
+    @State var lastInteraction: TimeInterval = Date().timeIntervalSince1970
+    @State var isNewSwipe: Bool = true
 
     func resetCounters(x: Float, y: Float) {
         isNewSwipe = true

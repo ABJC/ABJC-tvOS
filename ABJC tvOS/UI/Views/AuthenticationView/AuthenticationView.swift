@@ -7,17 +7,15 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
 
 struct AuthenticationView: View {
-    @Namespace
-    var namespace
+    @Namespace var namespace
 
-    @StateObject
-    var store: AuthenticationViewDelegate = .init()
+    @StateObject var store: AuthenticationViewDelegate = .init()
 
     var body: some View {
         GeometryReader { geometry in
@@ -43,8 +41,7 @@ struct AuthenticationView: View {
         .background(BackgroundViews.gradient)
     }
 
-    @ViewBuilder
-    var contentView: some View {
+    @ViewBuilder var contentView: some View {
         switch store.viewState {
             case .initial: initView
             case .serverSelection: serverSelectionView
@@ -55,8 +52,7 @@ struct AuthenticationView: View {
         }
     }
 
-    @ViewBuilder
-    var contentViewHeader: some View {
+    @ViewBuilder var contentViewHeader: some View {
         HStack(spacing: 5) {
             Text(store.viewState.localized)
                 .font(.title2).bold()

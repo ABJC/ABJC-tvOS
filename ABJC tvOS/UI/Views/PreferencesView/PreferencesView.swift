@@ -7,16 +7,14 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 07.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
 
 struct PreferencesView: View {
-    @StateObject
-    var store: PreferencesViewDelegate = .init()
-    @State
-    var showReportAProblem: Bool = false
+    @StateObject var store: PreferencesViewDelegate = .init()
+    @State var showReportAProblem: Bool = false
 
     var body: some View {
         List {

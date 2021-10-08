@@ -13,11 +13,9 @@
 import SwiftUI
 
 struct PlayerControllsView: View {
-    @Environment(\.presentationMode)
-    var presentationMode
+    @Environment(\.presentationMode) var presentationMode
 
-    @ObservedObject
-    var store: PlayerDelegate
+    @ObservedObject var store: PlayerDelegate
 
     let hideTimer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
 

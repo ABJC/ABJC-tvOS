@@ -16,34 +16,27 @@ import JellyfinAPI
 class DetailViewDelegate: ViewDelegate {
     let playerStore: PlayerViewDelegate
 
-    @Published
-    var isPlaying: Bool = false
+    @Published var isPlaying: Bool = false
 
     public let item: BaseItemDto
 
-    @Published
-    var imageUrl: URL?
+    @Published var imageUrl: URL?
 
     var logTag: String {
         (item.type?.capitalized ?? "Unknown") + "DetailView"
     }
 
-    @Published
-    var itemSimilars: [BaseItemDto] = []
+    @Published var itemSimilars: [BaseItemDto] = []
     //    @Published var actors: [BaseItemPerson] = []
     //    @Published var studio: String?
     //    @Published var director: String?
     //    @Published var itemPeople: [Person] = []
 
-    @Published
-    var seasons: [BaseItemDto] = []
-    @Published
-    var episodes: [BaseItemDto] = []
+    @Published var seasons: [BaseItemDto] = []
+    @Published var episodes: [BaseItemDto] = []
 
-    @Published
-    var selectedSeason: BaseItemDto? = nil
-    @Published
-    var selectedEpisode: BaseItemDto? = nil
+    @Published var selectedSeason: BaseItemDto? = nil
+    @Published var selectedEpisode: BaseItemDto? = nil
 
     // Loads imageUrl
     func loadImageUrl() {

@@ -7,17 +7,15 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
 
 struct SeriesDetailView: View {
-    @StateObject
-    var store: DetailViewDelegate
+    @StateObject var store: DetailViewDelegate
 
-    @Namespace
-    var namespace
+    @Namespace var namespace
 
     var body: some View {
         ZStack {

@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import AnyCodable
@@ -24,40 +24,29 @@ class AuthenticationViewDelegate: ViewDelegate {
         ]
     }
 
-    @Published
-    var viewState: ViewState = .initial
+    @Published var viewState: ViewState = .initial
 
     // Persistence
-    @Published
-    var persistedUsers: [UserCredentials] = []
+    @Published var persistedUsers: [UserCredentials] = []
 
     // Server Discoverd
     // Discovery of Servers
     private let discovery = ServerDiscovery()
-    @Published
-    var isDiscoveringServers: Bool = true
-    @Published
-    var discoveredServers: [ServerDiscovery.ServerLookupResponse] = []
+    @Published var isDiscoveringServers: Bool = true
+    @Published var discoveredServers: [ServerDiscovery.ServerLookupResponse] = []
 
     // Server Manual Entry:
-    @Published
-    var manualHost: String = ""
-    @Published
-    var manualPort: String = "8096"
-    @Published
-    var manualPath: String = ""
-    @Published
-    var manualHttps: Bool = false
+    @Published var manualHost: String = ""
+    @Published var manualPort: String = "8096"
+    @Published var manualPath: String = ""
+    @Published var manualHttps: Bool = false
 
     // User Selection
-    @Published
-    var publicUsers: [UserDto] = []
+    @Published var publicUsers: [UserDto] = []
 
     // Manual User Entry
-    @Published
-    var username: String = ""
-    @Published
-    var password: String = ""
+    @Published var username: String = ""
+    @Published var password: String = ""
 
     func exitButtonPressed() {
         switch viewState {
