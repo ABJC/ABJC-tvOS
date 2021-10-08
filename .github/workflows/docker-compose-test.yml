@@ -12,6 +12,7 @@ jobs:
       uses: actions/checkout@v2
       with: 
         repository: "ABJC/Developer-Utilities"
+        ref: "main"
         
     - name: Compose
       run: "cd Developer-Utilities/jellyfin-docker; docker-compose up"
