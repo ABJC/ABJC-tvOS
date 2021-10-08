@@ -63,7 +63,7 @@
 		FD72335726F0E474007EAE08 /* VLCPlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */; };
 		FD72335926F0E835007EAE08 /* PlaybackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335826F0E835007EAE08 /* PlaybackUITests.swift */; };
 		FD72335B26F0F619007EAE08 /* PlayerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */; };
-		FD72335D26F0F8C2007EAE08 /* PlayerControllsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */; };
+		FD72335D26F0F8C2007EAE08 /* PlaysserControllsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72335C26F0F8C2007EAE08 /* PlaysserControllsView.swift */; };
 		FD792F0F26EA2F1A00BF2A42 /* ABJC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */; };
 		FD792F1126EA2F1A00BF2A42 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F1026EA2F1A00BF2A42 /* MainView.swift */; };
 		FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD792F1226EA2F1C00BF2A42 /* Assets.xcassets */; };
@@ -119,6 +119,12 @@
 		FDE70DD326F76AAB00294F84 /* DragGestureActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE70DD226F76AAB00294F84 /* DragGestureActions.swift */; };
 		FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C8E26F2547B00C738C3 /* PlayButton.swift */; };
 		FDF62C9326F25C6500C738C3 /* PreferencesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */; };
+		FDF83CFE271084CF0025C376 /* PlayerViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF83CFD271084CF0025C376 /* PlayerViewContainer.swift */; };
+		FDF83D002710851A0025C376 /* PlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF83CFF2710851A0025C376 /* PlayerDelegate.swift */; };
+		FDF83D04271085AC0025C376 /* PlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF83D03271085AC0025C376 /* PlayerUIView.swift */; };
+		FDF83D07271097BB0025C376 /* PlayerDelegate+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF83D06271097BB0025C376 /* PlayerDelegate+Actions.swift */; };
+		FDF83D0927109AD30025C376 /* PlayerDelegate+PlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF83D0827109AD30025C376 /* PlayerDelegate+PlayerControl.swift */; };
+		FDF83D0C27109CB60025C376 /* PlayerControllsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF83D0B27109CB60025C376 /* PlayerControllsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,7 +193,7 @@
 		FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerUIView.swift; sourceTree = "<group>"; };
 		FD72335826F0E835007EAE08 /* PlaybackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackUITests.swift; sourceTree = "<group>"; };
 		FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainerView.swift; sourceTree = "<group>"; };
-		FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControllsView.swift; sourceTree = "<group>"; };
+		FD72335C26F0F8C2007EAE08 /* PlaysserControllsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysserControllsView.swift; sourceTree = "<group>"; };
 		FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ABJC (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD792F0E26EA2F1A00BF2A42 /* ABJC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJC.swift; sourceTree = "<group>"; };
 		FD792F1026EA2F1A00BF2A42 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -244,6 +250,12 @@
 		FDE70DD226F76AAB00294F84 /* DragGestureActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureActions.swift; sourceTree = "<group>"; };
 		FDF62C8E26F2547B00C738C3 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		FDF62C9226F25C6500C738C3 /* PreferencesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUITests.swift; sourceTree = "<group>"; };
+		FDF83CFD271084CF0025C376 /* PlayerViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewContainer.swift; sourceTree = "<group>"; };
+		FDF83CFF2710851A0025C376 /* PlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDelegate.swift; sourceTree = "<group>"; };
+		FDF83D03271085AC0025C376 /* PlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUIView.swift; sourceTree = "<group>"; };
+		FDF83D06271097BB0025C376 /* PlayerDelegate+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerDelegate+Actions.swift"; sourceTree = "<group>"; };
+		FDF83D0827109AD30025C376 /* PlayerDelegate+PlayerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerDelegate+PlayerControl.swift"; sourceTree = "<group>"; };
+		FDF83D0B27109CB60025C376 /* PlayerControllsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControllsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,11 +409,11 @@
 		FD72334D26F0E3F2007EAE08 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */,
-				FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */,
-				FD72335026F0E409007EAE08 /* PlayerView.swift */,
-				FDADDCC726F2231100B2DF6F /* Controlls */,
-				FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */,
+				FDF83CFD271084CF0025C376 /* PlayerViewContainer.swift */,
+				FDF83D03271085AC0025C376 /* PlayerUIView.swift */,
+				FDF83D05271097AB0025C376 /* PlayerDelegate */,
+				FDF83D0A27109CA60025C376 /* Controlls */,
+				FDF83D0D2710B6BC0025C376 /* OLD */,
 			);
 			path = PlayerView;
 			sourceTree = "<group>";
@@ -545,7 +557,7 @@
 		FDADDCC726F2231100B2DF6F /* Controlls */ = {
 			isa = PBXGroup;
 			children = (
-				FD72335C26F0F8C2007EAE08 /* PlayerControllsView.swift */,
+				FD72335C26F0F8C2007EAE08 /* PlaysserControllsView.swift */,
 				FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */,
 				FD3DD6E626F89D210018846C /* TrackPicker.swift */,
 			);
@@ -677,6 +689,36 @@
 				FDDAA0A326F7EC5900C0FAA8 /* Array.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDF83D05271097AB0025C376 /* PlayerDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FDF83CFF2710851A0025C376 /* PlayerDelegate.swift */,
+				FDF83D06271097BB0025C376 /* PlayerDelegate+Actions.swift */,
+				FDF83D0827109AD30025C376 /* PlayerDelegate+PlayerControl.swift */,
+			);
+			path = PlayerDelegate;
+			sourceTree = "<group>";
+		};
+		FDF83D0A27109CA60025C376 /* Controlls */ = {
+			isa = PBXGroup;
+			children = (
+				FDF83D0B27109CB60025C376 /* PlayerControllsView.swift */,
+			);
+			path = Controlls;
+			sourceTree = "<group>";
+		};
+		FDF83D0D2710B6BC0025C376 /* OLD */ = {
+			isa = PBXGroup;
+			children = (
+				FD72335626F0E474007EAE08 /* VLCPlayerUIView.swift */,
+				FD72334E26F0E403007EAE08 /* PlayerViewDelegate.swift */,
+				FD72335A26F0F619007EAE08 /* PlayerContainerView.swift */,
+				FD72335026F0E409007EAE08 /* PlayerView.swift */,
+				FDADDCC726F2231100B2DF6F /* Controlls */,
+			);
+			path = OLD;
 			sourceTree = "<group>";
 		};
 		FDF8C7D0270DE57700821B8A /* Shared */ = {
@@ -974,7 +1016,9 @@
 				FD72335B26F0F619007EAE08 /* PlayerContainerView.swift in Sources */,
 				FD6351D626EB7885003E0534 /* ToggleRow.swift in Sources */,
 				FD72334826F0BF60007EAE08 /* Preferences+DebugView.swift in Sources */,
+				FDF83D0C27109CB60025C376 /* PlayerControllsView.swift in Sources */,
 				FDC957AA26EBA4CD00655F55 /* Tab.swift in Sources */,
+				FDF83D07271097BB0025C376 /* PlayerDelegate+Actions.swift in Sources */,
 				FD3DD6E726F89D210018846C /* TrackPicker.swift in Sources */,
 				FDC1F9BB26FB42BD00A823B5 /* BaseItemDto.swift in Sources */,
 				FDBDBF8126F9E94B00DB65A8 /* LogFileRotationDelegate.swift in Sources */,
@@ -985,6 +1029,7 @@
 				FD72333A26F09E34007EAE08 /* CommandLineArguments.swift in Sources */,
 				FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */,
 				FD86E7F9270CBE80002483C8 /* Persistence.swift in Sources */,
+				FDF83D0927109AD30025C376 /* PlayerDelegate+PlayerControl.swift in Sources */,
 				FD792F3F26EA30C600BF2A42 /* ViewDelegate.swift in Sources */,
 				FDBDBF8326F9EB8300DB65A8 /* LogFormatter.swift in Sources */,
 				FD72334C26F0D79D007EAE08 /* ViewIdentifier.swift in Sources */,
@@ -994,7 +1039,7 @@
 				FD6351E526EB854B003E0534 /* MovieDetailView.swift in Sources */,
 				FD6351C526EB6F24003E0534 /* MediaCard.swift in Sources */,
 				FD6351CB26EB7556003E0534 /* PreferencesView.swift in Sources */,
-				FD72335D26F0F8C2007EAE08 /* PlayerControllsView.swift in Sources */,
+				FD72335D26F0F8C2007EAE08 /* PlaysserControllsView.swift in Sources */,
 				FDDAA0A126F7EADB00C0FAA8 /* VLCMediaPlayerState.swift in Sources */,
 				FDD63F7726EAB759001E4363 /* LibraryViewDelegate.swift in Sources */,
 				FD6A9BAD26EBCD8200DF975C /* PeopleCardRow.swift in Sources */,
@@ -1004,10 +1049,12 @@
 				FD3C398A26F4EC4100BFC2E8 /* AppError.swift in Sources */,
 				FD72334A26F0D60F007EAE08 /* PreferenceStore+summary.swift in Sources */,
 				FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */,
+				FDF83D04271085AC0025C376 /* PlayerUIView.swift in Sources */,
 				FDF62C8F26F2547B00C738C3 /* PlayButton.swift in Sources */,
 				FD6411A226ED1A97008E3170 /* AppConfiguration.swift in Sources */,
 				FD792F3726EA2F9500BF2A42 /* SessionStore.swift in Sources */,
 				FDC957A226EB95A600655F55 /* ImageBrightness.swift in Sources */,
+				FDF83CFE271084CF0025C376 /* PlayerViewContainer.swift in Sources */,
 				FDD29D5826EF880E000EEC36 /* AlertObject.swift in Sources */,
 				FDD63F8826EABB7A001E4363 /* CollectionGrouping.swift in Sources */,
 				FD687F1526EE2D260034A622 /* AnalyticsEvents.swift in Sources */,
@@ -1015,6 +1062,7 @@
 				FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */,
 				FDD63F7C26EAB7F0001E4363 /* MediaCollectionViewDelegate.swift in Sources */,
 				FDADDCC926F2233000B2DF6F /* PlaybackBar.swift in Sources */,
+				FDF83D002710851A0025C376 /* PlayerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

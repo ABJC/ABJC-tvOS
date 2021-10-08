@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 07.10.21
+ Created on 08.10.21
  */
 
 import Foundation
@@ -113,23 +113,25 @@ class PlayerViewDelegate: ViewDelegate {
     }
 
     func playPause() {
-        //        print("PLAY/PAUSE")
         if player.isPlaying {
-            player.pause()
             showsControlls = true
+            player.pause()
         } else {
             player.play()
         }
+        objectWillChange.send()
     }
 
     func quickSeekForward() {
         showsControlls = true
         player.jumpForward(30)
+        objectWillChange.send()
     }
 
     func quickSeekBackward() {
         showsControlls = true
         player.jumpBackward(15)
+        objectWillChange.send()
     }
 
     func onMoveCommand(_ direction: MoveCommandDirection) {

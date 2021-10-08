@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
 import SwiftUI
@@ -21,6 +21,10 @@ struct MovieDetailView: View {
 
     var body: some View {
         ZStack {
+            NavigationLink(
+                destination: PlayerViewContainer(store: .init(store.item)),
+                isActive: $store.isPlaying
+            ) { EmptyView() }
             backdrop.edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: true) {
                 headerView.frame(width: 1920, height: 1080, alignment: .center)
@@ -33,10 +37,7 @@ struct MovieDetailView: View {
     }
 
     var headerView: some View {
-        NavigationLink(destination: {
-            PlayerContainerView()
-                .environmentObject(store.playerStore)
-        }) {
+        ButtonArea(store.play) { _ in
             VStack(alignment: .leading) {
                 // Poster Image
                 poster

@@ -31,6 +31,7 @@ struct PlayerView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> VLCPlayerUIView {
         let view = VLCPlayerUIView(frame: .zero)
+        store.initPlayback()
         view.initialize(with: store)
         view.mediaPlayer.delegate = context.coordinator
         view.mediaPlayer.media.delegate = context.coordinator

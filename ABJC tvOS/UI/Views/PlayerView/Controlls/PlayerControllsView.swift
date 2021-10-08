@@ -7,57 +7,112 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 08.10.21
  */
 
-import AVFoundation
 import SwiftUI
 
 struct PlayerControllsView: View {
-    @EnvironmentObject
-    var store: PlayerViewDelegate
+    @Environment(\.presentationMode)
+    var presentationMode
+
+    @ObservedObject
+    var store: PlayerDelegate
+
     let hideTimer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        ZStack {
-            Group {
-                Color.black
-                    .edgesIgnoringSafeArea(.all)
-                    .opacity(store.player.state == .paused ? 0.7 : 0)
-
-                Image(systemName: store.player.state == .playing ? "play.fill" : "pause.fill")
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fit)
-                    .frame(width: 60, height: 60, alignment: .center)
-                    .imageScale(.large)
-                    .opacity(store.player.state == .paused ? 1 : 0)
-                    .animation(.spring(), value: store.player.state)
+        VStack {
+            if store.preferences.isDebugEnabled {
+                debugView
             }
+            Spacer()
 
-            VStack {
-                HStack {
-                    TrackPicker("Video Track", $store.currentVideoTrack, store.player.videoTracks.sorted())
-                    TrackPicker("Audio Track", $store.currentAudioTrack, store.player.audioTracks.sorted())
-                }
-                if store.preferences.isDebugEnabled {
-                    debugView
-                }
-                Spacer()
-                PlaybackBar()
-                    .focusable()
-                    .onPlayPauseCommand(perform: store.playPause)
-                    .onMoveCommand(perform: store.onMoveCommand)
-                    .onSwipeLeft(store.quickSeekForward)
-                    .onSwipeRight(store.quickSeekBackward)
-                    .onSwipeUp { store.showsControlls = true }
-                    .onSwipeDown { store.showsControlls = false }
-            }.padding(80)
+            VStack(alignment: .leading, spacing: 20) {
+                itemDescription
+                playbackBar
+                timeLabels
+            }
         }
+        .focusable()
+        .onPlayPauseCommand(perform: store.playPauseAction)
+        .background(Color.black.opacity(store.player.state != .playing ? 0.7 : 0))
         .onReceive(hideTimer) { _ in
-            if self.store.state == .paused {
-                return
+            print("TRIGGERED", store.player.isPlaying, store.playerState.debugDescription)
+            if store.playerState == .playing {
+                presentationMode.wrappedValue.dismiss()
             }
-            self.store.showsControlls = false
+        }
+    }
+
+    // Playback Item Description
+    var itemDescription: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            if store.item.type ?? "" == ItemType.episode.rawValue {
+                Text(store.item.seriesName ?? "Unknown Series")
+                Text(store.item.episodeTitle ?? "No Name")
+                    .font(.headline)
+            } else {
+                Text(store.item.name ?? "No Name")
+                    .font(.headline)
+            }
+        }
+        .padding(.bottom)
+    }
+
+    private let barHeight: CGFloat = 10
+
+    // Playback Bar
+    var playbackBar: some View {
+        GeometryReader { geo in
+            ZStack(alignment: .leading) {
+                Capsule().foregroundStyle(Material.ultraThin)
+                Capsule()
+                    .frame(width: min(CGFloat(store.player.position) * geo.size.width, geo.size.width))
+                    .animation(.linear(duration: store.player.state == .paused ? 0.0 : 0.5), value: store.player.position)
+            }
+        }
+        .frame(height: barHeight, alignment: .center)
+    }
+
+    /// Time Labels
+    var timeLabels: some View {
+        HStack(alignment: .top, spacing: 0) {
+            HStack(alignment: .center) {
+                // Time Label
+                Text(
+                    store.preferences.isDebugEnabled
+                        ? store.playerTime.verboseStringValue
+                        : store.playerTime.stringValue
+                )
+
+                Spacer()
+
+                // State
+                Group {
+                    switch store.playerState {
+                        case .playing: Image(systemName: "play.fill")
+                        case .paused: Image(systemName: "pause.fill")
+                        case .stopped,
+                             .ended: Image(systemName: "stop.fill")
+                        case .opening,
+                             .buffering: ProgressView()
+                        case .esAdded: Text("esAdded")
+                        case .error: Image(systemName: "exclamationmark.triangle.fill")
+                        default: Image(systemName: "questionmark")
+                    }
+                }
+                .animation(.spring(), value: store.playerState)
+
+                Spacer()
+
+                // Remaining Label
+                Text(
+                    store.preferences.isDebugEnabled
+                        ? store.playerTimeRemaining.verboseStringValue
+                        : store.playerTimeRemaining.stringValue
+                )
+            }
         }
     }
 
@@ -93,7 +148,6 @@ struct PlayerControllsView: View {
                     )
                 }
             }.frame(width: 500)
-                .font(.caption)
 
             VStack {
                 Text("Media: ").bold()
@@ -117,11 +171,12 @@ struct PlayerControllsView: View {
         .padding()
         .background(.regularMaterial)
         .cornerRadius(15, antialiased: true)
+        .font(.caption)
     }
 }
 
-struct PlayerControllsView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerControllsView()
-    }
-}
+// struct PlayerControllsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PlayerControllsView(store: .init(.preview))
+//    }
+// }
