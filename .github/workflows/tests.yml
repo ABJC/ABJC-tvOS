@@ -19,5 +19,6 @@ jobs:
         pod install
             
     - name: Run tests 
-      run: |
-        bundle exec fastlane tests
+      uses: maierj/fastlane-action@v2.0.1
+      with:
+        lane: 'test'
