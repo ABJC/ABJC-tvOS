@@ -2,7 +2,6 @@ name: "Docker Compose Test"
 
       
 on:
-  push:
   workflow_dispatch:
 jobs:
   docker:
