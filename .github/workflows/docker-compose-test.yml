@@ -19,11 +19,8 @@ jobs:
     - name: Docker Setup
       uses: docker-practice/actions-setup-docker@1.0.8
       
-    - name: "OK"
-      run: "ls -a"
-      
     - name: Compose
-      run: "cd jellyfin-docker; docker-compose up"
+      run: "cd jellyfin_docker; docker-compose up"
       
   test:
     runs-on: macos-11
