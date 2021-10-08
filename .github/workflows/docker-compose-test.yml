@@ -12,11 +12,14 @@ jobs:
       uses: actions/checkout@v2
       with: 
         repository: "ABJC/Developer-Utilities"
-        token: ${{ secrets.GH_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }} # Because normal token won't work for some reason
         ref: "main"
         
+    - name: Docker Setup
+      uses: docker-practice/actions-setup-docker@1.0.8
+      
     - name: Compose
-      run: "cd Developer-Utilities/jellyfin-docker; docker-compose up"
+      run: "ls"
   test:
     runs-on: macos-11
     steps:
