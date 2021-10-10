@@ -13,9 +13,12 @@ jobs:
         repository: 'abjc/Developer-Utilities'
         ref: 'main'
         path: 'dev_utils'
-  
-    #- name: Docker Setup
-     # uses: docker-practice/actions-setup-docker@1.0.8
+        
+    - name: "Print DirTree"
+      run: "find -d ."
+      
+    - name: Docker Setup
+      uses: docker-practice/actions-setup-docker@1.0.8
     
     - name: "LS"
       run: "ls"
