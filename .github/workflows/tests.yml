@@ -6,7 +6,31 @@ jobs:
     name: Tests 
     runs-on: macos-11
       
-    steps:      
+    steps:
+    - name: "Checkout Developer Utilities"
+      uses: actions/checkout@v2
+      with:
+        repository: 'abjc/Developer-Utilities'
+        ref: 'main'
+  
+    #- name: Docker Setup
+     # uses: docker-practice/actions-setup-docker@1.0.8
+    
+    - name: "LS"
+      run: "ls"
+      
+    - name: "Navigate to jellyfin_docker"
+      run: "cd jellyfin_docker; ./setup.sh; cd .."
+      
+    - name: Compose
+      run: "sudo docker-compose -f jellyfin_docker/docker-compose.yml up -d"
+
+    - name: "Check if Jellyfin Server did Boot"
+      uses: mydea/action-wait-for-api@v1
+      with:
+        url: "http://localhost:8096/System/Ping"
+        expected-status: 200
+        
     - name: Checkout
       uses: actions/checkout@v2
     - name: Select Xcode Version
