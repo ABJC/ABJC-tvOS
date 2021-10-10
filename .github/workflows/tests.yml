@@ -12,6 +12,7 @@ jobs:
       with:
         repository: 'abjc/Developer-Utilities'
         ref: 'main'
+        path: 'dev_utils'
   
     #- name: Docker Setup
      # uses: docker-practice/actions-setup-docker@1.0.8
@@ -20,10 +21,10 @@ jobs:
       run: "ls"
       
     - name: "Navigate to jellyfin_docker"
-      run: "cd jellyfin_docker; ./setup.sh; cd .."
+      run: "cd dev_utils/jellyfin_docker; ./setup.sh; cd .."
       
     - name: Compose
-      run: "sudo docker-compose -f jellyfin_docker/docker-compose.yml up -d"
+      run: "sudo docker-compose -f dev_utils/jellyfin_docker/docker-compose.yml up -d"
 
     - name: "Check if Jellyfin Server did Boot"
       uses: mydea/action-wait-for-api@v1
