@@ -1,4 +1,4 @@
-name: Tests 
+name: "🧪 Run UITests"
 on:
   workflow_dispatch:
 jobs:
@@ -13,17 +13,19 @@ jobs:
         repository: 'abjc/Developer-Utilities'
         ref: 'main'
         path: 'dev_utils'
-        
-    - name: "Print DirTree"
-      run: "find -d ."
+      
+    - uses: actions/cache@v2
+      name: Cache
+      with:
+        path: dev_utils/jellyfin_docker/media
       
     - name: Docker Setup
       uses: docker-practice/actions-setup-docker@1.0.8
     
-    - name: "LS"
-      run: "ls"
+    - name: "Print DirTree"
+      run: 'find . -type f -name "*.mkv"'
       
-    - name: "Navigate to jellyfin_docker"
+    - name: "Setup Media"
       run: "cd dev_utils/jellyfin_docker; ./setup.sh; cd .."
       
     - name: Compose
