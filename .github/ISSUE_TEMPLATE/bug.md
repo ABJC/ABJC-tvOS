@@ -24,7 +24,6 @@ body:
         Provide steps on how to reproduce the issue.
     validations:
       required: false  
-      
   - type: input
     attributes:
       label: tvOS Version
