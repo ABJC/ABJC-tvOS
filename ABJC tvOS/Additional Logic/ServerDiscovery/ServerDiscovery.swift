@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 12.10.21
  */
 
 import Foundation
@@ -34,7 +34,7 @@ public class ServerDiscovery {
             hasher.combine(id)
         }
 
-        private let address: String
+        public var address: String
         public let id: String
         public let name: String
 
@@ -81,10 +81,35 @@ public class ServerDiscovery {
     }
 
     public func locateServer(completion: @escaping (ServerLookupResponse?) -> Void) {
-        func receiveHandler(_: String, _: Int, _ data: Data) {
+        func receiveHandler(_ address: String, _: Int, _ data: Data) {
             do {
-                let response = try JSONDecoder().decode(ServerLookupResponse.self, from: data)
-//                LogManager.shared.log.debug("Received JellyfinServer from \"\(response.name)\"", tag: "ServerDiscovery")
+                var response = try JSONDecoder().decode(ServerLookupResponse.self, from: data)
+                print(response.address, address)
+                // Replace Address in Object with actual address (fixes docker not working)
+
+                // If Address is already correct: return | else: replace
+                if response.address.contains(address) {
+                    completion(response)
+                    return
+                }
+
+                guard let regex = try? NSRegularExpression(
+                    pattern: "([0-9]{1,3}\\.){3}[0-9]{1,3}",
+                    options: .caseInsensitive
+                ) else {
+                    print("Failed to replace Address")
+                    completion(response)
+                    return
+                }
+                let range = NSMakeRange(0, response.address.count)
+                let newAddress = regex.stringByReplacingMatches(
+                    in: response.address,
+                    options: [],
+                    range: range,
+                    withTemplate: address
+                )
+
+                response.address = newAddress
                 completion(response)
             } catch {
                 completion(nil)

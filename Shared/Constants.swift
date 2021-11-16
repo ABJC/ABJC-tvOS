@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 17.09.21
+ Created on 10.10.21
  */
 
 import Foundation
@@ -20,6 +20,10 @@ public struct Constants: Codable {
     var serverURI: String { server.uri }
 
     static func with(bundle: Bundle) -> Constants? {
+        if let constants = fromCommandLine() {
+            print("WARNING: using constants from command line")
+            return constants
+        }
         guard let path = bundle.path(forResource: "Constants", ofType: "plist") else {
             return nil
         }
@@ -35,6 +39,10 @@ public struct Constants: Codable {
             print("ERROR", error)
             return nil
         }
+    }
+
+    static func fromCommandLine() -> Constants? {
+        CommandLineArguments().constants
     }
 
     static var current: Constants? {

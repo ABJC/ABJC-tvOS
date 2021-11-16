@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 12.10.21
  */
 
 import SwiftUI
@@ -122,7 +122,7 @@ struct AuthenticationView: View {
                 .accessibilityIdentifier("enterServerManuallyBtn")
                 .padding()
             }
-        }
+        }.onAppear(perform: store.lookupServers)
     }
 
     /// View for manually entering Server-info
@@ -166,7 +166,7 @@ struct AuthenticationView: View {
             .accessibilityIdentifier("continueBtn")
             .prefersDefaultFocus(!store.manualHost.isEmpty && !store.manualPort.isEmpty && !store.manualPath.isEmpty, in: namespace)
             Spacer()
-        }
+        }.onExitCommand(perform: store.exitButtonPressed)
     }
 
     /// View for selecting a public user
@@ -187,32 +187,24 @@ struct AuthenticationView: View {
                         HStack {
                             UserAvatarView(user: user)
                                 .frame(width: 60, height: 60, alignment: .center)
-                                .overlay(
-                                    Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
-                                        .foregroundColor(.secondary)
-                                        .padding(2),
-                                    alignment: .bottomLeading
-                                )
                                 .padding()
-                                .frame(width: 60, height: 60, alignment: .center)
 
-                            VStack(alignment: .leading) {
-                                Text(user.name ?? "Missing Username")
-                                    .bold()
-                                    .font(.headline)
-                                    .textCase(.uppercase)
-                                Text("user.")
-                                    .font(.system(.callout, design: .monospaced))
-                                    .foregroundColor(.secondary)
-                            }
+                            Text(user.name ?? "Missing Username")
+                                .bold()
+                                .font(.headline)
+                                .textCase(.uppercase)
+                                .padding(.vertical)
 
                             Spacer()
-
-                            Image(systemName: "chevron.forward")
+                            HStack(spacing: 10) {
+                                Image(systemName: user.hasPassword ?? true ? "lock" : "lock.open")
+                                Image(systemName: "chevron.forward")
+                            }
                         }
                     }
                     .prefersDefaultFocus(store.publicUsers.firstIndex(of: user) == store.publicUsers.startIndex, in: namespace)
                     .accessibilityIdentifier("userBtn-\(user.name ?? "noname")")
+                    .padding(.horizontal)
                 }
 
                 // Manual User Entry
@@ -221,10 +213,9 @@ struct AuthenticationView: View {
                 } label: {
                     HStack {
                         ZStack {
-                            Circle().fill(.thickMaterial)
-                            Image(systemName: "person.fill.badge.plus")
+                            Circle().fill(.regularMaterial)
+                            Image(systemName: "person.fill")
                                 .foregroundColor(.accentColor)
-                                .font(.system(.largeTitle))
                         }
                         .frame(width: 60, height: 60, alignment: .center)
                         .padding()
@@ -245,7 +236,8 @@ struct AuthenticationView: View {
                 .accessibilityIdentifier("manualUserBtn")
                 .padding()
             }
-        }
+            .padding(.top)
+        }.onExitCommand(perform: store.exitButtonPressed)
     }
 
     /// View for manually entering user-info
@@ -284,7 +276,7 @@ struct AuthenticationView: View {
                 .accessibilityIdentifier("continueBtn")
                 .prefersDefaultFocus(!store.username.isEmpty && !store.password.isEmpty, in: namespace)
             }
-        }
+        }.onExitCommand(perform: store.exitButtonPressed)
     }
 
     var persistenceSelectionView: some View {
@@ -362,7 +354,7 @@ struct AuthenticationView: View {
                 .accessibilityIdentifier("newUserBtn")
                 .padding()
             }
-        }
+        }.onExitCommand(perform: store.exitButtonPressed)
     }
 }
 

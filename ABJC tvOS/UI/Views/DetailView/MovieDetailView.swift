@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 12.10.21
  */
 
 import SwiftUI
@@ -16,6 +16,7 @@ struct MovieDetailView: View {
     @StateObject var store: DetailViewDelegate
 
     @Namespace var namespace
+    @FocusState var playBtnFocus: Bool
 
     var body: some View {
         ZStack {
@@ -54,6 +55,7 @@ struct MovieDetailView: View {
                     PlayButton(store.item.isContinue ? "Continue" : "Play")
                         .accessibilityIdentifier("playBtn")
                         .padding(.trailing, 80)
+                        .focused($playBtnFocus)
                 }
 
                 if store.item.overview != nil {
@@ -68,6 +70,7 @@ struct MovieDetailView: View {
         }
         .buttonStyle(.plain)
         .prefersDefaultFocus(in: namespace)
+        .focused($playBtnFocus)
         .padding(80)
     }
 

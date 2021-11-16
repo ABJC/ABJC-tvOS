@@ -81,6 +81,12 @@
 		FD792F5826EA5E4500BF2A42 /* AsyncImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */; };
 		FD86E7F9270CBE80002483C8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86E7F8270CBE80002483C8 /* Persistence.swift */; };
 		FD86E7FE270CBEC1002483C8 /* ABJC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD86E7FC270CBEC1002483C8 /* ABJC.xcdatamodeld */; };
+		FD93BEF82713424F009CCD18 /* CommandLineArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333926F09E34007EAE08 /* CommandLineArguments.swift */; };
+		FD93BEF927134252009CCD18 /* CommandLineArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333926F09E34007EAE08 /* CommandLineArguments.swift */; };
+		FD93BF012713439E009CCD18 /* CLI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93BF002713439E009CCD18 /* CLI_Tests.swift */; };
+		FD93BF07271343EB009CCD18 /* CommandLineArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333926F09E34007EAE08 /* CommandLineArguments.swift */; };
+		FD93BF08271343F6009CCD18 /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD72333B26F0A07E007EAE08 /* Constants.plist */; };
+		FD93BF09271343F8009CCD18 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD72333E26F0A0E1007EAE08 /* Constants.swift */; };
 		FDADDCC926F2233000B2DF6F /* PlaybackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */; };
 		FDBDBF7B26F9E89100DB65A8 /* Puppy in Frameworks */ = {isa = PBXBuildFile; productRef = FDBDBF7A26F9E89100DB65A8 /* Puppy */; };
 		FDBDBF7F26F9E8F500DB65A8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBDBF7E26F9E8F500DB65A8 /* Logger.swift */; };
@@ -129,6 +135,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		FD6559F526F3B1E0002A229A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD792F0B26EA2F1A00BF2A42;
+			remoteInfo = "ABJC tvOS";
+		};
+		FD93BF022713439E009CCD18 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FD792ED326EA2F0200BF2A42 /* Project object */;
 			proxyType = 1;
@@ -212,6 +225,8 @@
 		FD792F5726EA5E4500BF2A42 /* AsyncImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImg.swift; sourceTree = "<group>"; };
 		FD86E7F8270CBE80002483C8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		FD86E7FD270CBEC1002483C8 /* ABJC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ABJC.xcdatamodel; sourceTree = "<group>"; };
+		FD93BEFE2713439E009CCD18 /* CLI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CLI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD93BF002713439E009CCD18 /* CLI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLI_Tests.swift; sourceTree = "<group>"; };
 		FDADDCC826F2233000B2DF6F /* PlaybackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackBar.swift; sourceTree = "<group>"; };
 		FDBDBF7E26F9E8F500DB65A8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		FDBDBF8026F9E94B00DB65A8 /* LogFileRotationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFileRotationDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +295,13 @@
 				FD687F1D26EE4B9E0034A622 /* AnyCodable in Frameworks */,
 				FD687F2026EE52BC0034A622 /* JellyfinAPI in Frameworks */,
 				9D3EB0A2275D250C0B59A705 /* Pods_ABJC_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD93BEFB2713439E009CCD18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +447,7 @@
 				FD792F0D26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6226EF92F7000EEC36 /* ABJCUITests */,
 				FD6559F026F3B1E0002A229A /* Snapshots */,
+				FD93BEFF2713439E009CCD18 /* CLI Tests */,
 				FD792EDC26EA2F0200BF2A42 /* Products */,
 				948DECD89EC453E75950DA9D /* Frameworks */,
 				0FA00CC754AF1978FB87512B /* Pods */,
@@ -437,6 +460,7 @@
 				FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */,
 				FDD29D6126EF92F7000EEC36 /* ABJC (tvOS) UITests.xctest */,
 				FD6559EF26F3B1E0002A229A /* Snapshots.xctest */,
+				FD93BEFE2713439E009CCD18 /* CLI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -490,7 +514,6 @@
 		FD792F4526EA367000BF2A42 /* Additional Logic */ = {
 			isa = PBXGroup;
 			children = (
-				FD72333926F09E34007EAE08 /* CommandLineArguments.swift */,
 				FD6411A026ED1A89008E3170 /* Configuration */,
 				FD687F0F26EE279E0034A622 /* Analytics */,
 				FDBDBF7D26F9E8BA00DB65A8 /* Logging */,
@@ -552,6 +575,14 @@
 				FD86E7FC270CBEC1002483C8 /* ABJC.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FD93BEFF2713439E009CCD18 /* CLI Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FD93BF002713439E009CCD18 /* CLI_Tests.swift */,
+			);
+			path = "CLI Tests";
 			sourceTree = "<group>";
 		};
 		FDADDCC726F2231100B2DF6F /* Controlls */ = {
@@ -724,6 +755,7 @@
 		FDF8C7D0270DE57700821B8A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				FD72333926F09E34007EAE08 /* CommandLineArguments.swift */,
 				FD72333B26F0A07E007EAE08 /* Constants.plist */,
 				FD72333E26F0A0E1007EAE08 /* Constants.swift */,
 			);
@@ -782,6 +814,24 @@
 			productReference = FD792F0C26EA2F1A00BF2A42 /* ABJC (tvOS).app */;
 			productType = "com.apple.product-type.application";
 		};
+		FD93BEFD2713439E009CCD18 /* CLI Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD93BF042713439E009CCD18 /* Build configuration list for PBXNativeTarget "CLI Tests" */;
+			buildPhases = (
+				FD93BEFA2713439E009CCD18 /* Sources */,
+				FD93BEFB2713439E009CCD18 /* Frameworks */,
+				FD93BEFC2713439E009CCD18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD93BF032713439E009CCD18 /* PBXTargetDependency */,
+			);
+			name = "CLI Tests";
+			productName = "CLI Tests";
+			productReference = FD93BEFE2713439E009CCD18 /* CLI Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FDD29D6026EF92F7000EEC36 /* ABJC (tvOS) UITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDD29D6926EF92F7000EEC36 /* Build configuration list for PBXNativeTarget "ABJC (tvOS) UITests" */;
@@ -817,6 +867,10 @@
 					FD792F0B26EA2F1A00BF2A42 = {
 						CreatedOnToolsVersion = 13.0;
 					};
+					FD93BEFD2713439E009CCD18 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = FD792F0B26EA2F1A00BF2A42;
+					};
 					FDD29D6026EF92F7000EEC36 = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = FD792F0B26EA2F1A00BF2A42;
@@ -848,6 +902,7 @@
 				FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */,
 				FDD29D6026EF92F7000EEC36 /* ABJC (tvOS) UITests */,
 				FD6559EE26F3B1E0002A229A /* Snapshots */,
+				FD93BEFD2713439E009CCD18 /* CLI Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -868,6 +923,14 @@
 				FD72333C26F0A07E007EAE08 /* Constants.plist in Resources */,
 				FD792F1626EA2F1C00BF2A42 /* Preview Assets.xcassets in Resources */,
 				FD792F1326EA2F1C00BF2A42 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD93BEFC2713439E009CCD18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD93BF08271343F6009CCD18 /* Constants.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +1028,7 @@
 				FD655A0326F3BEAE002A229A /* UITestConstants.swift in Sources */,
 				FD6559F226F3B1E0002A229A /* Snapshots.swift in Sources */,
 				FD6559FB26F3B20D002A229A /* SnapshotHelper.swift in Sources */,
+				FD93BEF927134252009CCD18 /* CommandLineArguments.swift in Sources */,
 				FD655A0026F3B713002A229A /* UITestExtensions.swift in Sources */,
 				FD655A0226F3B773002A229A /* Constants.swift in Sources */,
 				FD6559FD26F3B234002A229A /* UITestHelpers.swift in Sources */,
@@ -1066,10 +1130,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD93BEFA2713439E009CCD18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD93BF07271343EB009CCD18 /* CommandLineArguments.swift in Sources */,
+				FD93BF012713439E009CCD18 /* CLI_Tests.swift in Sources */,
+				FD93BF09271343F8009CCD18 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDD29D5D26EF92F7000EEC36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD93BEF82713424F009CCD18 /* CommandLineArguments.swift in Sources */,
 				FDD29D7526EFBB43000EEC36 /* AuthenticationUITests.swift in Sources */,
 				FD6559FF26F3B70A002A229A /* UITestExtensions.swift in Sources */,
 				FD6559D126F387CD002A229A /* LibraryUITests.swift in Sources */,
@@ -1089,6 +1164,11 @@
 			isa = PBXTargetDependency;
 			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
 			targetProxy = FD6559F526F3B1E0002A229A /* PBXContainerItemProxy */;
+		};
+		FD93BF032713439E009CCD18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD792F0B26EA2F1A00BF2A42 /* ABJC tvOS */;
+			targetProxy = FD93BF022713439E009CCD18 /* PBXContainerItemProxy */;
 		};
 		FDD29D6826EF92F7000EEC36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1330,6 +1410,56 @@
 			};
 			name = Release;
 		};
+		FD93BF052713439E009CCD18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.CLI-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABJC (tvOS).app/ABJC (tvOS)";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		FD93BF062713439E009CCD18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME2UKFKL5H;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noahkamara.CLI-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABJC (tvOS).app/ABJC (tvOS)";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Release;
+		};
 		FDD29D6A26EF92F7000EEC36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1404,6 +1534,15 @@
 			buildConfigurations = (
 				FD792F2E26EA2F1D00BF2A42 /* Debug */,
 				FD792F2F26EA2F1D00BF2A42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD93BF042713439E009CCD18 /* Build configuration list for PBXNativeTarget "CLI Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD93BF052713439E009CCD18 /* Debug */,
+				FD93BF062713439E009CCD18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

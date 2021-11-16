@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 10.10.21
  */
 
 import CoreData
@@ -96,7 +96,8 @@ class SessionStore: ObservableObject {
 
     init(debug _: Bool = false) {
         #if DEBUG
-            if CommandLineArguments.shouldReset {
+            let args = CommandLineArguments()
+            if args.shouldReset {
                 PreferenceStore.shared.reset()
                 let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserCredentials.fetchRequest()
                 let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -108,11 +109,11 @@ class SessionStore: ObservableObject {
                 }
             }
 
-            if CommandLineArguments.isDebugEnabled {
+            if args.isDebugEnabled {
                 PreferenceStore.shared.isDebugEnabled = true
             }
 
-            CommandLineArguments.shouldAuthenticate { username in
+            args.shouldAuthenticate { username in
                 let constants = Constants.current!
 
                 self.setServerURI(constants.serverURI)

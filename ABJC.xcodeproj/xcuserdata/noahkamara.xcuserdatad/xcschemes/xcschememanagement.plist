@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ABJC (authenticated).xcscheme_^#shared#^_</key>
+		<key>ABJC (debug authenticated).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -42,6 +42,11 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Github Actions.xcscheme_^#shared#^_</key>
+		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>

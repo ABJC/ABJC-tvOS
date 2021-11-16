@@ -88,7 +88,6 @@ class AuthenticationUITests: XCTestCase {
 
     /// Test Manually Connecting to Server
     func testDiscoveredServerUI() {
-        XCTExpectFailure("Server currently not exposed over Multicast")
         let app = XCUIApplication()
         app.launchArguments = ["enable-testing", "reset-stores"]
         app.launch()

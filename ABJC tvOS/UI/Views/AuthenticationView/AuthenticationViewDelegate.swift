@@ -52,15 +52,9 @@ class AuthenticationViewDelegate: ViewDelegate {
         switch viewState {
             case .initial,
                  .persistence:
-                #warning("Don't use in production")
-                exit(0)
+                viewState = .serverSelection
             case .serverSelection:
-                if persistedUsers.count > 0 {
-                    viewState = .persistence
-                } else {
-                    #warning("Don't use in production")
-                    exit(0)
-                }
+                fatalError("Exit Button can't be captured in topmost view")
             case .serverManual:
                 viewState = .serverSelection
             case .userSelection:
@@ -112,6 +106,7 @@ class AuthenticationViewDelegate: ViewDelegate {
     func setServer(to uri: String) {
         session.setServerURI(uri)
         loadPublicUsers()
+        viewState = .userSelection
     }
 
     /// Manually set server

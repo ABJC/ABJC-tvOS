@@ -66,3 +66,4 @@ Temporary Items
 
 # scan temporary files
 **/fastlane/test_output
+Shared/Constants.plist

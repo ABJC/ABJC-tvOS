@@ -50,9 +50,8 @@ struct UserAvatarView: View {
                 .resizable()
         } placeholder: {
             ZStack {
-                Blur()
+                Circle().fill(.regularMaterial)
                 Image(systemName: "person.fill")
-                    .imageScale(.large)
             }
         }
         .clipShape(Circle())
