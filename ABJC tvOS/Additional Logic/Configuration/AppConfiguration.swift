@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 20.11.21
  */
 
 import ABJCAnalytics
@@ -40,7 +40,14 @@ class AppConfiguration {
             "device": .init(DeviceInfo.modelName)
         ]
 
-        let engine: AnalyticsEngine = environment == .debug ? MockAnalyticsEngine() : TestflightAnalyticsEngine()
+        var engine: AnalyticsEngine!
+        switch environment {
+            case .debug:
+                engine = MockAnalyticsEngine()
+            case .appstore,
+                 .testflight:
+                engine = TestflightAnalyticsEngine()
+        }
         analytics = .init(engine: engine, appInfo: appInfo)
     }
 

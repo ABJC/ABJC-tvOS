@@ -7,17 +7,24 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 20.11.21
  */
 
 import SwiftUI
 
 struct PlayerControllsView: View {
+    enum Focus: String {
+        case bar
+        case audio
+    }
+
     @Environment(\.presentationMode) var presentationMode
 
+    @Namespace var namespace
+    @FocusState var focus: Focus?
     @ObservedObject var store: PlayerDelegate
 
-    let hideTimer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
+    let hideTimer = Timer.publish(every: 10.0, on: .main, in: .common).autoconnect()
 
     var body: some View {
         VStack {
@@ -27,19 +34,20 @@ struct PlayerControllsView: View {
             Spacer()
 
             VStack(alignment: .leading, spacing: 20) {
-                itemDescription
+                HStack(alignment: .lastTextBaseline) {
+                    itemDescription
+                    Spacer()
+//                    channelMenus
+                }.focusSection()
                 playbackBar
                 timeLabels
             }
         }
-        .focusable()
         .onPlayPauseCommand(perform: store.playPauseAction)
+        .onLongPressGesture(minimumDuration: 0.01, perform: store.playPauseAction, onPressingChanged: { _ in })
         .background(Color.black.opacity(store.player.state != .playing ? 0.7 : 0))
         .onReceive(hideTimer) { _ in
-            print("TRIGGERED", store.player.isPlaying, store.playerState.debugDescription)
-            if store.playerState == .playing {
-                presentationMode.wrappedValue.dismiss()
-            }
+            presentationMode.wrappedValue.dismiss()
         }
     }
 
@@ -58,19 +66,58 @@ struct PlayerControllsView: View {
         .padding(.bottom)
     }
 
-    private let barHeight: CGFloat = 10
-
-    // Playback Bar
     var playbackBar: some View {
-        GeometryReader { geo in
-            ZStack(alignment: .leading) {
-                Capsule().foregroundStyle(Material.ultraThin)
-                Capsule()
-                    .frame(width: min(CGFloat(store.player.position) * geo.size.width, geo.size.width))
-                    .animation(.linear(duration: store.player.state == .paused ? 0.0 : 0.5), value: store.player.position)
-            }
+        ZStack(alignment: .leading) {
+            Rectangle()
+                .fill(Color.white)
+                .opacity(focus == .bar ? 0.8 : 0.1)
+
+            Rectangle()
+                .fill(.regularMaterial)
+
+            Rectangle()
+                .fill(focus == .bar ? .white : .secondary)
+                .frame(width: min(CGFloat(store.player.position) * 1860, 1860))
+                .animation(.linear(duration: store.player.state == .paused ? 0.0 : 0.5), value: store.player.position)
         }
-        .frame(height: barHeight, alignment: .center)
+        .frame(width: 1860, height: 15, alignment: .center)
+        .clipShape(Capsule(), style: .init(eoFill: false, antialiased: true))
+        .focusable()
+        .focused($focus, equals: .bar)
+        .prefersDefaultFocus(in: namespace)
+        .onMove([.right]) {
+            store.quickSeekForward()
+        }
+        .onMove([.left]) {
+            store.quickSeekBackward()
+        }
+        .onMove([.down]) {
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+
+    var channelMenus: some View {
+        HStack {
+            Picker(selection: $store.currentAudioTrack) {
+                ForEach(store.audioTracks) { track in
+                    HStack {
+                        Text(track.index.description)
+                        Text(track.name)
+                    }
+                }
+            } label: {
+                Image(systemName: "waveform")
+                    .frame(width: 60, height: 60, alignment: .center)
+            }
+            .pickerStyle(.segmented)
+            .clipShape(Circle())
+
+//            Picker(selection: store.$currentVideoTrack) {
+//                <#code#>
+//            } label: {
+//                Image(systemName: "waveform")
+//            }
+        }
     }
 
     /// Time Labels

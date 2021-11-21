@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 20.11.21
  */
 
 import ABJCAnalytics
@@ -18,16 +18,45 @@ extension PreferencesView {
     struct DebugView: View {
         @ObservedObject var store: PreferencesViewDelegate
 
+        func resetAll() {
+            store.preferences.reset()
+            store.session.removeAllUsers()
+        }
+
         var body: some View {
             Form {
                 ToggleRow("Debug Mode", "Toggle Debug Mode", $store.isDebugEnabled)
                 #if DEBUG
                     analyticsSection
                 #endif
+                Section {
+                    Button(action: {
+                        store.alert = .init(
+                            id: "reset-app-alert",
+                            title: "Reset App",
+                            message: "This will remove all users & reset all preferences",
+                            primaryBtn: .cancel(),
+                            secondaryBtn: .destructive(Text("Confirm"), action: resetAll)
+                        )
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Reset App")
+                                .bold()
+                                .textCase(.uppercase)
+                                .foregroundColor(.red)
+
+                            Spacer()
+                        }
+                    }.accessibilityIdentifier("removeUserBtn")
+                }
 
 //                alertsSection
             }
             .navigationBarTitle("General Information")
+            .onChange(of: store.isDebugEnabled) { _ in
+                store.savePreferences()
+            }
         }
 
         var analyticsSection: some View {

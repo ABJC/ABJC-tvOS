@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 19.11.21
  */
 
 import JellyfinAPI
@@ -27,6 +27,7 @@ struct MediaCard: View {
             return
         }
         let imageType: ImageType = store.preferences.posterType == .poster ? .primary : .backdrop
+
         ImageAPI.getItemImage(itemId: itemId, imageType: imageType) { result in
             switch result {
                 case let .success(url): self.imageUrl = url

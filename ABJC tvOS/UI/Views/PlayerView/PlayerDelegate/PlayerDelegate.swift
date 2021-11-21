@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 20.11.21
  */
 
 import Foundation
@@ -30,6 +30,10 @@ class PlayerDelegate: ViewDelegate {
         initPlayback()
     }
 
+    deinit {
+        print("DEINIT")
+    }
+
     @Published var isReadyToPlay: Bool = false
     @Published var isShowingInterface: Bool = false
 
@@ -48,6 +52,7 @@ class PlayerDelegate: ViewDelegate {
             switch result {
                 case let .failure(error):
                     self.handleApiError(error)
+
                 case let .success(info):
                     let streamURL = self.loadStreamURL(info)
                     guard let streamURL = streamURL else {
@@ -63,12 +68,40 @@ class PlayerDelegate: ViewDelegate {
         }
     }
 
+    func deinitPlayback() {
+        player.stop()
+        isReadyToPlay = false
+    }
+
     func loadPlaybackInfo(_ completion: @escaping ((Result<PlaybackInfoResponse, Error>) -> Void)) {
         guard let userId = session.user?.id, let itemId = item.id else {
-            fatalError("User is not authenticated")
             return
         }
-        MediaInfoAPI.getPlaybackInfo(itemId: itemId, userId: userId) { result in
+
+        let playbackInfoDto = PlaybackInfoDto(
+            userId: userId,
+            maxStreamingBitrate: 40_000_000,
+            autoOpenLiveStream: true
+        )
+
+        let profile: DeviceProfile = .detect()
+
+        let playbackInfo = PlaybackInfoDto(
+            userId: userId,
+            maxStreamingBitrate: profile.maxStreamingBitrate,
+            startTimeTicks: item.userData?.playbackPositionTicks ?? 0,
+            deviceProfile: profile,
+            autoOpenLiveStream: true
+        )
+
+        MediaInfoAPI.getPostedPlaybackInfo(
+            itemId: itemId,
+            userId: userId,
+            maxStreamingBitrate: profile.maxStreamingBitrate,
+            startTimeTicks: item.userData?.playbackPositionTicks ?? 0,
+            autoOpenLiveStream: true,
+            playbackInfoDto: playbackInfoDto
+        ) { result in
             completion(result)
         }
     }
@@ -80,6 +113,7 @@ class PlayerDelegate: ViewDelegate {
 
         // Item will be transcoded
         if let transcodiungUrl = mediaSource.transcodingUrl {
+            print("TRANSCODING")
             return URL(string: "\(JellyfinAPI.basePath)\(transcodiungUrl)")!
         }
         // Item will be directly played by the client
@@ -99,6 +133,7 @@ class PlayerDelegate: ViewDelegate {
             guard let url = urlComponents.url else {
                 return nil
             }
+            print("STREAMING")
             return url
         }
     }
@@ -122,9 +157,9 @@ class PlayerDelegate: ViewDelegate {
 
     func mediaDidFinishParsing(_ media: VLCMedia) {
         session.logger.log.debug("Media - DidFinishParsing: \(media.url)", tag: "PLAYER")
-        videoTracks = player.videoTracks
-        audioTracks = player.audioTracks
-        currentVideoTrack = player.currentVideoTrack
-        currentAudioTrack = player.currentAudioTrack
+//        videoTracks = player.videoTracks
+//        audioTracks = player.audioTracks
+//        currentVideoTrack = player.currentVideoTrack
+//        currentAudioTrack = player.currentAudioTrack
     }
 }

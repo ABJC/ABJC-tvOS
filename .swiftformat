@@ -26,7 +26,6 @@
 --elseposition same-line
 --guardelse same-line
 
-
 ## Blank Lines formatting
 --enable blankLinesAtEndOfScope, blankLinesAtStartOfScope, blankLinesBetweenScopes
 
@@ -38,6 +37,9 @@
 
 ## Duplicate Imports
 --enable duplicateImports
+
+## Redundant Stuff
+--enable redundantNilInit
 
 
 --disable wrapMultilineStatementBraces

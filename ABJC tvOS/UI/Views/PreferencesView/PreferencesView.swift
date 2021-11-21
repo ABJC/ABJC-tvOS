@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 08.10.21
+ Created on 19.11.21
  */
 
 import SwiftUI
@@ -18,19 +18,19 @@ struct PreferencesView: View {
 
     var body: some View {
         List {
-            NavigationLink(destination: InfoView(store: store)) {
+            NavigationLink(destination: { InfoView(store: store) }) {
                 Label("General Information", systemImage: "server.rack")
             }
             .tag(0)
             .accessibilityIdentifier("infoViewLink")
 
-            NavigationLink(destination: ClientView(store: store)) {
+            NavigationLink(destination: { ClientView(store: store) }) {
                 Label("Client", systemImage: "tv")
             }
             .tag(1)
             .accessibilityIdentifier("clientViewLink")
 
-            NavigationLink(destination: DebugView(store: store)) {
+            NavigationLink(destination: { DebugView(store: store) }) {
                 Label("Debugging", systemImage: "exclamationmark.triangle")
             }
             .tag(2)

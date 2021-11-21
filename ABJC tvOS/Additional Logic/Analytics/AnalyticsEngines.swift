@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 06.10.21
+ Created on 20.11.21
  */
 
 import ABJCAnalytics
@@ -48,6 +48,7 @@ class TestflightAnalyticsEngine: AnalyticsEngine {
         request.httpMethod = "POST"
         request.httpBody = try? JSONEncoder().encode(report)
 
+        print(report)
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 print(error)

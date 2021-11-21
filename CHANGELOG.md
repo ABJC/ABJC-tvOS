@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.0-build.28] - [2021-11-21]
+### Added
+- TVVLCKit for Video Playback
+- Analytics Consent Prompt when app is started for the first time
+### Changed
+- DetailView is now based on one view for movies & series
+- Detail Page will now display backdrop
+- Episode & Season Picker was changed to look more like that of TV-App
+### Deprecated
+### Fixed 
+### Removed
+- Search Tab was removed because of multiple issues (will be re-added later)
+
 ## [v1.0.0-build.28] - [2021-09-XX]
 ### Added
 ### Changed

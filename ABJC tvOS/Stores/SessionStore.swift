@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10.10.21
+ Created on 21.11.21
  */
 
 import CoreData
@@ -30,7 +30,7 @@ class SessionStore: ObservableObject {
 
     @Published var user: UserCredentials?
 
-    @Published var tvUserId: String? = nil
+    @Published var tvUserId: String?
 
     func setServerURI(_ uri: String) {
         JellyfinAPI.basePath = uri
@@ -74,8 +74,22 @@ class SessionStore: ObservableObject {
     func switchUser() {
         logger.log.info("Switching User \(user?.name ?? "no user")")
         isAuthenticated = false
-
         user = nil
+    }
+
+    func removeAllUsers() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "UserCredentials")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try viewContext.execute(deleteRequest)
+            try viewContext.save()
+            user = nil
+            isAuthenticated = false
+        } catch let error as NSError {
+            // TODO: handle the error
+            print(error)
+        }
     }
 
     func removeUser() {
@@ -95,8 +109,8 @@ class SessionStore: ObservableObject {
     }
 
     init(debug _: Bool = false) {
+        let args = CommandLineArguments()
         #if DEBUG
-            let args = CommandLineArguments()
             if args.shouldReset {
                 PreferenceStore.shared.reset()
                 let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserCredentials.fetchRequest()
@@ -111,6 +125,11 @@ class SessionStore: ObservableObject {
 
             if args.isDebugEnabled {
                 PreferenceStore.shared.isDebugEnabled = true
+            }
+
+            if args.isRunningTests {
+                print("RUNNING TESTS")
+                PreferenceStore.shared.hasAnalyticsConsent = true
             }
 
             args.shouldAuthenticate { username in
@@ -160,12 +179,7 @@ class SessionStore: ObservableObject {
             }
         }
 
-        if PreferenceStore.shared.isFirstBoot {
-            app.analytics.send(.installed, with: [:])
-            PreferenceStore.shared.isFirstBoot = false
-        }
-
-        if PreferenceStore.shared.wasUpdated {
+        if PreferenceStore.shared.wasUpdated, PreferenceStore.shared.hasAnalyticsConsent {
             app.analytics.send(.updated, with: [:])
         }
     }
