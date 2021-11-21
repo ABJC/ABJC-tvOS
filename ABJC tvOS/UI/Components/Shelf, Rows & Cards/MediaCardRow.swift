@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 19.11.21
  */
 
 import JellyfinAPI
@@ -30,10 +30,10 @@ struct MediaCardRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 48) {
                     ForEach(items, id: \.id) { item in
-                        NavigationLink(destination: DetailView(item: item), label: {
+                        NavigationLink(destination: { DetailView(store: .init(item)) }) {
                             MediaCard(store: store, item: item)
-                        })
-                            .buttonStyle(PlainButtonStyle())
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .frame(height: store.rowHeight)

@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 19.11.21
  */
 
 import SwiftUI
@@ -19,32 +19,14 @@ struct AsyncImg<I: View, P: View>: View {
     let placeholder: () -> P
 
     init(url: URL?, @ViewBuilder content: @escaping (Image) -> I, @ViewBuilder placeholder: @escaping () -> P) {
-        self.url = url
         self.content = content
         self.placeholder = placeholder
+        self.url = url
     }
 
     var body: some View {
-        Group {
-            if let url = url {
-                // If compiling for iOS 15, use first party AsyncImage instead of URLImage package
-                if #available(tvOS 15.0, *) {
-                    #warning("Replace palceholder with AsyncImage for iOS 15")
-                    AsyncImage(url: url, content: content, placeholder: placeholder)
-                } else {
-                    URLImage(
-                        url,
-                        identifier: url.absoluteString,
-                        empty: placeholder,
-                        inProgress: { _ in placeholder() },
-                        failure: { _, _ in placeholder() },
-                        content: content
-                    )
-                }
-            } else {
-                placeholder()
-            }
-        }.accessibilityIdentifier("async-img")
+        AsyncImage(url: url, content: content, placeholder: placeholder)
+            .accessibilityIdentifier("async-img")
     }
 }
 

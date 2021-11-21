@@ -14,7 +14,7 @@
 		<key>scheme</key>
 		<string>http</string>
 		<key>host</key>
-		<string>192.168.178.35</string>
+		<string>192.168.178.170</string>
 		<key>port</key>
 		<string>8096</string>
 		<key>path</key>

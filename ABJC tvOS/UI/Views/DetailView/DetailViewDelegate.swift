@@ -7,14 +7,14 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 20.11.21
  */
 
 import Foundation
 import JellyfinAPI
 
 class DetailViewDelegate: ViewDelegate {
-    let playerStore: PlayerViewDelegate
+    let playerStore: PlayerDelegate
 
     @Published var isPlaying: Bool = false
 
@@ -35,8 +35,8 @@ class DetailViewDelegate: ViewDelegate {
     @Published var seasons: [BaseItemDto] = []
     @Published var episodes: [BaseItemDto] = []
 
-    @Published var selectedSeason: BaseItemDto? = nil
-    @Published var selectedEpisode: BaseItemDto? = nil
+    @Published var selectedSeason: BaseItemDto?
+    @Published var selectedEpisode: BaseItemDto?
 
     // Loads imageUrl
     func loadImageUrl() {
@@ -103,11 +103,10 @@ class DetailViewDelegate: ViewDelegate {
             switch result {
                 case let .success(response):
                     self.episodes = response.items?.sorted(by: { $0.indexNumber ?? 0 < $1.indexNumber ?? 0 }) ?? []
-                    for episode in self.episodes {
-                        if episode.isContinue {
-                            self.selectedEpisode = episode
-                            self.selectedSeason = self.seasons.first(where: { $0.id == episode.seasonId })
-                        }
+
+                    if let episode = self.episodes.last(where: \.isContinue) {
+                        self.selectedEpisode = episode
+                        self.selectedSeason = self.seasons.first(where: { $0.id == episode.seasonId })
                     }
 
                     if self.selectedSeason == nil {

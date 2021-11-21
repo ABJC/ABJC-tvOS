@@ -129,7 +129,7 @@ struct Shelf: View {
             return section
         } cell: { _, cell in
             GeometryReader { _ in
-                NavigationLink(destination: DetailView(item: cell.content)) {
+                NavigationLink(destination: { DetailView(store: .init(cell.content)) }) {
                     MediaCard(store: store, item: cell.content)
                 }
                 .buttonStyle(PlainButtonStyle())

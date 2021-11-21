@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 21.11.21
  */
 
 import Combine
@@ -19,6 +19,7 @@ public class PreferenceStore: ObservableObject {
     internal enum Keys {
         static let firstBoot = "analytics.firstboot"
         static let lastVersion = "analytics.lastversion"
+        static let analyticsConsent = "analytics.consent"
 
         static let grouping = "ui.configuration.collectiongrouping"
 
@@ -36,6 +37,7 @@ public class PreferenceStore: ObservableObject {
     static var defaultValues: [String: Any] = [
         Keys.lastVersion: Version().description,
         Keys.firstBoot: true,
+        Keys.analyticsConsent: false,
         Keys.debugMode: false,
         Keys.grouping: CollectionGrouping.default.rawValue,
         Keys.posterType: PosterType.default.rawValue,
@@ -52,7 +54,6 @@ public class PreferenceStore: ObservableObject {
             defaults.set(pair.value, forKey: pair.key)
         }
 
-        print("CHANGED", defaults.bool(forKey: Keys.firstBoot))
         objectWillChange.send()
     }
 
@@ -74,6 +75,12 @@ public class PreferenceStore: ObservableObject {
     public var isFirstBoot: Bool {
         get { defaults.bool(forKey: Keys.firstBoot) }
         set { defaults.set(newValue, forKey: Keys.firstBoot) }
+    }
+
+    /// Whether the user has consented to analytics
+    public var hasAnalyticsConsent: Bool {
+        get { defaults.bool(forKey: Keys.analyticsConsent) }
+        set { defaults.set(newValue, forKey: Keys.analyticsConsent) }
     }
 
     // Defines whether the app was updated (first boot new version)

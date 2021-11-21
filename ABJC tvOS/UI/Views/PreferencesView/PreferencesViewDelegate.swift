@@ -7,11 +7,12 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 20.11.21
  */
 
 import Foundation
 import JellyfinAPI
+import SwiftUI
 
 class PreferencesViewDelegate: ViewDelegate {
     // Preference Temporary Store
@@ -36,7 +37,6 @@ class PreferencesViewDelegate: ViewDelegate {
 
     func onDisappear() {
         savePreferences()
-        app.analytics.send(.preferences(preferences))
     }
 
     func loadPreferences() {
@@ -49,11 +49,22 @@ class PreferencesViewDelegate: ViewDelegate {
 
     func savePreferences() {
         logger.log.info("saving preferences", tag: "PreferencesView")
+        let diffs = [
+            preferences.showsTitles != showsTitles,
+            preferences.posterType != posterType,
+            preferences.collectionGrouping != collectionGrouping,
+            preferences.isDebugEnabled != isDebugEnabled
+        ]
+
         preferences.showsTitles = showsTitles
         preferences.posterType = posterType
         preferences.collectionGrouping = collectionGrouping
         preferences.isDebugEnabled = isDebugEnabled
         preferences.objectWillChange.send()
+
+        if diffs.contains(true) {
+            app.analytics.send(.preferences(preferences))
+        }
     }
 
     /// Fetch Server Configuration

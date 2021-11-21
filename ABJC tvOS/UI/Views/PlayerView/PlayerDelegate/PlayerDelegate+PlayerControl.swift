@@ -16,14 +16,14 @@ extension PlayerDelegate {
     func quickSeekBackward() {
         let seekBackwardSeconds: Int32 = 15
         logger.log.info("Seek: backward \(seekBackwardSeconds)s", tag: "PLAYER")
-        player.jumpForward(seekBackwardSeconds)
+        player.jumpBackward(seekBackwardSeconds)
         objectWillChange.send()
     }
 
     func quickSeekForward() {
         let seekForwardSeconds: Int32 = 15
         logger.log.info("Seek: forward \(seekForwardSeconds)s", tag: "PLAYER")
-        player.jumpBackward(seekForwardSeconds)
+        player.jumpForward(seekForwardSeconds)
         objectWillChange.send()
     }
 }

@@ -7,12 +7,14 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 20.11.21
  */
 
+import AVKit
 import SwiftUI
 
 struct PlayerViewContainer: View {
+    @Namespace var namespace
     @StateObject var store: PlayerDelegate
 
     var body: some View {
@@ -21,8 +23,13 @@ struct PlayerViewContainer: View {
             if store.isReadyToPlay {
                 PlayerUIView(store: store)
                     .focusable()
+                    .onLongPressGesture(minimumDuration: 0.01, perform: store.playPauseAction, onPressingChanged: { _ in })
                     .onPlayPauseCommand(perform: store.playPauseAction)
                     .onMoveCommand(perform: store.moveCommandAction)
+                    .onSwipeRight(store.quickSeekForward)
+                    .onSwipeLeft(store.quickSeekBackward)
+                    .onSwipeUp { store.isShowingInterface = true }
+                    .onSwipeDown { store.isShowingInterface = true }
             } else {
                 ProgressView()
             }
@@ -32,6 +39,9 @@ struct PlayerViewContainer: View {
             print("Interface Dismissed")
         } content: {
             PlayerControllsView(store: store)
+        }
+        .onDisappear {
+            store.deinitPlayback()
         }
     }
 }

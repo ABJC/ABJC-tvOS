@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 21.11.21
  */
 
 import SwiftUI
@@ -15,14 +15,26 @@ import SwiftUI
 struct MainView: View {
     @Environment(\.appConfiguration) var app
 
+    @StateObject var preferences = PreferenceStore.shared
     @StateObject var session = SessionStore.shared
 
     var body: some View {
         Group {
-            if session.isAuthenticated {
-                LibraryView()
+            if !preferences.hasAnalyticsConsent, !CommandLineArguments().isRunningTests {
+                PrivacyDisclaimer(preferences: preferences)
             } else {
-                AuthenticationView()
+                Group {
+                    if session.isAuthenticated {
+                        LibraryView()
+                    } else {
+                        AuthenticationView()
+                    }
+                }.onAppear {
+                    if PreferenceStore.shared.isFirstBoot {
+                        app.analytics.send(.installed, with: [:])
+                        PreferenceStore.shared.isFirstBoot = false
+                    }
+                }
             }
         }
     }
