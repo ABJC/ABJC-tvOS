@@ -1,4 +1,4 @@
-name: "🧪 Run UITests"
+name: "🧪 UITests"
 on:
   workflow_dispatch:
 jobs:
@@ -26,7 +26,7 @@ jobs:
       run: 'find . -type f -name "*.mkv"'
       
     - name: "Setup Media"
-      run: "cd dev_utils/jellyfin_docker; ./setup.sh; cd .."
+      run: "cd dev_utils/jellyfin_docker; ./setup.sh create; cd .."
       
     - name: Compose
       run: "sudo docker-compose -f dev_utils/jellyfin_docker/docker-compose.yml up -d"
@@ -47,8 +47,19 @@ jobs:
     - name: Install Pods
       run: |
         pod install
-            
-    - name: Run tests 
-      uses: maierj/fastlane-action@v2.0.1
+    
+    - name: Test
+      uses: sersoft-gmbh/xcodebuild-action@v1
       with:
-        lane: 'test'
+        action: test
+        workspace: ABJC.xcworkspace
+        scheme: "Github Actions"
+        destination: platform=tvOS Simulator,OS=15.0,name=Apple TV 4K (at 1080p) (2nd generation)
+        quiet: true
+        enable-code-coverage: true
+    
+    - name: "Upload Coverage Report"
+      uses: codecov/codecov-action@v2.1.0
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        
