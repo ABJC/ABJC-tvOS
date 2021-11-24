@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FD792F0B26EA2F1A00BF2A42"
-               BuildableName = "ABJC (tvOS).app"
+               BuildableName = "ABJC.app"
                BlueprintName = "ABJC tvOS"
                ReferencedContainer = "container:ABJC.xcodeproj">
             </BuildableReference>
@@ -86,7 +86,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FD792F0B26EA2F1A00BF2A42"
-            BuildableName = "ABJC (tvOS).app"
+            BuildableName = "ABJC.app"
             BlueprintName = "ABJC tvOS"
             ReferencedContainer = "container:ABJC.xcodeproj">
          </BuildableReference>
@@ -121,7 +121,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FD792F0B26EA2F1A00BF2A42"
-            BuildableName = "ABJC (tvOS).app"
+            BuildableName = "ABJC.app"
             BlueprintName = "ABJC tvOS"
             ReferencedContainer = "container:ABJC.xcodeproj">
          </BuildableReference>

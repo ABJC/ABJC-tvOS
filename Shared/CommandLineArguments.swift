@@ -7,11 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
-<<<<<<< HEAD:Shared/CommandLineArguments.swift
- Created on 10.10.21
-=======
- Created on 10/12/21
->>>>>>> main:ABJC tvOS/Additional Logic/CommandLineArguments.swift
+ Created on 24.11.21
  */
 
 import Foundation

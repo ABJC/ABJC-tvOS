@@ -119,6 +119,8 @@
 		FDD63F8C26EABBFA001E4363 /* BetaFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */; };
 		FDD63F8E26EABC4F001E4363 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8D26EABC4F001E4363 /* Version.swift */; };
 		FDD63F9026EABD4B001E4363 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD63F8F26EABD4B001E4363 /* ItemType.swift */; };
+		FDDA4850274DB51900332BED /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA484F274DB51900332BED /* SearchView.swift */; };
+		FDDA4852274DB51F00332BED /* SearchViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA4851274DB51F00332BED /* SearchViewDelegate.swift */; };
 		FDDAA09E26F7DDB200C0FAA8 /* VLCPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDAA09D26F7DDB200C0FAA8 /* VLCPlayer.swift */; };
 		FDDAA0A126F7EADB00C0FAA8 /* VLCMediaPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDAA0A026F7EADB00C0FAA8 /* VLCMediaPlayerState.swift */; };
 		FDDAA0A426F7EC5900C0FAA8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDAA0A326F7EC5900C0FAA8 /* Array.swift */; };
@@ -261,6 +263,8 @@
 		FDD63F8B26EABBFA001E4363 /* BetaFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaFlag.swift; sourceTree = "<group>"; };
 		FDD63F8D26EABC4F001E4363 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		FDD63F8F26EABD4B001E4363 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		FDDA484F274DB51900332BED /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		FDDA4851274DB51F00332BED /* SearchViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDelegate.swift; sourceTree = "<group>"; };
 		FDDAA09D26F7DDB200C0FAA8 /* VLCPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayer.swift; sourceTree = "<group>"; };
 		FDDAA0A026F7EADB00C0FAA8 /* VLCMediaPlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCMediaPlayerState.swift; sourceTree = "<group>"; };
 		FDDAA0A326F7EC5900C0FAA8 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -662,6 +666,7 @@
 				FD72334D26F0E3F2007EAE08 /* PlayerView */,
 				FD6351C926EB7551003E0534 /* PreferencesView */,
 				FDD63F7826EAB7E2001E4363 /* MediaCollectionView */,
+				FDDA484E274DB50D00332BED /* SearchView */,
 				FDD63F7326EAB742001E4363 /* LibraryView */,
 				FD792F3B26EA309200BF2A42 /* AuthenticationView */,
 				FD6351E326EB8446003E0534 /* DetailView */,
@@ -710,6 +715,15 @@
 				FDD63F8926EABBB4001E4363 /* PosterType.swift */,
 			);
 			path = Preferences;
+			sourceTree = "<group>";
+		};
+		FDDA484E274DB50D00332BED /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				FDDA484F274DB51900332BED /* SearchView.swift */,
+				FDDA4851274DB51F00332BED /* SearchViewDelegate.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 		FDDAA09F26F7EABB00C0FAA8 /* TVVLCKit */ = {
@@ -1040,6 +1054,7 @@
 				FDE70DD326F76AAB00294F84 /* DragGestureActions.swift in Sources */,
 				FDD29D5C26EF8B37000EEC36 /* Alerts.swift in Sources */,
 				FDD63F8A26EABBB4001E4363 /* PosterType.swift in Sources */,
+				FDDA4852274DB51F00332BED /* SearchViewDelegate.swift in Sources */,
 				FDD63F7F26EABA1A001E4363 /* Shelf.swift in Sources */,
 				FDC957AC26EBA92400655F55 /* MediaCardRow.swift in Sources */,
 				FDD63F7526EAB750001E4363 /* LibraryView.swift in Sources */,
@@ -1110,6 +1125,7 @@
 				FD6A9BAF26EBCD8900DF975C /* PeopleCard.swift in Sources */,
 				FD6351E026EB8434003E0534 /* DetailView.swift in Sources */,
 				FD3C398A26F4EC4100BFC2E8 /* AppError.swift in Sources */,
+				FDDA4850274DB51900332BED /* SearchView.swift in Sources */,
 				FD72334A26F0D60F007EAE08 /* PreferenceStore+summary.swift in Sources */,
 				FD687F1126EE27C00034A622 /* AnalyticsEngines.swift in Sources */,
 				FDF83D04271085AC0025C376 /* PlayerUIView.swift in Sources */,

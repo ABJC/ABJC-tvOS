@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 10/12/21
+ Created on 24.11.21
  */
 
 import SwiftUI
@@ -32,17 +32,17 @@ struct LibraryView: View {
                     .tabItem { Text(Tab.shows.title) }
                     .tag(Tab.shows)
 
-                //            SearchView()
-                //                .tabItem({
-                //                    Text(Tab.search.title)
-                //                    Image(systemName: "magnifyingglass")
-                //                })
-                //                .tag(Tab.search)
+                SearchView()
+                    .tabItem {
+                        Text(Tab.search.title)
+                        Image(systemName: "magnifyingglass")
+                    }
+                    .tag(Tab.search)
 
                 PreferencesView()
                     .tabItem { Text("Preferences") }
                     .tag(Tab.preferences)
-            }
+            }.focusSection()
         }
         .id(store.preferences.betaShowWatchNowTab.description)
         .navigationBarTitle(selectedTab.title)

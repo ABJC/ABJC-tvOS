@@ -7,7 +7,7 @@
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
 
  Copyright 2021 Noah Kamara & ABJC Contributors
- Created on 19.11.21
+ Created on 24.11.21
  */
 
 import JellyfinAPI
