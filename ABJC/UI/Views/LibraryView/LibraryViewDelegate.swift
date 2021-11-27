@@ -1,11 +1,11 @@
 /*
  ABJC - tvOS
  LibraryViewDelegate.swift
- 
+
  ABJC is subject to the terms of the Mozilla Public
  License, v2.0. If a copy of the MPL was not distributed with this
  file, you can obtain one at https://mozilla.org/MPL/2.0/.
- 
+
  Copyright 2021 Noah Kamara & ABJC Contributors
  Created on 24.11.21
  */
@@ -14,13 +14,11 @@ import Foundation
 import JellyfinAPI
 
 class LibraryViewDelegate: ViewDelegate {
-    
     func updateCoverArt() {
         guard let userId = session.user?.id else {
             return
         }
-        
-        
+
         Task(priority: .userInitiated) {
             let fetchRequest = MatchedCoverArt.fetchRequest()
             var existingCoverArt: [String] = []
@@ -30,7 +28,7 @@ class LibraryViewDelegate: ViewDelegate {
             } catch {
                 print("Error loading Persistence", error)
             }
-            
+
             let result = await withCheckedContinuation { continuation in
                 ItemsAPI.getItems(
                     userId: userId,
@@ -41,7 +39,7 @@ class LibraryViewDelegate: ViewDelegate {
                     continuation.resume(returning: result)
                 }
             }
-            
+
             var items: [BaseItemDto] = []
             switch result {
                 case let .success(result): items = result.items ?? []
@@ -49,22 +47,22 @@ class LibraryViewDelegate: ViewDelegate {
                     self.alert = .init(.failedToLoadItems)
                     self.handleApiError(error)
             }
-            
+
             print(items.map(\.name))
-            
+
             for item in items {
                 guard let itemId = item.id,
                       !existingCoverArt.contains(itemId),
                       let match = await CoverArtMatcher.match(item: item),
                       match.success else {
-                          continue
-                      }
-                
+                    continue
+                }
+
                 let newMatch = MatchedCoverArt(context: session.viewContext)
                 newMatch.itemId = item.id
                 newMatch.coverArt = match.item?.coverArt.coverArt
                 newMatch.logo = match.item?.coverArt.logo
-                
+
                 do {
                     try session.viewContext.save()
                 } catch {

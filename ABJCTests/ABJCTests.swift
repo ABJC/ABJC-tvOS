@@ -1,15 +1,19 @@
-//
-//  ABJCTests.swift
-//  ABJCTests
-//
-//  Created by Noah Kamara on 27.11.21.
-//
+/*
+ ABJC - tvOS
+ ABJCTests.swift
 
-import XCTest
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 27.11.21
+ */
+
 @testable import ABJC
+import XCTest
 
 class ABJCTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -25,9 +29,8 @@ class ABJCTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

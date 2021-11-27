@@ -1,14 +1,18 @@
-//
-//  Snapshots.swift
-//  Snapshots
-//
-//  Created by Noah Kamara on 27.11.21.
-//
+/*
+ ABJC - tvOS
+ Snapshots.swift
+
+ ABJC is subject to the terms of the Mozilla Public
+ License, v2.0. If a copy of the MPL was not distributed with this
+ file, you can obtain one at https://mozilla.org/MPL/2.0/.
+
+ Copyright 2021 Noah Kamara & ABJC Contributors
+ Created on 24.11.21
+ */
 
 import XCTest
 
 class Snapshots: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 

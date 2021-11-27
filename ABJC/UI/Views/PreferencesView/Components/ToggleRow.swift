@@ -34,7 +34,7 @@ extension PreferencesView {
                         .foregroundColor(.secondary)
                 }
             })
-                .accessibilityIdentifier("togglerow-" + title.stringKey)
+            .accessibilityIdentifier("togglerow-" + title.stringKey)
         }
     }
 
