@@ -1,5 +1,0 @@
-xcodebuild \
-  -workspace ABJC.xcworkspace \
-  -scheme "ABJC tvOS" \
-  -destination 'platform=tvOS Simulator,name=Apple TV 4K (2nd generation),OS=15.0' \
-  test

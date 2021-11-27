@@ -1,6 +1,6 @@
 PODS:
-  - SwiftFormat/CLI (0.48.11)
-  - SwiftLint (0.44.0)
+  - SwiftFormat/CLI (0.48.17)
+  - SwiftLint (0.45.0)
   - TVVLCKit (3.3.17)
 
 DEPENDENCIES:
@@ -15,10 +15,10 @@ SPEC REPOS:
     - TVVLCKit
 
 SPEC CHECKSUMS:
-  SwiftFormat: 938e5865a118c49d63c7a290ddad86335f9e585f
-  SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
+  SwiftFormat: 0a9044eb365d74d4a0a2cefa5fe44a4cbef382a7
+  SwiftLint: e5c7f1fba68eccfc51509d5b2ce1699f5502e0c7
   TVVLCKit: 49e913b2e2d90ca538a84c012dd9281c7fa2cec0
 
-PODFILE CHECKSUM: d50e99460a1146e5ce8308292081649fe6746eef
+PODFILE CHECKSUM: 2c6e3f45be034267d01996e06141179da229c67c
 
 COCOAPODS: 1.11.2
