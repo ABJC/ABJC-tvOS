@@ -102,10 +102,10 @@ class LibraryUITests: XCTestCase {
         }
 
         // Test Movie Detail View
-        testCollectionView(tab: "Movies", detailViewId: "movieDetailView")
+        testCollectionView(tab: "Movies", detailViewId: "detailView")
 
         // Test Series Detail View
-        testCollectionView(tab: "TV Shows", detailViewId: "seriesDetailView")
+        testCollectionView(tab: "TV Shows", detailViewId: "detailView")
     }
 
     /// Test Movie Detail View UI Elements

@@ -27,8 +27,7 @@ struct MediaCard: View {
             return
         }
 
-        #warning("Replace with preferences")
-        if true /* store.preferences.shouldFetchCoverArt */, store.preferences.posterType == .wide {
+        if store.preferences.shouldFetchCoverArt && store.preferences.posterType == .wide {
             let fetchRequest = MatchedCoverArt.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "itemId == %@", itemId)
 

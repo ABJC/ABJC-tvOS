@@ -19,7 +19,6 @@ struct PlayerViewContainer: View {
 
     var body: some View {
         ZStack {
-            Color.green
             if store.isReadyToPlay {
                 PlayerUIView(store: store)
                     .focusable()

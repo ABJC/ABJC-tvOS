@@ -55,8 +55,7 @@ class DetailViewDelegate: ViewDelegate {
             return
         }
 
-        #warning("Replace with preferences")
-        if true /* store.preferences.shouldFetchCoverArt */ {
+        if preferences.shouldFetchCoverArt  {
             let fetchRequest = MatchedCoverArt.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "itemId == %@", itemId)
 
@@ -64,7 +63,6 @@ class DetailViewDelegate: ViewDelegate {
                 let results = try session.viewContext.fetch(fetchRequest)
                 if let match = results.first, let logo = match.logo {
                     logoUrl = logo
-                    return
                 }
             } catch {
                 print("Error loading Persistence", error)
