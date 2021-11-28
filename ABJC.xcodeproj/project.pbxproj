@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		59C50B4A7BAF68271458827E /* Pods_ABJC_ABJCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3806C44CC3E54B4D090269 /* Pods_ABJC_ABJCUITests.framework */; };
 		BE51B6A6BF4A8D65E911614F /* Pods_ABJC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2728A0CEDBFEB6EB0BA8C /* Pods_ABJC.framework */; };
+		FD566E2727529680002AAEA1 /* SiriRemoteWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD566E2627529680002AAEA1 /* SiriRemoteWheel.swift */; };
 		FDDE43CB2752749C00848C46 /* ABJCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDE43CA2752749C00848C46 /* ABJCApp.swift */; };
 		FDDE43CF2752749D00848C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDDE43CE2752749D00848C46 /* Assets.xcassets */; };
 		FDDE43D22752749D00848C46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDDE43D12752749D00848C46 /* Preview Assets.xcassets */; };
@@ -146,6 +147,8 @@
 		A1B2728A0CEDBFEB6EB0BA8C /* Pods_ABJC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA01BFA8973FEBD4093A600 /* Pods_ABJCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53633B0A9B385512FA4366A /* Pods-ABJC-ABJCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC-ABJCUITests.release.xcconfig"; path = "Target Support Files/Pods-ABJC-ABJCUITests/Pods-ABJC-ABJCUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FD566E2627529680002AAEA1 /* SiriRemoteWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriRemoteWheel.swift; sourceTree = "<group>"; };
+		FDA36D982753D5090051718A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FDDE43C72752749C00848C46 /* ABJC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABJC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDE43CA2752749C00848C46 /* ABJCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJCApp.swift; sourceTree = "<group>"; };
 		FDDE43CE2752749D00848C46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -335,6 +338,7 @@
 		FDDE43C92752749C00848C46 /* ABJC */ = {
 			isa = PBXGroup;
 			children = (
+				FDA36D982753D5090051718A /* Info.plist */,
 				FDDE44CC2752765200848C46 /* ABJC.entitlements */,
 				FDDE43CA2752749C00848C46 /* ABJCApp.swift */,
 				FDDE43CE2752749D00848C46 /* Assets.xcassets */,
@@ -596,10 +600,10 @@
 		FDDE445F2752758A00848C46 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				FDDE44602752758A00848C46 /* PlayerUIView.swift */,
-				FDDE44612752758A00848C46 /* PlayerDelegate */,
 				FDDE44652752758A00848C46 /* PlayerViewContainer.swift */,
+				FDDE44602752758A00848C46 /* PlayerUIView.swift */,
 				FDDE44662752758A00848C46 /* Controlls */,
+				FDDE44612752758A00848C46 /* PlayerDelegate */,
 			);
 			path = PlayerView;
 			sourceTree = "<group>";
@@ -619,6 +623,7 @@
 			children = (
 				FDDE44672752758A00848C46 /* PlayerControllsView.swift */,
 				FDDE44682752758A00848C46 /* PlaybackBar.swift */,
+				FD566E2627529680002AAEA1 /* SiriRemoteWheel.swift */,
 			);
 			path = Controlls;
 			sourceTree = "<group>";
@@ -1013,6 +1018,7 @@
 				FDDE440B275274F700848C46 /* Device.swift in Sources */,
 				FDDE44212752753F00848C46 /* AnalyticsEvents.swift in Sources */,
 				FDDE44142752753200848C46 /* Array+get.swift in Sources */,
+				FD566E2727529680002AAEA1 /* SiriRemoteWheel.swift in Sources */,
 				FDDE44BB2752758D00848C46 /* BetaFlag.swift in Sources */,
 				FDDE44202752753F00848C46 /* AnalyticsEngines.swift in Sources */,
 				FDDE43D42752749D00848C46 /* Persistence.swift in Sources */,
@@ -1238,11 +1244,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ABJC/Info.plist;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1266,11 +1273,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ABJC/ABJC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_ASSET_PATHS = "\"ABJC/Preview Content\"";
 				DEVELOPMENT_TEAM = ME2UKFKL5H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ABJC/Info.plist;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (

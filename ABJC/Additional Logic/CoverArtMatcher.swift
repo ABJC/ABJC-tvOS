@@ -57,24 +57,25 @@ enum CoverArtItemType: String {
 
 enum CoverArtMatcher {
     static func match(item: BaseItemDto) async -> CoverArtResponse? {
-        var urlComponents: URLComponents = .init(string: "http://localhost:8000/coverart/topmatch")!
-        urlComponents.queryItems = [
-            .init(name: "type", value: CoverArtItemType.fromItemType(ItemType(rawValue: item.type ?? "") ?? .movie)?.rawValue ?? ""),
-            .init(name: "title", value: item.name ?? ""),
-            .init(name: "year", value: item.productionYear != nil ? "\(item.productionYear ?? 0)" : "")
-        ]
-
-        guard let url = urlComponents.url else {
-            return nil
-        }
-
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let object = try JSONDecoder().decode(CoverArtResponse.self, from: data)
-            return object
-        } catch {
-            print(error)
-            return nil
-        }
+//        var urlComponents: URLComponents = .init(string: "http://localhost:8000/coverart/topmatch")!
+//        urlComponents.queryItems = [
+//            .init(name: "type", value: CoverArtItemType.fromItemType(ItemType(rawValue: item.type ?? "") ?? .movie)?.rawValue ?? ""),
+//            .init(name: "title", value: item.name ?? ""),
+//            .init(name: "year", value: item.productionYear != nil ? "\(item.productionYear ?? 0)" : "")
+//        ]
+//
+//        guard let url = urlComponents.url else {
+//            return nil
+//        }
+//
+//        do {
+//            let (data, _) = try await URLSession.shared.data(from: url)
+//            let object = try JSONDecoder().decode(CoverArtResponse.self, from: data)
+//            return object
+//        } catch {
+//            print(error)
+//            return nil
+//        }
+        return nil
     }
 }

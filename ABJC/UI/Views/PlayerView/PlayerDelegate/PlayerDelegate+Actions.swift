@@ -38,7 +38,6 @@ extension PlayerDelegate {
             case .right:
                 quickSeekForward()
 
-                #warning("Unknown Default not Handled")
             @unknown default:
                 break
         }

@@ -54,6 +54,7 @@ struct DetailView: View {
             }.frame(width: 1920, height: 1080, alignment: .center)
         }
         .frame(width: 1920, height: 1080, alignment: .center)
+        .accessibilityIdentifier("detailView")
     }
 
     var titleView: some View {

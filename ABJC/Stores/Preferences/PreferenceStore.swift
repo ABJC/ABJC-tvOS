@@ -20,7 +20,8 @@ public class PreferenceStore: ObservableObject {
         static let firstBoot = "analytics.firstboot"
         static let lastVersion = "analytics.lastversion"
         static let analyticsConsent = "analytics.consent"
-
+        
+        static let shouldFetchCoverArt = "coverArt"
         static let grouping = "ui.configuration.collectiongrouping"
 
         static let posterType = "design.postertype"
@@ -39,10 +40,11 @@ public class PreferenceStore: ObservableObject {
         Keys.firstBoot: true,
         Keys.analyticsConsent: false,
         Keys.debugMode: false,
+        Keys.shouldFetchCoverArt: false,
         Keys.grouping: CollectionGrouping.default.rawValue,
         Keys.posterType: PosterType.default.rawValue,
         Keys.showsTitles: false,
-        Keys.betaflags: []
+        Keys.betaflags: [],
     ]
 
     public func reset() {
@@ -90,6 +92,11 @@ public class PreferenceStore: ObservableObject {
         return value != version.description
     }
 
+    public var shouldFetchCoverArt: Bool {
+        get { defaults.bool(forKey: Keys.shouldFetchCoverArt) }
+        set { defaults.set(newValue, forKey: Keys.shouldFetchCoverArt) }
+    }
+    
     public var hasShownUpdateNotice: Bool = false
 
     public var updateNotice: UpdateNotices? {

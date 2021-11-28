@@ -23,7 +23,8 @@ struct PrivacyDisclaimer: View {
     - In-App Preferences
     - Jellyfin API & Other Errors
 
-    Errors might include addresses of your jellyfin servers.
+    No identifiable data is collected.
+    Your API-Keys & Servers are stored locally and never leave your device.
     All Data is tied to an ID that is generated on each install.
     """
     var body: some View {
