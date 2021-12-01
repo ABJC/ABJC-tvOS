@@ -7,7 +7,7 @@ ABJC is currently in TestFlight beta and I'm planning to publish it on the App S
 > Want to test new builds as soon as they are available? 
 > Join Beta development on [TestFlight](https://ndu9a1ak6f5.typeform.com/to/jm09PRGQ#hidden1=github)
 
-<a href='https://ndu9a1ak6f5.typeform.com/to/jm09PRGQ#hidden1=github'><img height='70' alt='Join the Beta on TestFlight' src='https://anotherlens.app/testflight-badge.png'/></a>
+<a href='https://forms.gle/15a3aiWUsUmxCsXY7'><img height='70' alt='Join the Beta on TestFlight' src='https://anotherlens.app/testflight-badge.png'/></a>
 
 
 ## How to keep up with development progress
