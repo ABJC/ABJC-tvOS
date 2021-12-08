@@ -10,6 +10,7 @@
 		59C50B4A7BAF68271458827E /* Pods_ABJC_ABJCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3806C44CC3E54B4D090269 /* Pods_ABJC_ABJCUITests.framework */; };
 		BE51B6A6BF4A8D65E911614F /* Pods_ABJC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2728A0CEDBFEB6EB0BA8C /* Pods_ABJC.framework */; };
 		FD566E2727529680002AAEA1 /* SiriRemoteWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD566E2627529680002AAEA1 /* SiriRemoteWheel.swift */; };
+		FD9F1D3B2760FFDE008FC839 /* PlaybackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F1D3A2760FFDE008FC839 /* PlaybackError.swift */; };
 		FDDE43CB2752749C00848C46 /* ABJCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDE43CA2752749C00848C46 /* ABJCApp.swift */; };
 		FDDE43CF2752749D00848C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDDE43CE2752749D00848C46 /* Assets.xcassets */; };
 		FDDE43D22752749D00848C46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDDE43D12752749D00848C46 /* Preview Assets.xcassets */; };
@@ -148,6 +149,7 @@
 		DEA01BFA8973FEBD4093A600 /* Pods_ABJCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABJCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53633B0A9B385512FA4366A /* Pods-ABJC-ABJCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABJC-ABJCUITests.release.xcconfig"; path = "Target Support Files/Pods-ABJC-ABJCUITests/Pods-ABJC-ABJCUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FD566E2627529680002AAEA1 /* SiriRemoteWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriRemoteWheel.swift; sourceTree = "<group>"; };
+		FD9F1D3A2760FFDE008FC839 /* PlaybackError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackError.swift; sourceTree = "<group>"; };
 		FDA36D982753D5090051718A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FDDE43C72752749C00848C46 /* ABJC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABJC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDE43CA2752749C00848C46 /* ABJCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABJCApp.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				FDDE441C2752753F00848C46 /* SourceCodeAttachement.swift */,
 				FDDE441D2752753F00848C46 /* NetworkError.swift */,
 				FDDE441E2752753F00848C46 /* PreferenceStore+summary.swift */,
+				FD9F1D3A2760FFDE008FC839 /* PlaybackError.swift */,
 			);
 			path = "Data Extensions";
 			sourceTree = "<group>";
@@ -1048,6 +1051,7 @@
 				FDDE44E42752783500848C46 /* ServerDiscovery.swift in Sources */,
 				FDDE44BD2752758D00848C46 /* Tabs.swift in Sources */,
 				FDDE44A42752758A00848C46 /* MediaCollectionView.swift in Sources */,
+				FD9F1D3B2760FFDE008FC839 /* PlaybackError.swift in Sources */,
 				FDDE44962752758A00848C46 /* ReportAProblemView.swift in Sources */,
 				FDDE449E2752758A00848C46 /* PlayerViewContainer.swift in Sources */,
 				FDDE447B2752758A00848C46 /* ViewModifiers.swift in Sources */,
@@ -1256,7 +1260,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1285,7 +1289,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noahkamara.ABJC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

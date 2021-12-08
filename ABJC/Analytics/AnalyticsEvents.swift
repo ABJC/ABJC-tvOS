@@ -23,7 +23,7 @@ enum AnalyticsEvents: AnalyticsEvent {
     case networkError(ErrorResponse)
     case unknownError(Error)
     case appError(AppError)
-    case playbackError(VLCMediaPlayer)
+    case playbackError(PlaybackError)
 
     case preferences(PreferenceStore)
 
@@ -50,7 +50,7 @@ enum AnalyticsEvents: AnalyticsEvent {
                     "localizedDescription": error.localizedDescription
                 ]
             case let .appError(error): return .init(error)
-            case let .playbackError(player): return .init(player.analyticsData)
+            case let .playbackError(error): return .init(error)
             case let .preferences(store): return .init(store.analyticsData)
         }
     }

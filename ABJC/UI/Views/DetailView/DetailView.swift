@@ -90,7 +90,7 @@ struct DetailView: View {
                         .resizable()
                         .scaledToFit()
                 } placeholder: {
-                    Text("ERROR")
+                    EmptyView()
                 }
             }
             Spacer()
@@ -102,7 +102,7 @@ struct DetailView: View {
         HStack(alignment: .top) {
             // Buttons
             VStack(alignment: .leading) {
-                NavigationLink(destination: { PlayerViewContainer(store: .init(store.item)) }) {
+                NavigationLink(destination: { PlayerViewContainer(store: .init(store.playbackItem)) }) {
                     if let episode = store.selectedEpisode {
                         Label(episode.isContinue ? "Continue" : "Play", systemImage: "play")
                             .frame(width: 400)

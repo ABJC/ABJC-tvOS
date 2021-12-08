@@ -122,42 +122,40 @@ struct PlayerControllsView: View {
 
     /// Time Labels
     var timeLabels: some View {
-        HStack(alignment: .top, spacing: 0) {
-            HStack(alignment: .center) {
-                // Time Label
-                Text(
-                    store.preferences.isDebugEnabled
-                        ? store.playerTime.verboseStringValue
-                        : store.playerTime.stringValue
-                )
+        HStack(alignment: .firstTextBaseline, spacing: 0) {
+            // Time Label
+            Text(
+                store.preferences.isDebugEnabled
+                    ? store.playerTime.verboseStringValue
+                    : store.playerTime.stringValue
+            )
 
-                Spacer()
+            Spacer()
 
-                // State
-                Group {
-                    switch store.playerState {
-                        case .playing: Image(systemName: "play.fill")
-                        case .paused: Image(systemName: "pause.fill")
-                        case .stopped,
-                             .ended: Image(systemName: "stop.fill")
-                        case .opening,
-                             .buffering: ProgressView()
-                        case .esAdded: Text("esAdded")
-                        case .error: Image(systemName: "exclamationmark.triangle.fill")
-                        default: Image(systemName: "questionmark")
-                    }
+            // State
+            Group {
+                switch store.playerState {
+                    case .playing: Image(systemName: "play.fill")
+                    case .paused: Image(systemName: "pause.fill")
+                    case .stopped,
+                         .ended: Image(systemName: "stop.fill")
+                    case .opening,
+                         .buffering: ProgressView()
+                    case .esAdded: Text("esAdded")
+                    case .error: Image(systemName: "exclamationmark.triangle.fill")
+                    default: Image(systemName: "questionmark")
                 }
-                .animation(.spring(), value: store.playerState)
-
-                Spacer()
-
-                // Remaining Label
-                Text(
-                    store.preferences.isDebugEnabled
-                        ? store.playerTimeRemaining.verboseStringValue
-                        : store.playerTimeRemaining.stringValue
-                )
             }
+            .animation(.spring(), value: store.playerState)
+
+            Spacer()
+
+            // Remaining Label
+            Text(
+                store.preferences.isDebugEnabled
+                    ? store.playerTimeRemaining.verboseStringValue
+                    : store.playerTimeRemaining.stringValue
+            )
         }
     }
 

@@ -14,9 +14,6 @@ import Foundation
 import JellyfinAPI
 import TVVLCKit
 
-enum PlaybackError: Error {
-    case unknown(String)
-}
 
 class PlayerDelegate: ViewDelegate {
     let item: BaseItemDto
@@ -52,6 +49,7 @@ class PlayerDelegate: ViewDelegate {
             switch result {
                 case let .failure(error):
                     self.handleApiError(error)
+                    self.app.analytics.send(.playbackError(.init(detail: .initialization, self.player)))
 
                 case let .success(info):
                     let streamURL = self.loadStreamURL(info)
@@ -113,7 +111,6 @@ class PlayerDelegate: ViewDelegate {
 
         // Item will be transcoded
         if let transcodiungUrl = mediaSource.transcodingUrl {
-            print("TRANSCODING")
             return URL(string: "\(JellyfinAPI.basePath)\(transcodiungUrl)")!
         }
         // Item will be directly played by the client
@@ -133,7 +130,7 @@ class PlayerDelegate: ViewDelegate {
             guard let url = urlComponents.url else {
                 return nil
             }
-            print("STREAMING")
+
             return url
         }
     }
@@ -147,6 +144,10 @@ class PlayerDelegate: ViewDelegate {
         audioTracks = player.audioTracks
         currentVideoTrack = player.currentVideoTrack
         currentAudioTrack = player.currentAudioTrack
+        
+        if player.state == .error {
+            self.app.analytics.send(.playbackError(.init(detail: .player, self.player)))
+        }
     }
 
     func playerTimeChanged(_ player: VLCMediaPlayer) {
