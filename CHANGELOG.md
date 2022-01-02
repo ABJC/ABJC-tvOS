@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.0.0-build.31] - [2021-12-09]
 ### Added
+### Changed
+### Deprecated
+### Fixed 
+- Transcoding HEVC will now work as expected on Apple TV 4K
+### Removed
+
+
+## [v1.0.0-build.31] - [2021-12-09]
+### Added
 - Better Error Reporting for Playback Errors
 ### Changed
 ### Deprecated
