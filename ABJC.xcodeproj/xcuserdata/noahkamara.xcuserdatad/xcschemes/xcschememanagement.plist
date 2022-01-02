@@ -7,7 +7,7 @@
 		<key>ABJC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>6</integer>
 		</dict>
 		<key>AnyCodable (Playground) 1.xcscheme</key>
 		<dict>
@@ -54,7 +54,7 @@
 		<key>Snapshots.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>7</integer>
 		</dict>
 	</dict>
 </dict>

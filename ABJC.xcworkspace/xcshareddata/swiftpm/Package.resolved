@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "AnyCodable",
+        "repositoryURL": "https://github.com/ABJC/AnyCodable",
+        "state": {
+          "branch": null,
+          "revision": "69261f239f0fffaf51495dadc4f8483fbfe97025",
+          "version": "0.6.1"
+        }
+      },
+      {
         "package": "JellyfinAPI",
         "repositoryURL": "https://github.com/ABJC/JellyfinAPI",
         "state": {

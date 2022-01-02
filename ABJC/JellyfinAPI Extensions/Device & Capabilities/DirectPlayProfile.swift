@@ -33,7 +33,7 @@ extension DirectPlayProfile {
             return .init(
                 container: [.mov, .mp4, .mkv, .webm],
                 audioCodec: [.aac, .mp3, .wav, .ac3, .eac3, .flac, .truehd, .dts, .dca, .opus],
-                videoCodec: [.h264, .hevc, .dvhe, .dvh1, .h264, .hevc, .hev1, .mpeg4, .vp9],
+                videoCodec: [.h264, .hevc, .dvhe, .dvh1, .h264, .hev1, .mpeg4, .vp9],
                 type: .video
             )
         } else if device.isMinimumCpuModel(.a10X) {

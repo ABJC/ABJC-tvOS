@@ -39,19 +39,7 @@ extension TranscodingProfile {
     }
 
     static func detect(device: Device = .current) -> TranscodingProfile {
-        if device.isMinimumCpuModel(.a12) {
-            return .init(
-                container: [.ts],
-                audioCodec: [.aac, .mp3, .wav],
-                videoCodec: [.h264, .mpeg4],
-                type: .video,
-                _protocol: "hls",
-                context: .streaming,
-                maxAudioChannels: 6,
-                minSegments: 2,
-                breakOnNonKeyFrames: true
-            )
-        } else if device.isMinimumCpuModel(.a10X) {
+        if device.isMinimumCpuModel(.a10X) {
             return .init(
                 container: [.ts],
                 audioCodec: [.aac, .mp3, .wav, .eac3, .ac3, .flac, .opus],
